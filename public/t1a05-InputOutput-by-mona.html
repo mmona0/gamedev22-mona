@@ -33,21 +33,21 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="number02" type=number value="1"  >
 
 <input type=button value="answer" onclick="{
-if((document.getElementById('sign').value) == +){
+if((document.getElementById('sign').value) == "+"){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 + myIn02
 document.getElementById('myDiv02').innerHTML = myAnswer
 }
 else { 
-if((document.getElementById('sign').value) == -){
+if((document.getElementById('sign').value) == "-"){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 - myIn02
 document.getElementById('myDiv02').innerHTML = myAnswer
 }
 else { 
-if ((document.getElementById('sign').value) == x){
+if ((document.getElementById('sign').value) == "x"){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 * myIn02
