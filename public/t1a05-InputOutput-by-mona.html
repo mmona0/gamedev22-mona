@@ -1,4 +1,4 @@
-Version 0.1.3
+Version 0.1.4
 
 <h2> align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -29,8 +29,35 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <h4> Calculator </h4> 
 
 <input id="number01" type=number value="1" > 
-<input list="sign" name="sign" > <datalist id="sign"> <option value="+">
-                                                      <option value="-">
-                                                      <option value="x">
-</datalist> 
-<input id="number02" type=number value="1"> = 
+<input id="sign" type=text value="write +, - or x" > 
+<input id="number02" type=number value="1"  >
+
+input type=button value="answer" onclick="{
+if((document.getElementById('sign').value) == +){
+let myIn01 = parseFloat(document.getElementById('number01').value)
+let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+let myAnswer = myIn01 + myIn02
+document.getElementById('myDiv02').innerHTML = myAnswer
+}
+else { 
+if((document.getElementById('sign').value) == -){
+let myIn01 = parseFloat(document.getElementById('number01').value)
+let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+let myAnswer = myIn01 - myIn02
+document.getElementById('myDiv02').innerHTML = myAnswer
+}
+else { 
+if ((document.getElementById('sign').value) == x){
+let myIn01 = parseFloat(document.getElementById('number01').value)
+let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+let myAnswer = myIn01 * myIn02
+document.getElementById('myDiv02').innerHTML = myAnswer
+}
+else { 
+document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
+}
+}
+}
+}"><br> 
+
+<div id="myDiv02">...</div>
