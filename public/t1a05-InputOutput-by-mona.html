@@ -1,5 +1,5 @@
-Version 0.1.12
-
+Version 0.1.15
+<html>
 <h2 align=center > t1a05-InputOutput-by-mona.html </h2> 
 
 <a href="https://www.w3schools.com/jsref/prop_html_innerhtml.asp">Good reference to inupt outputJavascript innerHTML value by Mona</a> 
@@ -34,25 +34,21 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 
 <input type=button value="answer" onclick="{
                                            let myValue = parseFloat(document.getElementById('sign').value)
-                                          if( myValue == + ) {
                                            let myIn01 = parseFloat(document.getElementById('number01').value)
                                            let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+                                          if( myValue == + ) {
                                            let myAnswer = myIn01 + myIn02
                                           document.getElementById('myDiv02').innerHTML = myAnswer
                                           }
                                          else {
                                            if( myValue == - ) {
-                                          let myIn01 = parseFloat(document.getElementById('number01').value)
-                                          let myIn02 = parseFloat(documnet.getElementById('number02').value) 
-                                          let myAnswer = myIn01 - myIn02
-                                          document.getElementById('myDiv02').innerHTML = myAnswer
+                                          let myanswer = myIn01 - myIn02
+                                          document.getElementById('myDiv02').innerHTML = myanswer
                                          }
                                         else {
                                            if ( myValue == x ) {
-                                         let myIn01 = parseFloat(document.getElementById('number01').value)
-                                         let myIn02 = parseFloat(documnet.getElementById('number02').value) 
-                                         let myAnswer = myIn01 * myIn02
-                                         document.getElementById('myDiv02').innerHTML = myAnswer
+                                         let myAnswerr = myIn01 * myIn02
+                                         document.getElementById('myDiv02').innerHTML = myAnswerr
                                         }
                                        else { 
                                         document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
@@ -61,3 +57,4 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 }"><br> 
 
 <div id="myDiv02">...</div>
+</html> 
