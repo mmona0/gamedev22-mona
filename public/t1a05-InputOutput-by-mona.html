@@ -40,13 +40,15 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
                                            let myAnswer = myIn01 + myIn02
                                           document.getElementById('myDiv02').innerHTML = myAnswer
                                           }
-                                         else if( myValue == - ) {
+                                         else {
+                                           if( myValue == - ) {
                                           let myIn01 = parseFloat(document.getElementById('number01').value)
                                           let myIn02 = parseFloat(documnet.getElementById('number02').value) 
                                           let myAnswer = myIn01 - myIn02
                                           document.getElementById('myDiv02').innerHTML = myAnswer
                                          }
-                                        else if ( myValue == x ) {
+                                        else {
+                                           if ( myValue == x ) {
                                          let myIn01 = parseFloat(document.getElementById('number01').value)
                                          let myIn02 = parseFloat(documnet.getElementById('number02').value) 
                                          let myAnswer = myIn01 * myIn02
@@ -54,7 +56,8 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
                                         }
                                        else { 
                                         document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
-                                       }
+}                                      }        
+}
 }"><br> 
 
 <div id="myDiv02">...</div>
