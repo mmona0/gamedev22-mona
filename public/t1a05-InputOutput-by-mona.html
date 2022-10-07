@@ -33,27 +33,28 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="number02" type=number value="1"  >
 
 <input type=button value="answer" onclick="{
-if(sign == +(value)){
-let myIn01 = parseFloat(document.getElementById('number01').value)
-let myIn02 = parseFloat(documnet.getElementById('number02').value) 
-let myAnswer = myIn01 + myIn02
-document.getElementById('myDiv02').innerHTML = myAnswer
-}
-else if(sign == -(value)){
-let myIn01 = parseFloat(document.getElementById('number01').value)
-let myIn02 = parseFloat(documnet.getElementById('number02').value) 
-let myAnswer = myIn01 - myIn02
-document.getElementById('myDiv02').innerHTML = myAnswer
-}
-else if (sign == x(value)){
-let myIn01 = parseFloat(document.getElementById('number01').value)
-let myIn02 = parseFloat(documnet.getElementById('number02').value) 
-let myAnswer = myIn01 * myIn02
-document.getElementById('myDiv02').innerHTML = myAnswer
-}
-else { 
-document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
-}
+                                           let myValue = parseFloat(document.getElementById('sign').value)
+                                          if( myValue == + ) {
+                                           let myIn01 = parseFloat(document.getElementById('number01').value)
+                                           let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+                                           let myAnswer = myIn01 + myIn02
+                                          document.getElementById('myDiv02').innerHTML = myAnswer
+                                          }
+                                         else if( myValue == - ) {
+                                          let myIn01 = parseFloat(document.getElementById('number01').value)
+                                          let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+                                          let myAnswer = myIn01 - myIn02
+                                          document.getElementById('myDiv02').innerHTML = myAnswer
+                                         }
+                                        else if ( myValue == x ) {
+                                         let myIn01 = parseFloat(document.getElementById('number01').value)
+                                         let myIn02 = parseFloat(documnet.getElementById('number02').value) 
+                                         let myAnswer = myIn01 * myIn02
+                                         document.getElementById('myDiv02').innerHTML = myAnswer
+                                        }
+                                       else { 
+                                        document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
+                                       }
 }"><br> 
 
 <div id="myDiv02">...</div>
