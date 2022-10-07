@@ -1,4 +1,4 @@
-Version 0.1.8
+Version 0.1.9
 
 <h2> align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -33,21 +33,21 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="number02" type=number value="1"  >
 
 <input type=button value="answer" onclick="{
-if('sign' == "+"){
+if(sign == +(value)){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 + myIn02
 document.getElementById('myDiv02').innerHTML = myAnswer
 }
 else { 
-if('sign' == "-"){
+if(sign == -(value)){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 - myIn02
 document.getElementById('myDiv02').innerHTML = myAnswer
 }
 else { 
-if ('sign' == "x"){
+if (sign == x(value)){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 * myIn02
