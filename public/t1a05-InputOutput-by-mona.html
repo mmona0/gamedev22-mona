@@ -15,10 +15,9 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="myNum01" type=number value="4" ><br> 
 
 <input type=button value="myEvent squares" onclick="{
-                                                    let myIn01 = parseFloat(document.getElementById('myNum01').value)
-                                                    let myAnswer = myIn01 * myIn01
-                                                    document.getElementById('myDiv01').innerHTML = 
-                                                    myIn01 + ' squared = ' + myAnswer 
+                                                     myIn01 = parseFloat(document.getElementById('myNum01').value);
+                                                     myAnswer = myIn01 * myIn01;
+                                                    document.getElementById('myDiv01').innerHTML =  myIn01 + ' squared = ' + myAnswer 
                                                     }"><br> 
 <div id="myDiv01">...</div> 
 <br> 
@@ -33,21 +32,21 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="number02" type=number value="1"  >
 
 <input type=button value="answer" onclick="{
-                                           let myValue = parseFloat(document.getElementById('sign').value)
-                                           let myIn01 = parseFloat(document.getElementById('number01').value)
-                                           let myIn02 = parseFloat(documnet.getElementById('number02').value) 
-                                          if( myValue == + ) {
-                                           let myAnswer = myIn01 + myIn02
+                                           myValue = parseFloat(document.getElementById('sign').value);
+                                           myIn01 = parseFloat(document.getElementById('number01').value);
+                                           myIn02 = parseFloat(documnet.getElementById('number02').value) ;
+                                          if( myValue == + ;) {
+                                           myAnswer = myIn01 + myIn02;
                                           document.getElementById('myDiv02').innerHTML = myAnswer
                                           }
                                          else {
-                                           if( myValue == - ) {
-                                          let myanswer = myIn01 - myIn02
+                                           if( myValue == - ;) {
+                                          myanswer = myIn01 - myIn02;
                                           document.getElementById('myDiv02').innerHTML = myanswer
                                          }
                                         else {
-                                           if ( myValue == x ) {
-                                         let myAnswerr = myIn01 * myIn02
+                                           if ( myValue == x ;) {
+                                         myAnswerr = myIn01 * myIn02;
                                          document.getElementById('myDiv02').innerHTML = myAnswerr
                                         }
                                        else { 
