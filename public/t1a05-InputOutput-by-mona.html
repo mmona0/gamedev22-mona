@@ -1,4 +1,4 @@
-Version 0.1.9
+Version 0.1.10
 
 <h2> align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -39,15 +39,13 @@ let myIn02 = parseFloat(documnet.getElementById('number02').value)
 let myAnswer = myIn01 + myIn02
 document.getElementById('myDiv02').innerHTML = myAnswer
 }
-else { 
-if(sign == -(value)){
+else if(sign == -(value)){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 - myIn02
 document.getElementById('myDiv02').innerHTML = myAnswer
 }
-else { 
-if (sign == x(value)){
+else if (sign == x(value)){
 let myIn01 = parseFloat(document.getElementById('number01').value)
 let myIn02 = parseFloat(documnet.getElementById('number02').value) 
 let myAnswer = myIn01 * myIn02
@@ -55,8 +53,6 @@ document.getElementById('myDiv02').innerHTML = myAnswer
 }
 else { 
 document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
-}
-}
 }
 }"><br> 
 
