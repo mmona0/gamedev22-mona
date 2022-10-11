@@ -1,4 +1,4 @@
-Version 0.1.24
+Version 0.1.25
 
 <h2 align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -67,15 +67,19 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
                                            if(myIn07 == +){ 
                                                     let  myAnswer = myIn05 + myIn06;
                                            } 
-                                           else if(myIn07 == -){
+                                           else {
+                                           if(myIn07 == -){
                                            let myAnswer = myIn05 - myIn06;
                                            }
-                                           else if (myIn07 == x){
+                                           else {
+                                           if (myIn07 == x){
                                            let myAnswer = myIn05 * myIn06
                                            } 
                                            else { 
                                            let myAnswer = 'please write +, - or x'
                                            } 
+                                           }
+                                           }
                                            document.getElementById('myDiv03').innerHTML =  myAnswer 
 }"><br> 
 <div id="myDiv03">...</div> 
