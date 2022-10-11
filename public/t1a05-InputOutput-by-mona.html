@@ -1,4 +1,4 @@
-Version 0.1.22
+Version 0.1.23
 
 <h2 align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -61,11 +61,23 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="3" type=number value="4" ><br> 
 
 <input type=button value="answer" onclick="{
-                                                     let myIn05 = parseFloat(document.getElementById('1').value);
-                                           let myIn06 = parseFloat(document.getElementById('3').value);
-                                                    let  myAnswer = myIn05 * myIn06;
-                                                    document.getElementById('myDiv03').innerHTML =  myIn05 + ' * ' + myIn06 + ' = ' + myAnswer 
-                                                    }"><br> 
+                                                    let myIn05 = parseFloat(document.getElementById('1').value);
+                                                    let myIn06 = parseFloat(document.getElementById('3').value);
+                                                    let myIn07 = parseFloat(document.getElementById('2').value); 
+                                           if(myIn06 == +){ 
+                                                    let  myAnswer = myIn05 + myIn06;
+                                           } 
+                                           else if(myIn06 == -){
+                                           let myAnswer = myIn05 - myIn06;
+                                           }
+                                           else if (myIn06 == x){
+                                           let myAnswer = myIn05 * myIn06
+                                           } 
+                                           else { 
+                                           let myAnswer = 'please write +, - or x'
+                                           } 
+                                           document.getElementById('myDiv03').innerHTML =  myIn05 + ' * ' + myIn06 + ' = ' + myAnswer 
+}"><br> 
 <div id="myDiv03">...</div> 
 <br> 
 <hr> 
