@@ -1,4 +1,4 @@
-Version 0.1.19
+Version 0.1.20
 
 <h2 align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -32,22 +32,22 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input id="number02" type=number value="1"  >
 
 <input type=button value="answer" onclick="{
-                                           myValue = parseFloat(document.getElementById('sign').value);
-                                           myIn01 = parseFloat(document.getElementById('number01').value);
-                                           myIn02 = parseFloat(documnet.getElementById('number02').value) ;
-                                          if( myValue == + ) {
-                                           document.getElementById('myDiv01').innerHTML = myIn01 + myIn02
+                                          let myValue = parseFloat(document.getElementById('sign').value);
+                                          let myIn01 = parseFloat(document.getElementById('number01').value);
+                                          let myIn02 = parseFloat(documnet.getElementById('number02').value) ;
+                                          if(myValue == + ){
+                                          let document.getElementById('myDiv02').innerHTML = myIn01 + myIn02
                                           }
-                                         else {
-                                           if( myValue == - ) {
-                                          document.getElementById('myDiv01').innerHTML = myIn01 - myIn02
+                                         else{
+                                           if(myValue == - ){
+                                        let  document.getElementById('myDiv0').innerHTML = myIn01 - myIn02
                                          }
-                                        else {
-                                           if ( myValue == x ) {
-                                         document.getElementById('myDiv01').innerHTML = myIn01 * myIn02
+                                        else{
+                                           if( myValue == x ){
+                                        let document.getElementById('myDiv02').innerHTML = myIn01 * myIn02
                                         }
-                                       else { 
-                                        document.getElementById('myDiv01').innerHTML = 'Please write +, - or x'
+                                       else{
+                                       let document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
                                         }          
 }        
 }
