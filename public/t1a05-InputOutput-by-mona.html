@@ -27,52 +27,23 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 
 <h4> Calculator </h4> 
 
-<input id="number01" type=number value="1" > 
-<input id="sign" type=text value="write +, - or x" > 
-<input id="number02" type=number value="1"  >
-
-<input type=button value="answer" onclick="{
-                                          let myValue = parseFloat(document.getElementById('sign').value);
-                                          let myIn03 = parseFloat(document.getElementById('number01').value);
-                                          let myIn04 = parseFloat(documnet.getElementById('number02').value) ;
-                                          if(myValue == + ){
-                                          let document.getElementById('myDiv02').innerHTML = myIn03 + myIn04
-                                          }
-                                         else{
-                                           if(myValue == - ){
-                                        let  document.getElementById('myDiv0').innerHTML = myIn03 - myIn04
-                                         }
-                                        else{
-                                           if( myValue == x ){
-                                        let document.getElementById('myDiv02').innerHTML = myIn03 * myIn04
-                                        }
-                                       else{
-                                       let document.getElementById('myDiv02').innerHTML = 'Please write +, - or x'
-                                        }          
-}        
-}
-}"><br> 
-
-<div id="myDiv02">...</div>
-
-<hr> 
 <input id="1" type=number value="4" ><br> 
-<input id="2" type=text value="+, - or x" ><br> 
+<input id="2" type=number value="1" ><br> 
 <input id="3" type=number value="4" ><br> 
 
 <input type=button value="answer" onclick="{
                                                     let myIn05 = parseFloat(document.getElementById('1').value);
                                                     let myIn06 = parseFloat(document.getElementById('3').value);
-                                                    let myIn07 = parseFloat(document.getElementById('2').value); 
-                                           if(myIn07 == +){ 
+                                                    let thesign = parseFloat(document.getElementById('2').value); 
+                                           if(thesign == 1){ 
                                                     let  myAnswer = myIn05 + myIn06;
                                            } 
                                            else {
-                                           if(myIn07 == -){
+                                           if(thesign == 2){
                                            let myAnswer = myIn05 - myIn06;
                                            }
                                            else {
-                                           if (myIn07 == x){
+                                           if (thesign == 3){
                                            let myAnswer = myIn05 * myIn06
                                            } 
                                            else { 
