@@ -1,4 +1,4 @@
-Version 0.0.2
+Version 0.0.3
 
 <h2 align=center > t1a07-Decisions-by-Mona.html </h2> 
 <a href="https://www.w3schools.com/js/js_if_else.asp">Good reference to Decisions if ... else statements Javascritpt innerhtml value by Mona </a>  <br> 
@@ -17,21 +17,22 @@ let myGreeting = 'Good day';
 <input id="myNum01" type=number value="4" > <br> 
 
 <input type=button value="Simple if Statement for Decision Making" onclick="{
-                                                                            let myIn01 = parseFloat(document.getElementById('myNum01').value) 
-                                                                            if ( myIn01 >= 3) { 
-                                                                            document.getElementById('myDiv01').innerHTMl = myIn01 + ' is greater than 3' 
+                                                                            let myIn01 = parseFloat(document.getElementById('myNum01').value) ;
+                                                                            if (myIn01 >= 3) { 
+                                                                            document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 3' ;
                                                                             } 
                                                                             else { 
-                                                                            document.getElementById('myDiv01').innerHTML = myIn01 + ' is less than 3' 
+                                                                            document.getElementById('myDiv01').innerHTML = myIn01 + ' is less than 3' ;
                                                                             } 
                                                                             }"> 
                                                                   
 <input type=button value="Complex if" onclick="{
-                                               let myIn01 = parseFloat(document.getElementById('myNum01').value)
+                                               let myIn01 = parseFloat(document.getElementById('myNum01').value);
                                                if ((myIn01 != 3 || myIn01 > -3) && myIn01 <=100) { 
-                                               document.getElementById('myDiv01'.innerHTML = myIn01 + 'is complex' 
+                                               document.getElementById('myDiv01').innerHTML = myIn01 + 'is complex' ;
                                                } else { 
-                                               document.getElementById('myDiv01').innerHTML = myIn01 + 'is not complex'}
+                                               document.getElementById('myDiv01').innerHTML = myIn01 + 'is not complex';
+                                               }
                                                }">
                                                
 <div id="myDiv01">...</div> 
