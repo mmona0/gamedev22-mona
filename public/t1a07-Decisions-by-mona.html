@@ -58,24 +58,27 @@ let myGreeting = 'Good day';
 4= yellow <br> 
 
 <input id="color" type=number value="1" > 
-<input type=button value="Click here" onclick="{
-                                                let myColor = parseFloat(document.getElementById('color').value) ; 
-                                                if ( myColor == 1 ) { 
-                                               document.body.style.background-color = 'red';
-                                               } 
-                                               else if ( myColor == 2 ) { 
-                                               document.body.style.background-color = 'blue';
-                                               } 
-                                               else if ( myColor == 3 ) { 
-                                               document.body.style.background-color = 'green';
-                                                }
-                                               else if ( myColor == 4 ) { 
-                                               document.body.style.background-color = 'yellow';
-                                               } 
-                                               else{ 
-                                               document.getElementById('myDiv02').innerHTML = 'Select a number between 1-4';                                              
-                                               } 
-                                                                                             }">
+<input type=button value="Click here" onclick="myFunction()">Set background color</button> 
+  
+  let myColor = parseFloat(document.getElementByid('color').value); 
+  <script> 
+    function myFunction() { 
+      if (myColor = 1) {
+        document.body.style.backgroundColor = "red";
+      } 
+      else if (myColor = 2) { 
+         document.body.style.backgroundColor = "blue";
+      } 
+      else if (myColor = 3) { 
+         document.body.style.backgroundColor = "green";
+      } 
+      else if (myColor = 4) { 
+         document.body.style.backgroundColor = "yellow";
+      } else{ 
+        document.getElementById('myDiv02').innerHTML = 'select a number between 1-4';
+      }
+    } 
+  </script> 
                                                
 <div id="myDiv02">...</div>
                                                                                           </body> 
