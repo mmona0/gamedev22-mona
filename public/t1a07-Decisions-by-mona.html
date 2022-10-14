@@ -1,4 +1,4 @@
-Version 0.0.14
+Version 0.0.15
 <html>
   <style>
     body{
@@ -64,26 +64,25 @@ let myGreeting = 'Good day';
 4= yellow <br> 
 
 <input id="color" type=number value="1" > 
-<input type=button value="Click here" onclick="myFunction()"> 
+<input type=button value="Click here" onclick="{
 
-  <script> 
   
-    let myColor = parseFloat(document.getElementById('color').value); 
-    function myFunction() { 
+    let myColor = parseFloat(document.getElementById('color').value);  
       if (myColor = 1) {
-        background-color = "red";
+        background-color = 'red';
       } 
       else if (myColor = 2) { 
-         background-color = "blue";
+         background-color = 'blue';
       } 
       else if (myColor = 3) { 
-         background-color = "green";
+         background-color = 'green';
       } 
       else if (myColor = 4) { 
-         background-color = "yellow";
+         background-color = 'yellow';
       }
     } 
-  </script> 
+                                    }
+ "> 
                                                
                                                                                           </body> 
   </html>
