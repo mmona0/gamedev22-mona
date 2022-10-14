@@ -1,4 +1,4 @@
-Version 0.1.30
+Version 0.1.31
 
 <h2 align=center > t1a05-InputOutput-by-mona.html </h2> 
 
@@ -22,21 +22,17 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <div id="myDiv01">...</div> 
 <br> 
 <hr> 
+<h4> Halve Numbers </h4> 
+<br> 
+<input id="myNum02" type=number value="1" ><br>
 
+<input type=button value="click here" onclick="{
+                                               let myIn02 = parseFloat(document.getElementById('myNum02').value);
+                                               let myAnswer2 = myIn02/2 ;
+                                               document.getElementById('myP01').innerHTML = ' The half of ' + myIn02 + 'is ' + myAnswer2 ; 
+                                               }">
 <br> 
-<form>
-<input type=radio id="car"  value="car" onclick="{
-                                                                   document.getElementById('demo').innerHTML=  <img src='https://www.motortrend.com/uploads/sites/10/2022/06/2022-bmw-5-series-530e-edition-m-sport-sedan-angular-front.png' alt='car' width='104' height='142'> 
-                                                                   }">
-<input type=radio id="tree"  value="tree" onclick="{
-                                                                   document.getElementById('demo').innerHTML=  <img src='https://i.pinimg.com/originals/42/d4/0d/42d40dada8120cac0d3eb8d16d4e5b48.png' alt='tree' width='104' height='142'> 
-                                                                   }">
-<input type=radio id="sun"  value="sun" onclick="{
-                                                                  document.getElementById('demo').innerHTML=  <img src='https://www.pngmart.com/files/20/Summer-Sun-PNG.png' alt='sun' width='104' height='142'> 
-                                                                  }">
-</form>
-<br> 
-<p id="demo"></p>
+<p id="myP01"></p>
 <br>
 <hr> 
 
