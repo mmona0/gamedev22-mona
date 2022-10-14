@@ -25,36 +25,18 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 
 <br> 
 
-<h4> Calculator </h4> 
-
-<input id="1" type=number value="4" ><br> 
-<input id="2" type=number value="1" ><br> 
-<input id="3" type=number value="4" ><br> 
-
-<input type=button value="answer" onclick="{
-                                                    let myIn05 = parseFloat(document.getElementById('1').value);
-                                                    let myIn06 = parseFloat(document.getElementById('3').value);
-                                                    let thesign = parseFloat(document.getElementById('2').value); 
-                                           if(thesign == 1){ 
-                                           let myAnswer = myIn05 + myIn06;
-                                           } 
-                                           else {
-                                           if(thesign == 2){
-                                           let myAnswer = myIn05 - myIn06;
-                                           }
-                                           else {
-                                           if (thesign == 3){
-                                           let myAnswer = myIn05 * myIn06;
-                                           } 
-                                           else { 
-                                           let myAnswer = 'please write +, - or x';
-                                           } 
-                                           }
-                                           }
-                                           document.getElementById('myDiv03').innerHTML =  myAnswer ;
-}"><br> 
-<div id="myDiv03">...</div> 
+<input type="radio" id="car" name="pictures" value="car" onclick="{
+                                                                   document.getElementById('demo').innerHTML=  <img src="https://www.motortrend.com/uploads/sites/10/2022/06/2022-bmw-5-series-530e-edition-m-sport-sedan-angular-front.png" alt="car" width="104" height="142"> 
+                                                                   }">
+<input type="radio" id="tree" name="pictures" value="tree" onclick="{
+                                                                   document.getElementById('demo').innerHTML=  <img src="https://i.pinimg.com/originals/42/d4/0d/42d40dada8120cac0d3eb8d16d4e5b48.png" alt="tree" width="104" height="142"> 
+                                                                   }">
+<input type="radio" id="sun" name="pictures" value="sun" onclick="{
+                                                                  document.getElementById('demo').innerHTML=  <img src="https://www.pngmart.com/files/20/Summer-Sun-PNG.png" alt="sun" width="104" height="142"> 
+                                                                  }">
 <br> 
+<p id="demo"></p>
+<br>
 <hr> 
 
 <br> 
