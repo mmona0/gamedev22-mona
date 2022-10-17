@@ -30,18 +30,19 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 
 <hr> 
 <h5> Counting </h5> 
-try 8 or 16: <input id="myNum02" type=number value="4" ><br> 
+try random numbers and then 8: <input id="myNum02" type=number value="4" ><br> 
 
 <input type=button value="click me" onclick="{
                                               document.getElementById('myDiv02').innerHTML = ''
                                               let mytemp = '' 
                                               let mymax = parseInt(document.getElementById('myNum02').value)
-                                              for (let myloop = 1; myloop < mymax; myloop++ ){ 
-                                              if (myloop * 2 > mymax){
-                                              mytemp += ' cool ' 
+                                              for (let myloop = 1; myloop <= mymax; myloop++ ){ 
+                                              if (myloop/2 == 4 ){
+                                              mytemp += ' This Loop number is divided by 2 = 4' 
                                               } 
-                                                                  
-                                                                  mytemp += 'Loop number: ' + myloop + '<br>' } 
+                                              if ( myloop != 8 ) {                
+                                                                  mytemp += 'Loop number: ' + myloop + '<br>'  }
+                                             } 
                                                                   
                                                                   document.getElementById('myDiv02').innerHTML = mytemp 
                                                                   }">
