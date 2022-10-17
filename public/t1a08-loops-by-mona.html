@@ -28,3 +28,22 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 <div id="myDiv01"> ... </div> 
 
 
+<hr> 
+<h5> Counting </h5> 
+try 8 or 16: <input id="myNum02" type=number value="4" ><br> 
+
+<input type=button value="click me" onclick="{
+                                              document.getElementById('myDiv02').innerHTML = ''
+                                              let mytemp = '' 
+                                              let mymax = parseInt(document.getElementById('myNum02').value)
+                                              for (let myloop = 1; myloop < mymax; myloop++ ){ 
+                                              if (myloop * 2 > mymax){
+                                              mytemp += ' cool ' 
+                                              } 
+                                                                  
+                                                                  mytemp += 'Loop number: ' + myloop + '<br>' } 
+                                                                  
+                                                                  document.getElementById('myDiv02').innerHTML = mytemp 
+                                                                  }">
+
+<div id="myDiv02"> ... </div> 
