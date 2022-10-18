@@ -1,4 +1,4 @@
-Version 0.2.4
+Version 0.2.5
 
 <h2 align=center > t1a05-InputOutput-by-mona.html </h2> 
  <a href="https://mmona0.github.io/gamedev22-mona/public/">Link back to my website</a><br>
@@ -55,7 +55,7 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <input type=button value="calculate" onclick="{ 
                                               let Int1 = parseFloat(document.getElementById('Num1').value);
                                               let Int2 = parseFloat(document.getElementById('Num2').value); 
-                                              let mysign = string(document.getElementById('sign').value); 
+                                              let mysign = NaN(document.getElementById('sign').value); 
                                               
                                               if (mysign == '+' ) {
                                               document.getElementById('myDiv02').innerHTML = Int1 + Int2 ; 
