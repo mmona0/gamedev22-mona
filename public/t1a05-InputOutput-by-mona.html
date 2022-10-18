@@ -50,7 +50,7 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
 <hr> 
 <h4> Calculator </h4> 
 <input id="Num1" type=number value="1" > 
-<input id="sign" type=text value="write +, -, /, % or x"> 
+<input id="sign" type=text value="write +, -, / or x"> 
 <input id="Num2" type=number value="1"  >
 <input type=button value="calculate" onclick="{ 
                                               let Int1 = parseFloat(document.getElementById('Num1').value);
@@ -72,6 +72,7 @@ document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*m
                                               if (mysign == '%') { 
                                               Int1 %= Int2 
                                               document.getElementById('myDiv02').innerHTML = Int1 
+                                              }
                                               }"> 
 <br> 
 <div id="myDiv02" > ... </div> <br> 
