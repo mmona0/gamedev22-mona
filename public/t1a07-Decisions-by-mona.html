@@ -58,29 +58,15 @@ let myGreeting = 'Good day';
 
 <h4> Change Background </h4> 
 
-1= red <br> 
-2= blue <br> 
-3= green <br> 
-4= yellow <br> 
+<form name="form1">
+<input type="text" id="color" value="write: beige, blue, red, yellow, green or purple." size="10">
+<input type="button" value="change" onClick="colorchange()">
+</form> 
 
-<input id="color" type=number value="1" > 
-<input type=button value="Click here" onclick="{
-      let myColor = parseFloat(document.getElementById('color').value);  
-      if (myColor = '1') {
-        background-color = 'red';
-      } 
-      else if (myColor = '2') { 
-         background-color = 'blue';
-      } 
-      else if (myColor = '3') { 
-         background-color = 'green';
-      } 
-      else if (myColor = '4') { 
-         background-color = 'yellow';
-      }
-    } 
-                                    }
- "> 
+function colorchange() {
+document.color = document.getElementById('color').value;
+document.getElementsByTagName("body")[0].style.backgroundColor = document.color;
+} 
                                                
                                                                                           </body> 
   </html>
