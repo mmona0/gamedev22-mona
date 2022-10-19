@@ -101,6 +101,23 @@ function colorchange2() {
 document.color2 = document.getElementById('color2').value;
 document.getElementsByTagName("body")[0].style.backgroundColor = document.color2;
 } 
-       </script>                                        
+       </script>   
+       
+<input id="myNum02" type=number value="" siz="20"> 
+<input type=button value="click here" onclick="{ 
+                                               let myInt02 = parseFloat(document.getElementById('myNum02').value);
+                                               if(myInt02 < 10) { 
+                                               document.getElementById('myDiv02').innerHTML = myInt02 + ' is smaller than 10' ; 
+                                               } 
+                                                if(myInt02 == 10 )  {
+                                               document.getElementById('myDiv02').innerHTML = myInt02 + ' is equal to 10 ;
+                                               } 
+                                                if(myInt02 < 10) { 
+                                               document.getElementById('myDiv02').innerHTML = myInt02 + ' is bigger than 10 ' ; 
+                                               } 
+                                               
+                                              }"  >
+                                              
+ <div id="myDiv02"> ... </div>             
                                                                                           </body> 
   </html>
