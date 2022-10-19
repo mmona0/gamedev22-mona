@@ -72,6 +72,34 @@ document.getElementsByTagName("body")[0].style.backgroundColor = 'beige';
   if(document.color == 'blue') {
     document.getElementsByTagName("body")[0].style.backgroundColor = 'blue';
 }
+  if(document.color == 'red') {
+    document.getElementsByTagName("body")[0].style.backgroundColor = 'red';
+}
+  if(document.color == 'yellow') {
+    document.getElementsByTagName("body")[0].style.backgroundColor = 'yellow';
+}
+  if(document.color == 'green') {
+    document.getElementsByTagName("body")[0].style.backgroundColor = 'green';
+}
+  if(document.color == 'purple') {
+    document.getElementsByTagName("body")[0].style.backgroundColor = 'purple';
+}
+} 
+       </script>                                        
+       
+       <hr>
+       
+       <h4> Change Background (easier code without decisions) </h4> 
+
+<form id="form1">
+<input type="text" id="color" value="write: beige, blue, red, yellow, green or purple." >
+<input type="button" value="change" onClick="colorchange()">
+</form> 
+<script>
+
+function colorchange() {
+document.color = document.getElementById('color').value;
+document.getElementsByTagName("body")[0].style.backgroundColor = document.color;
 } 
        </script>                                        
                                                                                           </body> 
