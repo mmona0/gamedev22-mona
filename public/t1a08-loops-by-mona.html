@@ -35,7 +35,7 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 (try numbers over 8 or 8 ) <br>
  <input id="myNum02" type=number value="4" ><br> 
 
-<input type=button value="click me" onclick="{
+<input type=button value="click here" onclick="{
                                               document.getElementById('myDiv02').innerHTML = ''
                                               let mytemp = '' 
                                               let mymax = parseInt(document.getElementById('myNum02').value)
@@ -51,3 +51,18 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
                                                                   }">
 
 <div id="myDiv02"> ... </div> 
+
+<hr> 
+
+<h5> Rando loop code 2 </h5> 
+
+<input id="Text1" type=text value="text" > <br> 
+<input type=button value="click here" onClick="{
+                                               document.getElementById('Div3').innerHTML = '' 
+                                               let myTemp= '' 
+                                               let mywords = document.getElementById('Text1').value
+                                               for (let myloop = 1; myloop <= 10; myloop++ ) { 
+                                               myTemp += ' Your Word/s, ' + mywords +' got printed ' + myloop + ' times' 
+                                               }">
+
+<div id="Div3"> </div> 
