@@ -7,10 +7,18 @@ function myExampleFunction(){
    return myReply
 
 }
+   
+function myExampleFunction2(){
+   let myIn02 = parseInt(document.getElementById('myText02').value)
+   let myIn03 = parseInt(document.getElementById('myText03').value)
+   let mySum2 = myIn02 - myIn03
+   let myReply2 =  myIn02 - ' + ' + myIn03 + ' = ' + mySum2
+   return myReply2
 
+}
 </script>
 
-Version 0.0.1
+Version 0.1.2
 
 <h2 align=center>t1a09-functions-by-mona.html</h2>
 
@@ -36,3 +44,16 @@ function myGrabNumber(){
 }">
 
 <div id="myDiv01">...</div>
+
+<hr> 
+
+<h5> Function </h5> 
+
+<input type=text id="myText02" value="3"><br>
+<input type=text id="myText03" value="3"><br>
+
+<input type=button value="Function Example" onClick="{
+   document.getElementById('myDiv02').innerHTML =  myExampleFunction2()
+}">
+
+<div id="myDiv02">...</div>
