@@ -41,9 +41,9 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 
 <input type=number id="Num1" value="1" > 
 <input type=button value="click here" onClick="{ 
-                                               let myIn01 = parseFloat(document.getElementById('Num1').value) ;
-                                               let myAnswer = myIn01 * myIn01
-                                               document.getElementById('Div2').innerHTML = myIn01 + ' times ' + myIn01 + ' = ' + myAnswer ; 
+                                               let myIn02 = parseFloat(document.getElementById('Num1').value) ;
+                                               let myAnswer = myIn02 * myIn02
+                                               document.getElementById('Div2').innerHTML = myIn02 + ' times ' + myIn02 + ' = ' + myAnswer ; 
                                                }">
 
 <div id="Div2"> </div> 
@@ -54,5 +54,8 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 
 <input type=text id="Text2" value="text"  >
 <input type=button value="Click here" onClick="{
-                                                
+                                                let myIn03 = document.getElementById('Text2').value ; 
+                                                document.getElementById('Div3').innerHTML = 'You wrote ' + myIn03 ;
                                                }"> 
+
+<div id="Div3" > </div> 
