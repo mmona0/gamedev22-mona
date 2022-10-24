@@ -18,7 +18,9 @@ function myExampleFunction2(){
 }
    
 function myExampleFunction3(){
-   
+   let lastname = document.getElementById('lname').value
+   let myReply3 = 'Hello Mr./ Mrs. ' + lastname + '!' ; 
+   return myReply3
 } 
    
 function myExampleFunction4(){
@@ -38,7 +40,7 @@ function myExampleFunction7(){
 } 
 </script>
 
-Version 0.3.1
+Version 0.3.2
 
 <h2 align=center>t1a09-functions-by-mona.html</h2>
 
@@ -82,19 +84,26 @@ function myGrabNumber(){
 
 <hr>
 <h5> Function 2 </h5> 
-
-<input type=button id="button01" style="background-color=red" value="Function Example" onMouseover="{ 
-                                                                     element.style.property = myExampleFunction3() ;  
+<form >
+  <label for="fname">First Name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value=""><br>
+</form>  
+<input type=button id="button01" style="background-color=red" value="Function Example" onClick="{ 
+                                                                     document.getElementById('myDiv03').innerHTML = myExampleFunction3() ;  
                                                                      }">
+
+<div id="myDiv03" > ... </div> 
 <hr> 
 
 <h5> Function 3 </h5> 
 
 <input type=text id="myText04" value="Name" > <br> 
 <input type=button value="Function Example" onClick="{ 
-                                                     document.getElementById('myDiv03').innerHTML = myExampleFunction4() ; 
+                                                     document.getElementById('myDiv04').innerHTML = myExampleFunction4() ; 
                                                      }"> 
 
-<div id="myDiv03" > ... </div> 
+<div id="myDiv04" > ... </div> 
 
 <hr> 
