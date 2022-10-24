@@ -25,6 +25,7 @@ function myExampleFunction3(){
    
 function myExampleFunction4(){
   let myIn04 = document.getElementById('myText04').value 
+  myReply4 = ''
   if(myIn04 == '1' || myIn04 == 'one' )  {
      let myReply4 = 'You wrote one (1)' 
   }
@@ -129,8 +130,8 @@ function myGrabNumber(){
 <hr> 
 
 <h5> Function 3 </h5> 
-
-<input type=text id="myText04" value="write a number between one - ten" size="40"> <br> 
+write a number between 1 & 10 : 
+<input type=text id="myText04" value="one" size="40"> <br> 
 <input type=button value="Function Example" onClick="{ 
                                                      document.getElementById('myDiv04').innerHTML = myExampleFunction4() ; 
                                                      }"> 
