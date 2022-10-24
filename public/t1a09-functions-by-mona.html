@@ -16,6 +16,10 @@ function myExampleFunction2(){
    return myReply2
 
 }
+   
+function myExampleFunction3(){
+   background-color = 'blue'; 
+} 
 </script>
 
 Version 0.1.3
@@ -57,5 +61,12 @@ function myGrabNumber(){
 <input type=button value="Function Example" onClick="{
    document.getElementById('myDiv02').innerHTML =  myExampleFunction2()
 }">
+
+<hr>
+<h5> Function 2 </h5> 
+
+<input type=button id="button01" style="background-color=red" value="Function Example" onMouseover="{ 
+                                                                     element.style.property = myExampleFunction3() ;  
+                                                                     }">
 
 <div id="myDiv02">...</div>
