@@ -78,3 +78,30 @@ Max Array Entry: <input type=text id="myText02" value="3"><br>
 
 
 <br>
+
+<hr> 
+
+<h5> Array code 2 </h5> 
+
+Number between 1-10: <input type=number id="myNum01" value="5"  >
+<input type=button value="Example onclick" onClick="{ 
+                                                    let myIn01 = parseFloat(document.getElementById('myNum01').value)
+                                                    let mySum= '' 
+                                                    document.getElementById('myDiv03').innerHTML = '' 
+                                                    
+                                                    myArray = new Array()
+                                                    myArray[1] = 'one' 
+                                                    myArray[2] = 'two' 
+                                                    myArray[3] = 'three' 
+                                                    myArray[4] = 'four' 
+                                                    myArray[5] = 'five' 
+                                                    myArray[6] = 'six' 
+                                                    myArray[7] = 'seven' 
+                                                    myArray[8] = 'eight' 
+                                                    myArray[9] = 'nine' 
+                                                    myArray[10] = 'ten' 
+                                                    
+                                                    mySum  = 'You selected the number ' + myArray[myIn01] + '<br>' 
+                                                    document.getElementById('myDiv03').innerHTML = mySum
+                                                    }"> 
+<div id="myDiv03" > </div> 
