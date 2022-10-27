@@ -1,5 +1,5 @@
 
-Version 0.0.2
+Version 0.1.1
 
 <h2 align=center>t2a01-arrays-by-mona.html</h2>
 
@@ -24,12 +24,10 @@ Max Array Entry: <input type=text id="myText01" value="3"><br>
    let myTemp = document.getElementById('myText01').value
    let mySum = ''
    document.getElementById('myDiv01').innerHTML = ' '
-
    myArray = new Array()
    myArray[0] = 'Fred'
    myArray[1] = 'Mary'
    myArray[2] = 'Zizzy'
-
    for (let myLoop=0;   myLoop < myTemp;  myLoop++){
       mySum += 'Loop #: ' + myLoop + ' array entry: ' + myArray[myLoop] +'<br>'
    }
@@ -41,4 +39,42 @@ Max Array Entry: <input type=text id="myText01" value="3"><br>
 
 <br>
 
+
 You do at least 7 other arrays:<br>
+
+<hr> 
+
+
+
+<h5>Array code 1 </h5>
+
+
+Max Array Entry: <input type=text id="myText02" value="3"><br>
+
+<input type=button value="Example onClick" onClick="{
+   let myTemp = document.getElementById('myText02').value
+   let mySum = ''
+   document.getElementById('myDiv02').innerHTML = ' '
+
+   myArray = new Array()
+   myArray[3] = '1x3=3'
+   myArray[6] = '2x3=6'
+   myArray[9] = '3x3=9'
+   myArray[12] = '4x3=12'
+   myArray[15] = '5x3=15'
+   myArray[18] = '6x3=18'
+   myArray[21] = '7x3=21'
+   myArray[24] = '8x3=24'
+   myArray[27] = '9x3=27'
+   myArray[30] = '10x3=30'
+
+   for (let myLoop=0;   myLoop < myTemp;  myLoop++){
+      mySum += 'Loop #: ' + myLoop + ' array entry: ' + myArray[myLoop] +'<br>'
+   }
+   document.getElementById('myDiv02').innerHTML = mySum
+}">
+
+<div id="myDiv02">...</div>
+
+
+<br>
