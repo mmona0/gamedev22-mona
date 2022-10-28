@@ -118,16 +118,13 @@ Number between 1-10: <input type=number id="myNum01" value="5" min="1" max="10" 
        document.getElementById('myDiv04').innerHTML = '' 
        
        myArray = newArray() 
+      
        
        for (let myLoop=0; myLoop <= myTemp; myLoop++){ 
-       myArray[myLoop] = new Array() 
-       for (let myLoopOther=0; myLoopOther <= myTemp; myLoopOther++){
-                                                    myArray[myLoop][myLoopOther] = newArray()
-                                                    mySum += ' Loop1 : ' + myArray[myLoop] + '<br>' + '     myArray[myLoop][myLoopOther] <br>'  
-                                                    } 
-                                                    } 
-                                                    document.getElementById('myDiv04').innerHTML = mySum
-             
+       myArray[myLoop] = myLoop 
+       mySum += 'LoopNum: ' + myLoop + ' <br>..Array1: ' + myArray[myLoop] ; 
+} 
+       document.getElementById('myDiv04').innerHTML = mySum
        }">
 
 <div id="myDiv04"> </div> 
