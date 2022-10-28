@@ -113,16 +113,16 @@ Number between 1-10: <input type=number id="myNum01" value="5" min="1" max="10" 
 <input type=number id="myNum02" value="3" > 
 <input type=button value="Example onclick" onClick="{ 
        
-       let myTemp = document.getElementbyId('myNum02').value
-       let mySum = '' 
+       let myTemp = document.getElementbyId('myNum02').val  
+       let mySum = 'hi' 
        document.getElementById('myDiv04').innerHTML = '' 
        
        myArray = newArray() 
       
        
        for (let myLoop=0; myLoop <= myTemp; myLoop++){ 
-       myArray[myLoop] = myLoop 
-       mySum += 'LoopNum: ' + myLoop + ' <br>..Array1: ' + myArray[myLoop] ; 
+       let myArray[myLoop] = myLoop                    
+       let mySum += 'LoopNum: ' + myLoop + ' <br>..Array1: ' + myArray[myLoop] ; 
 } 
        document.getElementById('myDiv04').innerHTML = mySum
        }">
