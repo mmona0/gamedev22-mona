@@ -1,5 +1,5 @@
 
-Version 0.3.10
+Version 0.3.11
 
 <h2 align=center>t2a01-arrays-by-mona.html</h2>
 
@@ -110,17 +110,20 @@ Number between 1-10: <input type=number id="myNum01" value="5" min="1" max="10" 
 
 <h5> Array code 3 </h5>
 
-<input type=number id="myNum02" value="3" > 
-<input type=button value="Example onclick" onClick="{ 
-       let repeat = document.getElementById('myNum02').value
-       let mySum  = '<pre>-></pre> <br>' 
-       document.getElementById('myDiv04').innerHTML = '' 
-                                                    
-                                                
-       for(let myLoop1=1; myLoop1 <= repeat; myLoop1++;){ 
-                                                    mySum += 'Loop Number: ' + myLoop1 ;
-                                                    } 
-                                                    document.getElementById('myDiv04').innerHTML = mySum
-       }">
+<input type=text id="myText04" value="3"><br>
 
-<div id="myDiv04"> </div> 
+<input type=button value="Example onClick" onClick="{
+   let myTemp = document.getElementById('myText04').value
+   let mySum = ''
+   document.getElementById('myDiv04').innerHTML = ' '
+   myArray = new Array()
+                                                    
+   for (let myLoop=0;   myLoop < myTemp;  myLoop++){
+      mySum += 'LoopNum: ' + myLoop + ' arrayNum: ' + myArray[myLoop] +'<br>'
+   }
+   document.getElementById('myDiv04').innerHTML = mySum
+}">
+
+<div id="myDiv04">...</div>
+
+
