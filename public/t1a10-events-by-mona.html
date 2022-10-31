@@ -32,5 +32,16 @@ Events are HTML code that activates Javascript code
 }"> This is bold</b> <br><br>
 
 You do at least 8 other events:<br> 
-onClick, onDBClick, onChange, onBlur, onFocus, orMouseMove, onTouch, onKeyDown, onKeyPress, onDragStart, onTouchStart, onTouchEnd, onTouchMove 
+onClick, onDBClick, onChange, onBlur, onFocus, onMouseMove, onTouch, onKeyDown, onKeyPress, onDragStart, onTouchStart, onTouchEnd, onTouchMove 
 
+<hr> 
+<h4> Event  1 </h4> 
+<p id="p1" onmouseDown="mousedown()" onmouseUp="mouseup()"> Move your mouse over this text to change the color to yellow </p> 
+<script> 
+function mousedown() { 
+   document.getElementById("p1").style.color = "yellow";
+}
+function mouseup() { 
+  document.getElementById("p1").style.color = "black";
+} 
+</script> 
