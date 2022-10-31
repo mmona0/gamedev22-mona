@@ -51,14 +51,16 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
 <input type=text id="myText05" value="eyecolor" > <br>
 <input type=button value="create Person" onClick=
        "{ 
+        <script>
         let thePerson = { 
         'firstName' : document.getElementById('myText01').value, 
         'lastName' : document.getElementById('myText02').value, 
         'age' : document.getElementById('myText03').value,
         'haircolor' : document.getElementById('myText04').value,
-        'eyeColor' : document.getElementById('myText05').value
-         }        
-        document.getElementById('myDiv01').innerHTML = '<br>' + thePerson.firstName + ' ' + thePerson.lastName + ' is ' + thePerson.age + ' years old. <br>
+        'eyecolor' : document.getElementById('myText05').value
+         } ;       
+        document.getElementById('myDiv01').innerHTML = thePerson.firstName + ' ' + thePerson.lastName + ' is ' + thePerson.age + ' years old. <br>
         Your Person has ' + thePerson.haircolor + ' hair and ' + thePerson.eyecolor + ' eyes. ' 
+        </script> 
         }">
 <div id="myDiv01"> ... </div> 
