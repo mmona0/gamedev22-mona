@@ -1,59 +1,36 @@
-Version 0.0.1
-
-<h2 align=center>t2a01-arrays-by-mona.html</h2>
-
-<a href="https://way2tutorial.com/html/html5_events_handler_list.php">Good reference to HTML Events</a><br>
-
-Arrays store numbered variables
-
-<h4> Example Functions code</h4>
-<pre>
-   myArray = new Array()
-   myArray[0] = 'Fred'
-   myArray[1] = 'Mary'
-
-</pre>
-
-<h4> Example working code</h4>
+Version 0.0.1-1 <br>
 
 
-<input type=text id="myText01" value="3"><br>
+<h2 align=center>t1a10-Events-by-mona.html</h2> 
 
-<input type=button value="Example onClick" onClick="{
-   let myTemp = document.getElementById('myText01').value
-   let mySum = ''
-   document.getElementById('myDiv01').innerHTML = ' '
+<a href="https://way2tutorial.com/html/html5_events_handler_list.php">
+ Good reference to HTM1 Events</a> <br>
 
-   myArray = new Array()
-   myArray[0] = 'Fred'
-   myArray[1] = 'Mary'
-   myArray[2] = 'Zizzy'
+Events are HTML code that activates Javascript code 
 
-   for (let myLoop=0;   myLoop < myTemp;  myLoop++){
-      mySum += 'Loop #: ' + myLoop + ' array entry: ' + myArray[myLoop] +'<br>'
-   }
-   document.getElementById('myDiv01').innerHTML = mySum
-}">
+<h4> Example Events code</h4> 
+<pre> 
+<b id="myB01" onMouseOut="{ 
+   document.getElementById('myB01').innerHTML = 'This is bold.'
+}"> Bold stuff here </b>
+</pre> 
 
-<div id="myDiv01">...</div>
+<h4> Example working event</h4> 
 
+<input type=text id="myText01" value="3"><br> 
 
-<br>
+<input type=button value="Example onClick" onClick="{ 
+   document.getElementById('myDiv01').innerHTML = document.getElementById('myText01').value
+}"> 
 
-You do at least 8 other arrays:<br>
+<div id="myDiv01">...</div> 
 
-<hr> 
+<b id="myB02" onMouseOut="{ 
+   document.getElementById('myB02').innerHTML = 'This is nice.'
+}"   onMouseOver = "{
+   document.getElementById('myB02').innerHTML = 'This is cool.'
+}"> This is bold</b> <br><br>
 
-<h5> array 1 </h5>
-
-<input type= text id="myText02" value=""> <br> 
-
-<input type=button value="Click" onClick="{ 
-                                          let myTemp2 = document.getElementById('myText02').value 
-                                          let mySum2 = '' 
-                                          
-}">
-
-
-
+You do at least 8 other events:<br> 
+onClick, onDBClick, onChange, onBlur, onFocus, orMouseMove, onTouch, onKeyDown, onKeyPress, onDragStart, onTouchStart, onTouchEnd, onTouchMove 
 
