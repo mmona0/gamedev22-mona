@@ -1,4 +1,4 @@
-Version 0.2.1 <br>
+Version 0.3.1 <br>
 
 
 <h2 align=center>t1a10-Events-by-mona.html</h2> 
@@ -68,3 +68,20 @@ div {
 
 mouseover: 
 <div id="divmouseover" onmouseover="myFunction1()"> 0 </div> 
+
+<hr> 
+
+<h4> Event 3 </h4> 
+
+<input type="text" id="myInput" oninput="myFunction()">
+
+<p id="myText03"></p>
+
+<script>
+function myFunction() {
+  var writtentext01 = document.getElementById("myInput").value;
+  document.getElementById("myText03").innerHTML = "You wrote: " + writtentext01;
+}
+</script>
+
+<hr> 
