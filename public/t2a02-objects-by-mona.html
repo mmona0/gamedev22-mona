@@ -1,4 +1,4 @@
-Version 0.1.8
+Version 0.1.9
 
 <h2 align=center> t2a02-Objects-by-Mona.html </h2> 
 <a href="">Good reference to Javascript Objects</a><br> 
@@ -53,10 +53,11 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
        
         let thePerson = { 
         'firstname' : document.getElementById('myText01').value,
-        'lastname' : document.getElementById('myText02').value
+        'lastname' : document.getElementById('myText02').value,
+        'Age' : document.getElementById('myText03').value
          }
                                                   
-        document.getElementById('myDiv01').innerHTML = thePerson.firstname + ' ' + thePerson.lastname
+        document.getElementById('myDiv01').innerHTML = thePerson.firstname + ' ' + thePerson.lastname + ' is ' + the Person.Age + ' years old.' 
         }">
 
 <div id="myDiv01"> ... </div> 
@@ -66,8 +67,7 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
 
 <pre> 
 
-
-       'lastname' : document.getElementById('myText02').value, 
+ 
         'Age' : document.getElementById('myText03').value,
         'haircolor' : document.getElementById('myText04').value,
         'eyecolor' : document.getElementById('myText05').value 
