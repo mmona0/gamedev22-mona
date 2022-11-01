@@ -1,4 +1,4 @@
-Version 0.1.5
+Version 0.1.6
 
 <h2 align=center> t2a02-Objects-by-Mona.html </h2> 
 <a href="">Good reference to Javascript Objects</a><br> 
@@ -53,9 +53,10 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
        
         let thePerson = { 
         'firstname' : document.getElementById('myText01').value
+        'lastname' : document.getElementById('myText02').value,
          }
                                                   
-        document.getElementById('myDiv01').innerHTML = thePerson.firstname  
+        document.getElementById('myDiv01').innerHTML = thePerson.firstname + thePerson.lastname
         }">
 
 <div id="myDiv01"> ... </div> 
