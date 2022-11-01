@@ -55,10 +55,11 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
         'firstname' : document.getElementById('myText01').value,
         'lastname' : document.getElementById('myText02').value,
         'Age' : document.getElementById('myText03').value,
-        'haircolor' :  document.getElementById('myText04').value
+        'haircolor' :  document.getElementById('myText04').value,
+        'eyecolor' : document.getElementById('myText05').value
          }
                                                   
-        document.getElementById('myDiv01').innerHTML = thePerson.firstname + ' ' + thePerson.lastname + ' is ' + thePerson.Age + ' years old. She/he has ' + thePerson.haircolor + ' hair. '
+        document.getElementById('myDiv01').innerHTML = thePerson.firstname + ' ' + thePerson.lastname + ' is ' + thePerson.Age + ' years old. She/he has ' + thePerson.haircolor + ' hair and ' + thePerson.eyecolor + ' eyes. ' 
         }">
 
 <div id="myDiv01"> ... </div> 
@@ -66,10 +67,7 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
 
 <hr>
 
-<pre> 
-
-
-        'eyecolor' : document.getElementById('myText05').value 
+<pre>  
         
         
         thePerson.firstname + ' ' + thePerson.lastname + ' is ' + thePerson.Age + ' years old. <br>
