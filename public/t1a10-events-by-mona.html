@@ -1,4 +1,4 @@
-Version 0.1.2 <br>
+Version 0.2.1 <br>
 
 
 <h2 align=center>t1a10-Events-by-mona.html</h2> 
@@ -45,3 +45,26 @@ function mouseup() {
   document.getElementById("p1").style.color = "black";
 } 
 </script> 
+
+<hr> 
+<h4> Event 2 </h4> 
+
+<style>
+div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+</style>
+
+<script> 
+ var x = 0;
+ function myFunction1(){ 
+   document.getElementById("divmouseover").innerHTML = x+=1;
+ } 
+</script> 
+
+
+<div id="divmouseover" onmouseover="myFunction1()"> 0 </div> 
