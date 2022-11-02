@@ -50,7 +50,7 @@ function mouseup() {
 <h4> Event 2 </h4> 
 
 <style>
-document.getElementbyId('divmouseover') {
+#divmouseover {
   background-color: lightgrey;
   width: 300px;
   border: 15px solid green;
@@ -120,33 +120,24 @@ function myFunction3() {
 </script>
 
 <h4> Event 6 </h4> 
+<style>
+#divscroll {
+  border: 1px solid black;
+  width: 200px;
+  height: 100px;
+  overflow: scroll;
+}
+</style>
 
-<div id="grad2" onclick="myFunction4()">Click me to start the animation</div>
+<div id="divscroll" onscroll="myFunction()"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+<p>Scrolled <span id="scrolldiv">0</span> times.</p>
 
 <script>
-var x = document.getElementById("grad2");
-
-function myFunction4() {
-  x.style.animation = "mymove 4s 2";
-}
-
-x.addEventListener("animationstart", myStartFunction);
-x.addEventListener("animationiteration", myRepeatFunction);
-x.addEventListener("animationend", myEndFunction);
-
-function myStartFunction() {
-  this.innerHTML = "animationstart event occured - The animation has started";
-  this.style.backgroundColor = "pink";
-}
-
-function myRepeatFunction() {
-  this.innerHTML = "animationiteration event occured - The animation was played again";
-  this.style.backgroundColor = "lightblue";
-}
-
-function myEndFunction() {
-  this.innerHTML = "animationend event occured - The animation has completed";
-  this.style.backgroundColor = "lightgray";
+let x = 0;
+function myFunction() {
+  document.getElementById("scrolldiv").innerHTML = x += 1;
 }
 </script>
+
 
