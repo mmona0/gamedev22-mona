@@ -1,4 +1,4 @@
-Version 0.3.1 <br>
+Version 0.4.1 <br>
 
 
 <h2 align=center>t1a10-Events-by-mona.html</h2> 
@@ -72,7 +72,7 @@ mouseover:
 <hr> 
 
 <h4> Event 3 </h4> 
-
+write something: <br> 
 <input type="text" id="myInput" oninput="myFunction()">
 
 <p id="myText03"></p>
@@ -85,3 +85,23 @@ function myFunction() {
 </script>
 
 <hr> 
+
+<h4> Event 4 </h4> 
+
+<input type="text" id="myText04" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+
+<script>
+function keydownFunction() {
+  document.getElementById("myText04").style.backgroundColor = "blue";
+}
+
+function keyupFunction() {
+  document.getElementById("myText04").style.backgroundColor = "pink";
+}
+</script>
+
+<hr> 
+
+<h4> Event 5 </h4> 
+
+
