@@ -61,3 +61,39 @@ For Global variables Mr. Ellis prefers to use document.myVarName
                                                }"> 
 
 <div id="Div3" > </div> 
+
+<hr> 
+
+<h4> Variable 3 </h4> 
+
+<input type=number id="Num2" value="4" >
+<input type=number id="Num3" value="3" >
+
+<input type=button value="submit" onclick="{
+                                           let x = document.getElementById('Num2').value
+                                           let y = document.getElementById('Num3').value
+                                           let myAnswer = x + y
+                                           document.getElementById('Div4').innerHTML = myAnswer 
+                                           }">
+<div id="Div4"> </div>
+
+<hr> 
+
+<h4> Variable 4 </h4> 
+
+<input type=text id="Text3" value="First name" >
+<input type=text id="Text4" value="Last name" >
+<input type=button value="add Names" onclick="{
+                                              let fname = document.getElementById('Text3').value
+                                              let nname = document.getElementById('Text4').value
+                                              let myAnswer = fname + '' + nname 
+                                              document.getElementById('Div5').innerHTML = myAnswer
+                                              }">
+
+<div id="Div5"> </div>
+
+<hr>
+
+
+
+
