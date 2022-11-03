@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 0.5.1
+version 0.7.1
 
 
 <h2 align=center> t1a08-loops-by-mona.html </h2> 
@@ -111,6 +111,22 @@ max loops:
                             }"> 
 
 <div id="Div6"> </div> 
+For-while Loop:
+max: <input type=number id="myNum07" value="5"> 
+<p id="P1"></p>
+
+<script>
+let myLoop = 0;
+let text = "";
+let max = document.getElementById('myNum07').value
+while ( myLoop < max ) {
+  text += "Loop number: "+  myLoop +  "<br>";
+  myLoop++;
+}
+
+document.getElementById("P1").innerHTML = text;
+</script>
+
 
 <br>
 <hr>
