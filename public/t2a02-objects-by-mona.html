@@ -67,4 +67,28 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
 
 <hr>
 
-<h4> Objects 2 </h4> 
+<h4> Object 2 </h4> 
+
+<input type=button value="show animal object" onclick="{ 
+                                                       let animals = { 
+                                                       'animalone' : 'panda' ,
+                                                       'animaltwo' : 'dog' , 
+                                                       'animalthree' : 'lion' 
+                                                       } 
+                                                       
+                                                       document.getElementById('myDiv02').innerHTML = 'Objects are: ' 
+                                                       document.getElementById('myDiv02').innerHTML += 'Object1 = ' + animals.animalone + '<br>' 
+                                                       document.getElementById('myDiv02').innerHTML += 'Object2 = ' + animals.animaltwo + '<br>' 
+                                                       document.getElementById('myDiv02').innerHTML += 'Object3 = ' + animals.animalthree + '<br>' 
+                                                       }">
+
+<div id="myDiv02"> </div> 
+<br> 
+<hr> 
+
+<h4> Object 3 </h4> 
+
+
+
+
+
