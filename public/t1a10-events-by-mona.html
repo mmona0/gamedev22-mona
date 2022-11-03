@@ -144,15 +144,9 @@ function WhichButton(event) {
 
 <h4> Event 8 </h4> 
 
+change the text: <input type="text" value="text" onchange="{
+ document.getElementById('Div08').innerHTML = 'You changed the value'
+ }">
 
-  Enter name: <input type="text" name="fname">
-  <input type="submit" id="myForm" value="Submit">
+<div id="Div08"> </div> 
 
-
-<script>
-document.getElementById("myForm").addEventListener("submit", myFunction8());
-
-function myFunction8() {
-  alert("The form was submitted");
-}
-</script>
