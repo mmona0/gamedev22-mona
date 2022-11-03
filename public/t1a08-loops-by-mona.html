@@ -138,10 +138,25 @@ document.getElementById("P1").innerHTML = text;
 <h5> Random loop code 7 </h5> 
 
 
-<br>
-<hr>
+max loops: 
+<input type=number id="myNum07" value="5"> 
+<input type=button value="click here" onclick="{
+                                          document.getElementById('Div8').innerHTML = '' 
+                                          let myTemp= '' 
+                                          let max = parseFloat(document.getElementById('myNum07').value)
+                                               for (let myLoop = 1 ; myLoop <= max ; myLoop++ ){
+                                               let x = myLoop - 4 * 2
+                                               myTemp += 'LoopNum: ' + myLoop + ', with Value: ' + x +' <br>' 
+                                               } 
+                                               document.getElementById('Div8').innerHTML = myTemp 
+                            
+                            }"> 
 
-<h5> Random loop code 8 </h5> 
+<div id="Div8"> </div> 
+
+
+
+
 
 
 
