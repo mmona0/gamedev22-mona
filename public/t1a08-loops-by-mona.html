@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 0.4.8
+version 0.5.1
 
 
 <h2 align=center> t1a08-loops-by-mona.html </h2> 
@@ -101,8 +101,8 @@ min loops:
                                           let myTemp= '' 
                                           let min = parseFloat(document.getElementById('myNum04').value)
                                                for (let myLoop =  20 ; myLoop >= min ; myLoop++ ){ 
-                                               let myrealLoop = myLoop - 2
-                                               myTemp += 'LoopNum: ' + myrealLoop + '<br>'}
+                                               let myLoopNum = myLoop - 2
+                                               myTemp += 'LoopNum: ' + myLoopNum + '<br>'}
                                                document.getElementById('Div5').innerHTML = myTemp 
                             
                             }"> 
@@ -110,3 +110,40 @@ min loops:
 <div id="Div5"> </div> 
 <br>
 <hr> 
+
+<h5> Random loop code 5 </h5> 
+max loops: 
+<input type=number id="myNum05" value="5"> 
+<input type=button value="click here" onclick="{
+                                          document.getElementById('Div6').innerHTML = '' 
+                                          let myTemp= '' 
+                                          let max = parseFloat(document.getElementById('myNum05').value)
+                                               for (let myLoop =  20 ; myLoop <= max ; myLoop++ ){ 
+                                               myTemp += 'LoopNum: ' + myLoopNum + '. ' max - myLoop + 'Loops left <br>'}
+                                               document.getElementById('Div6').innerHTML = myTemp 
+                            
+                            }"> 
+
+<div id="Div6"> </div> 
+
+<br>
+<hr>
+
+<h5> Random loop code 6 </h5> 
+
+
+<br>
+<hr>
+
+<h5> Random loop code 7 </h5> 
+
+
+<br>
+<hr>
+
+<h5> Random loop code 8 </h5> 
+
+
+
+
+
