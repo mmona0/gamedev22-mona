@@ -1,4 +1,4 @@
-Version 0.6.1
+Version 0.9.1
 
 <h2 align=center>t1a06-variables-by-mona.html</h2>
 
@@ -69,10 +69,10 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 <input type=number id="Num2" value="4" >
 <input type=number id="Num3" value="3" >
 
-<input type=button value="add" onclick="{
+<input type=button value="click here" onclick="{
                                            let x = document.getElementById('Num2').value
                                            let y = document.getElementById('Num3').value
-                                           let myAnswer = x ++ y
+                                           let myAnswer = x + y
                                            document.getElementById('Div4').innerHTML = myAnswer 
                                            }">
 <div id="Div4"> </div>
@@ -86,7 +86,7 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 <input type=button value="add Names" onclick="{
                                               let fname = document.getElementById('Text3').value
                                               let nname = document.getElementById('Text4').value
-                                              let myAnswer = fname + '' + nname 
+                                              let myAnswer = fname + ' ' + nname 
                                               document.getElementById('Div5').innerHTML = myAnswer
                                               }">
 
@@ -102,23 +102,46 @@ For Global variables Mr. Ellis prefers to use document.myVarName
                                            let x = document.getElementById('Num2').value
                                            let y = document.getElementById('Num3').value
                                            let myAnswer = x/y
-                                           document.getElementById('Div5').innerHTML = myAnswer 
+                                           document.getElementById('Div6').innerHTML = myAnswer 
                                            }">
-<div id="Div5"> </div>
+<div id="Div6"> </div>
 <hr>
 
 <h4> Variable 6 </h4> 
 
+<input type=number id="Num6" value="5.977">
+<input type=button value="click here" onclick="{
+                                               let x = parseInt(document.getElementById('Num6').value)
+                                               let myAnswer= x
+                                               document.getElementById('Div7').innerHTML = myAnswer
+                                               }">
 
+<div id="Div7" > </div>
 
 <hr>
 
 <h4> Variable 7 </h4> 
+<input type=number id="Num7" value="43.6578">
+<input type=number id="Num8" value="43.6578">
+<input type=button value="subtract" onclick="{
+                                               let x = parseFloat(document.getElementById('Num7').value)
+                                               let y = parseFloat(document.getElementById('Num8').value)
+                                               let myAnswer= x - y
+                                               document.getElementById('Div8').innerHTML = myAnswer
+                                               }">
 
-
-
+<div id="Div8" > </div>
 <hr>
 
 <h4> Variable 8 </h4> 
+<input type=number id="Num9" value="5.977">
+<input type=number id="Num10" value="43.6578">
+<input type=button value="subtract different" onclick="{
+                                               let x = parseInt(document.getElementById('Num9').value)
+                                               let y = parseInt(document.getElementById('Num10').value)
+                                               let myAnswer= x - y
+                                               document.getElementById('Div9').innerHTML = myAnswer
+                                               }">
 
+<div id="Div9" > </div>
 
