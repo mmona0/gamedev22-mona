@@ -92,17 +92,14 @@ max loops:
 
 <h5> Random loop code 4 </h5> 
 
-max loops: 
+min loops: 
 <input type=number id="myNum04" value="5"> 
 <input type=button value="click here" onclick="{
                                           document.getElementById('Div5').innerHTML = '' 
                                           let myTemp= '' 
-                                          let max = parseFloat(document.getElementById('myNum04').value)
-                                               for (let myLoop = 1 ; myLoop <= max ; myLoop++ ){ 
+                                          let min = parseFloat(document.getElementById('myNum04').value)
+                                               for (let myLoop =  ; myLoop >= min ; myLoop-- ){ 
                                                myTemp += 'LoopNum: ' + myLoop + '<br>'
-                                               for (let myLoopOther = 1 ; myLoopOther <= max ; myLoopOther++ ){ 
-                                               myTemp += '...LoopNum: ' + myLoopOther + '<br>'
-                                               } 
                                                document.getElementById('Div5').innerHTML = myTemp 
                             
                             }"> 
