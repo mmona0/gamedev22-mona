@@ -88,7 +88,20 @@ Nothing: <input type=text i="myText00" value="Useless at the moment"><br>
 
 <h4> Object 3 </h4> 
 
+Math with Objects: 
+<br> 
+<input type=number id="myNum01" value="5" >
+<input type=number id="myNum02" value="4" > 
+<input type=button value="math" onclick="{
+                                         let objectmath = { numberone: document.getElementById('myNum01').value , numbertwo: document.getElementById('myNum02').value } ; 
+                                         let myAnswer = objectmath.numberone * objectmath.numbertwo 
+                                         document.getElementById('myDiv03').innerHTML = myAnswer
+                                         }">
+<div id="myDiv03"> </div> 
 
+<br>
+<hr>
+       
 
 
 
