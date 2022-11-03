@@ -95,14 +95,17 @@ max loops:
 
 
 <h5> Random loop code 5 </h5> 
+
 max loops: 
 <input type=number id="myNum05" value="5"> 
 <input type=button value="click here" onclick="{
                                           document.getElementById('Div6').innerHTML = '' 
                                           let myTemp= '' 
                                           let max = parseFloat(document.getElementById('myNum05').value)
-                                               for (let myLoop =  20 ; myLoop <= max ; myLoop++ ){ 
-                                               myTemp += 'LoopNum: ' + myLoopNum + '. ' max - myLoop + 'Loops left <br>'}
+                                               for (let myLoop = 1 ; myLoop <= max ; myLoop++ ){
+                                               let x = myLoop * myLoop
+                                               myTemp += 'LoopNum: ' + myLoop + ', with Value: ' + x +' <br>' 
+                                               } 
                                                document.getElementById('Div6').innerHTML = myTemp 
                             
                             }"> 
