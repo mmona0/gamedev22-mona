@@ -120,14 +120,15 @@ rect.color = {
                       'green' : 'green' 
                       } ;
 rect.getArea = functionArea() { 
-                                         return this.high * this.width;
-                                         }; 
+                               return this.high * this.width;
+                              }; 
+                                         
 let colorofArea = 'write red, blue or green' ;                                        
 if(document.getElementById('myText08').value = "red") { colorofArea = rect.color.red }
 if(document.getElementById('myText08').value = "blue") { colorofArea = rect.color,blue}
 if(document.getElementById('myText08').value = "green") { colorofArea = rect.color.green}
                                          
- document.getElementById('myDiv04').innerHTML =  'The Area is ' + rect.getArea() + 'cm². <br>'
+ document.getElementById('myDiv04').innerHTML =  "The Area is " + rect.getArea() + "cm². <br>"
  document.getElementById('myDiv04').innerHTML += 'The color of the Area is ' + colorofArea + '.'                                                  
   }">
 
