@@ -1,4 +1,4 @@
-version 0.4.7
+version 0.4.8
 
 
 <h2 align=center> t1a08-loops-by-mona.html </h2> 
@@ -58,7 +58,7 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 <h5> Random loop code 2 </h5> 
 
 <input id="Text1" type=text value="text" > <br> 
-<input type=button value="click here" onClick="{
+<input type=button value="click here" onclick="{
                                                document.getElementById('Div3').innerHTML = '' 
                                                let myTemp= '' 
                                                let mywords = document.getElementById('Text1').value
@@ -100,8 +100,8 @@ min loops:
                                           let myTemp= '' 
                                           let min = parseFloat(document.getElementById('myNum04').value)
                                                for (let myLoop =  20 ; myLoop >= min ; myLoop++ ){ 
-                                               let myLoop = myLoop - 2
-                                               myTemp += 'LoopNum: ' + myLoop + '<br>'}
+                                               let myrealLoop = myLoop - 2
+                                               myTemp += 'LoopNum: ' + myrealLoop + '<br>'}
                                                document.getElementById('Div5').innerHTML = myTemp 
                             
                             }"> 
