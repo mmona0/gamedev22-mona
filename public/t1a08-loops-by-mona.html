@@ -1,4 +1,5 @@
-version 0.4.2
+version 0.4.3
+
 
 <h2 align=center> t1a08-loops-by-mona.html </h2> 
 
@@ -98,8 +99,9 @@ min loops:
                                           document.getElementById('Div5').innerHTML = '' 
                                           let myTemp= '' 
                                           let min = parseFloat(document.getElementById('myNum04').value)
-                                               for (let myLoop =  20 ; myLoop >= min ; myLoop-- ){ 
-                                               myTemp += 'LoopNum: ' + myLoop + '<br>'
+                                               for (let myLoop =  20 ; myLoop >= min ; myLoop++ ){ 
+                                               let myAnswer = Loop - 2 ;
+                                               myTemp += 'LoopNum: ' + myAnswer + '<br>'
                                                document.getElementById('Div5').innerHTML = myTemp 
                             
                             }"> 
