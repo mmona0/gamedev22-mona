@@ -104,22 +104,13 @@ function keyupFunction() {
 
 <h4> Event 5 </h4> 
 
-<style>
-#divscroll {
-  border: 1px solid black;
-  width: 200px;
-  height: 100px;
-  overflow: scroll;
-}
-</style>
-<div id="divscroll" onscroll="myFunction()"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+<img onload="myFunction()" src="https://th.bing.com/th/id/OIP.A-mn7nSruBp2nzOKOEnUOAHaGF?pid=ImgDet&rs=1"></img>
 
-<p>Scrolled <span id="myIn05">0</span> times.</p>
+<p id="P3"></p>
 
 <script>
-let x = 0;
 function myFunction() {
-  document.getElementById("myIn05").innerHTML = x += 1;
+  document.getElementById("P3").innerHTML = "Img is loaded.";
 }
 </script>
 
