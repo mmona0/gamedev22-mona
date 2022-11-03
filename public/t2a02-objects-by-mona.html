@@ -1,4 +1,4 @@
-Version 0.4.5
+Version 0.4.6
 
 <h2 align=center> t2a02-Objects-by-Mona.html </h2> 
 <a href="">Good reference to Javascript Objects</a><br> 
@@ -104,22 +104,22 @@ Math with Objects:
        
 <h4> Object 4 </h4> 
 
-rect high in cm: <input type=text id="myText06" value="1" > <br> 
-rect width in cm: <input type=text id="myText07" value="2" > <br> 
+rect high in cm: <input type=number id="myText06" value="1" > <br> 
+rect width in cm: <input type=number id="myText07" value="2" > <br> 
 
 
 <input type=button value="show" onClick="{ 
        
 let rect = { 
-                 'high' : document.getElementById('myText06').value, 
-                 'width': document.getElementById('myText07').value 
+                 'high' : parseInt(document.getElementById('myText06').value), 
+                 'width': parseInt(document.getElementById('myText07').value)
                  } ; 
 
 rect.getArea = rect.high * rect.width;
                                          
 
                                          
- document.getElementById('myDiv04').innerHTML =  "The Area is " + rect.getArea() ;
+ document.getElementById('myDiv04').innerHTML =  "The Area is " + rect.getArea ;
 }">
 
 <div id="myDiv04"> ... </div> 
