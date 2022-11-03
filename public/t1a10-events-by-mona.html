@@ -125,3 +125,45 @@ function myFunction() {
 }
 </script>
 
+<h4> Event 6 </h4> 
+<pre> onclick: </pre>
+<input type=number id=myNum0601 value="4">
+<input type=number id=myNum0602 value="2">
+<input type=button value="add" onclick="{
+                                        let x = document.getElementById('myNum0601').value
+                                        let y = document.getElementById('myNum0602').value
+                                        let myAnswer = x + y
+                                        document.getElementById('Div06').innerHTML = myAnswer
+                                        }">
+<div id="Div06"> </div>
+
+<h4> Event 7 </h4> 
+
+<div onmousedown="WhichButton(event)">Click this text with one of your mouse buttons to return a number.
+  <p>
+  0 = The left mouse button<br>
+  1 = The middle mouse button<br>
+  2 = The right mouse button
+  </p>
+</div>
+
+<script>
+function WhichButton(event) {
+  alert("You pressed button: " + event.button)
+}
+</script>
+
+<h4> Event 8 </h4> 
+
+<form id="myForm" action="/action_page.php">
+  Enter name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", myFunction);
+
+function myFunction() {
+  alert("The form was submitted");
+}
+</script>
