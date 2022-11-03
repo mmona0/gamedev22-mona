@@ -1,4 +1,4 @@
-Version 0.4.3
+Version 0.4.4
 
 <h2 align=center> t2a02-Objects-by-Mona.html </h2> 
 <a href="">Good reference to Javascript Objects</a><br> 
@@ -114,22 +114,31 @@ let rect = {
                  'high' : document.getElementById('myText06').value, 
                  'width': document.getElementById('myText07').value 
                  } ; 
+
+rect.getArea = functionArea() { 
+                               return this.high * this.width;
+                              }; 
+                                         
+
+                                         
+ document.getElementById('myDiv04').innerHTML =  "The Area is " + rect.getArea() ;
+}">
+
+<div id="myDiv04"> ... </div> 
+
+<pre> 
+document.getElementById('myDiv04').innerHTML += 'The color of the Area is ' + colorofArea + '.'  
+
+
+let colorofArea = 'write red, blue or green' ;                                        
+if(document.getElementById('myText08').value = "red") { colorofArea = rect.color.red }
+if(document.getElementById('myText08').value = "blue") { colorofArea = rect.color,blue}
+if(document.getElementById('myText08').value = "green") { colorofArea = rect.color.green}
+
+
 rect.color = { 
                       'red' : 'red' 
                       'blue': 'blue'
                       'green' : 'green' 
                       } ;
-rect.getArea = functionArea() { 
-                               return this.high * this.width;
-                              }; 
-                                         
-let colorofArea = 'write red, blue or green' ;                                        
-if(document.getElementById('myText08').value = "red") { colorofArea = rect.color.red }
-if(document.getElementById('myText08').value = "blue") { colorofArea = rect.color,blue}
-if(document.getElementById('myText08').value = "green") { colorofArea = rect.color.green}
-                                         
- document.getElementById('myDiv04').innerHTML =  "The Area is " + rect.getArea() ;
- document.getElementById('myDiv04').innerHTML += 'The color of the Area is ' + colorofArea + '.'                                                  
-  }">
-
-<div id="myDiv04"> ... </div> 
+</pre> 
