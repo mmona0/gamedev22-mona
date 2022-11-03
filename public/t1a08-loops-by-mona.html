@@ -1,4 +1,4 @@
-version 0.3.1
+version 0.4.1
 
 <h2 align=center> t1a08-loops-by-mona.html </h2> 
 
@@ -92,3 +92,21 @@ max loops:
 
 <h5> Random loop code 4 </h5> 
 
+max loops: 
+<input type=number id="myNum04" value="5"> 
+<input type=button value="click here" onclick="{
+                                          document.getElementById('Div5').innerHTML = '' 
+                                          let myTemp= '' 
+                                          let max = parseFloat(document.getElementById('myNum04').value)
+                                               for (let myLoop = 1 ; myLoop <= max ; myLoop++ ){ 
+                                               myTemp += 'LoopNum: ' + myLoop + '<br>'
+                                               for (let myLoopOther = 1 ; myLoopOther <= max ; myLoopOther++ ){ 
+                                               myTemp += '...LoopNum: ' + myLoopOther + '<br>'
+                                               } 
+                                               document.getElementById('Div5').innerHTML = myTemp 
+                            
+                            }"> 
+
+<div id="Div5"> </div> 
+<br>
+<hr> 
