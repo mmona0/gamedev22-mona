@@ -1,4 +1,4 @@
-Version 0.3.3
+Version 0.6.1
 
 <h2 align=center>t1a06-variables-by-mona.html</h2>
 
@@ -69,10 +69,10 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 <input type=number id="Num2" value="4" >
 <input type=number id="Num3" value="3" >
 
-<input type=button value="submit" onclick="{
+<input type=button value="add" onclick="{
                                            let x = document.getElementById('Num2').value
                                            let y = document.getElementById('Num3').value
-                                           let myAnswer = x + y
+                                           let myAnswer = x ++ y
                                            document.getElementById('Div4').innerHTML = myAnswer 
                                            }">
 <div id="Div4"> </div>
@@ -94,6 +94,31 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 
 <hr>
 
+<h4> Variable 5 </h4> 
 
+<input type=number id="Num4" value="3">
+<input type=number id="Num5" value="2">
+<input type=button value="divide" onclick="{
+                                           let x = document.getElementById('Num2').value
+                                           let y = document.getElementById('Num3').value
+                                           let myAnswer = x/y
+                                           document.getElementById('Div5').innerHTML = myAnswer 
+                                           }">
+<div id="Div5"> </div>
+<hr>
+
+<h4> Variable 6 </h4> 
+
+
+
+<hr>
+
+<h4> Variable 7 </h4> 
+
+
+
+<hr>
+
+<h4> Variable 8 </h4> 
 
 
