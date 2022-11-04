@@ -1,5 +1,5 @@
 
-Version 0.3.17
+Version 0.4.1
 
 <h2 align=center>t2a01-arrays-by-mona.html</h2>
 
@@ -109,27 +109,26 @@ Number between 1-10: <input type=number id="myNum01" value="5" min="1" max="10" 
 <hr>
 
 <h5> Array code 3 </h5>
-
-<input type=text id="myText04" value="3"><br>
-
-<input type=button value="Example onClick" onClick="{
-   let myTemp = document.getElementById('myText04').value
-   let mySum = ''
-   document.getElementById('myDiv04').innerHTML = ' '
-                      
-  myArray = newArray() 
- 
-
-   for (let myLoop=0;   myLoop < myTemp;  myLoop++)
-   { 
-      mySum += 'LoopNum: ' + myLoop + '<br> ' 
-      for (let myLoopOther=0; myLoopOther < myTemp; myLoopOther++) 
-                                                    { 
-                                                    myArray[myLoop] = myLoopOther;
-                                                    mySum +='.. ArrayNum: ' + myArray[myloop] + '<br> '
-                                                    } 
-   }
-   document.getElementById('myDiv04').innerHTML = mySum
-}">
-
-<div id="myDiv04">...</div>
+change background color with array.  
+number between 1-9: <input type=number id="myNum02" value="3" max="9" ><br>
+<input type=button value="click here" onClick="colorchange()">
+ <style>
+    body{
+      background-color: white;
+    }
+  </style>
+<script>
+                                               let myIn01 = parseInt(document.getElementById('myNum02').value) 
+                                               myArray = newArray()
+                                                    myArray[1] = 'yellow' 
+                                                    myArray[2] = 'red' 
+                                                    myArray[3] = 'blue' 
+                                                    myArray[4] = 'beige' 
+                                                    myArray[5] = 'green' 
+                                                    myArray[6] = 'pink' 
+                                                    myArray[7] = 'purple' 
+                                                    myArray[8] = 'orange' 
+                                                    myArray[9] = 'black' 
+   
+                                              document.getElementsByTagName("body")[0].style.backgroundColor = myArray[myIn01]
+</script>
