@@ -1,4 +1,4 @@
-Version 0.4.6
+Version 0.4.7
 
 <h2 align=center> t2a02-Objects-by-Mona.html </h2> 
 <a href="">Good reference to Javascript Objects</a><br> 
@@ -104,41 +104,26 @@ Math with Objects:
        
 <h4> Object 4 </h4> 
 
-rect high in cm: <input type=number id="myText06" value="1" > <br> 
-rect width in cm: <input type=number id="myText07" value="2" > <br> 
+make your car: <br>
 
-
-<input type=button value="show" onClick="{ 
+<input type=text id="myText06" value="model" > <br> 
+<input type=text id="myText07" value="year" > <br> 
+<input type=button value="create car" onClick="{ 
        
-let rect = { 
-                 'high' : parseInt(document.getElementById('myText06').value), 
-                 'width': parseInt(document.getElementById('myText07').value)
-                 } ; 
-
-rect.getArea = rect.high * rect.width;
-                                         
-
-                                         
- document.getElementById('myDiv04').innerHTML =  "The Area is " + rect.getArea ;
-}">
+        let createcar = { 
+        'model' : document.getElementById('myText06').value,
+        'year' : document.getElementById('myText07').value
+         }
+                                                  
+        document.getElementById('myDiv04').innerHTML = ' The car model you choose was: ' + createcar.model + ' and the car year you choose was ' + createcar.year 
+        }">
 
 <div id="myDiv04"> ... </div> 
 
-<pre> 
-document.getElementById('myDiv04').innerHTML += 'The color of the Area is ' + colorofArea + '.'  
+
+<hr> 
+
+<h4> Object 5 </h4>
 
 
-let colorofArea = 'write red, blue or green' ;                                        
-if(document.getElementById('myText08').value = "red") { colorofArea = rect.color.red }
-if(document.getElementById('myText08').value = "blue") { colorofArea = rect.color,blue}
-if(document.getElementById('myText08').value = "green") { colorofArea = rect.color.green}
 
-
-rect.color = { 
-                      'red' : 'red' 
-                      'blue': 'blue'
-                      'green' : 'green' 
-                      } ;
-                      
-                      rect color (red, green or blue): <input type=text id="myText08" value="red" > <br>
-</pre> 
