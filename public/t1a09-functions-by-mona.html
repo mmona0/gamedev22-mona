@@ -29,9 +29,15 @@ function myExampleFunction3(){
     return myReply4 
  } 
    
+  function myExampleFunction5(){
+     let myIn05 = document.getElementById('myNum04').value
+     let myIn06 = document.getElementById('myNum05').value
+     let myReply = myIn05 / myIn06 
+     return myReply
+  } 
 </script>
 
-Version 0.3.3
+Version 0.4.1
 
 <h2 align=center>t1a09-functions-by-mona.html</h2>
 
@@ -99,3 +105,15 @@ function myGrabNumber(){
    <div id="myDiv04" > ... </div> 
 
 <hr> 
+<h5> Function 4 </h5> 
+
+<input type=text id="myNum04" value="3"><br>
+<input type=text id="myNum05" value="3"><br>
+
+<input type=button value="Function Example" onClick="{
+   document.getElementById('myDiv05').innerHTML =  myExampleFunction5()
+}">
+
+<div id="myDiv05">...</div>
+
+<hr>
