@@ -1,4 +1,4 @@
-Version 0.4.7
+Version 0.5.1
 
 <h2 align=center> t2a02-Objects-by-Mona.html </h2> 
 <a href="">Good reference to Javascript Objects</a><br> 
@@ -115,7 +115,7 @@ make your car: <br>
         'year' : document.getElementById('myText07').value
          }
                                                   
-        document.getElementById('myDiv04').innerHTML = ' The car model you choose was: ' + createcar.model + ' and the car year you choose was ' + createcar.year 
+        document.getElementById('myDiv04').innerHTML = ' The car model you choose was ' + createcar.model + ' and the car year you choose was ' + createcar.year 
         }">
 
 <div id="myDiv04"> ... </div> 
@@ -125,5 +125,22 @@ make your car: <br>
 
 <h4> Object 5 </h4>
 
+<input type=button value="show object" onclick="{
+                                                
+                                                let phones = {
+                                                'one' = 'apple' 
+                                                'two' = 'samsung' 
+                                                'three' = 'huawai'
+                                                'four' = 'nokia' 
+                                                }
+                                                
+                                                document.getElementById('myDiv05').innerHTML = 'cell phone brands: ' + phones.one + ' ' + phones.two + ' ' + phones.three + ' ' + phones.four + ' <br> '  
+                                                
+                                                }">
 
+<div id="myDiv05"> </div>
+
+<hr>
+
+<h4> Objects 6 </h4> 
 
