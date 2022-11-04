@@ -1,6 +1,6 @@
 <html>
 <body style="background-color: white;" >
-Version 0.3.17
+Version 0.3.18
 
 <h2 align=center>t2a01-arrays-by-mona.html</h2>
 
@@ -111,11 +111,11 @@ Number between 1-10: <input type=number id="myNum01" value="5" min="1" max="10" 
 
 <h5> Array code 3 </h5>
 <input type=button value="let code work" onclick="{	
-	var house = ['1BHK', 25000, "2BHK', 50000, 'Rent', true];
+	var house = ['1BHK', 25000, '2BHK', 50000, 'Rent', true];
 	var len = house.length;
 	var myTemp = ''
 	for (var i = 0; i < len; i++) { 
-         myTemp += house[i] + <br>  
+         myTemp += house[i] + '<br>' ; 
 	}
 	document.getElementById('myDiv04').innerHTML = myTemp
 }">
