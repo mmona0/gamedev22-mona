@@ -1,4 +1,4 @@
-Version 0.3.1
+Version 0.3.2
 <html> 
   <style>
     body{
@@ -144,7 +144,25 @@ if (time < 10) {
 document.getElementById("myP2").innerHTML = greeting;
 </script>
              
-             
+ <hr> 
+ <h4> Is your number 3? </h4> 
+ <input type=number id="Num3" value="4"> 
+ <input type=button value="click here" onclick="{ 
+                                                
+                                                let x = document.getElementById('Num3').value
+                                                let myAnswer = '' 
+                                                if(x = 3){ 
+                                                myAnswer = 'Yes, it is' 
+                                                } 
+                                                else { 
+                                                myAnswer = 'No, it is ' + x 
+                                                } 
+                                                
+                                                document.getElementById('Div05').innerHTML = myAmswer 
+                                                
+                                                }"> 
+                                                
+                                                <div id="Div05" > </div> 
              
   </body> 
   </html>
