@@ -1,5 +1,5 @@
 
-Version 0.3.1
+Version 0.3.2
 
 <h2 align=center>t2a01-arrays-by-mona.html</h2>
 
@@ -110,14 +110,16 @@ Number between 1-10: <input type=number id="myNum01" value="5" min="1" max="10" 
 
 <h5> Array code 3 </h5>
 change background color with array.  
-number between 1-9: <input type=number id="myNum02" value="3" max="9" ><br>
-<input type=button value="click here" onClick="colorchange()">
+number between 1-9: <input type=number id="myNum02" value="3" max="9" min="1"><br>
+<input type=button value="click here" onclick="colorchange()">
  <style>
     body{
       background-color: white;
     }
   </style>
 <script>
+   
+   function colorchange() {
                                                let myIn01 = parseInt(document.getElementById('myNum02').value) 
                                                myArray = newArray()
                                                     myArray[1] = 'yellow' 
@@ -131,4 +133,5 @@ number between 1-9: <input type=number id="myNum02" value="3" max="9" ><br>
                                                     myArray[9] = 'black' 
    
                                               document.getElementsByTagName("body")[0].style.backgroundColor = myArray[myIn01]
+   }
 </script>
