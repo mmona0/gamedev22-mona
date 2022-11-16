@@ -1,4 +1,4 @@
-0.1.3
+0.1.5
 <h1 align=center>t2a06-spy-mona.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
@@ -73,8 +73,6 @@
       if (myString[myLoop] == ')') {myTemp  = '('} 
       if (myString[myLoop] == ';') {myTemp  = ':'} 
       if (myString[myLoop] == ':') {myTemp  = ';'} 
-      if (myString[myLoop] == '`') {myTemp  = '"'} 
-      if (myString[myLoop] == '"') {myTemp  = '`'} 
       if (myString[myLoop] == '[') {myTemp  = '{'} 
       if (myString[myLoop] == '{') {myTemp  = '['} 
       if (myString[myLoop] == '}') {myTemp  = ']'} 
@@ -92,16 +90,16 @@
       if (myString[myLoop] == '@') {myTemp  = '!'} 
       if (myString[myLoop] == '!') {myTemp  = '@'}
                                 
-      if (myString[myLoop] == '1') {myTemp  = '0'} 
-      if (myString[myLoop] == '2') {myTemp  = '9'} 
-      if (myString[myLoop] == '3') {myTemp  = '8'} 
-      if (myString[myLoop] == '4') {myTemp  = '7'} 
-      if (myString[myLoop] == '5') {myTemp  = '6'} 
-      if (myString[myLoop] == '6') {myTemp  = '5'} 
-      if (myString[myLoop] == '7') {myTemp  = '4'} 
-      if (myString[myLoop] == '8') {myTemp  = '3'} 
-      if (myString[myLoop] == '9') {myTemp  = '2'} 
-      if (myString[myLoop] == '0') {myTemp  = '1'} 
+      if (myString[myLoop] == '1') {myTemp  = '7'} 
+      if (myString[myLoop] == '2') {myTemp  = '3'} 
+      if (myString[myLoop] == '3') {myTemp  = '2'} 
+      if (myString[myLoop] == '4') {myTemp  = '8'} 
+      if (myString[myLoop] == '5') {myTemp  = '0'} 
+      if (myString[myLoop] == '6') {myTemp  = '9'} 
+      if (myString[myLoop] == '7') {myTemp  = '1'} 
+      if (myString[myLoop] == '8') {myTemp  = '4'} 
+      if (myString[myLoop] == '9') {myTemp  = '6'} 
+      if (myString[myLoop] == '0') {myTemp  = '5'} 
                     
   
       myString[myLoop] = myTemp
@@ -156,8 +154,6 @@
       if (myString[myLoop] == ')') {myTemp  = '('} 
       if (myString[myLoop] == ';') {myTemp  = ':'} 
       if (myString[myLoop] == ':') {myTemp  = ';'} 
-      if (myString[myLoop] == '`') {myTemp  = '"'} 
-      if (myString[myLoop] == '"') {myTemp  = '`'} 
       if (myString[myLoop] == '[') {myTemp  = '{'} 
       if (myString[myLoop] == '{') {myTemp  = '['} 
       if (myString[myLoop] == '}') {myTemp  = ']'} 
@@ -174,16 +170,16 @@
       if (myString[myLoop] == '#') {myTemp  = '$'}
       if (myString[myLoop] == '@') {myTemp  = '!'} 
       if (myString[myLoop] == '!') {myTemp  = '@'}
-      if (myString[myLoop] == '1') {myTemp  = '0'} 
-      if (myString[myLoop] == '2') {myTemp  = '9'} 
-      if (myString[myLoop] == '3') {myTemp  = '8'} 
-      if (myString[myLoop] == '4') {myTemp  = '7'} 
-      if (myString[myLoop] == '5') {myTemp  = '6'} 
-      if (myString[myLoop] == '6') {myTemp  = '5'} 
-      if (myString[myLoop] == '7') {myTemp  = '4'} 
-      if (myString[myLoop] == '8') {myTemp  = '3'} 
-      if (myString[myLoop] == '9') {myTemp  = '2'} 
-      if (myString[myLoop] == '0') {myTemp  = '1'} 
+      if (myString[myLoop] == '1') {myTemp  = '7'} 
+      if (myString[myLoop] == '2') {myTemp  = '3'} 
+      if (myString[myLoop] == '3') {myTemp  = '2'} 
+      if (myString[myLoop] == '4') {myTemp  = '8'} 
+      if (myString[myLoop] == '5') {myTemp  = '0'} 
+      if (myString[myLoop] == '6') {myTemp  = '9'} 
+      if (myString[myLoop] == '7') {myTemp  = '1'} 
+      if (myString[myLoop] == '8') {myTemp  = '4'} 
+      if (myString[myLoop] == '9') {myTemp  = '6'} 
+      if (myString[myLoop] == '0') {myTemp  = '5'} 
       myString[myLoop] = myTemp
    }
    document.getElementById('myArea06').value = myString.join('')
