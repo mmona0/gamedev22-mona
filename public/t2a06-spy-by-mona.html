@@ -1,4 +1,4 @@
-0.1.7
+0.1.8
 <h1 align=center>t2a06-spy-mona.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
@@ -20,7 +20,15 @@
 <textarea id="myArea02" rows=4 cols=70></textarea><br> 
 
 <input type=button value="decrypt" onclick="{
-   alert('Sorry, you have to do this!')
+    let myTemp = ''
+   myString = document.getElementById('myArea01').value.toLowerCase().split('')
+   for (let myLoop=0;   myLoop < myString.length; myLoop++){
+      myTemp = myString[myLoop]
+      if (myString[myLoop] == 'f') {myTemp  = 'e'} 
+      if (myString[myLoop] == 't') {myTemp  = 'r'} 
+      myString[myLoop] = myTemp
+   }
+   document.getElementById('myArea02').value = myString.join('')
 }"><br><br>
 
 
@@ -62,32 +70,7 @@
       if (myString[myLoop] == 'b') {myTemp  = 'n'} 
       if (myString[myLoop] == 'n') {myTemp  = 'm'} 
       if (myString[myLoop] == 'm') {myTemp  = 'z'} 
-      if (myString[myLoop] == '.') {myTemp  = '+'} 
-      if (myString[myLoop] == '+') {myTemp  = '.'} 
-      if (myString[myLoop] == ',') {myTemp  = '='} 
-      if (myString[myLoop] == '/') {myTemp  = '?'} 
-      if (myString[myLoop] == '?') {myTemp  = '/'} 
-      if (myString[myLoop] == '<') {myTemp  = '>'} 
-      if (myString[myLoop] == '>') {myTemp  = '<'} 
-      if (myString[myLoop] == '(') {myTemp  = ')'} 
-      if (myString[myLoop] == ')') {myTemp  = '('} 
-      if (myString[myLoop] == ';') {myTemp  = ':'} 
-      if (myString[myLoop] == ':') {myTemp  = ';'} 
-      if (myString[myLoop] == '[') {myTemp  = '{'} 
-      if (myString[myLoop] == '{') {myTemp  = '['} 
-      if (myString[myLoop] == '}') {myTemp  = ']'} 
-      if (myString[myLoop] == ']') {myTemp  = '}'} 
-      if (myString[myLoop] == '\') {myTemp  = '|'} 
-      if (myString[myLoop] == '|') {myTemp  = '\'} 
-      if (myString[myLoop] == '-') {myTemp  = '*'} 
-      if (myString[myLoop] == '*') {myTemp  = '-'} 
-      if (myString[myLoop] == '_') {myTemp  = '&'} 
-      if (myString[myLoop] == '&') {myTemp  = '_'} 
-      if (myString[myLoop] == '^') {myTemp  = '%'} 
-      if (myString[myLoop] == '%') {myTemp  = '^'} 
-      if (myString[myLoop] == '$') {myTemp  = '#'} 
-      if (myString[myLoop] == '#') {myTemp  = '$'}
-      if (myString[myLoop] == '@') {myTemp  = '!'} 
+
       if (myString[myLoop] == '!') {myTemp  = '@'}
       if (myString[myLoop] == '1') {myTemp  = '7'} 
       if (myString[myLoop] == '2') {myTemp  = '3'} 
@@ -168,33 +151,7 @@
       if (myString[myLoop] == 'n') {myTemp  = 'b'} 
       if (myString[myLoop] == 'm') {myTemp  = 'n'} 
       if (myString[myLoop] == 'z') {myTemp  = 'm'} 
-      if (myString[myLoop] == '.') {myTemp  = '+'} 
-      if (myString[myLoop] == '+') {myTemp  = '.'} 
-      if (myString[myLoop] == ',') {myTemp  = '='} 
-      if (myString[myLoop] == '/') {myTemp  = '?'} 
-      if (myString[myLoop] == '?') {myTemp  = '/'} 
-      if (myString[myLoop] == '<') {myTemp  = '>'} 
-      if (myString[myLoop] == '>') {myTemp  = '<'} 
-      if (myString[myLoop] == '(') {myTemp  = ')'} 
-      if (myString[myLoop] == ')') {myTemp  = '('} 
-      if (myString[myLoop] == ';') {myTemp  = ':'} 
-      if (myString[myLoop] == ':') {myTemp  = ';'} 
-      if (myString[myLoop] == '[') {myTemp  = '{'} 
-      if (myString[myLoop] == '{') {myTemp  = '['} 
-      if (myString[myLoop] == '}') {myTemp  = ']'} 
-      if (myString[myLoop] == ']') {myTemp  = '}'} 
-      if (myString[myLoop] == '\') {myTemp  = '|'} 
-      if (myString[myLoop] == '|') {myTemp  = '\'} 
-      if (myString[myLoop] == '-') {myTemp  = '*'} 
-      if (myString[myLoop] == '*') {myTemp  = '-'} 
-      if (myString[myLoop] == '_') {myTemp  = '&'} 
-      if (myString[myLoop] == '&') {myTemp  = '_'} 
-      if (myString[myLoop] == '^') {myTemp  = '%'} 
-      if (myString[myLoop] == '%') {myTemp  = '^'} 
-      if (myString[myLoop] == '$') {myTemp  = '#'} 
-      if (myString[myLoop] == '#') {myTemp  = '$'}
-      if (myString[myLoop] == '@') {myTemp  = '!'} 
-      if (myString[myLoop] == '!') {myTemp  = '@'}
+
       if (myString[myLoop] == '1') {myTemp  = '7'} 
       if (myString[myLoop] == '2') {myTemp  = '3'} 
       if (myString[myLoop] == '3') {myTemp  = '2'} 
@@ -240,3 +197,60 @@
 
 
 
+<pre> 
+      if (myString[myLoop] == '.') {myTemp  = '+'} 
+      if (myString[myLoop] == '+') {myTemp  = '.'} 
+      if (myString[myLoop] == ',') {myTemp  = '='} 
+      if (myString[myLoop] == '/') {myTemp  = '?'} 
+      if (myString[myLoop] == '?') {myTemp  = '/'} 
+      if (myString[myLoop] == '<') {myTemp  = '>'} 
+      if (myString[myLoop] == '>') {myTemp  = '<'} 
+      if (myString[myLoop] == '(') {myTemp  = ')'} 
+      if (myString[myLoop] == ')') {myTemp  = '('} 
+      if (myString[myLoop] == ';') {myTemp  = ':'} 
+      if (myString[myLoop] == ':') {myTemp  = ';'} 
+      if (myString[myLoop] == '[') {myTemp  = '{'} 
+      if (myString[myLoop] == '{') {myTemp  = '['} 
+      if (myString[myLoop] == '}') {myTemp  = ']'} 
+      if (myString[myLoop] == ']') {myTemp  = '}'} 
+      if (myString[myLoop] == '\') {myTemp  = '|'} 
+      if (myString[myLoop] == '|') {myTemp  = '\'} 
+      if (myString[myLoop] == '-') {myTemp  = '*'} 
+      if (myString[myLoop] == '*') {myTemp  = '-'} 
+      if (myString[myLoop] == '_') {myTemp  = '&'} 
+      if (myString[myLoop] == '&') {myTemp  = '_'} 
+      if (myString[myLoop] == '^') {myTemp  = '%'} 
+      if (myString[myLoop] == '%') {myTemp  = '^'} 
+      if (myString[myLoop] == '$') {myTemp  = '#'} 
+      if (myString[myLoop] == '#') {myTemp  = '$'}
+      if (myString[myLoop] == '@') {myTemp  = '!'} 
+         
+         
+               if (myString[myLoop] == '.') {myTemp  = '+'} 
+      if (myString[myLoop] == '+') {myTemp  = '.'} 
+      if (myString[myLoop] == ',') {myTemp  = '='} 
+      if (myString[myLoop] == '/') {myTemp  = '?'} 
+      if (myString[myLoop] == '?') {myTemp  = '/'} 
+      if (myString[myLoop] == '<') {myTemp  = '>'} 
+      if (myString[myLoop] == '>') {myTemp  = '<'} 
+      if (myString[myLoop] == '(') {myTemp  = ')'} 
+      if (myString[myLoop] == ')') {myTemp  = '('} 
+      if (myString[myLoop] == ';') {myTemp  = ':'} 
+      if (myString[myLoop] == ':') {myTemp  = ';'} 
+      if (myString[myLoop] == '[') {myTemp  = '{'} 
+      if (myString[myLoop] == '{') {myTemp  = '['} 
+      if (myString[myLoop] == '}') {myTemp  = ']'} 
+      if (myString[myLoop] == ']') {myTemp  = '}'} 
+      if (myString[myLoop] == '\') {myTemp  = '|'} 
+      if (myString[myLoop] == '|') {myTemp  = '\'} 
+      if (myString[myLoop] == '-') {myTemp  = '*'} 
+      if (myString[myLoop] == '*') {myTemp  = '-'} 
+      if (myString[myLoop] == '_') {myTemp  = '&'} 
+      if (myString[myLoop] == '&') {myTemp  = '_'} 
+      if (myString[myLoop] == '^') {myTemp  = '%'} 
+      if (myString[myLoop] == '%') {myTemp  = '^'} 
+      if (myString[myLoop] == '$') {myTemp  = '#'} 
+      if (myString[myLoop] == '#') {myTemp  = '$'}
+      if (myString[myLoop] == '@') {myTemp  = '!'} 
+      if (myString[myLoop] == '!') {myTemp  = '@'}
+</pre
