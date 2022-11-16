@@ -91,6 +91,11 @@
       if (myString[myLoop] == '*') {myTemp  = '-'} 
       if (myString[myLoop] == '_') {myTemp  = '&'} 
       if (myString[myLoop] == '&') {myTemp  = '_'} 
+      if (myString[myLoop] == '^') {myTemp  = '%'} 
+      if (myString[myLoop] == '%') {myTemp  = '^'} 
+      if (myString[myLoop] == '$') {myTemp  = '#'} 
+      if (myString[myLoop] == '#') {myTemp  = '$'}
+      if (myString[myLoop] == '@') {myTemp  = '!'} 
 
       if (myString[myLoop] == '!') {myTemp  = '@'}
       if (myString[myLoop] == '1') {myTemp  = '7'} 
@@ -193,6 +198,12 @@
       if (myString[myLoop] == '*') {myTemp  = '-'} 
       if (myString[myLoop] == '_') {myTemp  = '&'} 
       if (myString[myLoop] == '&') {myTemp  = '_'}
+      if (myString[myLoop] == '^') {myTemp  = '%'} 
+      if (myString[myLoop] == '%') {myTemp  = '^'} 
+      if (myString[myLoop] == '$') {myTemp  = '#'} 
+      if (myString[myLoop] == '#') {myTemp  = '$'}
+      if (myString[myLoop] == '@') {myTemp  = '!'}
+      if (myString[myLoop] == '!') {myTemp  = '@'} 
 
       if (myString[myLoop] == '1') {myTemp  = '7'} 
       if (myString[myLoop] == '2') {myTemp  = '3'} 
@@ -239,20 +250,3 @@
 
 
 
-<pre> 
-        
-      if (myString[myLoop] == '^') {myTemp  = '%'} 
-      if (myString[myLoop] == '%') {myTemp  = '^'} 
-      if (myString[myLoop] == '$') {myTemp  = '#'} 
-      if (myString[myLoop] == '#') {myTemp  = '$'}
-      if (myString[myLoop] == '@') {myTemp  = '!'} 
-         
-         
-        
-      if (myString[myLoop] == '^') {myTemp  = '%'} 
-      if (myString[myLoop] == '%') {myTemp  = '^'} 
-      if (myString[myLoop] == '$') {myTemp  = '#'} 
-      if (myString[myLoop] == '#') {myTemp  = '$'}
-      if (myString[myLoop] == '@') {myTemp  = '!'} 
-      if (myString[myLoop] == '!') {myTemp  = '@'}
-</pre
