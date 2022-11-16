@@ -1,4 +1,4 @@
-0.1.8
+0.1.9
 <h1 align=center>t2a06-spy-mona.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
@@ -122,7 +122,7 @@
 <input type=button value="decrypt" onclick="{
 
   let myTemp = ''
-   myString = document.getElementById('myArea05').value.toLowerCase().split('')
+   myString = document.getElementById('myArea05').value.split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
       myTemp = myString[myLoop]
       if (myString[myLoop] == 'r') {myTemp  = 'e'} 
