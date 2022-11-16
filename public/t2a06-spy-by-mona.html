@@ -1,4 +1,4 @@
-0.1.10
+0.1.11
 <h1 align=center>t2a06-spy-mona.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
@@ -72,7 +72,9 @@
       if (myString[myLoop] == 'm') {myTemp  = 'z'} 
                                             
       if (myString[myLoop] == '.') {myTemp  = '+'} 
-      if (myString[myLoop] == '+') {myTemp  = '.'} 
+      if (myString[myLoop] == '+') {myTemp  = '.'}
+      if (myString[myLoop] == ',') {myTemp  = '='}
+      if (myString[myLoop] == '=') {myTemp  = ','} 
 
       if (myString[myLoop] == '!') {myTemp  = '@'}
       if (myString[myLoop] == '1') {myTemp  = '7'} 
@@ -156,7 +158,9 @@
       if (myString[myLoop] == 'z') {myTemp  = 'm'} 
                                             
       if (myString[myLoop] == '.') {myTemp  = '+'} 
-      if (myString[myLoop] == '+') {myTemp  = '.'}                                      
+      if (myString[myLoop] == '+') {myTemp  = '.'}
+      if (myString[myLoop] == ',') {myTemp  = '='}
+      if (myString[myLoop] == '=') {myTemp  = ','}
 
       if (myString[myLoop] == '1') {myTemp  = '7'} 
       if (myString[myLoop] == '2') {myTemp  = '3'} 
@@ -204,8 +208,7 @@
 
 
 <pre> 
-      
-      if (myString[myLoop] == ',') {myTemp  = '='} 
+       
       if (myString[myLoop] == '/') {myTemp  = '?'} 
       if (myString[myLoop] == '?') {myTemp  = '/'} 
       if (myString[myLoop] == '<') {myTemp  = '>'} 
@@ -231,8 +234,7 @@
       if (myString[myLoop] == '@') {myTemp  = '!'} 
          
          
-   
-      if (myString[myLoop] == ',') {myTemp  = '='} 
+    
       if (myString[myLoop] == '/') {myTemp  = '?'} 
       if (myString[myLoop] == '?') {myTemp  = '/'} 
       if (myString[myLoop] == '<') {myTemp  = '>'} 
