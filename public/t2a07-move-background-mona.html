@@ -23,8 +23,16 @@
 }">
 
          
-<input type=button value="Image Right" onclick="{
+<input type=button id="myButton02" value="Image Right" onclick="{
   document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
 }"><br><br>
+   
+<input type=button value="Auto Image Right" onclick="{
+  clearInterval(myClock)
+  myClock = setInterval(function(){
+     document.getElementById('myButton02').click() 
+  }, 100)
+    
+}">
 
 <img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://www.nicepng.com/png/detail/165-1655419_animated-green-lowrider-car-pictures-car-clip-art.png">
