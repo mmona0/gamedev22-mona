@@ -1,4 +1,4 @@
-Version 0.0.32
+Version 0.0.33
 
 <h1 align=center>Level 2</h1>
 
@@ -8,13 +8,8 @@ Version 0.0.32
   s = down 
 
 <script>
-   let myInterval
+   let myTimeout
  
-function myIsOnScreen(){
-   if (parseInt(document.getElementById('myDiv01').style.left) > 400) {
-     document.getElementById('myDiv01').style.left = '397px'
-   }
-}
 
 </script>
 
@@ -24,13 +19,12 @@ function myIsOnScreen(){
  //    let myKey = String.toLowerCase(event.key)
 
    if (myKey == 'd') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
+      clearTimeout(myTimeout)
+      myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.left = 
-             parseInt(document.getElementById('myCar').style.left) + 3
-         myIsOnScreen()
-      } ,20)
+             parseInt(document.getElementById('myCar').style.left) + 3 + 'px' 
+      } ,20 + 'px')
    }
 
 }">
