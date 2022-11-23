@@ -1,4 +1,4 @@
-Version 0.0.28
+Version 0.0.29
 
 <h1 align=center>Level 2</h1>
 
@@ -7,33 +7,42 @@ Version 0.0.28
   w = up 
   s = down 
 
-<script >
+
 <body onkeydown="myFunction()"> 
+<script >
+  let myTimeout
   
-  
-                   function myFunction() {
+  function myFunction() {
                  let myKey = event.key
                  let mykey = String.toLowerCase(event.key)
                  
                  if (myKey == 'd') {
-                 
+                 clearTimeout(myTimeout) 
+                 myTimeout = setTimeout(functiontwo(){
                  document.getElementById('myCar').style.left = parseInt(document.getElementById('myCar').style.left) + 10 + 'px';
                  }
+  } 
                  
                  if (myKey == 's') {
                  
+                 clearTimeout(myTimeout) 
+                 myTimeout = setTimeout(functiontwo(){
                  document.getElementById('myCar').style.top = parseInt(document.getElementById('myCar').style.top) + 10 + 'px' ;
                  }
-                 
+  }
                  if (myKey == 'a') {
                  
+                 clearTimeout(myTimeout) 
+                 myTimeout = setTimeout(functiontwo(){
                  document.getElementById('myCar').style.left = parseInt(document.getElementById('myCar').style.left) + -10 +'px' ;
                  }
-                 
+  }
                  if (myKey == 'w') {
                  
+                 clearTimeout(myTimeout) 
+                 myTimeout = setTimeout(functiontwo(){
                  document.getElementById('myCar').style.top = parseInt(document.getElementById('myCar').style.top) + -10 + 'px'  ;
-          
+                 }
                  }
                    } 
   </script> 
