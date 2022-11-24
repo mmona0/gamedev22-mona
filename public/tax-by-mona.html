@@ -1,0 +1,41 @@
+<html>
+  Version 0.0.1 
+  <h1> Tax-by-mona.html </h1> 
+  
+  <script> 
+    
+    let totalmoney 
+    let tax
+    let takehome
+    
+    function mydayfunction() { 
+      let x = parseInt(document.getElementById('moneyperhour').value)
+      let y = parseInt(document.getElementById('hoursworked').value)
+      let z = parseInt(document.getElementById('taxrate').value)
+      let totalmoney = x*y 
+      let tax = totalmoney*z/100
+      let takehome = totalmoney-tax
+      document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
+    } 
+  </script> 
+  
+  $ per hour: <input type=number id="moneyperhour" value="15"> 
+  <br> 
+  hours worked: <input type=number id="hoursworked" value="8"> 
+  <br> 
+  tax rate in %: <input type=number id="taxrate" value="30" > 
+  <br> 
+  <input type=button value="day" onclick="{
+                                          mydayfunction()
+                                          }"> 
+  
+  <input type=button value="month" onclick="{
+                                            
+                                            }"> 
+  
+  <input type=button value="year" onclick="{
+                                           
+                                           }"> 
+  
+    
+</html> 
