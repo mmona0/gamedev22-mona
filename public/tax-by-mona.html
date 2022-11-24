@@ -17,6 +17,26 @@
       let takehome = totalmoney-tax
       document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
     } 
+    
+    function mymonthfunction() { 
+      let x = parseInt(document.getElementById('moneyperhour').value)
+      let y = parseInt(document.getElementById('hoursworked').value)
+      let z = parseInt(document.getElementById('taxrate').value)
+      let totalmoney = x*y 
+      let tax = totalmoney*z/100
+      let takehome = totalmoney-tax
+      document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
+    } 
+    
+    function myyearfunction() { 
+      let x = parseInt(document.getElementById('moneyperhour').value)
+      let y = parseInt(document.getElementById('hoursworked').value)
+      let z = parseInt(document.getElementById('taxrate').value)
+      let totalmoney = x*y 
+      let tax = totalmoney*z/100
+      let takehome = totalmoney-tax
+      document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
+    } 
   </script> 
   
   $ per hour: <input type=number id="moneyperhour" value="15"> 
