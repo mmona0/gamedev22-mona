@@ -1,4 +1,4 @@
-Version 0.1.14
+Version 0.1.15
 <html> 
 <h1 align=center>Level 2</h1>
 
@@ -17,34 +17,39 @@ Version 0.1.14
      if( x + 80 >= 100 && y <= 80 && x <= 500) { 
      myTemp = '0px 200px' 
      } 
-     
-     return document.getElementById('myCar').style.backgroundPosition = myTemp 
+      document.getElementById('myCar').style.backgroundPosition = myTemp 
      } 
 </script>
 
 <body onkeydown="{
 
      let myKey = event.key
- //    let myKey = String.toLowerCase(event.key)
+ //  let myKey = String.toLowerCase(event.key)
 
    if (myKey == 'd') {
       clearTimeout(myTimeout)
+      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.left = 
              parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
       } ,20 + 'px')
    }
+                 
   if (myKey == 'a') {
       clearTimeout(myTimeout)
+      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.left = 
              parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
       } ,20 + 'px')
    }
+                 
    if (myKey == 'w') {
       clearTimeout(myTimeout)
+                 
+      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.top = 
@@ -54,6 +59,8 @@ Version 0.1.14
                  
      if (myKey == 's') {
       clearTimeout(myTimeout)
+                 
+      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.top = 
@@ -61,7 +68,6 @@ Version 0.1.14
       } ,20 + 'px')
    }
                  
-      checkfunction() 
 }">
                  
 <img id="myImg01" style="position:absolute; width:50px; height:457px; top:300px; left:100px;"  src="https://pngimage.net/wp-content/uploads/2018/06/red-rectangle-png-4.png">
