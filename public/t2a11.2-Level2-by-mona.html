@@ -1,4 +1,4 @@
-Version 0.1.15
+Version 0.1.16
 <html> 
 <h1 align=center>Level 2</h1>
 
@@ -11,13 +11,14 @@ Version 0.1.15
    let myTimeout
    
    function checkfunction() { 
-     let myTemp = document.getElementById('myCar').style.backgroundPosition
      let x = parseInt(document.getElementById('myCar').style.left)
      let y = parseInt(document.getElementById('myCar').style.top)
      if( x + 80 >= 100 && y <= 80 && x <= 500) { 
-     myTemp = '0px 200px' 
-     } 
-      document.getElementById('myCar').style.backgroundPosition = myTemp 
+       x = 0 
+       y = 200 
+     }  
+     document.getElementById('myCar').style.left = x + 'px' 
+     document.getElementById('myCar').style.top  = y + 'px' 
      } 
 </script>
 
