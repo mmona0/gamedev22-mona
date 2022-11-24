@@ -1,4 +1,4 @@
-0.1.20
+0.1.21
 <h1 align=center>t2a06-spy-mona.html</h1>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
@@ -97,8 +97,8 @@
       if (myString[myLoop] == '#') {myTemp  = '$'}
       if (myString[myLoop] == '@') {myTemp  = '!'} 
 
-      if (myString[myLoop] == '&quot;') {myTemp  = '&apos;'}
-      if (myString[myLoop] == '&apos;') {myTemp  = '&quot;'}
+      if (myString[myLoop] == ' &quot; ') {myTemp  = ' &apos; '}
+      if (myString[myLoop] == ' &apos; ') {myTemp  = ' &quot; '}
                                             
       if (myString[myLoop] == '!') {myTemp  = '@'}
                                             
