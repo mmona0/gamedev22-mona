@@ -1,5 +1,5 @@
 <html>
-  Version 0.0.2
+  Version 0.0.3
   <h1> Tax-by-mona.html </h1> 
   
   <script> 
@@ -15,27 +15,27 @@
       let totalmoney = x*y 
       let tax = totalmoney*z/100
       let takehome = totalmoney-tax
-      document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
+      document.getElementById('Div01').innerHTML = 'Total money: $' + totalmoney + '<br> Tax: $' + tax + '<br> Take home: $' + takehome 
     } 
     
     function mymonthfunction() { 
       let x = parseInt(document.getElementById('moneyperhour').value)
       let y = parseInt(document.getElementById('hoursworked').value)
       let z = parseInt(document.getElementById('taxrate').value)
-      let totalmoney = x*y 
+      let totalmoney = x*y*20
       let tax = totalmoney*z/100
       let takehome = totalmoney-tax
-      document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
+      document.getElementById('Div01').innerHTML = 'Total money: $' + totalmoney + '<br> Tax: $' + tax + '<br> Take home: $' + takehome 
     } 
     
     function myyearfunction() { 
       let x = parseInt(document.getElementById('moneyperhour').value)
       let y = parseInt(document.getElementById('hoursworked').value)
       let z = parseInt(document.getElementById('taxrate').value)
-      let totalmoney = x*y 
+      let totalmoney = x*y*20*12
       let tax = totalmoney*z/100
       let takehome = totalmoney-tax
-      document.getElementById('Div01').innerHTML = 'Total money: ' + totalmoney + '<br> Tax: ' + tax + '<br> Take home: ' + takehome 
+      document.getElementById('Div01').innerHTML = 'Total money: $' + totalmoney + '<br> Tax: $' + tax + '<br> Take home: $' + takehome 
     } 
   </script> 
   
@@ -50,11 +50,11 @@
                                           }"> 
   
   <input type=button value="month" onclick="{
-                                            
+                                            mymonthfunction()
                                             }"> 
   
   <input type=button value="year" onclick="{
-                                           
+                                           myyearfunction()
                                            }"> 
   <br> 
   
