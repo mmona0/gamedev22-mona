@@ -52,10 +52,10 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.fillStyle = 'black';
 }"><br><br> 
 
-<input type=button value="for loop .lineTo(30,200)" onclick="{
+<input type=button value="for loop .lineTo" onclick="{
                                                              myContext.beginPath();
-                                                             myContext.lineWidth = 1;   
-                                                             for (i=0 , i<55 , i++ ) { 
+                                                             myContext.lineWidth = 2;   
+                                                             for (i=0 , i < 55 , i++ ) { 
                                                              myContext.moveTo(i,i*4);
                                                              myContext.lineTo(i*10,i);
                                                              }
