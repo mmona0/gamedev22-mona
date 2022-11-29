@@ -1,4 +1,4 @@
-0.0.14
+0.0.15
 <h2 align=center>t2a08-canvas by Mona</h2>
 You use loops and variables to make fast fancy drawings <br><br>
 
@@ -19,6 +19,14 @@ You use loops and variables to make fast fancy drawings <br><br>
    }
    myContext.stroke();
 }">
+
+<input type=button value=" .rect(50,50,150,80)" onclick="{
+                                                         myContext.beginPath();
+myContext.lineWidth = "10";
+myContext.strokeStyle = "blue";
+myContext.rect(50, 50, 150, 80);
+myContext.stroke();
+                        }
 
 
 <input type=button value=".arc(95, 50, 40, 0, 2 * Math.PI)" onclick="{
