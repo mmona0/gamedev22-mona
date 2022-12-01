@@ -1,4 +1,4 @@
-0.0.7
+0.0.8
 <h1 align=center>t2a12 Sort by Mona</h1>
 
 <script>
@@ -30,6 +30,9 @@
                                          myCards[myLoop+1] = backup
                                          myTemptwo += myLoop + ' = '+ myCards[myLoop] + '<br>'
                                          }
+     if(myCards[myLoop] <= myCards[myLoop+1]){ 
+                                         myTemptwo += myLoop + ' = '+ myCards[myLoop] + '<br>'
+                                         } 
                                          
   }
           document.getElementById('myDiv01').innerHTML = myTemptwo                                  
