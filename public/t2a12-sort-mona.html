@@ -1,4 +1,4 @@
-0.0.4
+0.0.5
 <h1 align=center>t2a12 Sort by Mona</h1>
 
 <script>
@@ -22,21 +22,18 @@
 
 <input type=button value="Sort" onclick="{
   let backup = 0 
-  let myTemptwo = ''
   for ( let myLoop = 0;   myLoop < myMax+1;  myLoop++){
      if(myCards[myLoop] > myCards[myLoop+1]){
                                          backup = myCards[myLoop]
                                          myCards[myLoop] = myCards[myLoop+1]
                                          myCards[myLoop+1] = backup
-                                         myTemptwo += myLoop + ' = '+ myCards[myLoop] + '<br>'
                                          }
                                          
   }
-          document.getElementById('myDiv02').innerHTML = myTemptwo                                  
+          document.getElementById('myDiv01').innerHTML = myTemp                                  
 }">
 
 <div id="myDiv01"></div> <br> 
-<div id="myDiv02"></div>
 
 
 
