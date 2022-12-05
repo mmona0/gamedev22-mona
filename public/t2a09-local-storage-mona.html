@@ -29,14 +29,14 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 
    <hr> 
    
-   <h2> secondlocal storage <h2> 
+   <h2> secondlocal storage <h2> <br>
       
       <input type=text id="Text2" value="" placeholder="write something"><br> 
       <input type=button value="store" onclick="{
                                                 localStorage.setItem('myStoredText2', document.getElementById('Text2').value)
                                                 alert(document.getElementById('Text2').value + ' \nHas been stored')
                                                 document.getElementById('Text2').value = ''
-                                                }"> 
+                                                }"> <br>
       <input type=button value="delet stored value" onclick="{
                                                              
                                                              }"> 
