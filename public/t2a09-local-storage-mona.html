@@ -1,5 +1,5 @@
 <html> 
-   0.0.2
+   0.0.3
 
 <h2>t2a09-local-storage-mona by Mona. Instructions:</h2>
 
@@ -36,9 +36,11 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
                                                 localStorage.setItem('myStoredText2', document.getElementById('Text2').value)
                                                 alert(document.getElementById('Text2').value + ' \nHas been stored')
                                                 document.getElementById('Text2').value = ''
-                                                }"> <br>
+                                                }"> 
       <input type=button value="delet stored value" onclick="{
-                                                             
+                                                              localStorage.setItem('myStoredText2', '' )
+                                                             alert('your stored value has been deleted')
+                                                             document.getElementById('Text2').value = '' 
                                                              }"> 
       <input type="button" value="Retrieve Text" onClick="{
       document.getElementById('Text2').value = localStorage.getItem('myStoredText')
