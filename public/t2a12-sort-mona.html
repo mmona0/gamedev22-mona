@@ -1,4 +1,4 @@
-0.0.12
+0.0.13
 <h1 align=center>t2a12 Sort by Mona</h1>
 
 <script>
@@ -15,7 +15,7 @@
 <input type=button value="Show" onclick="{
   let myTemp = ''
   for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+     myTemp += myLoop+1 + ' = '+ myCards[myLoop] + '<br>'
   }
    document.getElementById('myDiv01').innerHTML = myTemp
 }">
@@ -38,7 +38,7 @@
 }
                                          
      for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
+     myTemp += myLoop+1 + ' = '+ myCards[myLoop] + '<br>'
   }
           document.getElementById('myDiv01').innerHTML = myTemp                                  
 }">
