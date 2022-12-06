@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Monkey Tree Climbing Game</title>
+</head>
+<body>
+	<h1>Monkey Tree Climbing Game</h1>
+	<p>Help the monkeys climb the tree to reach the top and win the game!</p>
+	<img src="tree.png" alt="tree image">
+	<div id="monkeys">
+		<img src="monkey1.png" alt="monkey image" id="monkey1">
+		<img src="monkey2.png" alt="monkey image" id="monkey2">
+		<img src="monkey3.png" alt="monkey image" id="monkey3">
+	</div>
+	<button onclick="climb()">Climb!</button>
+	<p id="status"></p>
+	<script>
+		function climb() {
+			//get the current position of each monkey
+			var monkey1 = document.getElementById("monkey1").getBoundingClientRect();
+			var monkey2 = document.getElementById("monkey2").getBoundingClientRect();
+			var monkey3 = document.getElementById("monkey3").getBoundingClientRect();
+			//move each monkey up by 10 pixels
+			document.getElementById("monkey1").style.top = monkey1.top - 10 + "px";
+			document.getElementById("monkey2").style.top = monkey2.top - 10 + "px";
+			document.getElementById("monkey3").style.top = monkey3.top - 10 + "px";
+			//check if any of the monkeys have reached the top of the tree
+			if (monkey1.top <= 0) {
+				document.getElementById("status").innerHTML = "Monkey 1 wins!";
+			} else if (monkey2.top <= 0) {
+				document.getElementById("status").innerHTML = "Monkey 2 wins!";
+			} else if (monkey3.top <= 0) {
+				document.getElementById("status").innerHTML = "Monkey 3 wins!";
+			}
+		}
+	</script>
+</body>
+</html>
