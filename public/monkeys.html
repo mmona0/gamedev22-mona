@@ -1,48 +1,48 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>Monkey Tree Climbing Game</title>
-</head>
-<body>
-	<h1>Monkey Tree Climbing Game</h1>
-Copy code
-<p>Monkey1 and Monkey2 are climbing automatically, but Monkey3 needs your help to climb the tree!</p>
-
-<img src="https://i.imgur.com/ePcNEO8.png" alt="Monkey1 and Monkey2 climbing a tree" id="autoMonkeys">
-<img src="https://i.imgur.com/lzQQcX9.png" alt="Monkey3 waiting to climb" id="manualMonkey">
-
-<button onclick="climb()">Climb!</button>
-
-<p id="status"></p>
-
-<script>
-	let monkey3Pos = 0;
-	let monkey1Pos = 0;
-	let monkey2Pos = 0;
-
-	function climb() {
-		// Move monkey3 up the tree
-		monkey3Pos++;
-		document.getElementById("manualMonkey").style.bottom = monkey3Pos + "px";
-
-		// Move monkey1 and monkey2 up the tree
-		monkey1Pos++;
-		monkey2Pos++;
-		document.getElementById("autoMonkeys").style.bottom = monkey1Pos + "px";
-
-		// Check if any monkeys have reached the top of the tree
-		if (monkey1Pos >= 300 || monkey2Pos >= 300 || monkey3Pos >= 300) {
-			let winner = "";
-			if (monkey1Pos > monkey2Pos && monkey1Pos > monkey3Pos) {
-				winner = "Monkey1";
-			} else if (monkey2Pos > monkey1Pos && monkey2Pos > monkey3Pos) {
-				winner = "Monkey2";
-			} else if (monkey3Pos > monkey1Pos && monkey3Pos > monkey2Pos) {
-				winner = "Monkey3";
-			}
-			document.getElementById("status").innerHTML = winner + " wins!";
-		}
-	}
-</script>
-</body>
+  <head>
+    <title>Monkey Tree Climbing Game</title>
+    <style>
+      #tree {
+        height: 300px;
+        width: 100px;
+        background-color: brown;
+      }
+      .monkey {
+        height: 30px;
+        width: 30px;
+        background-color: black;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      #monkey1, #monkey2 {
+        animation: climb 3s infinite linear;
+      }
+      @keyframes climb {
+        0% { top: 0; }
+        100% { top: 270px; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Monkey Tree Climbing Game</h1>
+    <div id="tree">
+      <div id="monkey1" class="monkey"></div>
+      <div id="monkey2" class="monkey"></div>
+      <div id="monkey3" class="monkey"></div>
+    </div>
+    <br>
+    <button onclick="climbManually()">Climb Manually</button>
+    <p id="result"></p>
+    <script>
+      let monkey3Top = 0;
+      function climbManually() {
+        monkey3Top += 10;
+        document.getElementById("monkey3").style.top = monkey3Top + "px";
+        if (monkey3Top >= 270) {
+          document.getElementById("result").innerHTML = "You win!";
+        }
+      }
+    </script>
+  </body>
 </html>
