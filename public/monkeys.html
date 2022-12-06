@@ -1,77 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-  background-color: lightgreen;
-  text-align: center;
-}
-#tree {
-height: 250px;
-width: 50px;
-background-color: brown;
-margin: 0 auto;
-}
-
-#monkey1, #monkey2, #monkey3 {
-height: 50px;
-width: 50px;
-background-color: yellow;
-position: relative;
-bottom: 0;
-left: 0;
-transition: bottom 1s linear;
-}
-
-#win {
-display: none;
-font-size: 20px;
-color: red;
-}
-</style>
-
+	<title>Monkey Climb</title>
+	<style>
+		#tree {
+			height: 500px;
+			background-color: brown;
+		}
+		.monkey {
+			height: 50px;
+			width: 50px;
+			background-image: url('monkey.png');
+			background-size: cover;
+			position: relative;
+			animation: climb 1s infinite;
+		}
+		#monkey1 {
+			top: 0px;
+			left: 25px;
+		}
+		#monkey2 {
+			top: 0px;
+			left: 75px;
+		}
+		#monkey3 {
+			top: 0px;
+			left: 125px;
+			animation: none;
+		}
+		@keyframes climb {
+			0% {
+				top: 0px;
+			}
+			100% {
+				top: 450px;
+			}
+		}
+	</style>
 </head>
 <body>
-<h1>Climb the Tree!</h1>
-<div id="tree">
-  <div id="monkey1"></div>
-  <div id="monkey2"></div>
-  <div id="monkey3"></div>
-</div>
-<h2 id="win">You Win!</h2>
-<script>
-const monkey1 = document.getElementById("monkey1");
-const monkey2 = document.getElementById("monkey2");
-const monkey3 = document.getElementById("monkey3");
-const winMessage = document.getElementById("win");
-
-// automatically move monkey1 and monkey2 up the tree
-let monkey1Pos = 0;
-let monkey2Pos = 0;
-setInterval(function() {
-  monkey1Pos += 10;
-  monkey1.style.bottom = monkey1Pos + "px";
-
-  monkey2Pos += 10;
-  monkey2.style.bottom = monkey2Pos + "px";
-
-  // check if monkey1 or monkey2 have reached the top of the tree
-  if (monkey1Pos >= 250 || monkey2Pos >= 250) {
-    winMessage.style.display = "block";
-  }
-}, 1000);
-
-// move monkey3 up the tree on click
-monkey3.addEventListener("click", function() {
-  let monkey3Pos = 0;
-  monkey3Pos += 10;
-  monkey3.style.bottom = monkey3Pos + "px";
-
-  // check if monkey3 has reached the top of the tree
-  if (monkey3Pos >= 250) {
-    winMessage.style.display = "block";
-  }
-});
-</script>
+	<div id="tree">
+		<div id="monkey1" class="monkey"></div>
+		<div id="monkey2" class="monkey"></div>
+		<div id="monkey3" class="monkey"></div>
+	</div>
+	<p>Monkeys 1 and 2 are climbing automatically. Use the up and down arrow keys to help monkey 3 climb to the top of the tree.</p>
+	<script>
+		const monkey3 = document.getElementById('monkey3');
+		let topPosition = 0;
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'ArrowUp') {
+				topPosition += 50;
+				monkey3.style.top = topPosition + 'px';
+			} else if (event.key === 'ArrowDown') {
+				topPosition -= 50;
+				monkey3.style.top = topPosition + 'px';
+			}
+			if (topPosition === 450) {
+				alert('Monkey 3 wins!');
+			}
+		});
+	</script>
 </body>
 </html>
+
+
