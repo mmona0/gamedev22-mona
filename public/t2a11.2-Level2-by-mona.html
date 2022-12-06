@@ -1,4 +1,4 @@
-Version 0.1.23
+Version 0.1.25
 <html> 
 <h1 align=center>Level 2</h1>
 
@@ -134,44 +134,48 @@ Version 0.1.23
 
    if (myKey == 'd') {
       clearTimeout(myTimeout)
-      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.left = 
              parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
       } ,20 + 'px')
+                 
+                 checkfunction()
    }
                  
   if (myKey == 'a') {
       clearTimeout(myTimeout)
-      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.left = 
              parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
       } ,20 + 'px')
+                 
+                 checkfunction()
    }
                  
    if (myKey == 'w') {
       clearTimeout(myTimeout)
                  
-      checkfunction() 
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.top = 
              parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
       } ,20 + 'px')
+                 checkfunction()
    }
                  
      if (myKey == 's') {
       clearTimeout(myTimeout)
                  
-      checkfunction() 
+       
       myTimeout = setTimeout(function(){
    
          document.getElementById('myCar').style.top = 
              parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
       } ,20 + 'px')
+                 
+                 checkfunction()
    }
                  
 }">
