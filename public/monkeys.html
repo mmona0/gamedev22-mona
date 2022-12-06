@@ -1,67 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Monkey Climb</title>
-	<style>
-		#tree {
-			height: 500px;
-			background-color: brown;
-		}
-		.monkey {
-			height: 50px;
-			width: 50px;
-			background-image: url('monkey.png');
-			background-size: cover;
-			position: relative;
-			animation: climb 1s infinite;
-		}
-		#monkey1 {
-			top: 0px;
-			left: 25px;
-		}
-		#monkey2 {
-			top: 0px;
-			left: 75px;
-		}
-		#monkey3 {
-			top: 0px;
-			left: 125px;
-			animation: none;
-		}
-		@keyframes climb {
-			0% {
-				top: 0px;
-			}
-			100% {
-				top: 450px;
-			}
-		}
-	</style>
+	<title>Monkey Tree Climbing Game</title>
 </head>
 <body>
-	<div id="tree">
-		<div id="monkey1" class="monkey"></div>
-		<div id="monkey2" class="monkey"></div>
-		<div id="monkey3" class="monkey"></div>
-	</div>
-	<p>Monkeys 1 and 2 are climbing automatically. Use the up and down arrow keys to help monkey 3 climb to the top of the tree.</p>
-	<script>
-		const monkey3 = document.getElementById('monkey3');
-		let topPosition = 0;
-		document.addEventListener('keydown', function(event) {
-			if (event.key === 'ArrowUp') {
-				topPosition += 50;
-				monkey3.style.top = topPosition + 'px';
-			} else if (event.key === 'ArrowDown') {
-				topPosition -= 50;
-				monkey3.style.top = topPosition + 'px';
+	<h1>Monkey Tree Climbing Game</h1>
+Copy code
+<p>Monkey1 and Monkey2 are climbing automatically, but Monkey3 needs your help to climb the tree!</p>
+
+<img src="https://i.imgur.com/ePcNEO8.png" alt="Monkey1 and Monkey2 climbing a tree" id="autoMonkeys">
+<img src="https://i.imgur.com/lzQQcX9.png" alt="Monkey3 waiting to climb" id="manualMonkey">
+
+<button onclick="climb()">Climb!</button>
+
+<p id="status"></p>
+
+<script>
+	let monkey3Pos = 0;
+	let monkey1Pos = 0;
+	let monkey2Pos = 0;
+
+	function climb() {
+		// Move monkey3 up the tree
+		monkey3Pos++;
+		document.getElementById("manualMonkey").style.bottom = monkey3Pos + "px";
+
+		// Move monkey1 and monkey2 up the tree
+		monkey1Pos++;
+		monkey2Pos++;
+		document.getElementById("autoMonkeys").style.bottom = monkey1Pos + "px";
+
+		// Check if any monkeys have reached the top of the tree
+		if (monkey1Pos >= 300 || monkey2Pos >= 300 || monkey3Pos >= 300) {
+			let winner = "";
+			if (monkey1Pos > monkey2Pos && monkey1Pos > monkey3Pos) {
+				winner = "Monkey1";
+			} else if (monkey2Pos > monkey1Pos && monkey2Pos > monkey3Pos) {
+				winner = "Monkey2";
+			} else if (monkey3Pos > monkey1Pos && monkey3Pos > monkey2Pos) {
+				winner = "Monkey3";
 			}
-			if (topPosition === 450) {
-				alert('Monkey 3 wins!');
-			}
-		});
-	</script>
+			document.getElementById("status").innerHTML = winner + " wins!";
+		}
+	}
+</script>
 </body>
 </html>
-
-
