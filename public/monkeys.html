@@ -1,39 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Monkey Tree Climbing Game</title>
+<style>
+body {
+  background-color: lightgreen;
+  text-align: center;
+}
+#tree {
+height: 250px;
+width: 50px;
+background-color: brown;
+margin: 0 auto;
+}
+
+#monkey1, #monkey2, #monkey3 {
+height: 50px;
+width: 50px;
+background-color: yellow;
+position: relative;
+bottom: 0;
+left: 0;
+transition: bottom 1s linear;
+}
+
+#win {
+display: none;
+font-size: 20px;
+color: red;
+}
+</style>
+
 </head>
 <body>
-	0.0.1
-	<h1>Monkey Tree Climbing Game</h1>
-	<p>Help the monkeys climb the tree to reach the top and win the game!</p>
-	<img src="tree.png" alt="tree image">
-	<div id="monkeys">
-		<img src="monkey1.png" alt="monkey image" id="monkey1" style="position:absolute; width:50px; height:50px;" >
-		<img src="monkey2.png" alt="monkey image" id="monkey2" style="position:absolute; width:50px; height:50px;" >
-		<img src="monkey3.png" alt="monkey image" id="monkey3" style="position:absolute; width:50px; height:50px;" >
-	</div>
-	<button onclick="climb()">Climb!</button>
-	<p id="status"></p>
-	<script>
-		function climb() {
-			//get the current position of each monkey
-			var monkey1 = document.getElementById("monkey1").getBoundingClientRect();
-			var monkey2 = document.getElementById("monkey2").getBoundingClientRect();
-			var monkey3 = document.getElementById("monkey3").getBoundingClientRect();
-			//move each monkey up by 10 pixels
-			document.getElementById("monkey1").style.top = monkey1.top - 10 + "px";
-			document.getElementById("monkey2").style.top = monkey2.top - 10 + "px";
-			document.getElementById("monkey3").style.top = monkey3.top - 10 + "px";
-			//check if any of the monkeys have reached the top of the tree
-			if (monkey1.top <= 0) {
-				document.getElementById("status").innerHTML = "Monkey 1 wins!";
-			} else if (monkey2.top <= 0) {
-				document.getElementById("status").innerHTML = "Monkey 2 wins!";
-			} else if (monkey3.top <= 0) {
-				document.getElementById("status").innerHTML = "Monkey 3 wins!";
-			}
-		}
-	</script>
+<h1>Climb the Tree!</h1>
+<div id="tree">
+  <div id="monkey1"></div>
+  <div id="monkey2"></div>
+  <div id="monkey3"></div>
+</div>
+<h2 id="win">You Win!</h2>
+<script>
+const monkey1 = document.getElementById("monkey1");
+const monkey2 = document.getElementById("monkey2");
+const monkey3 = document.getElementById("monkey3");
+const winMessage = document.getElementById("win");
+
+// automatically move monkey1 and monkey2 up the tree
+let monkey1Pos = 0;
+let monkey2Pos = 0;
+setInterval(function() {
+  monkey1Pos += 10;
+  monkey1.style.bottom = monkey1Pos + "px";
+
+  monkey2Pos += 10;
+  monkey2.style.bottom = monkey2Pos + "px";
+
+  // check if monkey1 or monkey2 have reached the top of the tree
+  if (monkey1Pos >= 250 || monkey2Pos >= 250) {
+    winMessage.style.display = "block";
+  }
+}, 1000);
+
+// move monkey3 up the tree on click
+monkey3.addEventListener("click", function() {
+  let monkey3Pos = 0;
+  monkey3Pos += 10;
+  monkey3.style.bottom = monkey3Pos + "px";
+
+  // check if monkey3 has reached the top of the tree
+  if (monkey3Pos >= 250) {
+    winMessage.style.display = "block";
+  }
+});
+</script>
 </body>
 </html>
