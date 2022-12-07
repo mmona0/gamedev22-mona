@@ -18,13 +18,17 @@
   </style>
 </head>
 <body>
-   0.0.2
+   0.0.3
   <h1>Racing Game</h1>
   <button id="start-btn">Start</button>
   <button id="car3-btn">Move Car 3</button>
 
-  <div id="car1" class="car"></div> <br><br><br><br><br><br>
-  <div id="car2" class="car"></div> <br><br><br><br><br><br>
+  <div id="car1" class="car" onclick="{ 
+                                      car1Position -= 11;
+                                      }">></div> <br><br><br><br><br><br>
+  <div id="car2" class="car" onclick="{ 
+                                      car2Position -= 8;
+                                      }"></div> <br><br><br><br><br><br>
   <div id="car3" class="car"></div> <br><br><br><br><br><br>
 
   <script>
