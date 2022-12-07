@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Racing Game</title>
+  <style>
+    /* add some styling to make the game look nice */
+    body {
+      background-color: lightblue;
+    }
+    .car {
+      /* styling for the cars */
+      height: 50px;
+      width: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <h1>Racing Game</h1>
+  <button id="start-btn">Start</button>
+  <button id="car3-btn">Move Car 3</button>
+
+  <div id="car1" class="car"></div>
+  <div id="car2" class="car"></div>
+  <div id="car3" class="car"></div>
+
+  <script>
+    // get a reference to the start button and car 3 button
+    const startBtn = document.getElementById("start-btn");
+    const car3Btn = document.getElementById("car3-btn");
+
+    // get references to the cars
+    const car1 = document.getElementById("car1");
+    const car2 = document.getElementById("car2");
+    const car3 = document.getElementById("car3");
+
+    // set the initial positions of the cars
+    car1.style.left = "0px";
+    car2.style.left = "0px";
+    car3.style.left = "0px";
+
+    let car1Position = 0;
+    let car2Position = 0;
+    let car3Position = 0;
+
+    // create a function to move the cars
+    const moveCars = () => {
+      // move car1 and car2 by 10 pixels
+      car1Position += 10;
+      car2Position += 10;
+
+      car1.style.left = `${car1Position}px`;
+      car2.style.left = `${car2Position}px`;
+
+      // check if either car has reached the end of the track
+      if (car1Position >= window.innerWidth || car2Position >= window.innerWidth) {
+        // stop the cars
+        clearInterval(intervalId);
+        alert("The race is over!");
+      }
+    };
+
+    // create a function to move car 3
+    const moveCar3 = () => {
+      // move car 3 by 10 pixels
+      car3Position += 10;
+      car3.style.left = `${car3Position}px`;
+    };
+
+    // add event listeners for the start button and car 3 button
+    startBtn.addEventListener("click", () => {
+      // start the race by calling the moveCars function every 100 milliseconds
+      intervalId = setInterval(moveCars, 100);
+    });
+
+    car3Btn.addEventListener("click", moveCar3);
+  </script>
+</body>
+</html>
