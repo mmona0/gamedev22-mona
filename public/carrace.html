@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  0.0.1
 <head>
   <title>Racing Game</title>
   <style>
@@ -43,12 +44,15 @@
     let car1Position = 0;
     let car2Position = 0;
     let car3Position = 0;
+    
+    let car1speed = Math.floor(Math.random() * max);
+    let car2speed = Math.floor(Math.random() * max);
 
     // create a function to move the cars
     const moveCars = () => {
       // move car1 and car2 by 10 pixels
-      car1Position += 10;
-      car2Position += 10;
+      car1Position += car1speed;
+      car2Position += car2speed;
 
       car1.style.left = `${car1Position}px`;
       car2.style.left = `${car2Position}px`;
