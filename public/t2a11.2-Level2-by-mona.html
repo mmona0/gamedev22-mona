@@ -1,5 +1,5 @@
 
-Version 0.1.31
+Version 0.1.32
 
 <html> 
 <h1 align=center>Level 2</h1>
@@ -10,7 +10,27 @@ Version 0.1.31
   s = down  
 
 <script>
-   let myTimeout
+   
+   function functiond() { 
+     let leftposition = parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
+     checkfunction() 
+     let document.getElementById('myCar').style.left = leftposition 
+   } 
+  function functiona() { 
+     let leftposition = parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
+     checkfunction() 
+     let document.getElementById('myCar').style.left = leftposition 
+   } 
+  function functionw() { 
+    let topposition = parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
+     checkfunction() 
+     let document.getElementById('myCar').style.top = topposition 
+   } 
+  function functions() { 
+    let topposition = parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
+     checkfunction() 
+     let document.getElementById('myCar').style.top = topposition 
+   } 
    
    function checkfunction() { 
      let x = parseInt(document.getElementById('myCar').style.left)
@@ -124,8 +144,8 @@ Version 0.1.31
      
      
      
-   document.getElementById('myCar').style.left = x + 'px' 
-   document.getElementById('myCar').style.top  = y + 'px' 
+   leftposition = x + 'px' 
+   topposition  = y + 'px' 
      } 
 </script>
 
@@ -134,48 +154,25 @@ Version 0.1.31
      let myKey = event.key
  //  let myKey = String.toLowerCase(event.key)
    if (myKey == 'd') {
-      clearTimeout(myTimeout)
-      myTimeout = setTimeout(function(){
-   
-         document.getElementById('myCar').style.left = 
-             parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
-      } ,20 + 'px')
+       functiond() 
                  
                 
    }
                  
   if (myKey == 'a') {
-      clearTimeout(myTimeout)
-      myTimeout = setTimeout(function(){
-   
-         document.getElementById('myCar').style.left = 
-             parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
-      } ,20 + 'px')
+     functiona() 
                  
    }
                  
    if (myKey == 'w') {
-      clearTimeout(myTimeout)
-                 
-      myTimeout = setTimeout(function(){
-   
-         document.getElementById('myCar').style.top = 
-             parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
-      } ,20 + 'px')
+      functionw()
    }
                  
      if (myKey == 's') {
-      clearTimeout(myTimeout)
-                 
-       
-      myTimeout = setTimeout(function(){
-   
-         document.getElementById('myCar').style.top = 
-             parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
-      } ,20 + 'px')
+      
+                 functions()
                  
    }
-                 checkfunction()
 }">
   
 
