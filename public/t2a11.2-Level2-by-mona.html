@@ -13,23 +13,15 @@ Version 0.1.33
    
    function functiond() { 
      let leftposition = parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
-     checkfunction() 
-     let document.getElementById('myCar').style.left = leftposition 
    } 
   function functiona() { 
      let leftposition = parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
-     checkfunction() 
-     let document.getElementById('myCar').style.left = leftposition 
    } 
   function functionw() { 
     let topposition = parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
-     checkfunction() 
-     let document.getElementById('myCar').style.top = topposition 
    } 
   function functions() { 
     let topposition = parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
-     checkfunction() 
-     let document.getElementById('myCar').style.top = topposition 
    } 
    
    function checkfunction() { 
@@ -153,24 +145,35 @@ Version 0.1.33
      
      let myKey = event.key
  //  let myKey = String.toLowerCase(event.key)
+                 
    if (myKey == 'd') {
        functiond() 
-                 
+       
+     checkfunction() 
+     let document.getElementById('myCar').style.left = leftposition           
                 
    }
                  
   if (myKey == 'a') {
      functiona() 
-                 
+        
+     checkfunction() 
+     let document.getElementById('myCar').style.left = leftposition          
    }
                  
    if (myKey == 'w') {
       functionw()
+                 
+     checkfunction() 
+     let document.getElementById('myCar').style.top = topposition 
    }
                  
      if (myKey == 's') {
       
                  functions()
+                 
+     checkfunction() 
+     let document.getElementById('myCar').style.top = topposition 
                  
    }
 }">
