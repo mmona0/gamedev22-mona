@@ -1,5 +1,5 @@
 
-Version 0.1.34
+Version 0.1.31
 
 <html> 
 <h1 align=center>Level 2</h1>
@@ -10,19 +10,7 @@ Version 0.1.34
   s = down  
 
 <script>
-   
-   function functiond() { 
-     let leftposition = parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
-   } 
-  function functiona() { 
-     let leftposition = parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
-   } 
-  function functionw() { 
-    let topposition = parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
-   } 
-  function functions() { 
-    let topposition = parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
-   } 
+   let myTimeout
    
    function checkfunction() { 
      let x = parseInt(document.getElementById('myCar').style.left)
@@ -136,46 +124,60 @@ Version 0.1.34
      
      
      
-   leftposition = x + 'px' 
-   topposition  = y + 'px' 
+   document.getElementById('myCar').style.left = x + 'px' 
+   document.getElementById('myCar').style.top  = y + 'px' 
      } 
 </script>
 
 <body onkeydown="{
      
+
      let myKey = event.key
  //  let myKey = String.toLowerCase(event.key)
-                 
+
    if (myKey == 'd') {
-       functiond() 
-       
-     checkfunction() 
-     let document.getElementById('myCar').style.left = leftposition           
+      clearTimeout(myTimeout)
+      myTimeout = setTimeout(function(){
+   
+         document.getElementById('myCar').style.left = 
+             parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
+      } ,20 + 'px')
+                 
                 
    }
                  
   if (myKey == 'a') {
-     functiona() 
-        
-     checkfunction() 
-     let document.getElementById('myCar').style.left = leftposition          
+      clearTimeout(myTimeout)
+      myTimeout = setTimeout(function(){
+   
+         document.getElementById('myCar').style.left = 
+             parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
+      } ,20 + 'px')
+                 
    }
                  
    if (myKey == 'w') {
-      functionw()
+      clearTimeout(myTimeout)
                  
-     checkfunction() 
-     let document.getElementById('myCar').style.top = topposition 
+      myTimeout = setTimeout(function(){
+   
+         document.getElementById('myCar').style.top = 
+             parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
+      } ,20 + 'px')
    }
                  
      if (myKey == 's') {
-      
-                 functions()
+      clearTimeout(myTimeout)
                  
-     checkfunction() 
-     let document.getElementById('myCar').style.top = topposition 
+       
+      myTimeout = setTimeout(function(){
+   
+         document.getElementById('myCar').style.top = 
+             parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
+      } ,20 + 'px')
                  
    }
+                 checkfunction()
 }">
   
 
@@ -211,4 +213,5 @@ Version 0.1.34
   
   </html> 
 
+   
    
