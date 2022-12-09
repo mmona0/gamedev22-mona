@@ -1,0 +1,22 @@
+<html> 
+<head>
+</head>
+<style>
+</style>
+<script>
+</script> 
+<body>
+0.0.1
+<h2 align=center> Project description </h2> 
+<br>
+<pre> 
+In my Final Project I am planning on at least four levels. Level one will be the game Template assignment.
+In Level two there will be a car which have to go to a labyrinth to win. Every time the car drives against a wall the position of the car will be reset.
+Probably there will be a button to start the game and a timer. The timer because you have to do the labyrinth in less than 30 seconds. 
+In Level three there gonna be cheese and mouse traps falling down the top of the screen. On the button of the screen gonna be a mouse which has catch the cheese and shoot the mouse traps. 
+If the mouse hits a mousetrap the game is over. to win 2000 points must be scored. For every cheese the mouse catches 100 points will be added. 
+In Level four its gonna be a endless game where your only goal is to beat your highscore. First the player get to choose a character with wich he going to shoot monsters.
+The monsters following the player automatically. After every 5 seconds its going to be two monsters more who follow him over the map. I am planning on adding trophies who will be safed. 
+</pre>
+</body> 
+</hmtl> 
