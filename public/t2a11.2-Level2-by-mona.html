@@ -1,4 +1,4 @@
-Version 0.0.39
+Version 0.0.40
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -13,7 +13,6 @@ s = down
 <body onkeydown="{
                  
                  
-  clearTimeout(myTimeout)  
 
 
  let myKey = event.key
@@ -21,44 +20,40 @@ s = down
 
 if (myKey == 'd') {
 
-myTimeout = setTimeout(function(){
 
 
      document.getElementById('myCar').style.left = 
          parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
-  }, 20)          
+     
             
 }
 
 if (myKey == 'a') {
                  
-myTimeout = setTimeout(function(){
 
 
      document.getElementById('myCar').style.left = 
          parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
-  }, 20) 
+
 }
 
 if (myKey == 'w') {
 
 
-  myTimeout = setTimeout(function(){
 
      document.getElementById('myCar').style.top = 
          parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
-  }, 20)
+
 }
 
 
  if (myKey == 's') {
              
    
-  myTimeout = setTimeout(function(){
 
      document.getElementById('myCar').style.top = 
          parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
-  }, 20)
+
              
 }
 checkfunction()
