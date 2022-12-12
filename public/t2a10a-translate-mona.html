@@ -1,11 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Translate Russian Speaker</title>
+</head>
+<body>
+<h1>Google Translate Russian Speaker</h1>
 
-<button onclick="speak()">Initialize Speak</button>
+<button onclick="initializeSpeak()">Initialize Speak</button>
 <script>
-function speak() {
-  var text = document.getElementById("textbox").value;
-  var voice = new SpeechSynthesisUtterance('Привет, моя дорогая девушка!');
-  voice.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Russian Female'; })[0];
-  window.speechSynthesis.speak(voice);
+function initializeSpeak() {
+  var text = "The code is working";
+  var voice = "Russian Female";
+  var message = new SpeechSynthesisUtterance(text);
+  message.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voice; })[0];
+  speechSynthesis.speak(message);
 }
 </script>
-<textarea id="textbox"></textarea>
+</body>
+</html>
