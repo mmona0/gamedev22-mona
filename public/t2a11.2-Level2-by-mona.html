@@ -1,4 +1,4 @@
-Version 0.0.35
+Version 0.0.36
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -15,30 +15,28 @@ s = down
 // let myKey = String.toLowerCase(event.key)
 
 if (myKey == 'd') {
-clearTimeout(myTimeout)
+
 myTimeout = setTimeout(function(){
 
 
      document.getElementById('myCar').style.left = 
          parseInt(document.getElementById('myCar').style.left) + 10 + 'px' 
   }, 20)
-             
+ clearTimeout(myTimeout)            
             
 }
 
 if (myKey == 'a') {
-clearTimeout(myTimeout)
 myTimeout = setTimeout(function(){
 
 
      document.getElementById('myCar').style.left = 
          parseInt(document.getElementById('myCar').style.left) + -10 + 'px' 
   }, 20)
-             
+          clearTimeout(myTimeout)   
 }
 
 if (myKey == 'w') {
-clearTimeout(myTimeout)
 
 
   myTimeout = setTimeout(function(){
@@ -46,11 +44,11 @@ clearTimeout(myTimeout)
      document.getElementById('myCar').style.top = 
          parseInt(document.getElementById('myCar').style.top) + -10 + 'px' 
   }, 20)
+                 clearTimeout(myTimeout)
 }
 
 
  if (myKey == 's') {
-  clearTimeout(myTimeout)
              
    
   myTimeout = setTimeout(function(){
@@ -58,6 +56,7 @@ clearTimeout(myTimeout)
      document.getElementById('myCar').style.top = 
          parseInt(document.getElementById('myCar').style.top) + 10 + 'px' 
   }, 20)
+                 clearTimeout(myTimeout)
              
 }
 checkfunction()
