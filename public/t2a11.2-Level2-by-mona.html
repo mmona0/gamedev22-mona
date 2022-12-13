@@ -1,4 +1,4 @@
-Version 0.0.45
+Version 0.0.46
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -178,6 +178,35 @@ if (myKey == 'w') {
 }
 checkfunction()
 }">
+  
+<button id="start-timer-button">Start Timer</button>
+  <div id="timer"></div>
+
+  <script>
+    var startTimerButton = document.getElementById('start-timer-button');
+    var timerDiv = document.getElementById('timer');
+
+    var time = 30;
+
+    var timerInterval = 1000;
+
+    timerDiv.innerHTML = 'Time remaining: ' + time + ' seconds';
+ 
+    function startTimer() {
+      var timer = setInterval(function() {
+        time--;
+
+        timerDiv.innerHTML = 'Time remaining: ' + time + ' seconds';
+
+        if (time === 0) {
+          clearInterval(timer);
+          alert('Time is up!');
+        }
+      }, timerInterval);
+    }
+
+    startTimerButton.addEventListener('click', startTimer);
+  </script>
 
 
   
