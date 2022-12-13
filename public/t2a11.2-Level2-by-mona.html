@@ -1,4 +1,4 @@
- <div id="timer"></div> Version 0.0.48
+ <div id="timer"></div> Version 0.0.49
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -122,6 +122,8 @@
   return document.getElementById('myCar').style.left = x + 'px' 
    return document.getElementById('myCar').style.top  = y + 'px' 
      } 
+  
+  
 </script>
 
 
@@ -134,7 +136,7 @@ s = down
 
 <body onkeydown="{
                  
-                 
+         document.getElementById('start-timer-button').addEventListener('click', startTimer);        
 
 
  let myKey = event.key
@@ -207,7 +209,6 @@ checkfunction()
       }, timerInterval);
     }
 
-    startTimerButton.addEventListener('click', startTimer);
   </script>
 
 
