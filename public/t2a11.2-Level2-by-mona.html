@@ -136,8 +136,9 @@ s = down
 
 <body onkeydown="{
                  
-         document.getElementById('start-timer-button').addEventListener('click', startTimer);        
-
+                 timer()
+                 
+        
 
  let myKey = event.key
 // let myKey = String.toLowerCase(event.key)
@@ -185,6 +186,8 @@ checkfunction()
  
 
   <script>
+   
+   function timer() { 
     var startTimerButton = document.getElementById('start-timer-button');
     var timerDiv = document.getElementById('timer');
 
@@ -208,7 +211,10 @@ checkfunction()
         }
       }, timerInterval);
     }
+   
+    startTimerButton.addEventListener('click', startTimer);        
 
+   } 
   </script>
 
 
