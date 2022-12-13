@@ -1,4 +1,4 @@
- <div id="timer"></div> Version 0.0.47
+ <div id="timer"></div> Version 0.0.48
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -201,6 +201,8 @@ checkfunction()
         if (time === 0) {
           clearInterval(timer);
           alert('Time is up!');
+         document.getElementById('myCar').style.left = 0 + 'px' 
+         document.getElementById('myCar').style.top  = 200 + 'px'
         }
       }, timerInterval);
     }
