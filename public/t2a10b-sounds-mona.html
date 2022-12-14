@@ -1,14 +1,19 @@
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
     <title>t2a10b-sounds-mona.html</title>
-</head>
-<script> let mySound1 = new Audio('Yeh.m4a') </script>
-0.0.1 
+  </head>
+  <body>
+    <h1>Sound Button</h1>
+    <p>Click the button below to play a sound.</p>
+    <button onclick="playSound()">Sound</button>
 
+    <script>
+      function playSound() {
+        var audio = new Audio('sound.mp3');
+        audio.play();
+      }
+    </script>
+  </body>
+</html>
 
-<h1 align=center>T3A12-Sounds-and-events-name.html</h1>
-
-
-<input type=button value=sound onClick="{
-    mySound1.play()
-
-}">
