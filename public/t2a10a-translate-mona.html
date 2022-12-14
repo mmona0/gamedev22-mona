@@ -5,12 +5,33 @@
 </head>
 <body>
 <h1>t2a10a-translate-mona.html</h1><br>
-The code is working<br>
-<button onclick="initializeSpeak()">Initialize Speak</button>
+<button onclick="initializeSpeak()">Initialize Speak Russian Female </button>
 <script>
 function initializeSpeak() {
   var text = "The code is working";
   var voice = "Russian Female";
+  var message = new SpeechSynthesisUtterance(text);
+  message.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voice; })[0];
+  speechSynthesis.speak(message);
+}
+</script>
+  
+  <button onclick="initializeSpeaktwo()">Initialize Speak Finnish Male </button>
+<script>
+function initializeSpeaktwo() {
+  var text = "The code is working";
+  var voice = "Finnish Male";
+  var message = new SpeechSynthesisUtterance(text);
+  message.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voice; })[0];
+  speechSynthesis.speak(message);
+}
+</script>
+  
+  <button onclick="initializeSpeakthree()">Initialize Speak British Female </button>
+<script>
+function initializeSpeakthree() {
+  var text = "The code is working";
+  var voice = "British Female";
   var message = new SpeechSynthesisUtterance(text);
   message.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voice; })[0];
   speechSynthesis.speak(message);
