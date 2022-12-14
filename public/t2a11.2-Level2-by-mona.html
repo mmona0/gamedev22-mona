@@ -1,4 +1,4 @@
- Version 0.0.54 <div id="timer">30 seconds</div> 
+ Version 0.0.55 <div id="timer">30 seconds</div> 
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -191,8 +191,11 @@ checkfunction()
    function timer() { 
     var startTimerButton = document.getElementById('start-timer-button');
     var timerDiv = document.getElementById('timer');
-
+    var timevalue = timerDiv.innerHTML
+    if(timevalue == 30) { 
+    startTimer() 
     var time = 30;
+    } 
 
     var timerInterval = 1000;
 
@@ -212,9 +215,8 @@ checkfunction()
         }
       }, timerInterval);
     }
-    if(time == 30) { 
-    startTimer()     
-    } 
+    
+   
    } 
   </script>
 
