@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>t2a10a-translate-mona.html</title>
+</head>
+<body>
+  0.0.2
+<h1>t2a10a-translate-mona.html</h1><br>
+  The code is working <br> 
+<button onclick="initializeSpeak()">Initialize Speak Russian Female </button>
+<script>
+function initializeSpeak() {
+  var text = "The code is working";
+  var voice = "Russian Female";
+  var message = new SpeechSynthesisUtterance(text);
+  message.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voice; })[0];
+  speechSynthesis.speak(message);
+}
+</script>
+ 
+</script>
+</body>
+</html>
