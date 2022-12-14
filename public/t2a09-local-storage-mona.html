@@ -1,5 +1,5 @@
 <html>
-   0.0.4
+   0.0.5
    
    <head><title>t2a09-local-storage-mona.html</title>
    </head>
@@ -22,7 +22,6 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 
 <input type="button" value="Store Text" onClick="{
    localStorage.setItem('myStoredText', document.getElementById('myText1').value)
-   alert(document.getElementById('myText1').value + ' \nHas been stored')
    document.getElementById('myText1').value = ''
 }">
 
@@ -37,12 +36,10 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
       <input type=text id="Text2" value="" placeholder="write something"><br> 
       <input type=button value="store" onclick="{
                                                 localStorage.setItem('myStoredText2', document.getElementById('Text2').value)
-                                                alert(document.getElementById('Text2').value + ' \nHas been stored')
                                                 document.getElementById('Text2').value = ''
                                                 }"> 
       <input type=button value="delet stored value" onclick="{
                                                               localStorage.setItem('myStoredText2', '' )
-                                                             alert('your stored value has been deleted')
                                                              document.getElementById('Text2').value = '' 
                                                              }"> 
       <input type="button" value="Retrieve Text" onClick="{
