@@ -1,4 +1,4 @@
- Version 0.0.61<div id="timer">30 seconds</div> 
+ Version 0.0.62<div id="timer">30 seconds</div> 
 <head>
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
@@ -193,6 +193,8 @@ checkfunction()
     var timervalue = parseInt(document.getElementById('timer').innerHTML);
     var time = 30;
     
+    var timerInterval = 1000;
+    
      function startTimer() {
       var timer = setInterval(function() {
         time--;
@@ -212,7 +214,6 @@ checkfunction()
     startTimer() 
     } 
 
-    var timerInterval = 1000;
 
     document.getElementById('timer').innerHTML =  time + ' seconds';
  
