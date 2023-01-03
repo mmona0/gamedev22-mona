@@ -3,7 +3,7 @@
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
 <html> 
- Version 0.0.12
+ Version 0.0.13
  <script>
   
   function keepCarOnScreen() {
@@ -14,9 +14,9 @@ if (x < 0) {
 x = 0;
 } else if (y < 0) {
 y = 0;
-} else if (x + 80 > 1600) {
+} else if (x + 80 > screen.width) {
 x = 1520;
-} else if (y + 80 > 760) {
+} else if (y + 80 > screen.height) {
 y = 680;
 }
    
