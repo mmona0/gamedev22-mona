@@ -1,27 +1,49 @@
-<html> 
-  <head> 
-    <title> t2a11.3-Level3-by-mona.html </title> 
-  </head> 
-  
-  <style> 
-    
-    #Playbutton{ 
-      
-    } 
-    
-  </style> 
-  
-  
-  <script> 
-    
-  </script> 
-  
-  
-  <body> 
-   0.0.1
-    <h1> Mouse Cheese game <h1> 
-      <input id="Playbutton"  type=button value=" Play " > 
-    
-    
-  </body> 
-</html> 
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .triangle-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .triangle-button:hover {
+        background-color: #555;
+      }
+
+      .triangle-button:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-top: 45px solid #333;
+      }
+
+      .triangle-button:active:before {
+        border-top: 20px solid #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="triangle-button"></button>
+    </div>
+  </body>
+</html>
