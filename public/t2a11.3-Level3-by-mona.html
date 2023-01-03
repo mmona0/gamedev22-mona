@@ -1,35 +1,35 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>Play Button</title>
-	<style>
-		.triangle {
-			width: 0;
-			height: 0;
-			border-left: 50px solid transparent;
-			border-right: 50px solid transparent;
-			border-bottom: 100px solid black;
-			cursor: pointer;
-		}
-		.triangle p {
-			margin: 0;
-			position: relative;
-			top: -50px;
-			left: 15px;
-			color: white;
-			font-size: 20px;
-		}
-	</style>
-</head>
-<body>
-	<div class="triangle">
-		<p>Play</p>
-	</div>
-	<script>
-		var triangle = document.querySelector('.triangle');
-		triangle.addEventListener('click', function() {
-			triangle.style.display = 'none';
-		});
-	</script>
-</body>
+  <head>
+    <style>
+      .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 50px 0 50px 100px;
+        border-color: transparent transparent transparent black;
+      }
+      .triangle:hover {
+        cursor: pointer;
+      }
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="triangle">
+      <div class="text">play</div>
+    </div>
+    <script>
+      const triangle = document.querySelector('.triangle');
+      triangle.addEventListener('click', () => {
+        triangle.style.display = 'none';
+      });
+    </script>
+  </body>
 </html>
