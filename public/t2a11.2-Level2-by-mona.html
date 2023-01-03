@@ -3,7 +3,7 @@
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
 <html> 
- Version 0.0.11 
+ Version 0.0.12
  <script>
   
   function keepCarOnScreen() {
@@ -19,6 +19,9 @@ x = 1520;
 } else if (y + 80 > 760) {
 y = 680;
 }
+   
+   return document.getElementById('myCar').style.left = x + 'px' 
+   return document.getElementById('myCar').style.top = y + 'px'
 }
 
 
