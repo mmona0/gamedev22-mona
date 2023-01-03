@@ -3,7 +3,7 @@
   <title>t2a11.2-Level2-by-mona.html</title>
 </head> 
 <html> 
- Version 0.0.13
+ Version 0.0.14
  <script>
   
   function keepCarOnScreen() {
@@ -12,11 +12,14 @@ let y = parseInt(document.getElementById('myCar').style.top);
 
 if (x < 0) {
 x = 0;
-} else if (y < 0) {
+} 
+   if (y < 0) {
 y = 0;
-} else if (x + 80 > screen.width) {
+} 
+   if (x + 80 > screen.width) {
 x = 1520;
-} else if (y + 80 > screen.height) {
+} 
+   if (y + 80 > screen.height) {
 y = 680;
 }
    
