@@ -39,14 +39,16 @@
     </style>
   </head>
   <body>
-    Version0.0.53
+    Version0.0.54
     <div class="triangle">
       <div class="text">play</div>
     </div>
     <script>
+      const followMouseElement = document.querySelector('.follow-mouse');
       const triangle = document.querySelector('.triangle');
       triangle.addEventListener('click', () => {
         triangle.style.display = 'none';
+        followMouseElement.style.display = 'block'; 
       });
     </script>
   <img style="position:absolute; width:100px; height:150px; top:607px; left:0px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
@@ -77,14 +79,7 @@
     followMouseElement.style.left = `${event.pageX}px`;
   });
 </script>
-    <script>
-  const triangle = document.querySelector('.triangle');
-  const followMouseElement = document.querySelector('.follow-mouse');
-  triangle.addEventListener('click', () => {
-    triangle.style.display = 'none';
-    followMouseElement.style.display = 'block'; 
-  });
-</script>
+    
 
 
 
