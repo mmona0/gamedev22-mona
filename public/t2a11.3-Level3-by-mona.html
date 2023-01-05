@@ -6,6 +6,13 @@
   background-image: url("https://image.freepik.com/free-vector/cheese-pieces-vector-seamless-pattern-seamless-pattern-wallpaper_97231-1443.jpg");
 }
       
+      .follow-mouse {
+    position: fixed;
+    pointer-events: none;
+    top: 80%;
+    left: 50%;
+  }
+      
       .triangle {
         position: absolute;
         top: 50%;
@@ -31,7 +38,7 @@
     </style>
   </head>
   <body>
-    Version0.0.45
+    Version0.0.46
     <div class="triangle">
       <div class="text">play</div>
     </div>
@@ -58,9 +65,17 @@
   <img style="position:absolute; width:100px; height:150px; top:607px; left:1400px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
   <img style="position:absolute; width:100px; height:150px; top:607px; left:1500px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
   
-  <img id="mousepng" style="position:absolute; width:200px; height:250px; top:447px; left:580px;"  src="https://www.clipartqueen.com/image-files/happy-cute-mouse.png"> 
   
-  
+  <div class="follow-mouse">
+  <img src="https://www.clipartqueen.com/image-files/happy-cute-mouse.png" alt="Follow Mouse">
+</div>
+    
+    <script>
+  const followMouseElement = document.querySelector('.follow-mouse');
+  document.addEventListener('mousemove', (event) => {
+    followMouseElement.style.left = `${event.pageX}px`;
+  });
+</script>
   
   </body>
 </html>
