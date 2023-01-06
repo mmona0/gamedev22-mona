@@ -39,7 +39,7 @@
     </style>
   </head>
   <body>
-    Version0.0.54
+    Version0.0.55
     <div class="triangle">
       <div class="text">play</div>
     </div>
@@ -50,6 +50,9 @@
         triangle.style.display = 'none';
         followMouseElement.style.display = 'block'; 
       });
+      document.addEventListener('mousemove', (event) => {
+    followMouseElement.style.left = `${event.pageX}px`;
+  });
     </script>
   <img style="position:absolute; width:100px; height:150px; top:607px; left:0px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
   <img style="position:absolute; width:100px; height:150px; top:607px; left:100px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
@@ -73,12 +76,7 @@
   <img style="width:150px; height:250px;" src="https://www.clipartqueen.com/image-files/happy-cute-mouse.png" alt="Follow Mouse">
 </div>
     
-    <script>
-  const followMouseElement = document.querySelector('.follow-mouse');
-  document.addEventListener('mousemove', (event) => {
-    followMouseElement.style.left = `${event.pageX}px`;
-  });
-</script>
+  
     
 
 
