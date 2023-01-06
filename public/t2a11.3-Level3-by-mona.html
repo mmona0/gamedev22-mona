@@ -39,17 +39,12 @@
     </style>
   </head>
   <body>
-    Version0.0.56
+    Version0.0.57
     <div class="triangle">
       <div class="text">play</div>
     </div>
     <script>
       const followMouseElement = document.querySelector('.follow-mouse');
-      const triangle = document.querySelector('.triangle');
-      triangle.addEventListener('click', () => {
-        triangle.style.display = 'none';
-        followMouseElement.style.display = 'block'; 
-      });
       document.addEventListener('mousemove', (event) => {
     followMouseElement.style.left = `${event.pageX}px`;
   });
