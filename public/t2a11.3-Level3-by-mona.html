@@ -66,30 +66,7 @@
       <div class="text">play</div>
     </div>
     
-    <script> 
-  var image = document.getElementById("falling-cheese");
-
-  image.style.top = "-40px";
-  image.style.left = "0px";
-
-  var fallSpeed = 50;
-
-  var pixelsPerFrame = fallSpeed / 60;
-
-  var fallingInterval = setInterval(function() {
-    var currentTop = parseInt(image.style.top);
-
-    var newTop = currentTop + pixelsPerFrame;
-
-    image.style.top = newTop + "px";
-
-    if (newTop > window.innerHeight) {
-      clearInterval(fallingInterval);
-      image.style.display = "none";
-    }
-  }, 1000 / 60);
-}
-    </script> 
+   
     
   <img style="position:absolute; width:100px; height:150px; top:607px; left:0px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
   <img style="position:absolute; width:100px; height:150px; top:607px; left:100px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
