@@ -90,6 +90,8 @@
     }
   }, 1000 / 60);
 }
+  </script>
+  <script>
     
      const triangle = document.querySelector('.triangle');
       const followMouseElement = document.querySelector('.follow-mouse');
@@ -97,6 +99,7 @@
       triangle.addEventListener('click', () => {
         triangle.style.display = 'none';
         followMouseElement.style.display = 'block';
+        
         startFalling()
       });
       
@@ -107,7 +110,7 @@
     </script>
   
   <body>
-    Version0.0.28
+    Version0.0.29
     <table>
       <tr> 
         <td>points</td>
