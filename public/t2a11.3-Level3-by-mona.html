@@ -89,7 +89,7 @@
 }
   </script>
   <body>
-    Version0.0.22
+    Version0.0.23
     <table>
       <tr> 
         <td>points</td>
@@ -129,8 +129,8 @@
       triangle.addEventListener('click', () => {
         triangle.style.display = 'none';
         followMouseElement.style.display = 'block';
-        startFalling()
-      });
+        
+      }, startFalling());
       
       document.addEventListener('mousemove', (event) => {
         followMouseElement.style.left = `${event.pageX}px`;
