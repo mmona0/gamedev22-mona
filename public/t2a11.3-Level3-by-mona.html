@@ -56,11 +56,7 @@
   </head>
   
   <script>
-      
-      
-      document.addEventListener('mousemove', (event) => {
-        followMouseElement.style.left = `${event.pageX}px`;
-      });
+     
       
       function startFalling() {
   // Hole das Käse-Element
@@ -94,27 +90,31 @@
     }
   }, 1000 / 60);
 }
+    
+     const triangle = document.querySelector('.triangle');
+      const followMouseElement = document.querySelector('.follow-mouse');
+      
+      triangle.addEventListener('click', () => {
+        triangle.style.display = 'none';
+        followMouseElement.style.display = 'block';
+        startFalling()
+      });
+      
+      document.addEventListener('mousemove', (event) => {
+        followMouseElement.style.left = `${event.pageX}px`;
+      });
+    
     </script>
   
   <body>
-    Version0.0.27
+    Version0.0.28
     <table>
       <tr> 
         <td>points</td>
         <td>0</td>
       </tr>
     </table>
-    <div class="triangle" onclick="{
-                                   
-                                   const triangle = document.querySelector('.triangle');
-                                   const followMouseElement = document.querySelector('.follow-mouse');
-      
-                            triangle.style.display = 'none';
-                        followMouseElement.style.display = 'block';
-      
-                                   startFalling()
-                                   
-                                   }">
+    <div class="triangle" >
       <div class="text">play</div>
     </div>
     
