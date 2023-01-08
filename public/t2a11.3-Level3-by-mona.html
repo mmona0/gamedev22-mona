@@ -89,14 +89,14 @@
 }
   </script>
   <body>
-    Version0.0.23
+    Version0.0.24
     <table>
       <tr> 
         <td>points</td>
         <td>0</td>
       </tr>
     </table>
-    <div class="triangle">
+    <div class="triangle" onclick="startFalling()" >
       <div class="text">play</div>
     </div>
     
@@ -130,7 +130,7 @@
         triangle.style.display = 'none';
         followMouseElement.style.display = 'block';
         
-      }, startFalling());
+      });
       
       document.addEventListener('mousemove', (event) => {
         followMouseElement.style.left = `${event.pageX}px`;
