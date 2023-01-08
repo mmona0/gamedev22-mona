@@ -55,7 +55,7 @@
     </style>
   </head>
   <body>
-    Version0.0.18
+    Version0.0.19
     <table>
       <tr> 
         <td>points</td>
@@ -67,32 +67,22 @@
     </div>
     
     <script> 
-      function startFalling() {
-  // Hole das Bild-Element
   var image = document.getElementById("falling-image");
 
-  // Setze die Position des Bildes auf oben links
-  image.style.top = "0px";
+  image.style.top = "-40px";
   image.style.left = "0px";
 
-  // Setze die Fallgeschwindigkeit des Bildes (in Pixel pro Sekunde)
   var fallSpeed = 50;
 
-  // Berechne, wie viele Pixel das Bild pro Frame fallen soll
   var pixelsPerFrame = fallSpeed / 60;
 
-  // Setze einen Intervall, um das Bild fallen zu lassen
   var fallingInterval = setInterval(function() {
-    // Hole die aktuelle Position des Bildes
     var currentTop = parseInt(image.style.top);
 
-    // Erhöhe die aktuelle Position um die Anzahl der Pixel pro Frame
     var newTop = currentTop + pixelsPerFrame;
 
-    // Setze die neue Position des Bildes
     image.style.top = newTop + "px";
 
-    // Wenn das Bild die untere Bildseite erreicht hat, beende den Intervall und verstecke das Bild
     if (newTop > window.innerHeight) {
       clearInterval(fallingInterval);
       image.style.display = "none";
