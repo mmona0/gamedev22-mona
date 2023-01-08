@@ -55,7 +55,7 @@
     </style>
   </head>
   <body>
-    Version0.0.17
+    Version0.0.18
     <table>
       <tr> 
         <td>points</td>
@@ -66,6 +66,40 @@
       <div class="text">play</div>
     </div>
     
+    <script> 
+      function startFalling() {
+  // Hole das Bild-Element
+  var image = document.getElementById("falling-image");
+
+  // Setze die Position des Bildes auf oben links
+  image.style.top = "0px";
+  image.style.left = "0px";
+
+  // Setze die Fallgeschwindigkeit des Bildes (in Pixel pro Sekunde)
+  var fallSpeed = 50;
+
+  // Berechne, wie viele Pixel das Bild pro Frame fallen soll
+  var pixelsPerFrame = fallSpeed / 60;
+
+  // Setze einen Intervall, um das Bild fallen zu lassen
+  var fallingInterval = setInterval(function() {
+    // Hole die aktuelle Position des Bildes
+    var currentTop = parseInt(image.style.top);
+
+    // Erhöhe die aktuelle Position um die Anzahl der Pixel pro Frame
+    var newTop = currentTop + pixelsPerFrame;
+
+    // Setze die neue Position des Bildes
+    image.style.top = newTop + "px";
+
+    // Wenn das Bild die untere Bildseite erreicht hat, beende den Intervall und verstecke das Bild
+    if (newTop > window.innerHeight) {
+      clearInterval(fallingInterval);
+      image.style.display = "none";
+    }
+  }, 1000 / 60);
+}
+    </script> 
     
   <img style="position:absolute; width:100px; height:150px; top:607px; left:0px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
   <img style="position:absolute; width:100px; height:150px; top:607px; left:100px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
@@ -84,7 +118,7 @@
   <img style="position:absolute; width:100px; height:150px; top:607px; left:1400px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
   <img style="position:absolute; width:100px; height:150px; top:607px; left:1500px;"  src="https://static.vecteezy.com/system/resources/previews/000/127/448/large_2x/wood-texture-vector.jpg"> 
     
-  
+  <img class="falling cheese" style=" width:40px; height:40px;" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png" id="falling-cheese">
    <img class="follow-mouse hidden" style="top:474px; left:50px; width:150px; height:250px;" src="https://www.clipartqueen.com/image-files/happy-cute-mouse.png" alt="Follow Mouse">
  
     <script>
@@ -94,6 +128,7 @@
       triangle.addEventListener('click', () => {
         triangle.style.display = 'none';
         followMouseElement.style.display = 'block';
+        startFalling()
       });
       
       document.addEventListener('mousemove', (event) => {
