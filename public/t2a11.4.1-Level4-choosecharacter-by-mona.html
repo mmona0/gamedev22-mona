@@ -28,7 +28,7 @@
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
-  float: left;
+  float: right;
 }
   .image-container:last-of-type  {
   opacity: 1;
@@ -37,15 +37,24 @@
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
-    left: 450px;
+    right: 450px;
 }
 
-.middle {
+.middle-container:last-of-type  {
   transition: .5s ease;
   opacity: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+  .middle-container:first-of-type {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%)
 }
@@ -71,7 +80,7 @@
 </script>
 
 <body>
-  Version 0.16
+  Version 0.17
 
 <h1> Monster hunt </h1>
 
