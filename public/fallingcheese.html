@@ -3,13 +3,11 @@
 <head>
 	<title>Käsefall</title>
 </head>
-<body>
-	<img src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png" id="kaese" style="position: absolute; top: 0; left: 0;">
 	<script>
 		let kaese = document.getElementById("kaese");
 		let pos = 0;
 		let interval = setInterval(fallen, 10);
-Copy code
+		
 	function fallen() {
 		if (pos >= window.innerHeight - kaese.offsetHeight) {
 			clearInterval(interval);
@@ -20,5 +18,9 @@ Copy code
 		}
 	}
 </script>
+<body>
+	<img src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png" id="kaese" style="position: absolute; top: 0; left: 0;">
+	<input type=button onclick="fallen()">
+	
 </body>
 </html>
