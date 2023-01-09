@@ -12,18 +12,27 @@
 }
 
 .image-container {
-  position: absolute; 
-  left: 30%;
-  width: 50%;
+   position: relative;
+    width: 50%;
 }
 
-.image {
+.image-container:first-of-type {
   opacity: 1;
   display: block;
   width: 100%;
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
+  float: right;
+}
+  .image-container:last-of-type  {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+    left: -50px;
 }
 
 .middle {
@@ -58,7 +67,7 @@
 </script>
 
 <body>
-  Version 0.10
+  Version 0.11
 
 <h1> Monster hunt </h1>
 
