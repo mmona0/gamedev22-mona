@@ -5,10 +5,9 @@
 <title>t2a11.4.1-chooscharacter-Level4-by-mona.html</title>
 
 <style>
-.container {
-  position: relative;
-  width: 50%;
+.image-container {
   float: left;
+  width: 50%;
 }
 
 .image {
@@ -30,11 +29,11 @@
   -ms-transform: translate(-50%, -50%)
 }
 
-.container:hover .image {
+.image-container:hover .image {
   opacity: 0.3;
 }
 
-.container:hover .middle {
+.image-container:hover .middle {
   opacity: 1;
 }
 
@@ -44,56 +43,14 @@
   font-size: 16px;
   padding: 16px 32px;
 }
-
-
-.containertwo {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.imagetwo {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.middletwo {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
-}
-
-.containertwo:hover .image {
-  opacity: 0.3;
-}
-
-.containertwo:hover .middle {
-  opacity: 1;
-}
-
-.texttwo {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-}
 </style>
-
 </head> 
 
 <script>
 </script>
 
 <body>
-  Version 0.0.5
+  Version 0.0.6
 
 <h1> Monster hunt </h1>
 
@@ -104,17 +61,17 @@
 <h3> Choose your character </h3>
 
 <br> 
-<div class="container">
-  <img src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" alt="Avatar" class="image" style="width:40%; height:50%">
+<div class="image-container">
+  <img src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" alt="Avatar" class="image" style="width:100%; height:auto">
   <div class="middle">
-    <div class="text">John </div>
+    <div class="text">John</div>
   </div>
 </div>
 
-<div class="containertwo">
-  <img src="https://st.depositphotos.com/1292351/3274/v/950/depositphotos_32748449-stock-illustration-cartoon-female-soldier-with-assault.jpg" alt="Avatartwo" class="imagetwo" style="width:40%; height:50%">
-  <div class="middletwo">
-    <div class="texttwo">Marie</div>
+<div class="image-container">
+  <img src="https://st.depositphotos.com/1292351/3274/v/950/depositphotos_32748449-stock-illustration-cartoon-female-soldier-with-assault.jpg" alt="Avatartwo" class="image" style="width:100%; height:auto">
+  <div class="middle">
+    <div class="text">Marie</div>
   </div>
 </div>
 
