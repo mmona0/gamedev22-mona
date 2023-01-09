@@ -55,12 +55,39 @@
     </style>
   </head>
   <script> 
-     function startFalling() {
+     const GRAVITY = 10; // Gravity-Konstante in Pixel pro Frame
+let fallingInterval; // Timer-Variable
+
+function startFalling() {
+  // Käse-Element auswählen
+  const cheeseElement = document.querySelector('.cheese');
+
+  // Timer starten, der die updateFalling() Funktion in jedem Frame aufruft
+  fallingInterval = setInterval(updateFalling, 1000 / 60); // 60 FPS
+
+  function updateFalling() {
+    // Aktuellen top Wert des Käse-Elements abfragen
+    let top = parseInt(cheeseElement.style.top) || 0;
+
+    // Gravity-Konstante zum top Wert hinzuaddieren
+    top += GRAVITY;
+
+    // Neuen top Wert zuweisen
+    cheeseElement.style.top = top + 'px';
+
+    // Wenn der Käse den unteren Rand des Bildschirms erreicht hat, Animation beenden
+    if (top + cheeseElement.offsetHeight > window.innerHeight) {
+
+      // ODER: Käse-Element aus dem HTML Dokument entfernen
+      cheeseElement.remove();
+    }
+  }
+}
 
 }
   </script>
   <body>
-    Version0.0.26
+    Version0.0.27
     <table>
       <tr> 
         <td>points</td>
