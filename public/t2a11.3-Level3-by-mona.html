@@ -128,8 +128,8 @@ function startFalling() {
       triangle.addEventListener('click', () => {
         triangle.style.display = 'none';
         followMouseElement.style.display = 'block';
+        startFalling();
       });
-      triangleElement.addEventListener('click', startFalling);
       
       document.addEventListener('mousemove', (event) => {
         followMouseElement.style.left = `${event.pageX}px`;
