@@ -17,7 +17,7 @@
 		let kaese = document.getElementById("kaese");
 let pos = 0;
 let interval = setInterval(fallen, 10);
-
+let newheight = ""
 let kaeseHeight = 40;  
 
 function fallen() {
@@ -26,12 +26,13 @@ function fallen() {
     kaese.style.display = "none";
   } else {
     pos++;
-    kaese.style.top = pos + "px";
+    newheight = pos + "px" ; 
+    kaese.style.top = newheight;
   }
 }
 </script>
 <body>
-	Version 0.0.5
+	Version 0.0.6
 	<input type=button onclick="fallen()" value="fallen">
 	<br>
 	<img id="kaese" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png" >
