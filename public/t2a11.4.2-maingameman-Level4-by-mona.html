@@ -3,13 +3,45 @@
   <head> 
     <title> Level 4 man </title> 
     <style> 
+      /* Set the position of the img elements to absolute */
+      img {
+        position: absolute;
+      }
     </style> 
   </head> 
   
   <body> 
+    
+    Version 0.0.2
+    
+     <!-- Set the man img element -->
+    <img id="man" src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" width="50px" height="50px">
+    <!-- Set the monster img element -->
+    <img id="monster" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png" width="100px" height="100px">
+    
+    
     <script> 
+      // Get the man and monster img elements
+  var man = document.getElementById("man");
+  var monster = document.getElementById("monster");
+  var x = 0;
+  var y = 0;
+  
+  // Listen for the mousemove event on the document
+  document.addEventListener("mousemove", function(event) {
+    x = event.clientX;
+    y = event.clientY;
+    
+    // Set the position of the man img element to the current mouse coordinates
+    man.style.left = x + "px";
+    man.style.top = y + "px";
+    
+    // Set the position of the monster img element to be slightly behind the man
+    monster.style.left = x - 50 + "px";
+    monster.style.top = y - 50 + "px";
+  });
     </script> 
-    Version 0.0.1
   </body> 
   
 </html> 
+
