@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.33
+    Version0.0.34
     <table>
       <tr> 
         <td>points</td>
@@ -153,8 +153,7 @@
   } 
   if (buttonPressed && kaese.style.display === "none") {  
     startFalling();  
-  } else {
-    pos += 10;  // Increment pos by 10 instead of 1
+  } else { // Increment pos by 10 instead of 1
     kaese.style.top = pos + "px";
   }
 }
@@ -167,7 +166,6 @@
 		if (buttonPressed && falle.style.display === "none") {  
 			startFalling();  
 		} else {
-    postwo += 10; 
 			falle.style.top = pos + "px";
 		}
 	}
