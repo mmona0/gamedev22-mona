@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.35
+    Version0.0.36
     <table>
       <tr> 
         <td>points</td>
@@ -132,9 +132,11 @@
 	falle.style.display = "none"; 
 
 	function startFalling() {
+		pos = 0 ; 
+		postwo = 0; 
 		buttonPressed = true;
-		pos = -kaeseHeight;
-		postwo = -falleHeight; // Set the initial position to just above the top of the screen
+		pos = -40;
+		postwo = -40; // Set the initial position to just above the top of the screen
 		kaese.style.left = Math.floor(Math.random() * window.innerWidth + 1) + "px";
 		falle.style.left = Math.floor(Math.random() * window.innerWidth + 1) + "px";
 		kaese.style.top = pos + "px";
@@ -154,7 +156,7 @@
   if (buttonPressed && kaese.style.display === "none") {  
     startFalling();  
   } else { // Increment pos by 10 instead of 1
-	  pos += 0.1;
+	  pos += 1;
     kaese.style.top = pos + "px";
   }
 }
@@ -167,7 +169,7 @@
 		if (buttonPressed && falle.style.display === "none") {  
 			startFalling();  
 		} else {	 
-			postwo += 0.1;
+			postwo += 1;
 			falle.style.top = pos + "px";
 		}
 	}
