@@ -4,7 +4,7 @@
 </head>
 
 <body>
-	Version 0.0.3
+	Version 0.0.4
 	<input type=button onclick="startFalling()" value="fallen">
 	<br>
 	<img id="kaese" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png">
@@ -14,6 +14,8 @@
 		let pos = 0;
 		let interval;
 		let kaeseHeight = 40;
+		let buttonPressed = false;
+		let xachse = Math.floor(Math.random() * screen.width + 1);
 
 		kaese.style.position = "absolute";
 		kaese.style.left = "1px";
@@ -22,7 +24,9 @@
 		kaese.style.display = "none";  // Hide the cheese initially
 
 		function startFalling() {
+			buttonPressed = true;
 			pos = -kaeseHeight;  // Set the initial position to just above the top of the screen
+			kease.style.left = xachse; 
 			kaese.style.top = pos + "px";
 			kaese.style.display = "block";  // Make the cheese visible
 			interval = setInterval(fallen, 10);
@@ -33,7 +37,10 @@
 			if (pos >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
 				clearInterval(interval);
 				kaese.style.display = "none";
-			} else {
+			} 
+			if (buttonPressed && kease.style.display = "none") {  
+				startFalling();  
+			}else {
 				pos++;
 				kaese.style.top = pos + "px";
 			}
