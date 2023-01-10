@@ -3,7 +3,7 @@
 	<title>Käsefall</title>
 </head>
 <body>
-	Version 0.0.18
+	Version 0.0.19
 	<input type="button" onclick="startFalling()" value="fallen">
 	<br>
 	<img id="kaese" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png">
@@ -43,8 +43,8 @@
 		falle.style.top = postwo + "px";
 		kaese.style.display = "block";
 		falle.style.display = "block"; // Make the cheese visible
-		interval = setInterval(fallen, 0.01);
-		intervaltwo = setInterval(fallentwo, 0.01);
+		interval = setInterval(fallen, 1);
+		intervaltwo = setInterval(fallentwo, 1);
 	}
 
 
