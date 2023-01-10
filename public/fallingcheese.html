@@ -3,10 +3,11 @@
 	<title>Käsefall</title>
 </head>
 <body>
-	Version 0.0.17
+	Version 0.0.18
 	<input type="button" onclick="startFalling()" value="fallen">
 	<br>
 	<img id="kaese" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png">
+	<img id="Falle" src="https://th.bing.com/th/id/R.488100f9ea8132b1914c7352be16ea65?rik=5BdNRgivdSzrXw&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f6%2fMousetrap-PNG-Free-Download.png&ehk=GfEtmPwGQ0We%2bpLuO9V7x%2bjP3GhYxIjmb%2bX%2bfUpz8V0%3d&risl=&pid=ImgRaw&r=0">
 	
 <script>
 	let kaese = document.getElementById("kaese");
@@ -14,20 +15,36 @@
 	let interval;
 	let kaeseHeight = 40;
 	let buttonPressed = false;
+	
+	let falle = document.getElementById("Falle");
+	let postwo = 0;
+	let intervaltwo;
+	let falleHeight = 40;
 
 	kaese.style.position = "absolute";
 	kaese.style.left = "1px";
 	kaese.style.width = "40px";
 	kaese.style.height = "40px";
 	kaese.style.display = "none";  // Hide the cheese initially
+	
+	falle.style.position = "absolute";
+	falle.style.left = "1px";
+	falle.style.width = "40px";
+	falle.style.height = "40px";
+	falle.style.display = "none"; 
 
 	function startFalling() {
 		buttonPressed = true;
-		pos = -kaeseHeight;  // Set the initial position to just above the top of the screen
+		pos = -kaeseHeight;
+		postwo = -falleHeight; // Set the initial position to just above the top of the screen
 		kaese.style.left = Math.floor(Math.random() * window.innerWidth + 1) + "px";
+		falle.style.left = Math.floor(Math.random() * window.innerWidth + 1) + "px";
 		kaese.style.top = pos + "px";
-		kaese.style.display = "block";  // Make the cheese visible
+		falle.style.top = postwo + "px";
+		kaese.style.display = "block";
+		falle.style.display = "block"; // Make the cheese visible
 		interval = setInterval(fallen, 0.01);
+		intervaltwo = setInterval(fallentwo, 0.01);
 	}
 
 
@@ -41,6 +58,19 @@
 		} else {
 			pos++;
 			kaese.style.top = pos + "px";
+		}
+	}
+	
+	function fallentwo() {
+		if (postwo >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
+			clearInterval(intervaltwo);
+			falle.style.display = "none";
+		} 
+		if (buttonPressed && falle.style.display === "none") {  
+			startFalling();  
+		} else {
+			postwo++;
+			falle.style.top = pos + "px";
 		}
 	}
 </script>
