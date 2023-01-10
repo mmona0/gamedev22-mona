@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.41
+    Version0.0.42
     <table>
       <tr> 
         <td>points</td>
@@ -121,7 +121,22 @@
 	    
 	    let points = document.getElementById('points'); 
 	    
-	    let mouse = document.querySelector('.follow-mouse')
+	    let mouse = document.querySelector('.follow-mouse');
+	    
+	    
+	kaese.style.position = "absolute";
+	kaese.style.left = "1px";
+	kaese.style.width = "40px";
+	kaese.style.height = "40px";
+	    kaese.style.top = "-40px";
+	kaese.style.display = "none";  // Hide the cheese initially
+	
+	falle.style.position = "absolute";
+	falle.style.left = "1px";
+	falle.style.width = "40px";
+	falle.style.height = "40px";
+	falle.style.top = "-40px";
+	falle.style.display = "none"; 
 	    
 	    let kaesetop = parseInt(kaese.style.top); 
 	    let kaesebottom = parseInt(kaese.style.top) + 40 ; 
@@ -140,17 +155,6 @@
 	    let mouseleft = parseInt(mouse.style.left); 
 	    let mouseright = parseInt(mouse.style.left) + 40 ; 	    
 
-	kaese.style.position = "absolute";
-	kaese.style.left = "1px";
-	kaese.style.width = "40px";
-	kaese.style.height = "40px";
-	kaese.style.display = "none";  // Hide the cheese initially
-	
-	falle.style.position = "absolute";
-	falle.style.left = "1px";
-	falle.style.width = "40px";
-	falle.style.height = "40px";
-	falle.style.display = "none"; 
 
 	function startFalling() {
 		let intervalspeed = 10;
