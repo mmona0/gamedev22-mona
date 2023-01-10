@@ -87,7 +87,7 @@ function startFalling() {
 
   </script>
   <body>
-    Version0.0.30
+    Version0.0.31
     <table>
       <tr> 
         <td>points</td>
@@ -193,9 +193,6 @@ function startFalling() {
 		if (postwo >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
 			clearInterval(intervaltwo);
 			falle.style.display = "none";
-			if (intervalspeed > 5) {
-				intervalspeed -= 0.5; 
-			}
 		} 
 		if (buttonPressed && falle.style.display === "none") {  
 			startFalling();  
