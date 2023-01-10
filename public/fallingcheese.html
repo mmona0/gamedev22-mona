@@ -4,6 +4,7 @@
 </head>
 
 <body>
+	Version 0.0.3
 	<input type=button onclick="startFalling()" value="fallen">
 	<br>
 	<img id="kaese" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png">
@@ -27,10 +28,16 @@
 			interval = setInterval(fallen, 10);
 		}
 
+
 		function fallen() {
 			if (pos >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
 				clearInterval(interval);
 				kaese.style.display = "none";
-				startFalling();  // Start falling again with double the amount of cheese
-				kaese.style.display = "block
-
+			} else {
+				pos++;
+				kaese.style.top = pos + "px";
+			}
+		}
+	</script>
+</body>
+</html>
