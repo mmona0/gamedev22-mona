@@ -3,7 +3,7 @@
 	<title>Käsefall</title>
 </head>
 <body>
-	Version 0.0.20
+	Version 0.0.21
 	<input type="button" onclick="startFalling()" value="fallen">
 	<br>
 	<img id="kaese" src="https://webstockreview.net/images/dairy-clipart-cheese-wedge-3.png">
@@ -66,9 +66,6 @@
 		if (postwo >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
 			clearInterval(intervaltwo);
 			falle.style.display = "none";
-			if (intervalspeed > 5) {
-				intervalspeed -= 0.5; 
-			}
 		} 
 		if (buttonPressed && falle.style.display === "none") {  
 			startFalling();  
