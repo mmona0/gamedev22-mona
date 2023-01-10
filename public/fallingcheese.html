@@ -2,15 +2,13 @@
 <head>
 	<title>Käsefall</title>
 </head>
-
-<body>
-	<script>
+<script>
 		let kaese = document.getElementById("kaese");
 		let pos = 0;
 		let interval;
 		let kaeseHeight = 40;
 		let buttonPressed = false;
-		let xachse = Math.floor(Math.random() * screen.width + 1);
+		let xachse = Math.floor(Math.random() * window.innerWidth + 1);
 
 		kaese.style.position = "absolute";
 		kaese.style.left = "1px";
@@ -41,6 +39,8 @@
 			}
 		}
 	</script>
+<body>
+	
 	
 	Version 0.0.5
 	<input type=button onclick="startFalling()" value="fallen">
