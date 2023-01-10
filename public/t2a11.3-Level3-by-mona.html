@@ -57,11 +57,11 @@
   
 
   <body>
-    Version0.0.36
+    Version0.0.37
     <table>
       <tr> 
         <td>points</td>
-        <td>0</td>
+        <td id="points">0</td>
       </tr>
     </table>
     <div class="triangle" onclick="startFalling()" >
@@ -104,9 +104,8 @@
       document.addEventListener('mousemove', (event) => {
         followMouseElement.style.left = `${event.pageX}px`;
       });
-    </script>
-    
-    <script>
+	    
+	    
 	let kaese = document.getElementById("kaese");
 	let pos = 0;
 	let interval;
@@ -118,6 +117,28 @@
 	let postwo = 0;
 	let intervaltwo;
 	let falleHeight = 40;
+	    let intervalcheck; 
+	    
+	    let points = document.getElementById('points'); 
+	    
+	    let mouse = document.querySelector('.follow-mouse')
+	    
+	    let kaesetop = parseInt(kaese.style.top); 
+	    let kaesebottom = parseInt(kaese.style.top) + 40 ; 
+	    let kaeseleft = parseInt(kaese.style.left); 
+	    let kaeseright = parseInt(kaese.style.left) + 40 ; 
+	    
+
+	    let falletop = parseInt(falle.style.top); 
+	    let fallebottom = parseInt(falle.style.top) + 40 ; 
+	    let falleleft = parseInt(falle.style.left); 
+	    let falleright = parseInt(falle.style.left) + 40 ; 
+	    
+
+	    let mousetop = parseInt(mouse.style.top); 
+	    let mousebottom = parseInt(mouse.style.top) + 40 ; 
+	    let mouseleft = parseInt(mouse.style.left); 
+	    let mouseright = parseInt(mouse.style.left) + 40 ; 	    
 
 	kaese.style.position = "absolute";
 	kaese.style.left = "1px";
@@ -145,6 +166,7 @@
 		falle.style.display = "block"; // Make the cheese visible
 		interval = setInterval(fallen, intervalspeed);
 		intervaltwo = setInterval(fallentwo, intervalspeed);
+		intervalcheck = setInterval(hitcheck, intervalspeed); 
 	}
 
 
@@ -173,6 +195,17 @@
 			falle.style.top = pos + "px";
 		}
 	}
+	    
+	    function hitcheck() {
+		    
+		    if( kaesetop <= mousebottom && kaesebottom >= mousetop && kaeseleft <= mouseright && kaeseright >= mouseleft) {
+			    points += 100 
+		    }
+		    if( falletop <= mousebottom && fallebottom >= mousetop && falleleft <= mouseright && falleright >= mouseleft) {
+			    location.reload()
+		    }
+		    
+	    } 
 </script>
   
   </body>
