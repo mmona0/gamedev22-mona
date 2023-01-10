@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.32
+    Version0.0.33
     <table>
       <tr> 
         <td>points</td>
@@ -147,17 +147,17 @@
 
 
 	function fallen() {
-		if (pos >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
-			clearInterval(interval);
-			kaese.style.display = "none";
-		} 
-		if (buttonPressed && kaese.style.display === "none") {  
-			startFalling();  
-		} else {
-			pos++;
-			kaese.style.top = pos + "px";
-		}
-	}
+  if (pos >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
+    clearInterval(interval);
+    kaese.style.display = "none";
+  } 
+  if (buttonPressed && kaese.style.display === "none") {  
+    startFalling();  
+  } else {
+    pos += 10;  // Increment pos by 10 instead of 1
+    kaese.style.top = pos + "px";
+  }
+}
 	
 	function fallentwo() {
 		if (postwo >= window.innerHeight) {  // Check if the cheese has reached the bottom of the screen
@@ -167,7 +167,7 @@
 		if (buttonPressed && falle.style.display === "none") {  
 			startFalling();  
 		} else {
-			postwo++;
+    postwo += 10; 
 			falle.style.top = pos + "px";
 		}
 	}
