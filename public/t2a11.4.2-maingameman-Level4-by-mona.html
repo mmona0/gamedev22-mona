@@ -2,38 +2,11 @@
 <head>
     <script>
         // Variablen für die Geschwindigkeit des Zombies
+        var manSpeed = 100; 
         var zombieSpeed = 90;
 
-    function followMan() {
-        var man = document.getElementById("man");
-        var zombies = document.getElementById("zombies");
+ 
 
-        // Berechnung der neuen Position des Zombies
-        var zombiesX = man.offsetLeft + man.offsetWidth/2 - zombies.offsetWidth/2;
-        var zombiesY = man.offsetTop + man.offsetHeight/2 - zombies.offsetHeight/2;
-
-        // Verschieben des Zombies zur neuen Position
-        zombies.style.left = zombiesX + "px";
-        zombies.style.top = zombiesY + "px";
-    }
-
-    // Event Listener für die Verfolgung des Mannes
-    setInterval(followMan, zombiesSpeed);
-function followMan() {
-        var man = document.getElementById("man");
-        var zombies = document.getElementById("zombies");
-
-        // Berechnung der neuen Position des Zombies
-        var zombiesX = man.offsetLeft + man.offsetWidth/2 - zombies.offsetWidth/2;
-        var zombiesY = man.offsetTop + man.offsetHeight/2 - zombies.offsetHeight/2;
-
-        // Verschieben des Zombies zur neuen Position
-        zombies.style.left = zombiesX + "px";
-        zombies.style.top = zombiesY + "px";
-    }
-
-    // Event Listener für die Verfolgung des Mannes
-    setInterval(followMan, zombiesSpeed);
         
         
  function followMouse(e) {
@@ -78,8 +51,8 @@ function followMan() {
 </style>
 </head>
 <body>
-    version 0.0.4
-    <div id="man"> <img src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" alt="Avatar" class="image" style="width:40%; height:auto"></div>
-    <div id="zombies"> <img src="https://th.bing.com/th/id/OIP.pupZ3RnAOvXGhAyHVlM6fgAAAA?pid=ImgDet&rs=1" class="image" style="width:40%; height:auto"</div>
+    version 0.0.5
+    <div id="man"> <img src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg"  ></div>
+    <div id="zombies"> <img src="https://th.bing.com/th/id/OIP.pupZ3RnAOvXGhAyHVlM6fgAAAA?pid=ImgDet&rs=1" </div>
 </body>
 </html>
