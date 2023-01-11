@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.50
+    Version0.0.51
     <table>
       <tr> 
         <td>points</td>
@@ -168,6 +168,7 @@
 	  pos += 1;
     kaese.style.top = pos + "px";
 	  intervalspeed = 10;
+	  checkCollision()
   }
 }
 	
@@ -191,6 +192,17 @@ function makeInvisible() {
     kaese.style.display = "none";
 }
 
+	    function checkCollision() {
+   
+    var rectkaese = mouse.getBoundingClientRect();
+    var rectmouse = kaese.getBoundingClientRect();
+    if (rectkaese.left < rect2.right &&
+        rectkaese.right > rect2.left &&
+        rectkaese.top < rect2.bottom &&
+        rectkaese.bottom > rect2.top) {
+            kaese.style.display = "none";
+    }
+}
 	    
 	       
 </script>
