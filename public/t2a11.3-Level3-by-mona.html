@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.49
+    Version0.0.50
     <table>
       <tr> 
         <td>points</td>
@@ -117,11 +117,22 @@
 	var postwo = 0;
 	let intervaltwo;
 	let falleHeight = 40;
-	    let intervalcheck; 
 	    
 	    var points = document.getElementById('points'); 
 	    
-	    
+	    	kaese.style.position = "absolute";
+	kaese.style.left = "1px";
+	kaese.style.width = "40px";
+	kaese.style.height = "40px";
+	    kaese.style.top = "-40px";
+	kaese.style.display = "none";  // Hide the cheese initially
+	
+	falle.style.position = "absolute";
+	falle.style.left = "1px";
+	falle.style.width = "40px";
+	falle.style.height = "40px";
+	falle.style.top = "-40px";
+	falle.style.display = "none"; 
 	    
 	    
 	
@@ -143,7 +154,6 @@
 		falle.style.display = "block"; // Make the cheese visible
 		interval = setInterval(fallen, intervalspeed);
 		intervaltwo = setInterval(fallentwo, intervalspeed);
-		intervalcheck = setInterval(checkhit, intervalspeed); 
 	}
 
 
