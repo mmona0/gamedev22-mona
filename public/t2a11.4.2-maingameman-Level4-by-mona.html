@@ -29,14 +29,12 @@
         zombiesImg.className = "zombie";
         zombiesImg.src = "https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png";
         zombiesImg.style.display = "none";
+        document.body.appendChild(zombiesImg);
         return zombiesImg;
-      });
-      zombies.forEach(zombie => {
-        document.body.appendChild(zombie);
       });
       
       let start = false;
-      document.getElementById("start-button").addEventListener("click", function() {
+      document.getElementById("      start-button").addEventListener("click", function() {
         start = true;
         zombies.forEach(zombie => {
           zombie.style.display = "block";
@@ -45,7 +43,7 @@
         this.style.display = "none";
       });
       
-       let manX = 0, manY = 0;
+      let manX = 0, manY = 0;
       document.addEventListener("mousemove", function(event) {
         if (!start) return;
         manX = event.clientX - 50;
@@ -53,21 +51,20 @@
       });
       
       const manElem = document.getElementById("man");
-      const zombiesElems = document.getElementsByClassName("zombie");
       
       setInterval(function() {
         if (!start) return;
         manElem.style.left = `${manX}px`;
         manElem.style.top = `${manY}px`;
         
-        Array.from(zombiesElems).forEach((zombie,i) => {
+        zombies.forEach((zombie) => {
           let zombiesX = parseInt(zombie.style.left);
           let zombiesY = parseInt(zombie.style.top);
           zombiesX += (manX - zombiesX) * 0.1;
           zombiesY += (manY - zombiesY) * 0.1;
           
-          zombieElems[i].style.left = `${zombiesX}px`;
-          zombiesElems[i].style.top = `${zombiesY}px`;
+          zombie.style.left = `${zombiesX}px`;
+          zombies.style.top = `${          zombiesY}px`;
           
           if (Math.abs(zombiesX - manX) < 50 && Math.abs(zombiesY - manY) < 50) {
             location.reload();
@@ -77,3 +74,5 @@
     </script>
   </body>
 </html>
+
+
