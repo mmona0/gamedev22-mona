@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.47
+    Version0.0.48
     <table>
       <tr> 
         <td>points</td>
@@ -106,20 +106,20 @@
       });
 	    
 	    
-	let kaese = document.getElementById("kaese");
+	var kaese = document.getElementById("kaese");
 	var pos = 0;
 	let interval;
 	let kaeseHeight = 40;
 	let buttonPressed = false;
 	let intervalspeed = 10; 
 	
-	let falle = document.getElementById("Falle");
+	var falle = document.getElementById("Falle");
 	var postwo = 0;
 	let intervaltwo;
 	let falleHeight = 40;
 	    let intervalcheck; 
 	    
-	    let points = document.getElementById('points'); 
+	    var points = document.getElementById('points'); 
 	    
 	    
 	    
@@ -140,9 +140,6 @@
 	    
 	    
 	    function checkhit(){
-  var mouse = document.querySelector('.follow-mouse');
-  var kaese = document.getElementById("kaese");
-  var falle = document.getElementById("Falle");
   var mouseRect = mouse.getBoundingClientRect();
   var kaeseRect = cheese.getBoundingClientRect();
   var falleRect = trap.getBoundingClientRect();
@@ -152,7 +149,6 @@
      kaeseRect.y < mouseRect.y + mouseRect.height &&
      kaeseRect.height + kaeseRect.y > mouseRect.y){
       // Increase points by 100 if the mouse collide with cheese
-      var points = document.getElementById("points");
       points.innerHTML = parseInt(points.innerHTML) + 100;
   }
   if(falleRect.x < mouseRect.x + mouseRect.width &&
