@@ -62,11 +62,13 @@
         manElem.style.top = `${manY}px`;
         
         Array.from(zombiesElems).forEach(zombie => {
-          const zombieX = parseInt(zombie.style.left);
+          const zombiesX = parseInt(zombie.style.left);
           const zombiesY = parseInt(zombie.style.top);
           zombie.style.left = `${zombiesX}px`;
           zombie.style.top = `${zombiesY}px`;
           
+          zombiesX += (manX - zombiesX) * 0.1;
+          zombiesY += (manY - zombiesY) * 0.1;
           
 
       if (Math.abs(zombiesX - manX) < 50 && Math.abs(zombiesY - manY) < 50) {
