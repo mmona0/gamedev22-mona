@@ -1,34 +1,24 @@
 <html>
 <head>
     <script>
-        // Variablen für die Geschwindigkeit des Mannes und des Zombies
-        var manSpeed = 100;
+        // Variablen für die Geschwindigkeit des Zombies
         var zombieSpeed = 90;
 
-    // Funktion, um die Position des Cursors zu verfolgen
-    function followMouse(e) {
+    function followMan() {
         var man = document.getElementById("man");
-        var zombie = document.getElementById("zombies");
-
-        // Berechnung der neuen Position des Mannes
-        var newX = e.clientX - man.offsetWidth/2;
-        var newY = e.clientY - man.offsetHeight/2;
-
-        // Verschieben des Mannes zur neuen Position
-        man.style.left = newX + "px";
-        man.style.top = newY + "px";
+        var zombies = document.getElementById("zombies");
 
         // Berechnung der neuen Position des Zombies
-        var zombiesX = newX + manSpeed/zombiesSpeed*(e.clientX-zombies.offsetLeft);
-        var zombiesY = newY + manSpeed/zombiesSpeed*(e.clientY-zombies.offsetTop);
+        var zombiesX = man.offsetLeft + man.offsetWidth/2 - zombies.offsetWidth/2;
+        var zombiesY = man.offsetTop + man.offsetHeight/2 - zombies.offsetHeight/2;
 
         // Verschieben des Zombies zur neuen Position
         zombies.style.left = zombiesX + "px";
         zombies.style.top = zombiesY + "px";
     }
 
-    // Event Listener für die Mausverfolgung
-    document.addEventListener("mousemove", followMouse);
+    // Event Listener für die Verfolgung des Mannes
+    setInterval(followMan, zombiesSpeed);
 </script>
 <style>
     /* Stil für den Mann */
@@ -49,7 +39,7 @@
 </style>
 </head>
 <body>
-    Version 0.0.1
+    version 0.0.1
     <div id="man"> <img src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" alt="Avatar" class="image" style="width:40%; height:auto"></div>
     <div id="zombies"> <img src="https://th.bing.com/th/id/OIP.pupZ3RnAOvXGhAyHVlM6fgAAAA?pid=ImgDet&rs=1" class="image" style="width:40%; height:auto"</div>
 </body>
