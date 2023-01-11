@@ -54,7 +54,7 @@
       });
       
       const manElem = document.getElementById("man");
-      const zombiesElems = document.getElementsByClassName("zombie");
+      const zombiesElems = zombies;
       
       setInterval(function() {
         if (!start) return;
@@ -64,8 +64,8 @@
         Array.from(zombiesElems).forEach(zombie => {
           const zombieX = parseInt(zombie.style.left);
           const zombiesY = parseInt(zombie.style.top);
-          zombieX += (manX - zombiesX) * 0.1;
-          zombiesY += (manY - zombiesY) * 0.1;
+          zombie.style.left = `${zombiesX}px`;
+          zombie.style.top = `${zombiesY}px`;
 
 
       zombie.style.left = `${zombiesX}px`;
