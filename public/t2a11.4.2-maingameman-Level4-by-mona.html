@@ -66,16 +66,17 @@
           const zombiesY = parseInt(zombie.style.top);
           zombie.style.left = `${zombiesX}px`;
           zombie.style.top = `${zombiesY}px`;
+          
+          
 
-
-      zombie.style.left = `${zombiesX}px`;
-      zombies.style.top = `${zombiesY}px`;
-      
       if (Math.abs(zombiesX - manX) < 50 && Math.abs(zombiesY - manY) < 50) {
         location.reload();
       }
     });
   }, 10);
+      
+      zombiesX += (manX - zombiesX) * 0.1;
+      zombiesY += (manY - zombiesY) * 0.1;
 </script>
   </body>
 </html>
