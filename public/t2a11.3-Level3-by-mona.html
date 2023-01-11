@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.52
+    Version0.0.53
     <table>
       <tr> 
         <td>points</td>
@@ -188,12 +188,12 @@
 	    
 	    function checkCollision() {
    
-    var rectkaese = mouse.getBoundingClientRect();
-    var rectmouse = kaese.getBoundingClientRect();
-    if (rectkaese.left < rect2.right &&
-        rectkaese.right > rect2.left &&
-        rectkaese.top < rect2.bottom &&
-        rectkaese.bottom > rect2.top) {
+    var rectkaese = kaese.getBoundingClientRect();
+    var rectmouse = mouse.getBoundingClientRect();
+    if (rectkaese.left < rectmouse.right &&
+        rectkaese.right > rectmouse.left &&
+        rectkaese.top < rectmouse.bottom &&
+        rectkaese.bottom > rectmouse.top) {
             kaese.style.display = "none";
 	    
     } else { fallen() }
