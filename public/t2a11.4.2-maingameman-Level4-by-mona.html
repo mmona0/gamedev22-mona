@@ -4,76 +4,64 @@
     <style>
       #man {
         position: absolute;
-        width: 100px;
-        height: 100px;
-        left: calc(50% - 50px);
-        top: calc(50% - 50px);
+        width: 50px;
+        height: 50px;
       }
-      .zombie {
+      
+      #zombie {
         position: absolute;
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
       }
     </style>
   </head>
   <body>
-    Version 0.0.7
-    <button id="start-button" style="position: absolute; top: 50%; left: 50%;">Start</button>
-    <img id="man" src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" style="display: none;">
-Copy code
-<script>
-  const zombies = [...Array(10)].map((_,i) => {
-    const zombiesImg = document.createElement("img");
-    zombiesImg.className = "zombie";
-    zombiesImg.src = "https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png";
-    zombiesImg.style.display = "none";
-    zombiesImg.style.left = `${Math.random()*100}%`;
-    zombiesImg.style.top = `${Math.random()*100}%`;
-    document.body.appendChild(zombiesImg);
-    return zombiesImg;
+    <img id="man" src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
+    <img id="zombie1" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+    <img id="zombie2" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+    <img id="zombie3" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+    <!-- add more zombies here -->
+    <button id="start-button">Start</button>
+    <p id="score"></p>
+    
+    <script>
+      const man = document.getElementById("man");
+      const zombies = document.querySelectorAll("#zombie");
+      const startButton = document.getElementById("start-button");
+      let score = 0;
+      
+      function moveMan() {
+        // Follow the mouse at a speed of 110px per second
+      }
+      
+      function moveZombies() {
+        // Move the zombies towards the man
+      }
+      
+      function checkCollision() {
+        // Check if the man and any of the zombies are touching
+        // If so, reload the page
+      }
+      
+      function shoot() {
+        // Find the closest zombie and set position to (0, 0)
+        // Increase the score by 100 points
+      }
+      
+      startButton.addEventListener("click", () => {
+        // Start the game
+        moveMan();
+        moveZombies();
+        checkCollision();
       });
       
-      let start = false;
-      document.getElementById("start-button").addEventListener("click", function() {
-        start = true;
-        zombies.forEach(zombie => {
-          zombie.style.display = "block";
-        });
-        document.getElementById("man").style.display = "block";
-        this.style.display = "none";
+      man.addEventListener("click", () => {
+        shoot();
       });
       
-      let manX = 0, manY = 0;
-      document.addEventListener("mousemove", function(event) {
-        if (!start) return;
-        manX = event.clientX - 50;
-        manY = event.clientY - 50;
-      });
-      
-      const manElem = document.getElementById("man");
-      
-      setInterval(function() {
-        if (!start) return;
-        manElem.style.left = `${manX}px`;
-        manElem.style.top = `${manY}px`;
-        
-        zombies.forEach((zombie) => {
-          let zombiesX            = parseInt(getComputedStyle(zombie).left.replace("px",""));
-            let zombiesY = parseInt(getComputedStyle(zombie).top.replace("px",""));
-            zombiesX += (manX - zombiesX) * 0.1;
-            zombiesY += (manY - zombiesY) * 0.1;
-          
-            zombie.style.left = `${zombiesX}px`;
-            zombie.style.top = `${zombiesY}px`;
-          
-            if (Math.abs(zombiesX - manX) < 50 && Math.abs(zombiesY - manY) < 50) {
-              location.reload();
-            }
-          });
-      }, 10);
+      document.getElementById("score").innerHTML = "Score: " + score;
     </script>
   </body>
 </html>
-
 
 
