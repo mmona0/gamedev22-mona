@@ -29,37 +29,36 @@
       const MAN_SPEED = 110; // pixels per second
       const ZOMBIE_SPEED = 50; // pixels per second
       const ZOMBIE_SIZE = 50; // width and height of zombies
-      const RELOAD_TIME = 5000; // time to reload page after game over (in milliseconds)
+      const RELOAD_TIME = 5000;
       const SHOOT_DELAY = 200; // time between shots (in milliseconds)
+      
+  // Get DOM elements
+  const man = document.getElementById("man");
+  const zombies = document.querySelectorAll(".zombie");
+  const startButton = document.getElementById("start-button");
+  const scoreElement = document.getElementById("score");
 
-      // Get DOM elements
-      const man = document.getElementById("man");
-      const zombies = document.querySelectorAll(".zombie");
-      const startButton = document.getElementById("start-button");
-      const scoreElement = document.getElementById("score");
+  // Game variables
+  let score = 0;
+  let gameStarted = false;
+  let lastShot = 0;
 
-      // Game variables
-      let score = 0;
-      let gameStarted = false;
-      let lastShot = 0;
+  // Move the man based on mouse position
+  function moveMan(event) {
+    man.style.left = event.clientX - (man.width / 2) + "px";
+    man.style.top = event.clientY - (man.height / 2) + "px";
+  }
 
-      // Move the man based on mouse position
-      function moveMan(event) {
-        man.style.left = event.clientX - (man.width / 2) + "px";
-        man.style.top = event.clientY - (man.height / 2) + "px";
-      }
-
-      // Move the zombies towards the man
-      function moveZombies() {
-        for (let i = 0; i < zombies.length; i++) {
-          let zombiesRect = zombies[i].getBoundingClientRect();
-          let manRect = man.getBoundingClientRect();
-          
-          // Calculate the distance between the zombies and the man
-          let xDistance = manRect.x - zombiesRect.x;
-          let yDistance = manRect.y - zombiesRect.y;
-          let distance = Math.sqrt(xDistance *xDistance + yDistance * yDistance);
-
+  // Move the zombies towards the man
+  function moveZombies() {
+    for (let i = 0; i < zombies.length; i++) {
+      let zombiesRect = zombies[i].getBoundingClientRect();
+      let manRect = man.getBoundingClientRect();
+      
+      // Calculate the distance between the zombies and the man
+      let xDistance = manRect.x - zombiesRect.x;
+      let yDistance = manRect.y - zombiesRect.y;
+      let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
 
       // Calculate the direction of movement for the zombies
       let xDirection = xDistance / distance;
@@ -75,7 +74,7 @@
       }
     }
     // schedule next move of zombies
-    setTimeout(moveZombies, 1000/60);
+    requestAnimationFrame(moveZombies);
   }
 
   // when the game is over
@@ -105,12 +104,13 @@
       let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
 
       if (distance < closestDistance) {
-        closestZombie = zombies[i];
-        closestDistance = distance;
-      }
-    }
+        closestZie = zombies[i];
+closestDistance = distance;
+}
+}
 
-    // If a zombies was found, shoot it
+
+    // If a zombie was found, shoot it
     if (closestZombie) {
       closestZombie.style.left = "0px";
       closestZombie.style.top = "0px";
@@ -129,10 +129,11 @@
   });
 
   // handle shooting on mouse click
-  man.addEventListener("click", () => {
-    shoot();
-  });scoreElement.innerHTML = "Score: " + score;
+  document.addEventListener("mousedown", function(event) {
+    if(event.target.id === "man"){
+      shoot();
+    }
+  });
 </script>
-
   </body>
 </html>
