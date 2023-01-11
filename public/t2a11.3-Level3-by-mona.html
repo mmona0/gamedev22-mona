@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.48
+    Version0.0.49
     <table>
       <tr> 
         <td>points</td>
@@ -124,42 +124,7 @@
 	    
 	    
 	    
-	kaese.style.position = "absolute";
-	kaese.style.left = "1px";
-	kaese.style.width = "40px";
-	kaese.style.height = "40px";
-	    kaese.style.top = "-40px";
-	kaese.style.display = "none";  // Hide the cheese initially
 	
-	falle.style.position = "absolute";
-	falle.style.left = "1px";
-	falle.style.width = "40px";
-	falle.style.height = "40px";
-	falle.style.top = "-40px";
-	falle.style.display = "none"; 
-	    
-	    
-	    function checkhit(){
-  var mouseRect = mouse.getBoundingClientRect();
-  var kaeseRect = cheese.getBoundingClientRect();
-  var falleRect = trap.getBoundingClientRect();
-
-  if(kaeseRect.x < mouseRect.x + mouseRect.width &&
-     kaeseRect.x + kaeseRect.width > mouseRect.x &&
-     kaeseRect.y < mouseRect.y + mouseRect.height &&
-     kaeseRect.height + kaeseRect.y > mouseRect.y){
-      // Increase points by 100 if the mouse collide with cheese
-      points.innerHTML = parseInt(points.innerHTML) + 100;
-  }
-  if(falleRect.x < mouseRect.x + mouseRect.width &&
-     falleRect.x + falleRect.width > mouseRect.x &&
-     falleRect.y < mouseRect.y + mouseRect.height &&
-     falleRect.height + falleRect.y > mouseRect.y){
-      //Reload the page if the mouse collide with trap
-      location.reload();
-  }
-}
-
 	 
 
 
@@ -209,6 +174,12 @@
 			intervalspeed = 10;
 		}
 	}
+	    
+	    kaese.addEventListener("mouseover", makeInvisible);
+
+function makeInvisible() {
+    kaese.style.display = "none";
+}
 
 	    
 	       
