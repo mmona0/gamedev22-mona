@@ -20,18 +20,19 @@
     <img class="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
     <img class="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
     <img class="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-    <!-- add more zombies here -->
-    <button id="start-button">Start</button>
-    <p id="score"></p>
-    
-    <script>
-      // Constants
-      const MAN_SPEED = 110; // pixels per second
-      const ZOMBIE_SPEED = 50; // pixels per second
-      const ZOMBIE_SIZE = 50; // width and height of zombies
-      const RELOAD_TIME = 5000;
-      const SHOOT_DELAY = 200; // time between shots (in milliseconds)
-      
+<!-- add more zombies here -->
+
+<button id="start-button">Start</button>
+<p id="score"></p>
+
+<script>
+  // Constants
+  const MAN_SPEED = 110; // pixels per second
+  const ZOMBIE_SPEED = 50; // pixels per second
+  const ZOMBIE_SIZE = 50; // width and height of zombies
+  const RELOAD_TIME = 5000;
+  const SHOOT_DELAY = 200; // time between shots (in milliseconds)
+
   // Get DOM elements
   const man = document.getElementById("man");
   const zombies = document.querySelectorAll(".zombie");
@@ -96,19 +97,18 @@
     let closestDistance = Infinity;
 
     // Find the closest zombies
-    for (let i = 0; i < zombies.length; i++) {
-      let zombiesRect = zombies[i].getBoundingClientRect();
-      let manRect = man.getBoundingClientRect();
-      let xDistance = manRect.x - zombiesRect.x;
-      let yDistance = manRect.y - zombiesRect.y;
-      let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+    for (let i = 0; i < zombies.length; i++) {let zombiesRect = zombies[i].getBoundingClientRect();
+let manRect = man.getBoundingClientRect();
+let xDistance = manRect.x - zombiesRect.x;
+let yDistance = manRect.y - zombiesRect.y;
+let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+
 
       if (distance < closestDistance) {
-        closestZie = zombies[i];
-closestDistance = distance;
-}
-}
-
+        closestZombie = zombies[i];
+        closestDistance = distance;
+      }
+    }
 
     // If a zombie was found, shoot it
     if (closestZombie) {
