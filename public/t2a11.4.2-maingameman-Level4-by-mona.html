@@ -58,82 +58,81 @@
           // Calculate the distance between the zombies and the man
           let xDistance = manRect.x - zombiesRect.x;
           let yDistance = manRect.y - zombiesRect.y;
-          let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+          let distance = Math.sqrt(xDistance *xDistance + yDistance * yDistance);
 
+Copy code
+      // Calculate the direction of movement for the zombies
+      let xDirection = xDistance / distance;
+      let yDirection = yDistance / distance;
 
-    // Calculate the direction of movement for the zombie
-    let xDirection = xDistance / distance;
-    let yDirection = yDistance / distance;
+      // Move the zombies
+      zombies[i].style.left = zombiesRect.x + xDirection * ZOMBIE_SPEED + "px";
+      zombies[i].style.top = zombiesRect.y + yDirection * ZOMBIE_SPEED + "px";
 
-    // Move the zombies
-    zombies[i].style.left = zombiesRect.x + xDirection * ZOMBIE_SPEED + "px";
-    zombies[i].style.top = zombiesRect.y + yDirection * ZOMBIE_SPEED + "px";
+      // Check collision
+      if (Math.abs(xDistance) < ZOMBIE_SIZE && Math.abs(yDistance) < ZOMBIE_SIZE) {
+        gameOver();
+      }
+    }
+    // schedule next move of zombies
+    setTimeout(moveZombies, 1000/60);
+  }
 
-    // Check collision
-    if (Math.abs(xDistance) < ZOMBIE_SIZE && Math.abs(yDistance) < ZOMBIE_SIZE) {
-      gameOver();
+  // when the game is over
+  function gameOver() {
+    alert("Game over! Your score is " + score);
+    setTimeout(function() {
+      location.reload();
+    }, RELOAD_TIME);
+  }
+
+  // shoot function
+  function shoot() {
+    if (Date.now() - lastShot < SHOOT_DELAY) {
+      return;
+    }
+    lastShot = Date.now();
+
+    let closestZombie = null;
+    let closestDistance = Infinity;
+
+    // Find the closest zombies
+    for (let i = 0; i < zombies.length; i++) {
+      let zombiesRect = zombies[i].getBoundingClientRect();
+      let manRect = man.getBoundingClientRect();
+      let xDistance = manRect.x - zombiesRect.x;
+      let yDistance = manRect.y - zombiesRect.y;
+      let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+
+      if (distance < closestDistance) {
+        closestZombie = zombies[i];
+        closestDistance = distance;
+      }
+    }
+
+    // If a zombies was found, shoot it
+    if (closestZombie) {
+      closestZombie.style.left = "0px";
+      closestZombie.style.top = "0px";
+      score += 100;
+      scoreElement.innerHTML = "Score: " + score;
     }
   }
-}
-// when the game is over
-function gameOver() {
-  alert("Game over! Your score is " + score);
-  setTimeout(function() {
-    location.reload();
-  }, RELOAD_TIME);
-}
-// shoot function
-function shoot() {
-  if (Date.now() - lastShot < SHOOT_DELAY) {
-    return;
-  }
-  lastShot = Date.now();
 
-  let closestZombie = null;
-  let closestDistance = Infinity;
-
-  // Find the closest zombie
-  for (let i = 0; i < zombies.length; i++) {
-    let zombiesRect = zombies[i].getBoundingClientRect();
-    let manRect = man.getBoundingClientRect();
-    let xDistance = manRect.x - zombiesRect.x;
-    let yDistance = manRect.y - zombiesRect.y;
-    let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
-
-    if (distance < closestDistance) {
-      closestZombie = zombies[i];
-      closestDistance = distance;
+  // Start the game when the start button is clicked
+  startButton.addEventListener("click", () => {
+    if(!gameStarted){
+      gameStarted = true;
+      moveZombies();
+      document.onmousemove = moveMan;
     }
-  }
+  });
 
-  // If a zombie was found, shoot it
-  if (closestZombie) {
-    closestZombie.style.left = "0px";
-    closestZombie.style.top = "0px";
-    score += 100;
-    scoreElement.innerHTML = "Score: " + score;
-  }
-}
+  // handle shooting on mouse click
+  man.addEventListener("click", () => {
+    shoot();
+  });scoreElement.innerHTML = "Score: " + score;
+</script>
 
-// Start the game when the start button is clicked
-startButton.addEventListener("click", () => {
-  if(!gameStarted){
-    gameStarted = true;
-    moveMan();
-    moveZombies();
-    document.onmousemove = moveMan;
-  }
-});
-
-// handle shooting on mouse click
-man.addEventListener("click", () => {
-  shoot();
-});
-
-scoreElement.innerHTML = "Score: " + score;
-  </script>
-</body>
+  </body>
 </html>
-
-
-
