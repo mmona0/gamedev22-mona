@@ -8,7 +8,7 @@
         height: 50px;
       }
       
-      #zombie {
+      .zombie {
         position: absolute;
         width: 50px;
         height: 50px;
@@ -17,9 +17,9 @@
   </head>
   <body>
     <img id="man" src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
-    <img id="zombie1" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-    <img id="zombie2" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-    <img id="zombie3" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+    <img class="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+    <img class="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+    <img class="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
     <!-- add more zombies here -->
     <button id="start-button">Start</button>
     <p id="score"></p>
@@ -44,7 +44,7 @@
       let lastShot = 0;
 
       // Move the man based on mouse position
-      function moveMan() {
+      function moveMan(event) {
         man.style.left = event.clientX - (man.width / 2) + "px";
         man.style.top = event.clientY - (man.height / 2) + "px";
       }
@@ -52,13 +52,13 @@
       // Move the zombies towards the man
       function moveZombies() {
         for (let i = 0; i < zombies.length; i++) {
-          let zombieRect = zombies[i].getBoundingClientRect();
+          let zombiesRect = zombies[i].getBoundingClientRect();
           let manRect = man.getBoundingClientRect();
           
-          // Calculate the distance between the zombie and the man
+          // Calculate the distance between the zombies and the man
           let xDistance = manRect.x - zombiesRect.x;
           let yDistance = manRect.y - zombiesRect.y;
-          let distance = Math.sqrt(xDistance * xDistanceyDistance * yDistance);
+          let distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
 
 
     // Calculate the direction of movement for the zombie
