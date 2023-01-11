@@ -17,8 +17,8 @@
       }
       
       body {
-  background-image: url("https://image.freepik.com/free-vector/cheese-pieces-vector-seamless-pattern-seamless-pattern-wallpaper_97231-1443.jpg");
-}
+        background-image: url("https://image.freepik.com/free-vector/cheese-pieces-vector-seamless-pattern-seamless-pattern-wallpaper_97231-1443.jpg");
+      }
       
       .follow-mouse {
         display: block; 
@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.45
+    Version0.0.46
     <table>
       <tr> 
         <td>points</td>
@@ -139,33 +139,31 @@
 	falle.style.display = "none"; 
 	    
 	    
-	    let kaesetop = parseInt(kaese.style.top); 
-	    let kaesebottom = parseInt(kaese.style.top) + 40 ; 
-	    let kaeseleft = parseInt(kaese.style.left); 
-	    let kaeseright = parseInt(kaese.style.left) + 40 ; 
-	    
+	    function checkhit(){
+  var mouse = document.querySelector('.follow-mouse');
+  var kaese = document.getElementById("kaese");
+  var falle = document.getElementById("Falle");
+  var mouseRect = mouse.getBoundingClientRect();
+  var kaeseRect = cheese.getBoundingClientRect();
+  var falleRect = trap.getBoundingClientRect();
 
-	    let falletop = parseInt(falle.style.top); 
-	    let fallebottom = parseInt(falle.style.top) + 40 ; 
-	    let falleleft = parseInt(falle.style.left); 
-	    let falleright = parseInt(falle.style.left) + 40 ; 
-	    
+  if(kaeseRect.x < mouseRect.x + mouseRect.width &&
+     kaeseRect.x + kaeseRect.width > mouseRect.x &&
+     kaeseRect.y < mouseRect.y + mouseRect.height &&
+     kaeseRect.height + kaeseRect.y > mouseRect.y){
+      // Increase points by 100 if the mouse collide with cheese
+      var points = document.getElementById("points");
+      points.innerHTML = parseInt(points.innerHTML) + 100;
+  }
+  if(falleRect.x < mouseRect.x + mouseRect.width &&
+     falleRect.x + falleRect.width > mouseRect.x &&
+     falleRect.y < mouseRect.y + mouseRect.height &&
+     falleRect.height + falleRect.y > mouseRect.y){
+      //Reload the page if the mouse collide with trap
+      location.reload();
+  }
+}
 
-	    let mousetop = parseInt(mouse.style.top); 
-	    let mousebottom = parseInt(mouse.style.top) + 40 ; 
-	    let mouseleft = parseInt(mouse.style.left); 
-	    let mouseright = parseInt(mouse.style.left) + 40 ; 	    
-	   
-	    function hitcheck() {
-		    
-		    if( kaesetop <= mousebottom && kaesebottom >= mousetop && kaeseleft <= mouseright && kaeseright >= mouseleft) {
-			    points += 100 
-		    }
-		    if( falletop <= mousebottom && fallebottom >= mousetop && falleleft <= mouseright && falleright >= mouseleft) {
-			    location.reload()
-		    }
-		    
-	    } 
 	 
 
 
