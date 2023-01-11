@@ -1,58 +1,77 @@
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <style>
+      #man {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+      }
+      #zombie {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+      }
+    </style>
+  </head>
+  <body>
+    <button id="start-button" style="position: absolute; top: 50%; left: 50%;">Start</button>
+    <img id="man" src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
+    <img id="zombie" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png" style="display: none;">
+    
     <script>
-        // Variablen für die Geschwindigkeit des Zombies
-        var manSpeed = 100; 
-        var zombieSpeed = 90;
-
- 
-
+      const zombie = [...Array(10)].map(() => {
+        const zombieImg = document.createElement("img");
+        zombiesImg.id = "zombie";
+        zombiesImg.src = "https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png";
+        zombiesImg.style.display = "none";
+        return zombiesImg;
+      });
+      zombies.forEach(zombie => {
+        document.body.appendChild(zombie);
+      });
+      
+      let start = false;
+      document.getElementById("start-button").addEventListener("click", function() {
+        start = true;
+        zombies.forEach(zombie => {
+          zombie.style.display = "block";
+        });
+        document.getElementById("man").style.display = "block";
+        this.style.display = "none";
+      });
+      
+      let manX = 0, manY = 0;
+      document.addEventListener("mousemove", function(event) {
+        if (!start) return;
+        manX = event.clientX - 50;
+        manY = event.clientY - 50;
+      });
+      
+      const manElem = document.getElementById("man");
+      const zombieElems = zombies.map(zombie => document.getElementById(zombie.id));
+      
+      setInterval(function() {
+        if (!start) return;
+        manElem.style.left = `${manX}px`;
+        manElem.style.top = `${manY}px`;
         
-        
- function followMouse(e) {
+        zombiesElems.forEach((zombie, i) => {
+          const zombieX = parseInt(zombie.style.left);
+          const zombiesY = parseInt(zombie.style.top);
+          zombieElems[i].style.left = `${zombiesX + 1}px`;
+          zombiesElems[i].style.top =`${zombiesY + 1}px`;
 
-        // Berechnung der neuen Position des Mannes
-        var newX = e.clientX - man.offsetWidth/2;
-        var newY = e.clientY - man.offsetHeight/2;
 
-        // Verschieben des Mannes zur neuen Position
-        man.style.left = newX + "px";
-        man.style.top = newY + "px";
-
-        // Berechnung der neuen Position des Zombies
-        var zombiesx = newX + manSpeed/zombiesSpeed*(e.clientX-zombies.offsetLeft);
-        var zombiesy = newY + manSpeed/zombiesSpeed*(e.clientY-zombies.offsetTop);
-
-        // Verschieben des Zombies zur neuen Position
-        zombies.style.left = zombiesx + "px";
-        zombies.style.top = zombiesy+ "px";
-    }
-
-    // Event Listener für die Mausverfolgung
-    document.addEventListener("mousemove", followMouse);
+      if (Math.abs(zombiesX - manX) < 50 && Math.abs(zombiesY - manY) < 50) {
+        location.reload();
+      }
+    });
+  }, 10);
 </script>
-
-<style>
-    /* Stil für den Mann */
-    #man {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: blue;
-    }
-
-    /* Stil für den Zombies */
-    #zombies {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: green;
-    }
-</style>
-</head>
-<body>
-    version 0.0.5
-    <div id="man"> <img src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg"  ></div>
-    <div id="zombies"> <img src="https://th.bing.com/th/id/OIP.pupZ3RnAOvXGhAyHVlM6fgAAAA?pid=ImgDet&rs=1" </div>
-</body>
+  </body>
 </html>
