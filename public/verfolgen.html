@@ -7,7 +7,7 @@
     }
   </style> 
   <body onclick="schuss()"> 
-    version 0.0.10
+    version 0.0.11
     <img id="target" style="position: absolute; top: 20px; left: 1087px; height: 150px; width: 150px; " src="https://th.bing.com/th/id/R.a6ea59dd19c03af5c6840c8756533a7e?rik=zougzmj7TK%2fudw&pid=ImgRaw&r=0">
     <div id="bullet">.</div>
     <script> 
@@ -39,8 +39,8 @@ var bulletinterval = setInterval(function() {
   var newY = currentY + pxperloopY;
   bullet.style.left = newX + "px"; 
   bullet.style.top = newY + "px";
-   if(currentX == targetX || currentX == targetX + targetwidth) {
-      if(currentY == targetY ||currentY == targetY + targetheight){
+   if(newX == targetX || newX == targetX + targetwidth) {
+      if(newY == targetY ||newY == targetY + targetheight){
        clearInterval(bulletinterval); 
       }
     }
