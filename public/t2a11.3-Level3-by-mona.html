@@ -58,11 +58,11 @@
   
 
   <body>
-    Version0.0.71
+    Version0.0.72
     <table id="table1">
       <tr> 
         <td>points</td>
-        <td>0</td>
+	      <td><div id=points> 0 </div> </td>
       </tr>
     </table>
     <div class="triangle" onclick="startFalling()" >
@@ -195,12 +195,10 @@
         rectkaese.right > rectmouse.left &&
         rectkaese.top < rectmouse.bottom &&
         rectkaese.bottom > rectmouse.top) {
-	    var table1 = document.getElementById('table1'); 
             kaese.style.display = "none";
-	    var points = table1.rows[0].cells[1] ; 
-	    points = points + " 0" ;
-	    points = parseFloat(points) + 100;
-	    table1.rows[0].cells[1].innerHTML = parseFloat(points) ; 
+	    var points = parseInt(getElementById('points')) ; 
+	    points = (points + 100;
+	    getElementById('points').innerHTML = points ; 
 	    
     } 
 }
