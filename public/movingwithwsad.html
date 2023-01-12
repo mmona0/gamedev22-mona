@@ -45,7 +45,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.25
+  Version 0.0.26
     move with <br>
     w = up <br>
     s = down <br> 
@@ -78,6 +78,7 @@ if (myKey == 'w') {
       var schusspositiony = parseInt(mann.style.top) + (parseInt(mann.style.height)/2) ; 
       schuss.style.top = schusspositiony + 'px' ; 
       schuss.style.left = schusspositionx + 'px' ; 
+      schuss.style.display = "none"; 
       
       
        function stayonscreen() { 
@@ -116,6 +117,7 @@ if (myKey == 'w') {
           mann.style.display = "block" ;
           zombielager.style.display = "block";
           zombie.style.display = "block";
+          schuss.style.display = "block"; 
         }
       }, 1000);
     }
