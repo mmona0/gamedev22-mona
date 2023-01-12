@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.79
+    Version0.0.80
     <table id="table1">
       <tr> 
         <td>points</td>
@@ -198,10 +198,10 @@
         rectkaese.top < rectmouse.bottom &&
         rectkaese.bottom > rectmouse.top) {
 	    
-	    var points = parseInt(document.querySelector('points')) ; 
+	    var points = parseInt(document.getElementById('points')) ; 
             kaese.style.display = "none"; 
 	    points = points + 100;
-	    document.querySelector('points').innerHTML = points ; 
+	    document.getElementById('points').innerHTML = points ; 
 	    
     } 
 }
