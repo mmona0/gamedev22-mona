@@ -42,14 +42,16 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.14
+  Version 0.0.15
   
   <div id="countdown"></div>
   <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
+  <img id="zombie" style="position:absolute; width:100px; height:120px;" src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
    <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
     
     
     <script>
+      var zombie = document.getElementById("zombie");
      var zombielager = document.getElementById("zombielager");
     var mann = document.getElementById("mann");    
       var width = window.innerWidth ; 
@@ -60,6 +62,9 @@ if (myKey == 'w') {
       zombielager.style.top = "0px"; 
       zombielager.style.left =  window.innerWidth - 200 + "px";
       zombielager.style.display = "none"; 
+      zombie.style.top = "10px"; 
+      zombie.style.left =  window.innerWidth - 150 + "px";
+      zombie.style.display = "none";
       
        function stayonscreen() {
          
@@ -93,7 +98,8 @@ if (myKey == 'w') {
           clearInterval(interval);
           countdownEl.innerHTML = ""; 
           mann.style.display = "block" ;
-           zombielager.style.display = "block";
+          zombielager.style.display = "block";
+          zombie.style.display = "block";
         }
       }, 1000);
     }
