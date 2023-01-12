@@ -1,1 +1,42 @@
+<html> 
+  <style>
+    #target {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
 
+#bullet {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+  </style> 
+  <body> 
+    
+    <div id="target">Ziel</div>
+<div id="bullet">Punkt</div>
+
+    <script> 
+      // Zielkoordinaten festlegen
+var targetX = 150;
+var targetY = 200;
+
+// Intervall für die Bewegung des Punktes festlegen
+setInterval(function() {
+  var bullet = document.getElementById("bullet");
+  
+  // Aktuelle Koordinaten des Punktes abfragen
+  var currentX = bullet.offsetLeft;
+  var currentY = bullet.offsetTop;
+  
+  // Berechnung der neuen Koordinaten des Punktes
+  var newX = currentX + (targetX - currentX) / 10;
+  var newY = currentY + (targetY - currentY) / 10;
+  
+  // Neue Koordinaten des Punktes setzen
+  bullet.style.left = newX + "px";
+  bullet.style.top = newY + "px";
+}, 50);
+    </script> 
+  </body> 
