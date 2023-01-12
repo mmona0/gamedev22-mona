@@ -41,7 +41,7 @@ if (myKey == 'w') {
                  
                   
 }">
-  Version 0.0.1
+  Version 0.0.2
   <img id="mann" style="position:absolute; width:100px; height:120px; top:335px; left:750px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <div id="countdown"></div>
     <script>
@@ -53,8 +53,11 @@ if (myKey == 'w') {
         countdown--;
         countdownEl.innerHTML = countdown;
         if (countdown === 0) {
-          clearInterval(interval);
           countdownEl.innerHTML = "Go!";
+        }
+        if (countdown === -1) {
+          clearInterval(interval);
+          countdownEl.innerHTML = ""; 
         }
       }, 1000);
     }
