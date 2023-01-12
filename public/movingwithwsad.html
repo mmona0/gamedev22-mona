@@ -43,7 +43,7 @@ if (myKey == 'w') {
                   
 }">
     
-  Version 0.0.22
+  Version 0.0.23
     move with <br>
     w = up <br>
     s = down <br> 
@@ -74,8 +74,9 @@ if (myKey == 'w') {
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
       zombie.style.display = "none";
-                                   bullet.style.top = mann.style.top + (mann.style.height / 2 ) ; 
-                                   bullet.style.left= mann.style.left + mann.style.width;
+      bullet.style.top = mann.style.top + (mann.style.height / 2 ) ; 
+      bullet.style.left= mann.style.left + mann.style.width;
+      bullet.style.display = "none" ; 
        function stayonscreen() {
          
     var manntop = parseFloat(mann.style.top);
@@ -114,7 +115,7 @@ if (myKey == 'w') {
       }, 1000);
     }
       
-       function shoot(event) {
+       function shoot(event) { 
     var bulletX = parseInt(mann.style.left);
     var bulletY = parseInt(mann.style.top);
     var distanceX = (zombiesRect.x + zombiesRect.width / 2) - bulletX;
