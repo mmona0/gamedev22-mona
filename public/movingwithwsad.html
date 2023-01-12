@@ -12,7 +12,7 @@
   </style>
 </head>
   <body onload="startCountdown()" onclick="shoot(event)" onkeydown="movePlayer(event)">
-  Version 0.0.37
+  Version 0.0.38
     move with <br>
     w = up <br>
     s = down <br> 
@@ -57,28 +57,27 @@ var mann = document.getElementById("mann");
 stayonscreen();
 }
                               
-                              function shoot(event) {
-    var bulletX = parseInt(mann.style.left);
-    var bulletY = parseInt(mann.style.top);
-    var distanceX = zombiesRect.x + zombiesRect.width / 2 - bulletX;
-    var distanceY = zombiesRect.y + zombiesRect.height / 2 - bulletY;
-    var pixelsPerLoopX = distanceX / 50;
-    var pixelsPerLoopY = distanceY / 50;
-    var bulletInterval = setInterval(function() {
-      
-    bullet.style.display = "block";
-      bulletX += pixelsPerLoopX;
-      bulletY += pixelsPerLoopY;
-      bullet.style.left = Math.round(bulletX) + 'px';
-      bullet.style.top = Math.round(bulletY) + 'px';
-      var bulletRect = bullet.getBoundingClientRect();
-      if (bulletRect.x >= zombiesRect.x && bulletRect.x <= zombiesRect.x + zombiesRect.width && bulletRect.y >= zombiesRect.y && bulletRect.y <= zombiesRect.y + zombiesRect.height) {
-        clearInterval(bulletInterval);
-        bullet.style.display = "none"; 
-        zombies.style.display = "none"; 
-      }
-    }, 1000);
-  }
+       function shoot(event) {
+var bulletX = parseInt(mann.style.left) + mann.width / 2;
+var bulletY = parseInt(mann.style.top) + mann.height / 2;
+var distanceX = zombiesRect.x + zombiesRect.width / 2 - bulletX;
+var distanceY = zombiesRect.y + zombiesRect.height / 2 - bulletY;
+var pixelsPerLoopX = distanceX / 50;
+var pixelsPerLoopY = distanceY / 50;
+var bulletInterval = setInterval(function() {
+bullet.style.display = "block";
+bulletX += pixelsPerLoopX;
+bulletY += pixelsPerLoopY;
+bullet.style.left = Math.round(bulletX) + 'px';
+bullet.style.top = Math.round(bulletY) + 'px';
+var bulletRect = bullet.getBoundingClientRect();
+if (bulletRect.x >= zombiesRect.x && bulletRect.x <= zombiesRect.x + zombiesRect.width && bulletRect.y >= zombiesRect.y && bulletRect.y <= zombiesRect.y + zombiesRect.height) {
+clearInterval(bulletInterval);
+bullet.style.display = "none";
+zombies.style.display = "none";
+}
+}, 10);
+}
   
   function stayonscreen() {
     if(parseInt(mann.style.left) > width) {
