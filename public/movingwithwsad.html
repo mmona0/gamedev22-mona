@@ -41,10 +41,14 @@ if (myKey == 'w') {
                  
                   
 }">
-  Version 0.0.2
+  Version 0.0.3
   <img id="mann" style="position:absolute; width:100px; height:120px; top:335px; left:750px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <div id="countdown"></div>
     <script>
+      var mann = document.getElementById("mann");
+      mann.style.display = "none" ; 
+      
+      
     function startCountdown() {
       var countdown = 3;
       var countdownEl = document.getElementById("countdown");
@@ -58,6 +62,7 @@ if (myKey == 'w') {
         if (countdown === -1) {
           clearInterval(interval);
           countdownEl.innerHTML = ""; 
+          mann.style.display = "block" ;
         }
       }, 1000);
     }
