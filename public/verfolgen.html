@@ -1,44 +1,38 @@
 <html> 
   <style>
-
-#bullet {
-  position: absolute;
-  top: 100px;
-  left: 100px;
-}
+    #bullet {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
   </style> 
   <body onclick="schuss()"> 
-    
-    <div="target" style=" top: 20; left: 587;">Ziel</div>
-<div id="bullet">.</div>
-
+    <div id="target" style="top: 20px; left: 587px;">Ziel</div>
+    <div id="bullet">.</div>
     <script> 
-var target = document.getElementById("target");
+      var target = document.getElementById("target");
       // Zielkoordinaten festlegen
-var targetX = target.style.left;
-var targetY = target.style.top;
-
-// Intervall für die Bewegung des Punktes festlegen
-  var bullet = document.getElementById("bullet");
-  
-  // Aktuelle Koordinaten des Punktes abfragen
-  var currentX = bullet.offsetLeft;
-  var currentY = bullet.offsetTop;
-  
-      
-      function schuss(){
-        var distanceX = targetX - currentX ; 
-        var distanceY = targetY - currentY ; 
-        var pxperloopX = distanceX / 50 ; 
-        var pxperloopY = distanceY / 50 ; 
-        set Interval (function() {
-         var newX = currentX + pxperloopX ; 
-          var newY = currentY + pxperloopY;
-          bullet.style.left = newX + "px"; 
-          bullet.style.top = newY + "px";
-          
-        },50); 
-        
-      }
-    </script> 
+      var targetX = parseInt(target.style.left.slice(0, -2));
+      var targetY = parseInt(target.style.top.slice(0, -2));
+      var bullet = document.getElementById("bullet");
+Copy code
+  function schuss(){
+    // Aktuelle Koordinaten des Punktes abfragen
+    var currentX = bullet.offsetLeft;
+    var currentY = bullet.offsetTop;
+    
+    var distanceX = targetX - currentX ; 
+    var distanceY = targetY - currentY ; 
+    var pxperloopX = distanceX / 50 ; 
+    var pxperloopY = distanceY / 50 ; 
+    
+    setInterval(function() {
+      var newX = currentX + pxperloopX ; 
+      var newY = currentY + pxperloopY;
+      bullet.style.left = newX + "px"; 
+      bullet.style.top = newY + "px";
+    },50); 
+  }
+</script> 
   </body> 
+</html>
