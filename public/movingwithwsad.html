@@ -15,7 +15,17 @@
   </style>
     
 </head>
-  <body onload="startCountdown()" onkeydown="{
+  <body onload="startCountdown()" onclick="{
+                                           
+                                           let newbullet = document.getElementById('schuss').cloneNode();
+                                           newbullet.style.position = "absoute"; 
+                                           newbullet.style.top = document.getElementById('schuss').style.top ; 
+                                           newbullet.style.left = document.getElementById('schuss').style.left ;                                    
+                                           document.body.appendChild(newbullet); 
+                                           
+                                           
+                                           
+                                           }" onkeydown="{
                  
                  
 let myKey = event.key ;         
@@ -45,7 +55,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.27
+  Version 0.0.28
     move with <br>
     w = up <br>
     s = down <br> 
