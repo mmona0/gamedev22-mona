@@ -42,7 +42,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.31
+  Version 0.0.32
     move with <br>
     w = up <br>
     s = down <br> 
@@ -74,7 +74,6 @@ if (myKey == 'w') {
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
       zombie.style.display = "none";
-      var zombieRect = zombie.getBoundingClientRect();
        function stayonscreen() {
          
     var manntop = parseFloat(mann.style.top);
@@ -118,8 +117,8 @@ if (myKey == 'w') {
     bullet.style.display = "block";
 var bulletX = parseInt(mann.style.left);
 var bulletY = parseInt(mann.style.top);
-var distanceX = (zombieRect.x + (zombieRect.width / 2)) - bulletX;
-var distanceY = (zombieRect.y + (zombieRect.height / 2)) - bulletY;
+var distanceX = (zombie.style.left + (zombie.style.width / 2)) - bulletX;
+var distanceY = (zombie.style.top + (zombie.style.height / 2)) - bulletY;
 var pixelsPerLoopX = distanceX / 50;
 var pixelsPerLoopY = distanceY / 50;
 var bulletInterval = setInterval(function() {
@@ -129,7 +128,7 @@ var bulletInterval = setInterval(function() {
       bullet.style.left = bulletX + 'px';
       bullet.style.top = bulletY + 'px';
       var bulletRect = bullet.getBoundingClientRect();
-      if (bulletRect.x >= zombieRect.x && bulletRect.x <= zombieRect.x + zombieRect.width && bulletRect.y >= zombieRect.y && bulletRect.y <= zombieRect.y + zombieRect.height) {
+      if (bulletRect.x >= zombie.style.left && bulletRect.x <= zombie.style.left + zombie.style.width && bulletRect.y >= zombie.style.top && bulletRect.y <= zombie.style.top + zombie.style.height) {
         clearInterval(bulletInterval);
         bullet.style.display = "none"; 
         zombie.style.display = "none"; 
