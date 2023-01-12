@@ -198,10 +198,8 @@
 	    var table1 = document.getElementById('table1'); 
             kaese.style.display = "none";
 	    var points = table1.rows[0].cells[1] ; 
-	    points = points + 1 ; 
-	    points = parseFloat(points) + 100 ;
-	    points = points - 1 ; 
-	    document.getElementById('points').innerHTML = points ; 
+	    points = points + 100 ;
+	    document.getElementById('points').innerHTML = parseFloat(points) ; 
 	    
     } 
 }
