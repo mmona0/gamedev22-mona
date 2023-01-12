@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.84
+    Version0.0.85
     <table id="table1">
       <tr> 
         <td>points</td>
@@ -163,6 +163,7 @@
   if (pos >= document.body.clientHeight) {  // Check if the cheese has reached the bottom of the screen
     clearInterval(interval);
     kaese.style.display = "none";
+	  pos= 0 ; 
   } 
   if (buttonPressed && kaese.style.display === "none") {  
     startFalling();  
@@ -178,6 +179,7 @@
 		if (postwo >= document.body.clientHeight) {  // Check if the cheese has reached the bottom of the screen
 			clearInterval(intervaltwo);
 			falle.style.display = "none";
+			postwo = 0 ; 
 		} 
 		if (buttonPressed && falle.style.display === "none") {  
 			startFalling();  
