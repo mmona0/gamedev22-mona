@@ -15,14 +15,14 @@
   </style>
     <script> 
       function newimg(){
-                                           let target = document.getElementById('zombie'); 
+                                           let zombie = document.getElementById('zombie'); 
                                            let newbullet = document.getElementById('schuss').cloneNode();
                                            newbullet.style.position = "absoute"; 
                                            newbullet.style.top = document.getElementById('schuss').style.top ; 
                                            newbullet.style.left = document.getElementById('schuss').style.left ;                                    
                                            document.body.appendChild(newbullet); 
-                                                                     let zielx = parseInt(target.style.left) + (parseInt(target.style.width)/2);
-                                                                      let ziely = parseInt(target.style.top) + (parseInt(target.style.height)/2); 
+                                                                     let zielx = parseInt(zombie.style.left) + (parseInt(zombie.style.width)/2);
+                                                                      let ziely = parseInt(zombie.style.top) + (parseInt(zombie.style.height)/2); 
                                                                       let distancex = zielx - newbullet.style.left ; 
                                                                       let distancey = ziely - newbullet.style.top ; 
                                                                       let pxprointervalx = distancex/60 ; 
@@ -71,7 +71,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.31
+  Version 0.0.32
     move with <br>
     w = up <br>
     s = down <br> 
@@ -86,7 +86,6 @@ if (myKey == 'w') {
     
     <script>
       var schuss = document.getElementById("schuss");
-      var zombie = document.getElementById("zombie");
       var zombielager = document.getElementById("zombielager");
       var mann = document.getElementById("mann");    
       var width = window.innerWidth ; 
