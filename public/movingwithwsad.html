@@ -18,17 +18,22 @@
       document.getElementById("countdown").innerHTML = count;
       count--;
       if (count == 0) {
+        document.getElementById('countdown').innerHTML = "GO!" ; 
+      }
+      if (count == -1) {
+        count = "" ; 
         clearInterval(countdown);
         mann.style.display = "block";
         zombielager.style.display = "block";
         zombies.style.display = "block";
+        document.getElementById('countdown').style.display = "none"; 
       }
     }, 1000);
   }
     
   </script> 
   <body onload="startCountdown()" onclick="shoot(event)" onkeydown="movePlayer(event)">
-  Version 0.0.42
+  Version 0.0.43
     move with <br>
     w = up <br>
     s = down <br> 
