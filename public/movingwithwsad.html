@@ -12,7 +12,7 @@
   </style>
 </head>
   <body onload="startCountdown()" onclick="shoot(event)" onkeydown="movePlayer(event)">
-  Version 0.0.38
+  Version 0.0.39
     move with <br>
     w = up <br>
     s = down <br> 
@@ -36,6 +36,10 @@ var mann = document.getElementById("mann");
   mann.style.display = "block" ; 
   mann.style.top = (height / 2) + 'px';
   mann.style.left = (width / 2) + 'px';
+  zombiesRect.x = width - 150 + 'px'; 
+  zombiesRect.y = 10 + 'px'; 
+                              zombielager.style.top = '0px';
+                              zombielager.style.left = width - 200 + 'px'; 
   
   function movePlayer(event) {
      let myKey = event.key;
