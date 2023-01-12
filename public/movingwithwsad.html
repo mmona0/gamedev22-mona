@@ -45,7 +45,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.26
+  Version 0.0.27
     move with <br>
     w = up <br>
     s = down <br> 
@@ -96,7 +96,8 @@ if (myKey == 'w') {
          if(manntop + 120 >= height) {
            mann.style.top = height - 120 + "px" ;
          }
-         
+         schusspositionx = parseInt(mann.style.left) + parseInt(mann.style.width) ;  
+         schusspositiony = parseInt(mann.style.top) + (parseInt(mann.style.height)/2) ; 
      schuss.style.top = schusspositiony + 'px' ; 
       schuss.style.left = schusspositionx + 'px' ; 
        }
