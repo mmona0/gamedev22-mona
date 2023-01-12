@@ -39,11 +39,13 @@ if (myKey == 'w') {
          parseInt(document.getElementById('mann').style.top) + 20 + 'px' 
              
 }
-           
+    var mann = document.getElementById("mann");
+    var manntop = parseFloat(mann.style.top);
+    var mannleft = parseFloat(mann.style.left);                                         
       stayonscreen()
                   
 }">
-  Version 0.0.10
+  Version 0.0.11
   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <div id="countdown"></div>
    
@@ -51,9 +53,6 @@ if (myKey == 'w') {
     <script>
       var width = window.innerWidth ; 
          var height = window.innerHeight ; 
-         var mann = document.getElementById("mann");
-         var manntop = parseFloat(mann.style.top);
-         var mannleft = parseFloat(mann.style.left);
       mann.style.display = "none" ; 
       mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
       mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
