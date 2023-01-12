@@ -7,33 +7,34 @@
     }
   </style> 
   <body onclick="schuss()"> 
-    version 0.0.3
-    <img id="target" style="top: 20px; left: 1087px; height: 150px; width: 150px; " src="https://th.bing.com/th/id/R.a6ea59dd19c03af5c6840c8756533a7e?rik=zougzmj7TK%2fudw&pid=ImgRaw&r=0">
+    version 0.0.4
+    <img id="target" style="position: absolute; top: 20px; left: 1087px; height: 150px; width: 150px; " src="https://th.bing.com/th/id/R.a6ea59dd19c03af5c6840c8756533a7e?rik=zougzmj7TK%2fudw&pid=ImgRaw&r=0">
     <div id="bullet">.</div>
     <script> 
       var target = document.getElementById("target");
       // Zielkoordinaten festlegen
-      var targetX = parseInt(target.style.left);
-      var targetY = parseInt(target.style.top);
+      var targetX = parseInt(target.style.left.slice(0, -2));
+      var targetY = parseInt(target.style.top.slice(0, -2));
       var bullet = document.getElementById("bullet");
+function schuss(){
+// Aktuelle Koordinaten des Punktes abfragen
+var currentX = bullet.offsetLeft;
+var currentY = bullet.offsetTop;
 
-  function schuss(){
-    // Aktuelle Koordinaten des Punktes abfragen
-    var currentX = bullet.offsetLeft;
-    var currentY = bullet.offsetTop;
-    
-    var distanceX = targetX - currentX ; 
-    var distanceY = targetY - currentY ; 
-    var pxperloopX = distanceX / 50 ; 
-    var pxperloopY = distanceY / 50 ; 
-    
-    setInterval(function() {
-      var newX = currentX + pxperloopX ; 
-      var newY = currentY + pxperloopY;
-      bullet.style.left = newX + "px"; 
-      bullet.style.top = newY + "px";
-    },50); 
-  }
-</script> 
+
+var distanceX = targetX - currentX ; 
+var distanceY = targetY - currentY ; 
+var pxperloopX = distanceX / 50 ; 
+var pxperloopY = distanceY / 50 ; 
+
+setInterval(function() {
+  var newX = currentX + pxperloopX ; 
+  var newY = currentY + pxperloopY;
+  bullet.style.left = newX + "px"; 
+  bullet.style.top = newY + "px";
+},50); 
+}
+</script>
+
   </body> 
 </html>
