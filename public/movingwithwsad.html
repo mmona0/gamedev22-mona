@@ -42,7 +42,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.30
+  Version 0.0.31
     move with <br>
     w = up <br>
     s = down <br> 
@@ -58,7 +58,6 @@ if (myKey == 'w') {
     <script>
       var bullet = document.getElementById('bullet');
       var zombie = document.getElementById("zombie");
-       var zombieRect = zombie.getBoundingClientRect();
      var zombielager = document.getElementById("zombielager");
     var mann = document.getElementById("mann");    
       var width = window.innerWidth ; 
@@ -75,6 +74,7 @@ if (myKey == 'w') {
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
       zombie.style.display = "none";
+      var zombieRect = zombie.getBoundingClientRect();
        function stayonscreen() {
          
     var manntop = parseFloat(mann.style.top);
