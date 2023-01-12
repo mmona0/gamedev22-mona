@@ -42,7 +42,8 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.20
+    
+  Version 0.0.21
     move with <br>
     w = up <br>
     s = down <br> 
@@ -64,7 +65,6 @@ if (myKey == 'w') {
     var mann = document.getElementById("mann");    
       var width = window.innerWidth ; 
          var height = window.innerHeight ; 
-       var bullet = document.getElementById('bullet');
       mann.style.display = "none" ; 
       mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
       mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
@@ -74,6 +74,8 @@ if (myKey == 'w') {
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
       zombie.style.display = "none";
+                                   bullet.style.top = mann.style.top + (mann.style.height / 2 ) ; 
+                                   bullet.style.left= mann.style.left + mann.style.width;
        function stayonscreen() {
          
     var manntop = parseFloat(mann.style.top);
