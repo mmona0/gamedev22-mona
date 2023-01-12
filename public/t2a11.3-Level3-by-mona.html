@@ -191,7 +191,7 @@
 	    	    var point = 0
 		    
 	    function checkCollision() {
-   
+    var rectfalle = falle.getBoundingClientRect();
     var rectkaese = kaese.getBoundingClientRect();
     var rectmouse = mouse.getBoundingClientRect();
     if (rectkaese.left < rectmouse.right &&
@@ -203,12 +203,20 @@
 	    point = point + 100;
 	    pointsid.innerHTML = point ; 
 	    if( point == 1000) {
-		alert('you win!')  
-       location = 't2a11.4.1-Level4-choosecharacter-by-mona.html'  
+		alert('you win!')  ;
+       location = 't2a11.4.1-Level4-choosecharacter-by-mona.html'  ;
    }
-	    
-    } 
+    }
+	    if (rectfalle.left < rectmouse.right &&
+        rectfalle.right > rectmouse.left &&
+        rectfalle.top < rectmouse.bottom &&
+        rectfalle.bottom > rectmouse.top) {
+		    alert('you lost, dont touch the traps!');
+       location.reload();
+   
+ 
 }
+	    }
 	    
 	       
 </script>
