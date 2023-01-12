@@ -9,6 +9,9 @@
       font-size: 72px;
       text-align: center;
     }
+    
+
+    
   </style>
     
 </head>
@@ -42,7 +45,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.20
+  Version 0.0.21
     move with <br>
     w = up <br>
     s = down <br> 
@@ -56,12 +59,12 @@ if (myKey == 'w') {
   <img id="schuss" style="position:absolute; width:10px ; height:10px; " src="https://th.bing.com/th/id/OIP.dzup1QpvC1pMVZEkbRRX_gHaHa?pid=ImgDet&rs=1">  
     
     <script>
+      var schuss = document.getElementById("schuss");
       var zombie = document.getElementById("zombie");
-      
-     var zombielager = document.getElementById("zombielager");
-    var mann = document.getElementById("mann");    
+      var zombielager = document.getElementById("zombielager");
+      var mann = document.getElementById("mann");    
       var width = window.innerWidth ; 
-         var height = window.innerHeight ; 
+      var height = window.innerHeight ; 
       mann.style.display = "none" ; 
       mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
       mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
@@ -71,6 +74,8 @@ if (myKey == 'w') {
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
       zombie.style.display = "none";
+      schuss.style.top =  mann.style.top + (mann.style.height/2) ; 
+      schuss.style.left = mann.style.left + mann.sytle.width ; 
        function stayonscreen() {
          
     var manntop = parseFloat(mann.style.top);
