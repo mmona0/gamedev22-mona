@@ -58,7 +58,7 @@
   
 
   <body>
-    Version0.0.69
+    Version0.0.70
     <table id="table1">
       <tr> 
         <td>points</td>
@@ -199,7 +199,7 @@
             kaese.style.display = "none";
 	    var points = table1.rows[0].cells[1] ; 
 	    points = points + 100 ;
-	    document.getElementById('points').innerHTML = parseFloat(points) ; 
+	    table1.rows[0].cells[1].innerHTML = parseFloat(points) ; 
 	    
     } 
 }
