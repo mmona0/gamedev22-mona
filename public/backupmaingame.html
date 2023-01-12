@@ -1,1 +1,102 @@
-
+<html>
+  <head>
+  <style>
+    #countdown {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 72px;
+      text-align: center;
+    }
+  </style>
+    
+</head>
+  <body onload="startCountdown()" onkeydown="{
+                 
+                 
+let myKey = event.key ;         
+ // let myKey = String.toLowerCase(event.key)
+if (myKey == 'd') {
+     document.getElementById('mann').style.left = 
+         parseInt(document.getElementById('mann').style.left) + 20 + 'px' 
+     
+            
+}
+if (myKey == 'a') {
+                 
+ document.getElementById('mann').style.left = 
+         parseInt(document.getElementById('mann').style.left) + -20 + 'px' 
+}
+if (myKey == 'w') {
+     document.getElementById('mann').style.top = 
+         parseInt(document.getElementById('mann').style.top) + -20 + 'px' 
+}
+ if (myKey == 's') {
+             
+   
+     document.getElementById('mann').style.top = 
+         parseInt(document.getElementById('mann').style.top) + 20 + 'px' 
+             
+}                                    
+      stayonscreen()
+                  
+}">
+  Version 0.0.14
+  
+  <div id="countdown"></div>
+  <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
+   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
+    
+    
+    <script>
+     var zombielager = document.getElementById("zombielager");
+    var mann = document.getElementById("mann");    
+      var width = window.innerWidth ; 
+         var height = window.innerHeight ; 
+      mann.style.display = "none" ; 
+      mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
+      mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
+      zombielager.style.top = "0px"; 
+      zombielager.style.left =  window.innerWidth - 200 + "px";
+      zombielager.style.display = "none"; 
+      
+       function stayonscreen() {
+         
+    var manntop = parseFloat(mann.style.top);
+    var mannleft = parseFloat(mann.style.left); 
+         if(mannleft <= 0 ) {
+           mann.style.left = "0px";
+         }
+         if(mannleft + 100 >= width) {
+           mann.style.left = width - 100 + "px" ;
+         }
+         if(manntop <= 0 ) {
+           mann.style.top = "0px";
+         }
+         if(manntop + 120 >= height) {
+           mann.style.top = height - 120 + "px" ;
+         }
+       }
+      
+    function startCountdown() {
+      var countdown = 3;
+      var countdownEl = document.getElementById("countdown");
+      countdownEl.innerHTML = countdown;
+      var interval = setInterval(function() {
+        countdown--;
+        countdownEl.innerHTML = countdown;
+        if (countdown === 0) {
+          countdownEl.innerHTML = "Go!";
+        }
+        if (countdown === -1) {
+          clearInterval(interval);
+          countdownEl.innerHTML = ""; 
+          mann.style.display = "block" ;
+           zombielager.style.display = "block";
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
