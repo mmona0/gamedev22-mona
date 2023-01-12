@@ -42,7 +42,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.28
+  Version 0.0.29
     move with <br>
     w = up <br>
     s = down <br> 
@@ -53,10 +53,10 @@ if (myKey == 'w') {
   <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
   <img id="zombie" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
-   <img class="bullet" style="position:absolute; width: 20px; height: 20px; src="https://w7.pngwing.com/pngs/52/806/png-transparent-circle-computer-icons-solid-color-monochrome-sphere-polygon.png">  
+   <img id="bullet" style="position:absolute; width: 10px; height: 10px; src="https://w7.pngwing.com/pngs/52/806/png-transparent-circle-computer-icons-solid-color-monochrome-sphere-polygon.png">  
     
     <script>
-      var bullet = document.querySelector('.bullet');
+      var bullet = document.getElementById('bullet');
       var zombie = document.getElementById("zombie");
        var zombieRect = zombie.getBoundingClientRect();
      var zombielager = document.getElementById("zombielager");
@@ -114,24 +114,25 @@ if (myKey == 'w') {
     }
       
      function shoot(event) {
+                                        
+    bullet.style.display = "block";
 var bulletX = parseInt(mann.style.left);
 var bulletY = parseInt(mann.style.top);
-var distanceX = zombiesRect.x + zombiesRect.width / 2 - bulletX;
-var distanceY = zombiesRect.y + zombiesRect.height / 2 - bulletY;
+var distanceX = zombieRect.x + zombieRect.width / 2 - bulletX;
+var distanceY = zombieRect.y + zombieRect.height / 2 - bulletY;
 var pixelsPerLoopX = distanceX / 50;
 var pixelsPerLoopY = distanceY / 50;
 var bulletInterval = setInterval(function() {
 
-    bullet.style.display = "block";
       bulletX += pixelsPerLoopX;
       bulletY += pixelsPerLoopY;
       bullet.style.left = bulletX + 'px';
       bullet.style.top = bulletY + 'px';
       var bulletRect = bullet.getBoundingClientRect();
-      if (bulletRect.x >= zombiesRect.x && bulletRect.x <= zombiesRect.x + zombiesRect.width && bulletRect.y >= zombiesRect.y && bulletRect.y <= zombiesRect.y + zombiesRect.height) {
+      if (bulletRect.x >= zombieRect.x && bulletRect.x <= zombieRect.x + zombieRect.width && bulletRect.y >= zombieRect.y && bulletRect.y <= zombieRect.y + zombieRect.height) {
         clearInterval(bulletInterval);
         bullet.style.display = "none"; 
-        zombies.style.display = "none"; 
+        zombie.style.display = "none"; 
       }
     }, 1000);
   }
