@@ -42,7 +42,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.27
+  Version 0.0.28
     move with <br>
     w = up <br>
     s = down <br> 
@@ -113,28 +113,28 @@ if (myKey == 'w') {
       }, 1000);
     }
       
-      function shoot(event) {
-        var bulletX = mann.style.left;
-        var bulletY =  mann.style.top;
-        var distanceX = zombieRect.x + zombieRect.width / 2 - bulletX;
-        var distanceY = zombieRect.y + zombieRect.height / 2 - bulletY;
-        var pixelsPerLoopX = distanceX / 50;
-        var pixelsPerLoopY = distanceY / 50;
-        var bulletInterval = setInterval(function() {
-          
-        bullet.style.display = "block";
-          bulletX += pixelsPerLoopX;
-          bulletY += pixelsPerLoopY;
-          bullet.style.left = Math.round(bulletX) + 'px';
-          bullet.style.top = Math.round(bulletY) + 'px';
-          var bulletRect = bullet.getBoundingClientRect();
-          if (bulletRect.x >= zombieRect.x && bulletRect.x <= zombieRect.x + zombieRect.width && bulletRect.y >= zombieRect.y && bulletRect.y <= zombieRect.y + zombieRect.height) {
-            clearInterval(bulletInterval);
-            bullet.style.display = "none"; 
-            zombie.style.display = "none"; 
-          }
-        }, 1000);
+     function shoot(event) {
+var bulletX = parseInt(mann.style.left);
+var bulletY = parseInt(mann.style.top);
+var distanceX = zombiesRect.x + zombiesRect.width / 2 - bulletX;
+var distanceY = zombiesRect.y + zombiesRect.height / 2 - bulletY;
+var pixelsPerLoopX = distanceX / 50;
+var pixelsPerLoopY = distanceY / 50;
+var bulletInterval = setInterval(function() {
+
+    bullet.style.display = "block";
+      bulletX += pixelsPerLoopX;
+      bulletY += pixelsPerLoopY;
+      bullet.style.left = bulletX + 'px';
+      bullet.style.top = bulletY + 'px';
+      var bulletRect = bullet.getBoundingClientRect();
+      if (bulletRect.x >= zombiesRect.x && bulletRect.x <= zombiesRect.x + zombiesRect.width && bulletRect.y >= zombiesRect.y && bulletRect.y <= zombiesRect.y + zombiesRect.height) {
+        clearInterval(bulletInterval);
+        bullet.style.display = "none"; 
+        zombies.style.display = "none"; 
       }
+    }, 1000);
+  }
   </script>
 </body>
 </html>
