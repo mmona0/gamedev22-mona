@@ -43,7 +43,7 @@ if (myKey == 'w') {
                   
 }">
     
-  Version 0.0.21
+  Version 0.0.22
     move with <br>
     w = up <br>
     s = down <br> 
@@ -117,8 +117,8 @@ if (myKey == 'w') {
        function shoot(event) {
     var bulletX = parseInt(mann.style.left);
     var bulletY = parseInt(mann.style.top);
-    var distanceX = zombiesRect.x + zombiesRect.width / 2 - bulletX;
-    var distanceY = zombiesRect.y + zombiesRect.height / 2 - bulletY;
+    var distanceX = (zombiesRect.x + zombiesRect.width / 2) - bulletX;
+    var distanceY = (zombiesRect.y + zombiesRect.height / 2) - bulletY;
     var pixelsPerLoopX = distanceX / 50;
     var pixelsPerLoopY = distanceY / 50;
     var bulletInterval = setInterval(function() {
