@@ -42,19 +42,21 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.12
+  Version 0.0.13
   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <div id="countdown"></div>
-   
+  <img id="zombielager" style="position:absolute; width:200px; height: 200px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
     
     <script>
-      
+     var zombielager = document.getElementById("zombielager");
     var mann = document.getElementById("mann");    
       var width = window.innerWidth ; 
          var height = window.innerHeight ; 
       mann.style.display = "none" ; 
       mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
       mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
+      zombielager.style.top = "0px"; 
+      zombielager.style.left =  window.innerWidth - 200 + "px";
       
        function stayonscreen() {
          
