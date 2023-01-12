@@ -7,14 +7,16 @@
     }
   </style> 
   <body onclick="schuss()"> 
-    version 0.0.5
+    version 0.0.6
     <img id="target" style="position: absolute; top: 20px; left: 1087px; height: 150px; width: 150px; " src="https://th.bing.com/th/id/R.a6ea59dd19c03af5c6840c8756533a7e?rik=zougzmj7TK%2fudw&pid=ImgRaw&r=0">
     <div id="bullet">.</div>
     <script> 
       var target = document.getElementById("target");
       // Zielkoordinaten festlegen
-      var targetX = parseInt(target.style.left.slice(0, -2));
-      var targetY = parseInt(target.style.top.slice(0, -2));
+      var targetX = parseInt(target.style.left);
+      var targetY = parseInt(target.style.top);
+      var targetwidth = parseInt(target.style.width); 
+      var targetheight = parseInt(target.style.height); 
       var bullet = document.getElementById("bullet");
 function schuss(){
 // Aktuelle Koordinaten des Punktes abfragen
@@ -27,14 +29,21 @@ var distanceY = targetY - currentY ;
 var pxperloopX = distanceX / 50 ; 
 var pxperloopY = distanceY / 50 ; 
 
-setInterval(function() {
+var bulletinterval = setInterval(function() {
   currentX = bullet.offsetLeft;
   currentY = bullet.offsetTop;
   var newX = currentX + pxperloopX ; 
   var newY = currentY + pxperloopY;
   bullet.style.left = newX + "px"; 
   bullet.style.top = newY + "px";
-},50); 
+},30); 
+  
+  setInterval(function() {
+    if(currentX == targetX || currentX == targetX + targetwidth) {
+      if(currentY == targetY ||currentY == targetY + targetheight){
+       clearInterval(bulletinterval); 
+      }
+    }
 }
 </script>
 
