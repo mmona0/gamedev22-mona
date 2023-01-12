@@ -12,6 +12,15 @@
   </style>
 </head>
   <script> 
+    
+var mann = document.getElementById("mann");    
+    var bullet = document.getElementById('bullet');
+  var zombies = document.getElementById("zombie");
+    var zombielager = document.getElementById("zombielager");
+    
+  mann.style.display = "none" ;
+  zombies.style.display = "block" ;
+  zombielager.style.display = "block" ;
      function startCountdown() {
     var count = 3;
     var countdown = setInterval(function() {
@@ -33,7 +42,7 @@
     
   </script> 
   <body onload="startCountdown()" onclick="shoot(event)" onkeydown="movePlayer(event)">
-  Version 0.0.43
+  Version 0.0.44
     move with <br>
     w = up <br>
     s = down <br> 
@@ -46,15 +55,10 @@
 <img id="bullet" style="position:absolute; width: 10px; height: 10px; src="https://th.bing.com/th/id/R.78fcd0bbf3cea894779931ccb70b2394?rik=Jjh0Jn1qpl7nrQ&pid=ImgRaw&r=0">
 
 <script>
-  var bullet = document.getElementById('bullet');
-  var zombies = document.getElementById("zombie");
   var zombiesRect = zombies.getBoundingClientRect();
- var zombielager = document.getElementById("zombielager");
-var mann = document.getElementById("mann");    
   var width = window.innerWidth ; 
      var height = window.innerHeight ; 
   bullet.style.display = "none"; 
-  mann.style.display = "block" ; 
   mann.style.top = (height / 2) + 'px';
   mann.style.left = (width / 2) + 'px';
   zombiesRect.x = width - 150 + 'px'; 
