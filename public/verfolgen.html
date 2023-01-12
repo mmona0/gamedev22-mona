@@ -7,6 +7,7 @@
     }
   </style> 
   <body onclick="schuss()"> 
+    version 0.0.1
     <div id="target" style="top: 20px; left: 587px;">Ziel</div>
     <div id="bullet">.</div>
     <script> 
@@ -15,7 +16,7 @@
       var targetX = parseInt(target.style.left.slice(0, -2));
       var targetY = parseInt(target.style.top.slice(0, -2));
       var bullet = document.getElementById("bullet");
-Copy code
+
   function schuss(){
     // Aktuelle Koordinaten des Punktes abfragen
     var currentX = bullet.offsetLeft;
