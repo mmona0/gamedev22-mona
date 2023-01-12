@@ -57,7 +57,7 @@
   
 
   <body>
-    Version0.0.82
+    Version0.0.83
     <table id="table1">
       <tr> 
         <td>points</td>
@@ -188,7 +188,8 @@
 		}
 	}
 	    
-	    
+	    	    var point = 0
+		    
 	    function checkCollision() {
    
     var rectkaese = kaese.getBoundingClientRect();
@@ -197,11 +198,10 @@
         rectkaese.right > rectmouse.left &&
         rectkaese.top < rectmouse.bottom &&
         rectkaese.bottom > rectmouse.top) {
-	    
-	    var points = document.getElementById('points') ; 
+	    let pointsid = document.getElementById('points') ; 
             kaese.style.display = "none"; 
-	    points = points + 100;
-	    document.getElementById('points').innerHTML = points ; 
+	    point = point + 100;
+	    pointsid.innerHTML = point ; 
 	    
     } 
 }
