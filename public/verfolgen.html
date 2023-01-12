@@ -1,55 +1,36 @@
-<html> 
+<html>
   <style>
-    #bullet {
+    .bullet {
       position: absolute;
-      top: 100px;
-      left: 100px;
     }
-  </style> 
-  <body onclick="schuss()"> 
-    version 0.0.11
-    <img id="target" style="position: absolute; top: 20px; left: 1087px; height: 150px; width: 150px; " src="https://th.bing.com/th/id/R.a6ea59dd19c03af5c6840c8756533a7e?rik=zougzmj7TK%2fudw&pid=ImgRaw&r=0">
-    <div id="bullet">.</div>
-    <script> 
-      var target = document.getElementById("target");
-      // Zielkoordinaten festlegen
-      var targetX = parseInt(target.style.left);
-      var targetY = parseInt(target.style.top);
-      var targetwidth = parseInt(target.style.width); 
-      var targetheight = parseInt(target.style.height); 
-      var bullet = document.getElementById("bullet");
-      var targetXX = targetX + (targetwidth/2) ; 
-      var targetYY = targetY + (targetheight/2) ;
-      
-function schuss(){
-// Aktuelle Koordinaten des Punktes abfragen
-var currentX = bullet.offsetLeft;
-var currentY = bullet.offsetTop;
+  </style>
+  <body onclick="shoot(event)">
+    version 0.0.1
+    <img class="target" src="https://th.bing.com/th/id/R.a6ea59dd19c03af5c6840c8756533a7e?rik=zougzmj7TK%2fudw&pid=ImgRaw&r=0" alt="target">
+    <div class="bullet"></div>
+    <script type="text/javascript">
+      var target = document.querySelector('.target');
+      var bullet = document.querySelector('.bullet');
+      var targetRect = target.getBoundingClientRect();
 
-
-var distanceX = targetXX - currentX ; 
-var distanceY = targetYY- currentY ; 
-var pxperloopX = distanceX / 50 ; 
-var pxperloopY = distanceY / 50 ; 
-
-var bulletinterval = setInterval(function() {
-  currentX = bullet.offsetLeft;
-  currentY = bullet.offsetTop;
-  var newX = currentX + pxperloopX ; 
-  var newY = currentY + pxperloopY;
-  bullet.style.left = newX + "px"; 
-  bullet.style.top = newY + "px";
-   if(newX == targetX || newX == targetX + targetwidth) {
-      if(newY == targetY ||newY == targetY + targetheight){
-       clearInterval(bulletinterval); 
+      function shoot(event) {
+        var bulletX = event.clientX;
+        var bulletY = event.clientY;
+        var distanceX = targetRect.x + targetRect.width / 2 - bulletX;
+        var distanceY = targetRect.y + targetRect.height / 2 - bulletY;
+        var pixelsPerLoopX = distanceX / 50;
+        var pixelsPerLoopY = distanceY / 50;
+        var bulletInterval = setInterval(function() {
+          bulletX += pixelsPerLoopX;
+          bulletY += pixelsPerLoopY;
+          bullet.style.left = Math.round(bulletX) + 'px';
+          bullet.style.top = Math.round(bulletY) + 'px';
+          var bulletRect = bullet.getBoundingClientRect();
+          if (bulletRect.x >= targetRect.x && bulletRect.x <= targetRect.x + targetRect.width && bulletRect.y >= targetRect.y && bulletRect.y <= targetRect.y + targetRect.height) {
+            clearInterval(bulletInterval);
+          }
+        }, 30);
       }
-    }
-},30); 
-  
-
-   
-} 
-</script>
-
-  </body> 
+    </script>
+  </body>
 </html>
