@@ -58,7 +58,7 @@
   
 
   <body>
-    Version0.0.74
+    Version0.0.75
     <table id="table1">
       <tr> 
         <td>points</td>
@@ -187,6 +187,8 @@
 		}
 	}
 	    
+	    var points = parseInt(getElementById('points')) ; 
+	    
 	    function checkCollision() {
    
     var rectkaese = kaese.getBoundingClientRect();
@@ -195,10 +197,9 @@
         rectkaese.right > rectmouse.left &&
         rectkaese.top < rectmouse.bottom &&
         rectkaese.bottom > rectmouse.top) {
-            kaese.style.display = "none";
-	    var points = parseInt(getElementById('points')) ; 
+            kaese.style.display = "none"; 
 	    points = points + 100;
-	    getElementById('points').innerHTML = points ; 
+	    points.innerHTML = points ; 
 	    
     } 
 }
