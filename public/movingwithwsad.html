@@ -42,7 +42,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.21
+  Version 0.0.22
     move with <br>
     w = up <br>
     s = down <br> 
@@ -111,6 +111,7 @@ if (myKey == 'w') {
     }
       
       function shoot(event) {
+        bullet.style.display = "block";
         var bulletX = mann.style.left;
         var bulletY =  mann.style.top;
         var distanceX = zombieRect.x + zombieRect.width / 2 - bulletX;
@@ -128,7 +129,7 @@ if (myKey == 'w') {
             bullet.style.display = "none"; 
             zombie.style.display = "none"; 
           }
-        }, 60);
+        }, 100);
       }
   </script>
 </body>
