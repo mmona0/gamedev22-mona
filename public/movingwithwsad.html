@@ -73,7 +73,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.36
+  Version 0.0.37
     move with <br>
     w = up <br>
     s = down <br> 
@@ -146,9 +146,22 @@ if (myKey == 'w') {
           zombielager.style.display = "block";
           zombie.style.display = "block";
           schuss.style.display = "block"; 
+          spawn()
         }
       }, 1000);
     }
+      
+      function spawn() {
+        setInterval(function(){
+          let newmonster = document.getElementById('zombie').cloneNode(true);
+          newmonster.style.position = "absolute";
+          newmonster.style.top = document.getElementById('zombielager').style.top ;
+          newmonster.style.left = document.getElementById('zombielager').style.left ;
+          document.body.appendChild(newmonster);
+           
+          
+        },3000
+      }
   </script>
 </body>
 </html>
