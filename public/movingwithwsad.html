@@ -45,7 +45,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.23
+  Version 0.0.24
     move with <br>
     w = up <br>
     s = down <br> 
@@ -74,8 +74,10 @@ if (myKey == 'w') {
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
       zombie.style.display = "none";
-      schuss.style.top =  mann.style.top  ; 
-      schuss.style.left = mann.style.left ; 
+      var schusspositionx = parseInt(mann.style.left) + parseInt(mann.style.width) ;  
+      var schusspositiony = parseInt(mann.style.top) + (parseInt(mann.style.height)/2) ; 
+      schuss.style.top = schusspositiony + 'px' ; 
+      schuss.style.left = schusspositionx + 'px' ; 
       
       
        function stayonscreen() { 
