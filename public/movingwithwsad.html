@@ -21,17 +21,12 @@ newbullet.style.position = "absolute";
 newbullet.style.top = document.getElementById('schuss').style.top ;
 newbullet.style.left = document.getElementById('schuss').style.left ;
 document.body.appendChild(newbullet);
-let zielx = parseInt(zombies.style.left) + (parseInt(zombies.style.width)/2);
-let ziely = parseInt(zombies.style.top) + (parseInt(zombies.style.height)/2);
-let distancex = zielx - parseInt(newbullet.style.left);
-let distancey = ziely - parseInt(newbullet.style.top);
-let pxprointervalx = distancex/60 ;
-let pxprointervaly = distancey/60 ;
+
 let interval = setInterval(function() {
 let newx = parseInt(newbullet.style.left);
 let newy = parseInt(newbullet.style.top);
-newx += pxprointervalx ;
-newy += pxprointervaly ;
+newx += 10 ;
+newy += 10 ;
 newbullet.style.left = newx + 'px';
 newbullet.style.top = newy + 'px';
 }, 10);
@@ -70,7 +65,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.33
+  Version 0.0.34
     move with <br>
     w = up <br>
     s = down <br> 
