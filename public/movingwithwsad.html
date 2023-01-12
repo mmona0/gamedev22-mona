@@ -11,38 +11,9 @@
     }
   </style>
 </head>
-  <script> 
-    
-var mann = document.getElementById("mann");    
-    var bullet = document.getElementById('bullet');
-  var zombies = document.getElementById("zombie");
-    var zombielager = document.getElementById("zombielager");
-    
-  mann.style.display = "none" ;
-  zombies.style.display = "block" ;
-  zombielager.style.display = "block" ;
-     function startCountdown() {
-    var count = 3;
-    var countdown = setInterval(function() {
-      document.getElementById("countdown").innerHTML = count;
-      count--;
-      if (count == 0) {
-        document.getElementById('countdown').innerHTML = "GO!" ; 
-      }
-      if (count == -1) {
-        count = "" ; 
-        clearInterval(countdown);
-        mann.style.display = "block";
-        zombielager.style.display = "block";
-        zombies.style.display = "block";
-        document.getElementById('countdown').style.display = "none"; 
-      }
-    }, 1000);
-  }
-    
-  </script> 
+
   <body onload="startCountdown()" onclick="shoot(event)" onkeydown="movePlayer(event)">
-  Version 0.0.44
+  Version 0.0.45
     move with <br>
     w = up <br>
     s = down <br> 
@@ -55,6 +26,13 @@ var mann = document.getElementById("mann");
 <img id="bullet" style="position:absolute; width: 10px; height: 10px; src="https://th.bing.com/th/id/R.78fcd0bbf3cea894779931ccb70b2394?rik=Jjh0Jn1qpl7nrQ&pid=ImgRaw&r=0">
 
 <script>
+    var bullet = document.getElementById('bullet');
+  var zombies = document.getElementById("zombie");
+    var zombielager = document.getElementById("zombielager");
+    
+  mann.style.display = "none" ;
+  zombies.style.display = "none" ;
+  zombielager.style.display = "none" ;
   var zombiesRect = zombies.getBoundingClientRect();
   var width = window.innerWidth ; 
      var height = window.innerHeight ; 
@@ -65,6 +43,28 @@ var mann = document.getElementById("mann");
   zombiesRect.y = 10 + 'px'; 
                               zombielager.style.top = '0px';
                               zombielager.style.left = width - 200 + 'px'; 
+                               
+                               var mann = document.getElementById("mann");    
+
+     function startCountdown() {
+      var countdown = 3;
+      var countdownEl = document.getElementById("countdown");
+      countdownEl.innerHTML = countdown;
+      var interval = setInterval(function() {
+        countdown--;
+        countdownEl.innerHTML = countdown;
+        if (countdown === 0) {
+          countdownEl.innerHTML = "Go!";
+        }
+        if (countdown === -1) {
+          clearInterval(interval);
+          countdownEl.innerHTML = ""; 
+          mann.style.display = "block" ;
+          zombielager.style.display = "block";
+          zombie.style.display = "block";
+        }
+      }, 1000);
+    }
   
   function movePlayer(event) {
      let myKey = event.key;
