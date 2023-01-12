@@ -42,7 +42,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.25
+  Version 0.0.26
     move with <br>
     w = up <br>
     s = down <br> 
@@ -114,7 +114,6 @@ if (myKey == 'w') {
     }
       
       function shoot(event) {
-        bullet.style.display = "block";
         var bulletX = mann.style.left;
         var bulletY =  mann.style.top;
         var distanceX = zombieRect.x + zombieRect.width / 2 - bulletX;
@@ -122,6 +121,8 @@ if (myKey == 'w') {
         var pixelsPerLoopX = distanceX / 50;
         var pixelsPerLoopY = distanceY / 50;
         var bulletInterval = setInterval(function() {
+          
+        bullet.style.display = "block";
           bulletX += pixelsPerLoopX;
           bulletY += pixelsPerLoopY;
           bullet.style.left = Math.round(bulletX) + 'px';
