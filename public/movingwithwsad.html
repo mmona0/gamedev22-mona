@@ -14,29 +14,28 @@
     
   </style>
     <script> 
-      function newimg(){
-                                           let zombie = document.getElementById('zombie'); 
-                                           let newbullet = document.getElementById('schuss').cloneNode();
-                                           newbullet.style.position = "absoute"; 
-                                           newbullet.style.top = document.getElementById('schuss').style.top ; 
-                                           newbullet.style.left = document.getElementById('schuss').style.left ;                                    
-                                           document.body.appendChild(newbullet); 
-                                                                     let zielx = parseInt(zombie.style.left) + (parseInt(zombie.style.width)/2);
-                                                                      let ziely = parseInt(zombie.style.top) + (parseInt(zombie.style.height)/2); 
-                                                                      let distancex = zielx - newbullet.style.left ; 
-                                                                      let distancey = ziely - newbullet.style.top ; 
-                                                                      let pxprointervalx = distancex/60 ; 
-                                                                      let pxprointervaly = distancey/60 ; 
-                                           let interval = setInterval(function{
-                                                                      let newx = parseInt(newbullet.style.left);
-                                                                      let newy = parseInt(newbullet.style.top); 
-                                                                      newx += pxprointervalx ; 
-                                                                      newy += pxprointervaly ; 
-                                                                      newbullet.style.left = pxprointervalx + 'px'; 
-                                                                      newbullet.style.top = pxprointervaly + 'px'; 
-                                                                      
-                                                                      }, 10)
-                                           }
+      function newimg() {
+let zombie = document.getElementById('zombie');
+let newbullet = document.getElementById('schuss').cloneNode(true);
+newbullet.style.position = "absolute";
+newbullet.style.top = document.getElementById('schuss').style.top ;
+newbullet.style.left = document.getElementById('schuss').style.left ;
+document.body.appendChild(newbullet);
+let zielx = parseInt(zombies.style.left) + (parseInt(zombies.style.width)/2);
+let ziely = parseInt(zombies.style.top) + (parseInt(zombies.style.height)/2);
+let distancex = zielx - parseInt(newbullet.style.left);
+let distancey = ziely - parseInt(newbullet.style.top);
+let pxprointervalx = distancex/60 ;
+let pxprointervaly = distancey/60 ;
+let interval = setInterval(function() {
+let newx = parseInt(newbullet.style.left);
+let newy = parseInt(newbullet.style.top);
+newx += pxprointervalx ;
+newy += pxprointervaly ;
+newbullet.style.left = newx + 'px';
+newbullet.style.top = newy + 'px';
+}, 10);
+}
     </script> 
       
     
@@ -71,7 +70,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.32
+  Version 0.0.33
     move with <br>
     w = up <br>
     s = down <br> 
