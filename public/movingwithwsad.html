@@ -1,41 +1,37 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <style>
-    #bild {
-      position: absolute;
-      top: 100px;
-      left: 100px;
-    }
-  </style>
-</head>
-<body>
-  <img id="bild" src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg" width="100" height="100">
+  
+  <body onkeydown="{
+                 
+                 
+        
+let myKey = String.toLowerCase(event.key)
+if (myKey == 'd') {
+     document.getElementById('mann').style.left = 
+         parseInt(document.getElementById('mann').style.left) + 10 + 'px' 
+     
+            
+}
+if (myKey == 'a') {
+                 
+ document.getElementById('mann').style.left = 
+         parseInt(document.getElementById('mann').style.left) + -10 + 'px' 
+}
+if (myKey == 'w') {
+     document.getElementById('mann').style.top = 
+         parseInt(document.getElementById('mann').style.top) + -10 + 'px' 
+}
+ if (myKey == 's') {
+             
+   
+     document.getElementById('mann').style.top = 
+         parseInt(document.getElementById('mann').style.top) + 10 + 'px' 
+             
+}
+                 
+                  
+}">
+  
+  <img id="mann" style="position:absolute; width:100px; height:120px; top:335px; left:3000px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
 
-  <script>
-    // Get the image element
-    var bild = document.getElementById("bild");
-    var left = 100;
-    var top = 100;
-    // Add event listener for key presses
-    document.addEventListener("keydown", move);
-
-    function move(event) {
-      // Check for arrow keys pressed
-      if (event.keyCode === 87) { // W key pressed
-        top -= 10; // move up
-      } else if (event.keyCode === 83) { // S key pressed
-        top += 10; // move down
-      } else if (event.keyCode === 65)    { // A key pressed
-        left -= 10; // move left
-      } else if (event.keyCode === 68) { // D key pressed
-        left += 10; // move right
-      }
-      // Update the position of the image
-      bild.style.left = left + "px";
-      bild.style.top = top + "px";
-    }
-  </script>
 </body>
 </html>
-
