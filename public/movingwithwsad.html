@@ -10,29 +10,7 @@
       text-align: center;
     }
   </style>
-    <script>
-       stayonscreen() {
-         var width = window.innerWidth ; 
-         var height = window.innerHeight ; 
-         var mann = document.getElementById("mann");
-         var manntop = parseFloat(mann.style.top);
-         var mannleft = parseFloat(mann.style.left);
-         if(mannleft <= 0 ) {
-           mann.style.left = "0px";
-         }
-         if(mannleft + 100 >= width) {
-           mann.style.left = width - 100 + "px" ;
-         }
-         if(manntop <= 0 ) {
-           mann.style.top = "0px";
-         }
-         if(manntop + 120 >= height) {
-           mann.style.top = height - 120 + "px" ;
-         }
-       }
-      
-      
-    </script>
+    
 </head>
   <body onload="startCountdown()" onkeydown="{
                  
@@ -65,15 +43,35 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.7
+  Version 0.0.8
   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <div id="countdown"></div>
    
     
     <script>
+      var width = window.innerWidth ; 
+         var height = window.innerHeight ; 
+         var mann = document.getElementById("mann");
+         var manntop = parseFloat(mann.style.top);
+         var mannleft = parseFloat(mann.style.left);
       mann.style.display = "none" ; 
       mann.style.top = (height / 2) - (element.offsetHeight / 2) + "px";
       mann.style.left = (width / 2) - (element.offsetWidth / 2) + "px";
+      
+       stayonscreen() {
+         if(mannleft <= 0 ) {
+           mann.style.left = "0px";
+         }
+         if(mannleft + 100 >= width) {
+           mann.style.left = width - 100 + "px" ;
+         }
+         if(manntop <= 0 ) {
+           mann.style.top = "0px";
+         }
+         if(manntop + 120 >= height) {
+           mann.style.top = height - 120 + "px" ;
+         }
+       }
       
     function startCountdown() {
       var countdown = 3;
