@@ -12,31 +12,38 @@
   left: 100px;
 }
   </style> 
-  <body> 
+  <body onclick="schuss()"> 
     
-    <div id="target">Ziel</div>
+    <div="target" style=" top: 20; left: 587;">Ziel</div>
 <div id="bullet">.</div>
 
     <script> 
+var target = document.getElementById("target");
       // Zielkoordinaten festlegen
-var targetX = 150;
-var targetY = 200;
+var targetX = target.style.left;
+var targetY = target.style.top;
 
 // Intervall für die Bewegung des Punktes festlegen
-setInterval(function() {
   var bullet = document.getElementById("bullet");
   
   // Aktuelle Koordinaten des Punktes abfragen
   var currentX = bullet.offsetLeft;
   var currentY = bullet.offsetTop;
   
-  // Berechnung der neuen Koordinaten des Punktes
-  var newX = currentX + (targetX - currentX) / 10;
-  var newY = currentY + (targetY - currentY) / 10;
-  
-  // Neue Koordinaten des Punktes setzen
-  bullet.style.left = newX + "px";
-  bullet.style.top = newY + "px";
-}, 50);
+      
+      function schuss(){
+        var distanceX = targetX - currentX ; 
+        var distanceY = targetY - currentY ; 
+        var pxperloopX = distanceX / 50 ; 
+        var pxperloopY = distanceY / 50 ; 
+        set Interval (function() {
+         var newX = currentX + pxperloopX ; 
+          var newY = currentY + pxperloopY;
+          bullet.style.left = newX + "px"; 
+          bullet.style.top = newY + "px";
+          
+        },50); 
+        
+      }
     </script> 
   </body> 
