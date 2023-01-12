@@ -13,10 +13,8 @@
 
     
   </style>
-    
-</head>
-  <body onload="startCountdown()" onclick="{
-                                           <script> 
+    <script> 
+      function newimg(){
                                            
                                            let newbullet = document.getElementById('schuss').cloneNode();
                                            newbullet.style.position = "absoute"; 
@@ -24,9 +22,13 @@
                                            newbullet.style.left = document.getElementById('schuss').style.left ;                                    
                                            document.body.appendChild(newbullet); 
                                            
-                                                                               </script> 
                                            
-                                           }" onkeydown="{
+                                           }
+    </script> 
+      
+    
+</head>
+  <body onload="startCountdown()" onclick="newimg()" onkeydown="{
                  
                  
 let myKey = event.key ;         
@@ -56,7 +58,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.29
+  Version 0.0.30
     move with <br>
     w = up <br>
     s = down <br> 
