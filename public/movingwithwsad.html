@@ -1,4 +1,4 @@
-<html>
+<h<html>
   <head>
   <style>
     #countdown {
@@ -11,8 +11,8 @@
     }
   </style>
 </head>
-  <body onload="startCountdown()" onclick="shoot(event)" onkeydown="movePlayer(event)">
-  Version 0.0.35
+  <body onload="startCountdown()" onkeydown="movePlayer(event)">
+  Version 0.0.36
     move with <br>
     w = up <br>
     s = down <br> 
@@ -22,63 +22,50 @@
   <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
   <img id="zombie" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
-<img id="bullet" style="position:absolute; width: 10px; height: 10px; src="https://th.bing.com/th/id/R.4f3e8d706dab3ada919cedae2cad022e?rik=ma7X3RaCYcBH9A&pid=ImgRaw&r=0">
+   <img id="bullet" style="position:absolute; width: 10px; height: 10px; src="https://th.bing.com/th/id/R.4f3e8d706dab3ada919cedae2cad022e?rik=ma7X3RaCYcBH9A&pid=ImgRaw&r=0">  
 
 <script>
   var bullet = document.getElementById('bullet');
   var zombies = document.getElementById("zombie");
   var zombielager = document.getElementById("zombielager");
   var mann = document.getElementById("mann");    
-  var width = window.innerWidth ; 
-  var height = window.innerHeight ; 
-  bullet.style.display = "none"; 
-  mann.style.display = "block" ; 
-  mann.style.top = (height / 2) - (mann.height / 2) + 'px';
-  mann.style.left = (width / 2) - (mann.width / 2) + 'px';
-  
-  function movePlayer(event) {
-    let myKey = event.key ;         
-    if (myKey === 'd') {
-      mann.style.left = parseInt(mann.style.left) + 20 + 'px' 
+ <html>
+  <head>
+  <style>
+    #countdown {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 72px;
+      text-align: center;
     }
-    if (myKey === 'a') {
-      mann.style.left = parseInt(mann.style.left) - 20 + 'px' 
-    }
-    if (myKey === 'w') {
-      mann.style.top = parseInt(mann.style.top) - 20 + 'px' 
-    }
-    if (myKey === 's') {
-      mann.style.top = parseInt(mann.style.top) + 20 + 'px' 
-    }
-    stayonscreen();
-  }
-  
-  function stayonscreen() {
-    if (parseInt(mann.style.left) < 0) {
-      mann.style.left = '0px';
-    }
-    if (parseInt(mann.style.left) + mann.width > width) {
-      mann.style.left = width - mann.width + 'px';
-    }
-    if (parseInt(mann.style.top) < 0) {
-      mann.style.top = '0px';
-    }
-    if (parseInt(mann.style.top) + mann.height > height) {
-      mann.style.top = height - mann.height + 'px';
-    }
-  }
-  
-  function shoot(event) {
-    var bulletX = parseInt(mann.style.left);
-    var bulletY =  parseInt(mann.style.top);
-    var zombiesRect = zombies.getBoundingClientRect();
-    var distanceX = zombiesRect.x + zombiesRect.width / 2 - bulletX;
-    var distanceY = zombiesRect.y + zombiesRect.height / 2 - bulletYvar pixelsPerLoopX = distanceX / 50;
+  </style>
+</head>
+  <body onload="startCountdown()" onkeydown="movePlayer(event)">
+  Version 0.0.34
+    move with <br>
+    w = up <br>
+    s = down <br> 
+    d = right <br> 
+    a = left <br> 
+  <div id="countdown"></div>
+  <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
+  <img id="zombie" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+  <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
+   <img id="bullet" style="position:absolute; width: 10px; height: 10px; src="https://th.bing.com/th/id/R.4f3e8d706dab3ada919cedae2cad022e?rik=ma7X3RaCYcBH9A&pid=ImgRaw&r=0">  
+
+<script>
+  var bullet = document.getElementById('bullet');
+  var zombies = document.getElementById("zombie");
+  var zombielager = document.getElementById("zombielager");
+  var mann = document.getElementById("mann");    
+ var pixelsPerLoopX = distanceX / 50;
 var pixelsPerLoopY = distanceY / 50;
 var bulletInterval = setInterval(function() {
 
 
-      bullet.style.display = "block";
+    bullet.style.display = "block";
       bulletX += pixelsPerLoopX;
       bulletY += pixelsPerLoopY;
       bullet.style.left = Math.round(bulletX) + 'px';
@@ -89,7 +76,7 @@ var bulletInterval = setInterval(function() {
         bullet.style.display = "none"; 
         zombies.style.display = "none"; 
       }
-    }, 1000);
+    }, 10);
   }
 </script>
   </body>
