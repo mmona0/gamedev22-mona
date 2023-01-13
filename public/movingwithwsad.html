@@ -19,6 +19,22 @@
       var schuss = document.getElementById("schuss");
       var zombielager = document.getElementById("zombielager");
         var mann = document.getElementById('mann');
+        var width = window.innerWidth ; 
+      var height = window.innerHeight ; 
+      mann.style.display = "none" ; 
+      mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
+      mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
+      zombielager.style.top = "0px"; 
+      zombielager.style.left =  window.innerWidth - 200 + "px";
+      zombielager.style.display = "none"; 
+      zombie.style.top = "10px"; 
+      zombie.style.left =  window.innerWidth - 150 + "px";
+      zombie.style.display = "none";
+      var schusspositionx = parseInt(mann.style.left) + parseInt(mann.style.width) ;  
+      var schusspositiony = parseInt(mann.style.top) + (parseInt(mann.style.height)/2) ; 
+      schuss.style.top = schusspositiony + 'px' ; 
+      schuss.style.left = schusspositionx + 'px' ; 
+      schuss.style.display = "none"; 
        
         function startCountdown() {
       var countdown = 3;
@@ -87,23 +103,6 @@ zombies.style.display = "none";
       
     
     
-      var width = window.innerWidth ; 
-      var height = window.innerHeight ; 
-      mann.style.display = "none" ; 
-      mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
-      mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
-      zombielager.style.top = "0px"; 
-      zombielager.style.left =  window.innerWidth - 200 + "px";
-      zombielager.style.display = "none"; 
-      zombie.style.top = "10px"; 
-      zombie.style.left =  window.innerWidth - 150 + "px";
-      zombie.style.display = "none";
-      var schusspositionx = parseInt(mann.style.left) + parseInt(mann.style.width) ;  
-      var schusspositiony = parseInt(mann.style.top) + (parseInt(mann.style.height)/2) ; 
-      schuss.style.top = schusspositiony + 'px' ; 
-      schuss.style.left = schusspositionx + 'px' ; 
-      schuss.style.display = "none"; 
-      
       
        function stayonscreen() { 
     var manntop = parseFloat(mann.style.top);
@@ -221,7 +220,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.81
+  Version 0.0.82
     
     move with <br>
     w = up <br>
