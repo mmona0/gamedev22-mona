@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.97
+  Version 0.0.96
     
     move with <br>
     w = up <br>
@@ -65,6 +65,7 @@ if (myKey == 'w') {
     
     
       <script>
+        
            var schuss = document.getElementById("schuss");
       var zombielager = document.getElementById("zombielager");
         var mann = document.getElementById('mann');
@@ -145,6 +146,9 @@ if (myKey == 'w') {
           var zombie = document.getElementById('zombie');
            var zombie2 = document.getElementById('zombie');
            var zombie3 = document.getElementById('zombie');
+           var speed1 = 100; 
+           var speed2 = 100; 
+           var speed3 = 100; 
 
 let interval = setInterval(function() {
  let zielx = parseInt(mann.style.left) + 50; 
@@ -158,7 +162,7 @@ newy += pyy ;
 zombie.style.left = newx + 'px';
 zombie.style.top = newy + 'px';
 
-}, 100);
+}, speed1);
         setInterval(function(){
           if(parseInt(zombie.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie.style.top) <= parseInt(mann.style.top) + 120) {
    
@@ -179,7 +183,7 @@ ney += py ;
 zombie3.style.left = nex + 'px';
 zombie3.style.top = ney + 'px';
 
-}, 100);
+}, speed3);
         setInterval(function(){
           if(parseInt(zombie3.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie3.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie3.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie3.style.top) <= parseInt(mann.style.top) + 120) {
    
@@ -200,7 +204,7 @@ ny += y ;
 zombie2.style.left = nx + 'px';
 zombie2.style.top = ny + 'px';
 
-}, 100);
+}, speed2);
         setInterval(function(){
           if(parseInt(zombie2.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie2.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie2.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie2.style.top) <= parseInt(mann.style.top) + 120) {
    
@@ -235,18 +239,24 @@ newbullet.style.top = newy + 'px';
 }, 10);
         setInterval(function(){
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
-  zombie.style.display = "none"; 
+      zombie.style.left ="10px"; 
+      zombie.style.left =  window.innerWidth - 150 + "px";
   newbullet.style.display = "none"; 
+            speed1 -= 5; 
   clearInterval(interval);
           }
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie2.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie2.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie2.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie2.style.top) + 120) {
-zombie2.style.display = "none"; 
+zombie2.style.top = "10px"; 
+      zombie2.style.left =  window.innerWidth - 150 + "px"; 
   newbullet.style.display = "none"; 
+            speed2 -= 5; 
   clearInterval(interval);
         }
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
-zombie3.style.display = "none"; 
+zombie3.style.top = "30px"; 
+      zombie3.style.left =  window.innerWidth - 200 + "px"; 
   newbullet.style.display = "none"; 
+            speed3 -= 5; 
   clearInterval(interval);
         }
         },10);
