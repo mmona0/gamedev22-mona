@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.21
+  Version 0.0.28
     
     move with <br>
     w = up <br>
@@ -91,6 +91,8 @@ if (myKey == 'w') {
       schuss.style.top = schusspositiony + 'px' ; 
       schuss.style.left = schusspositionx + 'px' ; 
       schuss.style.display = "none"; 
+         var score = 0 ;
+         var speed = 5; 
         
       
         function startCountdown() {
@@ -231,12 +233,11 @@ zombie2.style.top = ny + 'px';
         },10); 
         
       
-           
+         
                     
       function newimg() {    
  var zombie = document.getElementById('zombie');
-        var score = 0 ; 
-         var speed = 5; 
+
       
         
 let newbullet = document.getElementById('schuss').cloneNode(true);
