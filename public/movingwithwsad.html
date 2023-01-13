@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.49
+  Version 0.0.73
     
     move with <br>
     w = up <br>
@@ -173,7 +173,7 @@ zombie.style.top = newy + 'px';
           if(parseInt(zombie.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval);
-            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <div id="youscored"> You scored <div id="scoredpoints"> </div> </div> ';
+            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <div id="youscored"> You scored <div id="scoredpoints">  </div> </div> ';
           }
         },10); 
         }
@@ -305,4 +305,9 @@ zombie3.style.top = "30px";
         
 
 </body>
+  <script> 
+    
+    document.getElementById('scoredpoints').innerHTML = document.getElementById('score')
+    
+  </script> 
 </html>
