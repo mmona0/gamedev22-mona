@@ -1,3 +1,5 @@
+
+
 <html>
   <head>
   <style>
@@ -47,7 +49,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.1.4
+  Version 0.1.5
     
     move with <br>
     w = up <br>
@@ -194,7 +196,7 @@ newbullet.style.top = newy + 'px';
         },10);
             
                         
-            setInterval(function(){
+          
           let zombies = document.getElementById('zombie').cloneNode(true);
           zombies.style.position = "absolute";
           zombies.style.top = document.getElementById('zombielager').style.top ;
@@ -215,7 +217,6 @@ zombies.style.left = nx + 'px';
 zombies.style.top = ny + 'px';
 
 }, 100);
-        setInterval(function(){
           if(parseInt(zombies.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombies.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombies.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombies.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval2);
@@ -226,10 +227,9 @@ zombies.style.top = ny + 'px';
   newbullet.style.display = "none"; 
   clearInterval(interval);
         }
-
-        },10); 
+ 
           
-        },3000);
+      
      
        
           }
