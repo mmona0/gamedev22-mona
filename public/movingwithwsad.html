@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.94
+  Version 0.0.95
     
     move with <br>
     w = up <br>
@@ -101,7 +101,7 @@ if (myKey == 'w') {
           zombielager.style.display = "block";
           zombie.style.display = "block";
           schuss.style.display = "block"; 
-          spawn();
+          
           laufen(); 
         }
       }, 1000);
@@ -127,6 +127,8 @@ if (myKey == 'w') {
      schuss.style.top = schusspositiony + 'px' ; 
       schuss.style.left = schusspositionx + 'px' ; 
        }
+        
+        
         
          function laufen() {
           var zombie = document.getElementById('zombie');
@@ -154,18 +156,13 @@ zombie.style.top = ney + 'px';
         }
       }
            
-                    
-    
-        
-
-      
-    
-    
-       function spawn() {
            
-        var mann = document.getElementById("mann"); 
-
-        setInterval(function(){
+       
+         
+      
+          function newimg() {   
+            
+            setInterval(function(){
           let zombies = document.getElementById('zombie').cloneNode(true);
           zombies.style.position = "absolute";
           zombies.style.top = document.getElementById('zombielager').style.top ;
@@ -196,24 +193,11 @@ zombies.style.top = ny + 'px';
           
         },3000);
       }
+        }
+        }
         
-          function monstershot() {
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
-  zombie.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
-zombies.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-        }
-        }
-      
-          function newimg() {
- let zombies =  document.getElementById('zombies') ;      
  var zombie = document.getElementById('zombie');
-      
+ var zombies =  document.getElementById('zombies')  ;   
         
 let newbullet = document.getElementById('schuss').cloneNode(true);
 newbullet.style.position = "absolute";
@@ -233,7 +217,19 @@ newbullet.style.left = newx + 'px';
 newbullet.style.top = newy + 'px';
 
 }, 10);
-        setInterval(monstershot(),10);
+        setInterval(function(){
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+  zombie.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+          }
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
+zombies.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+        }
+          
+        },10);
        
         }
         
