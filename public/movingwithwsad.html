@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.93
+  Version 0.0.94
     
     move with <br>
     w = up <br>
@@ -197,6 +197,18 @@ zombies.style.top = ny + 'px';
         },3000);
       }
         
+          function monstershot() {
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+  zombie.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+          }
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
+zombies.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+        }
+        }
       
           function newimg() {
  let zombies =  document.getElementById('zombies') ;      
@@ -221,20 +233,12 @@ newbullet.style.left = newx + 'px';
 newbullet.style.top = newy + 'px';
 
 }, 10);
-        setInterval(function(){
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
-  zombie.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
-zombies.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-        }
-        },10);
+        setInterval(monstershot(),10);
        
         }
+        
+        
+      
     </script>
         
         
