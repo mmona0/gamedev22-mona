@@ -41,7 +41,8 @@
         
          function spawn() {
            
-        var mann = document.getElementById("mann");  
+        var mann = document.getElementById("mann"); 
+
         setInterval(function(){
           let zombies = document.getElementById('zombie').cloneNode(true);
           zombies.style.position = "absolute";
@@ -73,6 +74,7 @@ zombies.style.top = ny + 'px';
       }
         
         function laufen() {
+          var zombie = document.getElementById('zombie');
         if(zombie.style.display === "block"){
 
 let interval = setInterval(function() {
@@ -129,7 +131,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.70
+  Version 0.0.71
     
     move with <br>
     w = up <br>
