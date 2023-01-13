@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.49
+  Version 0.0.51
     
     move with <br>
     w = up <br>
@@ -263,7 +263,7 @@ newbullet.style.top = newy + 'px';
       zombie.style.left =  window.innerWidth - 150 + "px";
   newbullet.style.display = "none"; 
             speed += 3; 
-            newscore += 100 ;
+            newscore =  newscore + 100 ;
             score.innerHTML = newscore ;
             
   clearInterval(interval);
@@ -273,7 +273,7 @@ zombie2.style.top = "10px";
       zombie2.style.left =  window.innerWidth - 150 + "px"; 
   newbullet.style.display = "none"; 
             speed += 3; 
-            newscore += 100 ;
+            newscore =  newscore + 100 ;
             
             score.innerHTML = newscore ;
   clearInterval(interval);
@@ -283,7 +283,7 @@ zombie3.style.top = "30px";
       zombie3.style.left =  window.innerWidth - 200 + "px"; 
   newbullet.style.display = "none"; 
             speed += 3; 
-            newscore += 100 ;
+            newscore =  newscore + 100 ;
             score.innerHTML = newscore ;
   clearInterval(interval);
         }
