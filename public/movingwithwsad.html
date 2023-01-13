@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.93
+  Version 0.0.94
     
     move with <br>
     w = up <br>
@@ -112,12 +112,11 @@ if (myKey == 'w') {
           laufen(); 
           setTimeout(function(){
           zombie2.style.display = "block";
+          zombie3.style.display = "block";  
+           laufen();
           }, 3000);
         
-        setTimeout(function(){
-          zombie3.style.display = "block";
-                   }, 6000);
-        }
+
       }, 1000);
     
     }
