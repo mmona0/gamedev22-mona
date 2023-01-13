@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.99
+  Version 0.1.1
     
     move with <br>
     w = up <br>
@@ -165,7 +165,6 @@ zombie.style.top = ney + 'px';
            
         
  var zombie = document.getElementById('zombie');
- var zombies =  document.getElementById('zombies')  ;
 let newbullet = document.getElementById('schuss').cloneNode(true);
 newbullet.style.position = "absolute";
 newbullet.style.top = document.getElementById('schuss').style.top ;
@@ -222,7 +221,7 @@ zombies.style.top = ny + 'px';
   clearInterval(interval2);
           }
           
-                    if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
+         if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
 zombies.style.display = "none"; 
   newbullet.style.display = "none"; 
   clearInterval(interval);
