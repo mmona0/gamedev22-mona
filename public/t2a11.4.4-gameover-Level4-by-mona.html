@@ -1,7 +1,109 @@
-<html> 
-  <head> 
-    <title> Gameover </title>
-  </head>
-  <body>
-  </body>
-</html> 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Over</title>
+	<style>
+		/* CSS für Tabelle auf der linken Seite */
+		table {
+			float: left;
+			width: 30%;
+			border-collapse: collapse;
+		}
+
+	th, td {
+		border: 1px solid black;
+		padding: 10px;
+	}
+
+	/* CSS für "Game Over" Text auf der rechten Seite */
+	#game-over {
+		float: right;
+		font-size: 3em;
+		margin-top: 50px;
+	}
+
+	/* CSS für "You shot" und "You won" Text */
+	#stats {
+		float: right;
+		margin-top: 20px;
+	}
+
+	/* CSS für "Try again" Button */
+	#try-again {
+		float: right;
+		margin-top: 20px;
+		background-color: red;
+		color: white;
+		padding: 10px;
+	}
+
+	/* CSS für Namenseingabe Formular */
+	#name-form {
+		float: right;
+		margin-top: 20px;
+	}
+
+	#name-form input[type=text] {
+		padding: 10px;
+		margin-right: 10px;
+	}
+
+	#name-form input[type=submit] {
+		background-color: green;
+		color: white;
+		padding: 10px;
+	}
+</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Score</th>
+		</tr>
+		<tr>
+			<td id="name-display"></td>
+			<td id="score-display"></td>
+		</tr>
+	</table>
+	<div id="game-over">GAME OVER</div>
+	<div id="stats">You shot <span id="monsters-shot"></span> monsters and got a score of <span id="score"></span></div>
+	<div id="trophies">You won these trophies: <ul id="trophy-list"></ul></div>
+	<button id="try-again">Try again</button>
+	<form id="name-form">
+		<input type="text" placeholder="Enter your name">
+		<input type="submit" value="Save">
+	</form>
+
+<script>
+	// JavaScript Variablen für die Anzeige von Monstern, Score, Trophäen und Namen
+	var monstersShot = 5;
+	var score = 1000;
+	var trophies = ["Best Shooter", "Monster Slayer"];
+	var name = "";
+
+	// Funktion zum Speichern des Namens
+	function saveName() {
+		name = document.querySelector("#name-form input[type=text]").value;
+document.querySelector("#name-display").innerHTML = name;
+}
+
+  
+	// Anzeige der Variablen im HTML
+	document.querySelector("#monsters-shot").innerHTML = monstersShot;
+	document.querySelector("#score").innerHTML = score;
+	var trophyList = document.querySelector("#trophy-list");
+	for (var i = 0; i < trophies.length; i++) {
+		var trophyItem = document.createElement("li");
+		trophyItem.innerHTML = trophies[i];
+		trophyList.appendChild(trophyItem);
+	}
+
+	// Event Listener für Namenseingabe Formular
+	document.querySelector("#name-form").addEventListener("submit", function(e) {
+		e.preventDefault();
+		saveName();
+	});
+</script>
+</body>
+</html>
