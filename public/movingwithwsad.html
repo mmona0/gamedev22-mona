@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.28
+  Version 0.0.47
     
     move with <br>
     w = up <br>
@@ -262,7 +262,7 @@ newbullet.style.top = newy + 'px';
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
       zombie.style.left ="10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
-  newbullet.style.display = "none"; 
+  newbullet.remove();
             speed += 3; 
             score +=  100 ;
             
@@ -271,7 +271,7 @@ newbullet.style.top = newy + 'px';
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie2.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie2.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie2.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie2.style.top) + 120) {
 zombie2.style.top = "10px"; 
       zombie2.style.left =  window.innerWidth - 150 + "px"; 
-  newbullet.style.display = "none"; 
+  newbullet.remove(); 
             speed += 3; 
             score += 100 ;
   clearInterval(interval);
@@ -279,7 +279,7 @@ zombie2.style.top = "10px";
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
 zombie3.style.top = "30px"; 
       zombie3.style.left =  window.innerWidth - 200 + "px"; 
-  newbullet.style.display = "none"; 
+  newbullet.remove();
             speed += 3; 
             score +=  100 ;
   clearInterval(interval);
