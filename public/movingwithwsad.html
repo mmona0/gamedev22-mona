@@ -15,6 +15,9 @@
   </style>
     
      <script> 
+       
+      var schuss = document.getElementById("schuss");
+      var zombielager = document.getElementById("zombielager");
         function startCountdown() {
       var countdown = 3;
       var countdownEl = document.getElementById("countdown");
@@ -39,8 +42,6 @@
     }
         
       
-      var schuss = document.getElementById("schuss");
-      var zombielager = document.getElementById("zombielager");
               
       function newimg() {
  let zombies =  document.getElementById('zombies') ;      
@@ -83,7 +84,7 @@ zombies.style.display = "none";
 
       
     
-     
+     var mann = document.getElementById('mann');
       var width = window.innerWidth ; 
       var height = window.innerHeight ; 
       mann.style.display = "none" ; 
@@ -218,7 +219,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.79
+  Version 0.0.80
     
     move with <br>
     w = up <br>
