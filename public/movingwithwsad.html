@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.1.1
+  Version 0.1.2
     
     move with <br>
     w = up <br>
@@ -221,7 +221,7 @@ zombies.style.top = ny + 'px';
   clearInterval(interval2);
           }
           
-         if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
+         if(parseInt(newbullet.style.left) + 10 >= nx && parseInt(newbullet.style.left) <= nx + 100 && parseInt(newbullet.style.top) + 10  >= ny && parseInt(newbullet.style.top) <= ny + 120) {
 zombies.style.display = "none"; 
   newbullet.style.display = "none"; 
   clearInterval(interval);
