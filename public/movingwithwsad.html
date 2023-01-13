@@ -76,7 +76,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.45
+  Version 0.0.46
     move with <br>
     w = up <br>
     s = down <br> 
@@ -141,7 +141,26 @@ if (myKey == 'w') {
           zombie.style.display = "block"; 
           document.body.appendChild(zombie);
            
-          
+    setInterval(function() {
+ let ziex = parseInt(mann.style.left) + 50; 
+let ziey = parseInt(mann.style.top) + 60;
+let px = (ziex - parseInt(zombie.style.left)) / 160; 
+let py = (ziey - parseInt(zombie.style.top)) / 160; 
+let nex = parseInt(zombie.style.left);
+let ney = parseInt(zombie.style.top);
+nex += px ;
+ney += py ;
+zombie.style.left = nex + 'px';
+zombie.style.top = ney + 'px';
+
+}, 100);
+        setInterval(function(){
+          if(parseInt(zombie.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie.style.top) <= parseInt(mann.style.top) + 120) {
+   
+  clearInterval(interval);
+          }
+        },10); 
+        }
         },3000);
       }
       function laufen() {
