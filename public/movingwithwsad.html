@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.93
+  Version 0.0.92
     
     move with <br>
     w = up <br>
@@ -157,8 +157,10 @@ let pxx = (zielx - parseInt(zombie.style.left)) / speed;
 let pyy = (ziely - parseInt(zombie.style.top)) / speed; 
 let newx = parseInt(zombie.style.left);
 let newy = parseInt(zombie.style.top);
-  if(pxx < 20 ) { pxx = 20; } 
-  if(pyy < 20 ) { pyy = 20; } 
+  if(pxx < 20 && pxx > 0 ) { pxx = 20; } 
+  if(pyy < 20 && pyy > 0 ) { pyy = 20; } 
+  if(pxx > -20 && pxx < 0 ) { pxx = -20; } 
+  if(pyy > -20 && pyy < 0 ) { pyy = -20; } 
 newx += pxx ;
 newy += pyy ;
 zombie.style.left = newx + 'px';
@@ -181,8 +183,11 @@ let px = (ziex - parseInt(zombie3.style.left)) / speed;
 let py = (ziey - parseInt(zombie3.style.top)) / speed; 
 let nex = parseInt(zombie3.style.left);
 let ney = parseInt(zombie3.style.top);
-  if(px < 20 ) { px = 20; } 
-  if(py < 20 ) { py = 20; } 
+ 
+  if(px < 20 && px > 0 ) { px = 20; } 
+  if(py < 20 && py > 0 ) { py = 20; } 
+  if(px > -20 && px < 0 ) { px = -20; } 
+  if(py > -20 && py < 0 ) { py = -20; }
 nex += px ;
 ney += py ;
 zombie3.style.left = nex + 'px';
@@ -205,8 +210,10 @@ let x = (zix - parseInt(zombie2.style.left)) / speed;
 let y = (ziy - parseInt(zombie2.style.top)) / speed; 
 let nx = parseInt(zombie2.style.left);
 let ny = parseInt(zombie2.style.top);
-  if(x < 20 ) { x = 20; } 
-  if(y < 20 ) { y = 20; } 
+  if(x < 20 && x > 0 ) { x = 20; } 
+  if(y < 20 && y > 0 ) { y = 20; } 
+  if(x > -20 && x < 0 ) { x = -20; } 
+  if(y > -20 && y < 0 ) { y = -20; } 
 nx += x ;
 ny += y ;
 zombie2.style.left = nx + 'px';
