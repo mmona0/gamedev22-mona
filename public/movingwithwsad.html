@@ -1,5 +1,3 @@
-
-
 <html>
   <head>
   <style>
@@ -49,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.1.8
+  Version 0.0.91
     
     move with <br>
     w = up <br>
@@ -60,16 +58,9 @@ if (myKey == 'w') {
   <div id="countdown"></div>
 <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
   <img id="zombie" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-  <img id="zombie2" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
+ <img id="zombie2" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
 <img id="zombie3" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie4" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie5" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie6" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie7" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie8" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie9" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="zombie10" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-<img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
+ <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <img id="schuss" style="position:absolute; width:10px ; height:10px; " src="https://th.bing.com/th/id/OIP.dzup1QpvC1pMVZEkbRRX_gHaHa?pid=ImgDet&rs=1">  
     
     
@@ -79,17 +70,6 @@ if (myKey == 'w') {
         var mann = document.getElementById('mann');
         var width = window.innerWidth ; 
       var height = window.innerHeight ; 
-        
-          var zombie = document.getElementById('zombie');
-          var zombie2 = document.getElementById('zombie2');
-          var zombie3 = document.getElementById('zombie3');
-          var zombie4 = document.getElementById('zombie4');
-          var zombie5 = document.getElementById('zombie5');
-          var zombie6 = document.getElementById('zombie6');
-          var zombie7 = document.getElementById('zombie7');
-          var zombie8 = document.getElementById('zombie8');
-          var zombie9 = document.getElementById('zombie9');
-          var zombie10 = document.getElementById('zombie10');
         mann.style.display = "none"; 
       mann.style.top = (height / 2) - (mann.offsetHeight / 2) + "px";
       mann.style.left = (width / 2) - (mann.offsetWidth / 2) + "px";
@@ -98,35 +78,13 @@ if (myKey == 'w') {
       zombielager.style.display = "none"; 
       zombie.style.top = "10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
+      zombie.style.display = "none";
         zombie2.style.top = "10px"; 
       zombie2.style.left =  window.innerWidth - 150 + "px";
+      zombie2.style.display = "none";
         zombie3.style.top = "10px"; 
       zombie3.style.left =  window.innerWidth - 150 + "px";
-        zombie4.style.top = "10px"; 
-      zombie4.style.left =  window.innerWidth - 150 + "px";
-        zombie5.style.top = "10px"; 
-      zombie5.style.left =  window.innerWidth - 150 + "px";
-        zombie6.style.top = "10px"; 
-      zombie6.style.left =  window.innerWidth - 150 + "px";
-        zombie7.style.top = "10px"; 
-      zombie7.style.left =  window.innerWidth - 150 + "px";
-        zombie8.style.top = "10px"; 
-      zombie8.style.left =  window.innerWidth - 150 + "px";
-        zombie9.style.top = "10px"; 
-      zombie9.style.left =  window.innerWidth - 150 + "px";
-        zombie10.style.top = "10px"; 
-      zombie10.style.left =  window.innerWidth - 150 + "px";
-        
-      zombie2.style.display = "none";
-        zombie3.style.display = "none";
-        zombie4.style.display = "none";
-        zombie5.style.display = "none";
-        zombie6.style.display = "none";
-        zombie7.style.display = "none";
-        zombie8.style.display = "none";
-        zombie9.style.display = "none";
-        zombie10.style.display = "none";
-        zombie.style.display = "none";
+      zombie3.style.display = "none";
       var schusspositionx = parseInt(mann.style.left) + parseInt(mann.style.width) ;  
       var schusspositiony = parseInt(mann.style.top) + (parseInt(mann.style.height)/2) ; 
       schuss.style.top = schusspositiony + 'px' ; 
@@ -151,40 +109,14 @@ if (myKey == 'w') {
           zombielager.style.display = "block";
           zombie.style.display = "block";
           schuss.style.display = "block"; 
-            setTimeout(function(){
-            zombie2.style.display = "block"; 
-          }, 3000);
-          setTimeout(function(){
-            zombie2.style.display = "block"; 
-          }, 3000);
-          setTimeout(function(){
-            zombie3.style.display = "block"; 
-          }, 6000);
-          setTimeout(function(){
-            zombie3.style.display = "block"; 
-          }, 9000);
-          setTimeout(function(){
-            zombie4.style.display = "block"; 
-          }, 12000);
-          setTimeout(function(){
-            zombie5.style.display = "block"; 
-          }, 15000);
-          setTimeout(function(){
-            zombie6.style.display = "block"; 
-          }, 18000);
-          setTimeout(function(){
-            zombie7.style.display = "block"; 
-          }, 21000);
-          setTimeout(function(){
-            zombie8.style.display = "block"; 
-          }, 24000);
-          setTimeout(function(){
-            zombie9.style.display = "block"; 
-          }, 27000);
-          setTimeout(function(){
-            zombie10.style.display = "block"; 
-          }, 30000);
           laufen(); 
+          setTimeout(function(){
+          zombie2.style.display = "block";
+          }, 3000);
+        }
+        setTimeout(function(){
+          zombie3.style.display = "block";
+          }, 6000);
         }
       }, 1000);
     }
@@ -210,20 +142,10 @@ if (myKey == 'w') {
       schuss.style.left = schusspositionx + 'px' ; 
        }
         
-        
-        
          function laufen() {
-           
           var zombie = document.getElementById('zombie');
-          var zombie2 = document.getElementById('zombie2');
-          var zombie3 = document.getElementById('zombie3');
-          var zombie4 = document.getElementById('zombie4');
-          var zombie5 = document.getElementById('zombie5');
-          var zombie6 = document.getElementById('zombie6');
-          var zombie7 = document.getElementById('zombie7');
-          var zombie8 = document.getElementById('zombie8');
-          var zombie9 = document.getElementById('zombie9');
-          var zombie10 = document.getElementById('zombie10');
+           var zombie2 = document.getElementById('zombie');
+           var zombie3 = document.getElementById('zombie');
         if(zombie.style.display === "block"){
 
 let interval = setInterval(function() {
@@ -246,31 +168,9 @@ zombie.style.top = ney + 'px';
           }
         },10); 
         }
-           if(zombie2.style.display === "block"){
-
-let interval2 = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie2.style.left)) / 160; 
-let py = (ziey - parseInt(zombie2.style.top)) / 160; 
-let nex = parseInt(zombie2.style.left);
-let ney = parseInt(zombie2.style.top);
-nex += px ;
-ney += py ;
-zombie2.style.left = nex + 'px';
-zombie2.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie2.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie2.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie2.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie2.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
            if(zombie3.style.display === "block"){
 
-let interval3 = setInterval(function() {
+let interval = setInterval(function() {
  let ziex = parseInt(mann.style.left) + 50; 
 let ziey = parseInt(mann.style.top) + 60;
 let px = (ziex - parseInt(zombie3.style.left)) / 160; 
@@ -290,156 +190,23 @@ zombie3.style.top = ney + 'px';
           }
         },10); 
         }
-           if(zombie4.style.display === "block"){
+           if(zombie2.style.display === "block"){
 
 let interval = setInterval(function() {
  let ziex = parseInt(mann.style.left) + 50; 
 let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie4.style.left)) / 160; 
-let py = (ziey - parseInt(zombie4.style.top)) / 160; 
-let nex = parseInt(zombie4.style.left);
-let ney = parseInt(zombie4.style.top);
+let px = (ziex - parseInt(zombie2.style.left)) / 160; 
+let py = (ziey - parseInt(zombie2.style.top)) / 160; 
+let nex = parseInt(zombie2.style.left);
+let ney = parseInt(zombie2.style.top);
 nex += px ;
 ney += py ;
-zombie4.style.left = nex + 'px';
-zombie4.style.top = ney + 'px';
+zombie2.style.left = nex + 'px';
+zombie2.style.top = ney + 'px';
 
 }, 100);
         setInterval(function(){
-          if(parseInt(zombie4.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie4.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie4.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie4.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
-           if(zombie5.style.display === "block"){
-
-let interval = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie5.style.left)) / 160; 
-let py = (ziey - parseInt(zombie5.style.top)) / 160; 
-let nex = parseInt(zombie5.style.left);
-let ney = parseInt(zombie5.style.top);
-nex += px ;
-ney += py ;
-zombie5.style.left = nex + 'px';
-zombie5.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie5.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie5.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie5.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie5.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
-           if(zombie6.style.display === "block"){
-
-let interval = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie6.style.left)) / 160; 
-let py = (ziey - parseInt(zombie6.style.top)) / 160; 
-let nex = parseInt(zombie6.style.left);
-let ney = parseInt(zombie6.style.top);
-nex += px ;
-ney += py ;
-zombie6.style.left = nex + 'px';
-zombie6.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie6.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie6.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie6.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie6.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
-           if(zombie7.style.display === "block"){
-
-let interval = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie7.style.left)) / 160; 
-let py = (ziey - parseInt(zombie7.style.top)) / 160; 
-let nex = parseInt(zombie7.style.left);
-let ney = parseInt(zombie7.style.top);
-nex += px ;
-ney += py ;
-zombie7.style.left = nex + 'px';
-zombie7.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie7.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie7.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie7.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie7.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
-           if(zombie8.style.display === "block"){
-
-let interval = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie8.style.left)) / 160; 
-let py = (ziey - parseInt(zombie8.style.top)) / 160; 
-let nex = parseInt(zombie8.style.left);
-let ney = parseInt(zombie8.style.top);
-nex += px ;
-ney += py ;
-zombie8.style.left = nex + 'px';
-zombie8.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie8.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie8.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie8.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie8.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
-           if(zombie9.style.display === "block"){
-
-let interval = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie9.style.left)) / 160; 
-let py = (ziey - parseInt(zombie9.style.top)) / 160; 
-let nex = parseInt(zombie9.style.left);
-let ney = parseInt(zombie9.style.top);
-nex += px ;
-ney += py ;
-zombie9.style.left = nex + 'px';
-zombie9.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie9.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie9.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie9.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie9.style.top) <= parseInt(mann.style.top) + 120) {
-   
-  clearInterval(interval);
-          }
-        },10); 
-        }
-           
-           if(zombie10.style.display === "block"){
-
-let interval = setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie10.style.left)) / 160; 
-let py = (ziey - parseInt(zombie10.style.top)) / 160; 
-let nex = parseInt(zombie10.style.left);
-let ney = parseInt(zombie10.style.top);
-nex += px ;
-ney += py ;
-zombie10.style.left = nex + 'px';
-zombie10.style.top = ney + 'px';
-
-}, 100);
-        setInterval(function(){
-          if(parseInt(zombie10.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie10.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie10.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie10.style.top) <= parseInt(mann.style.top) + 120) {
+          if(parseInt(zombie2.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie2.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie2.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie2.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval);
           }
@@ -447,15 +214,11 @@ zombie10.style.top = ney + 'px';
         }
       }
            
-           
-       
-         
-      
-          function newimg() {   
-
-           
-        
+                    
+      function newimg() {    
  var zombie = document.getElementById('zombie');
+      
+        
 let newbullet = document.getElementById('schuss').cloneNode(true);
 newbullet.style.position = "absolute";
 newbullet.style.top = document.getElementById('schuss').style.top ;
@@ -475,66 +238,33 @@ newbullet.style.top = newy + 'px';
 
 }, 10);
         setInterval(function(){
-          if(zombie.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
   zombie.style.display = "none"; 
   newbullet.style.display = "none"; 
   clearInterval(interval);
           }
-if(zombie2.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie2.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie2.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie2.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie2.style.top) + 120) {
-  zombie2.style.display = "none"; 
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie2.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie2.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie2.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie2.style.top) + 120) {
+zombie2.style.display = "none"; 
   newbullet.style.display = "none"; 
   clearInterval(interval);
-          }
-          if(zombie3.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
-  zombie3.style.display = "none"; 
+        }
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
+zombie3.style.display = "none"; 
   newbullet.style.display = "none"; 
   clearInterval(interval);
-          }
-          if(zombie4.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie4.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie4.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie4.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie4.style.top) + 120) {
-  zombie4.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(zombie5.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie5.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie5.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie5.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie5.style.top) + 120) {
-  zombie5.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(zombie6.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie6.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie6.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie6.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie6.style.top) + 120) {
-  zombie6.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(zombie7.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie7.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie7.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie7.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie7.style.top) + 120) {
-  zombie7.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(zombie8.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie8.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie8.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie8.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie8.style.top) + 120) {
-  zombie8.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(zombie9.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie9.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie9.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie9.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie9.style.top) + 120) {
-  zombie9.style.display = "none"; 
-  newbullet.style.dis9play = "none"; 
-  clearInterval(interval);
-          }
-          if(zombie10.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie10.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie10.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie10.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie10.style.top) + 120) {
-  zombie10.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-         
-          
+        }
         },10);
-            
-                       
-     
        
-          }
+        }
+        
+
+      
+    
+    
+       
         
       
+        
     </script>
         
         
