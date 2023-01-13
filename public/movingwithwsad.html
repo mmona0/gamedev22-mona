@@ -104,7 +104,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.58
+  Version 0.0.59
     move with <br>
     w = up <br>
     s = down <br> 
@@ -151,30 +151,29 @@ newbullet.style.top = newy + 'px';
         }
         
         if(zombie.style.display === "none" && zombies.style.display === "block") {
-          let zombies = document
-          let newbullet = document.getElementById('schuss').cloneNode(true);
-newbullet.style.position = "absolute";
-newbullet.style.top = document.getElementById('schuss').style.top ;
-newbullet.style.left = document.getElementById('schuss').style.left ;
-document.body.appendChild(newbullet);
-let zielx = parseInt(zombie.style.left) + 50; 
-let ziely = parseInt(zombie.style.top) + 60;
-let pxx = (zielx - parseInt(newbullet.style.left)) / 60; 
-let pxy = (ziely - parseInt(newbullet.style.top)) / 60; 
-let interval = setInterval(function() {
-let newx = parseInt(newbullet.style.left);
-let newy = parseInt(newbullet.style.top);
-newx += pxx ;
-newy += pxy ;
-newbullet.style.left = newx + 'px';
-newbullet.style.top = newy + 'px';
+          let newbullet2 = document.getElementById('schuss').cloneNode(true);
+newbullet2.style.position = "absolute";
+newbullet2.style.top = document.getElementById('schuss').style.top ;
+newbullet2.style.left = document.getElementById('schuss').style.left ;
+document.body.appendChild(newbullet2);
+let zielx2 = parseInt(zombies.style.left) + 50; 
+let ziely2 = parseInt(zombies.style.top) + 60;
+let pxx2 = (zielx2- parseInt(newbullet2.style.left)) / 60; 
+let pxy2 = (ziely2 - parseInt(newbullet2.style.top)) / 60; 
+let interval2 = setInterval(function() {
+let newx2 = parseInt(newbullet2.style.left);
+let newy2 = parseInt(newbullet2.style.top);
+newx2 += pxx2 ;
+newy2 += pxy2 ;
+newbullet2.style.left = newx2 + 'px';
+newbullet2.style.top = newy2 + 'px';
 
 }, 10);
         setInterval(function(){
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
-  zombie.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
+          if(parseInt(newbullet2.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet2.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet2.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet2.style.top) <= parseInt(zombies.style.top) + 120) {
+  zombies.style.display = "none"; 
+  newbullet2.style.display = "none"; 
+  clearInterval(interval2);
           }
         },10); 
         }
