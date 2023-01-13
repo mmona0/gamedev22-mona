@@ -76,7 +76,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.42
+  Version 0.0.43
     move with <br>
     w = up <br>
     s = down <br> 
@@ -185,8 +185,8 @@ newmonster.style.top = ney + 'px';
           zombielager.style.display = "block";
           zombie.style.display = "block";
           schuss.style.display = "block"; 
-          spawn()
-          setinterval(laufen(), 100); 
+          spawn();
+          laufen(); 
         }
       }, 1000);
     }
