@@ -14,7 +14,30 @@
     
   </style>
     
-      
+      <script> 
+        function startCountdown() {
+      var countdown = 3;
+      var countdownEl = document.getElementById("countdown");
+      countdownEl.innerHTML = countdown;
+      var interval = setInterval(function() {
+        countdown--;
+        countdownEl.innerHTML = countdown;
+        if (countdown === 0) {
+          countdownEl.innerHTML = "Go!";
+        }
+        if (countdown === -1) {
+          clearInterval(interval);
+          countdownEl.innerHTML = ""; 
+          mann.style.display = "block" ;
+          zombielager.style.display = "block";
+          zombie.style.display = "block";
+          schuss.style.display = "block"; 
+          spawn();
+          laufen(); 
+        }
+      }, 1000);
+    }
+    </script>
     
 </head>
   <body onload="startCountdown()" onclick="newimg()" onkeydown="{
@@ -47,7 +70,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.53
+  Version 0.0.54
     move with <br>
     w = up <br>
     s = down <br> 
@@ -92,28 +115,7 @@ newbullet.style.top = newy + 'px';
 }
       
       
-      function startCountdown() {
-      var countdown = 3;
-      var countdownEl = document.getElementById("countdown");
-      countdownEl.innerHTML = countdown;
-      var interval = setInterval(function() {
-        countdown--;
-        countdownEl.innerHTML = countdown;
-        if (countdown === 0) {
-          countdownEl.innerHTML = "Go!";
-        }
-        if (countdown === -1) {
-          clearInterval(interval);
-          countdownEl.innerHTML = ""; 
-          mann.style.display = "block" ;
-          zombielager.style.display = "block";
-          zombie.style.display = "block";
-          schuss.style.display = "block"; 
-          spawn();
-          laufen(); 
-        }
-      }, 1000);
-    }
+      
       
       var zombie = document.getElementById('zombie');
       var schuss = document.getElementById("schuss");
@@ -212,7 +214,7 @@ zombie.style.top = ney + 'px';
   clearInterval(interval);
           }
         },10); 
-        }
+        )}
       }
       
     
