@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.85
+  Version 0.0.80
     
     move with <br>
     w = up <br>
@@ -150,17 +150,17 @@ if (myKey == 'w') {
 
            
 let interval = setInterval(function() {
- var speed = 200; 
+ var speed = 5; 
  let zielx = parseInt(mann.style.left) + 50; 
 let ziely = parseInt(mann.style.top) + 60;
-let pxx = (zielx - parseInt(zombie.style.left)) / speed; 
-let pyy = (ziely - parseInt(zombie.style.top)) / speed; 
+let pxx = (zielx - parseInt(zombie.style.left)) / 200; 
+let pyy = (ziely - parseInt(zombie.style.top)) / 200; 
 let newx = parseInt(zombie.style.left);
 let newy = parseInt(zombie.style.top);
-  if(pxx < 5 && pxx > 0 ) { pxx = 5; } 
-  if(pyy < 5 && pyy > 0 ) { pyy = 5; } 
-  if(pxx > -5 && pxx < 0 ) { pxx = -5; } 
-  if(pyy > -5 && pyy < 0 ) { pyy = -55; } 
+  if(pxx < speed && pxx > 0 ) { pxx = speed; } 
+  if(pyy < speed && pyy > 0 ) { pyy = speed; } 
+  if(pxx > -speed && pxx < 0 ) { pxx = -speed; } 
+  if(pyy > -speed && pyy < 0 ) { pyy = -speed; } 
 newx += pxx ;
 newy += pyy ;
 zombie.style.left = newx + 'px';
@@ -179,15 +179,15 @@ let interval3 = setInterval(function() {
    var speed = 100; 
  let ziex = parseInt(mann.style.left) + 50; 
 let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie3.style.left)) / speed; 
-let py = (ziey - parseInt(zombie3.style.top)) / speed; 
+let px = (ziex - parseInt(zombie3.style.left)) / 200; 
+let py = (ziey - parseInt(zombie3.style.top)) / 200; 
 let nex = parseInt(zombie3.style.left);
 let ney = parseInt(zombie3.style.top);
  
-  if(px < 5 && px > 0 ) { px = 5; } 
-  if(py < 5 && py > 0 ) { py = 5; } 
-  if(px > -5 && px < 0 ) { px = -5; } 
-  if(py > -5 && py < 0 ) { py = -5; }
+  if(px < speed && px > 0 ) { px = speed; } 
+  if(py < speed && py > 0 ) { py = speed; } 
+  if(px > -speed && px < 0 ) { px = -speed; } 
+  if(py > -speed && py < 0 ) { py =-speed; }
 nex += px ;
 ney += py ;
 zombie3.style.left = nex + 'px';
@@ -206,14 +206,14 @@ let interval2 = setInterval(function() {
    var speed = 100; 
  let zix = parseInt(mann.style.left) + 50; 
 let ziy = parseInt(mann.style.top) + 60;
-let x = (zix - parseInt(zombie2.style.left)) / speed; 
-let y = (ziy - parseInt(zombie2.style.top)) / speed; 
+let x = (zix - parseInt(zombie2.style.left)) / speedspeed; 
+let y = (ziy - parseInt(zombie2.style.top)) / speedspeed; 
 let nx = parseInt(zombie2.style.left);
 let ny = parseInt(zombie2.style.top);
-  if(x < 5 && x > 0 ) { x = 5; } 
-  if(y < 5 && y > 0 ) { y = 5; } 
-  if(x > -5 && x < 0 ) { x = -5; } 
-  if(y > -5 && y < 0 ) { y = -5; } 
+  if(x < speed && x > 0 ) { x = speed; } 
+  if(y < speed && y > 0 ) { y = speed; } 
+  if(x > -speed && x < 0 ) { x = -speed; } 
+  if(y > -speed && y < 0 ) { y = -speed;} 
 nx += x ;
 ny += y ;
 zombie2.style.left = nx + 'px';
@@ -257,21 +257,21 @@ newbullet.style.top = newy + 'px';
       zombie.style.left ="10px"; 
       zombie.style.left =  window.innerWidth - 150 + "px";
   newbullet.style.display = "none"; 
-            speed -= 20; 
+            speed += 3; 
   clearInterval(interval);
           }
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie2.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie2.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie2.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie2.style.top) + 120) {
 zombie2.style.top = "10px"; 
       zombie2.style.left =  window.innerWidth - 150 + "px"; 
   newbullet.style.display = "none"; 
-            speed -= 20; 
+            speed += 3; 
   clearInterval(interval);
         }
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
 zombie3.style.top = "30px"; 
       zombie3.style.left =  window.innerWidth - 200 + "px"; 
   newbullet.style.display = "none"; 
-            speed -= 20; 
+            speed += 3; 
   clearInterval(interval);
         }
         },10);
