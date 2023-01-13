@@ -53,6 +53,7 @@ if (myKey == 'w') {
     s = down <br> 
     d = right <br> 
     a = left <br> 
+    score:
     <div id="score">0</div> 
   <div id="countdown"></div>
 <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
@@ -172,7 +173,7 @@ zombie.style.top = newy + 'px';
           if(parseInt(zombie.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval);
-            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <div id="youscored"> You scored <div id="scoredpoints">  </div> </div> ';
+            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <input type=button onclick="location.reload()">';
           }
         },10); 
         }
@@ -200,7 +201,7 @@ zombie3.style.top = ney + 'px';
           if(parseInt(zombie3.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie3.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie3.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie3.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval3);
-            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <div id="youscored"> You scored <div id="scoredpoints"> </div> </div> ';
+            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <input type=button onclick="location.reload()">';
           }
         },10); 
         
