@@ -16,28 +16,6 @@
     
       <script> 
         
-        function startCountdown() {
-      var countdown = 3;
-      var countdownEl = document.getElementById("countdown");
-      countdownEl.innerHTML = countdown;
-      var interval = setInterval(function() {
-        countdown--;
-        countdownEl.innerHTML = countdown;
-        if (countdown === 0) {
-          countdownEl.innerHTML = "Go!";
-        }
-        if (countdown === -1) {
-          clearInterval(interval);
-          countdownEl.innerHTML = ""; 
-          mann.style.display = "block" ;
-          zombielager.style.display = "block";
-          zombie.style.display = "block";
-          schuss.style.display = "block"; 
-          spawn();
-          laufen(); 
-        }
-      }, 1000);
-    }
         
          function spawn() {
            
@@ -174,7 +152,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.74
+  Version 0.0.75
     
     move with <br>
     w = up <br>
@@ -196,7 +174,29 @@ if (myKey == 'w') {
         
 
       
-      
+      function startCountdown() {
+      var countdown = 3;
+      var countdownEl = document.getElementById("countdown");
+      countdownEl.innerHTML = countdown;
+      var interval = setInterval(function() {
+        countdown--;
+        countdownEl.innerHTML = countdown;
+        if (countdown === 0) {
+          countdownEl.innerHTML = "Go!";
+        }
+        if (countdown === -1) {
+          clearInterval(interval);
+          countdownEl.innerHTML = ""; 
+          mann.style.display = "block" ;
+          zombielager.style.display = "block";
+          zombie.style.display = "block";
+          schuss.style.display = "block"; 
+          spawn();
+          laufen(); 
+        }
+      }, 1000);
+    }
+        
       
      
       var width = window.innerWidth ; 
