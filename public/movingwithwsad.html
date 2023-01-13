@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.39
+  Version 0.0.21
     
     move with <br>
     w = up <br>
@@ -236,6 +236,7 @@ zombie2.style.top = ny + 'px';
       function newimg() {    
  var zombie = document.getElementById('zombie');
         var score = 0 ; 
+         var speed = 5; 
       
         
 let newbullet = document.getElementById('schuss').cloneNode(true);
@@ -262,7 +263,7 @@ newbullet.style.top = newy + 'px';
       zombie.style.left =  window.innerWidth - 150 + "px";
   newbullet.style.display = "none"; 
             speed += 3; 
-            score = parseInt(document.getElementById("score")) + 100 ;
+            score +=  100 ;
             
   clearInterval(interval);
           }
@@ -271,7 +272,7 @@ zombie2.style.top = "10px";
       zombie2.style.left =  window.innerWidth - 150 + "px"; 
   newbullet.style.display = "none"; 
             speed += 3; 
-            score = parseInt(document.getElementById("score")) + 100 ;
+            score += 100 ;
   clearInterval(interval);
         }
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
@@ -279,7 +280,7 @@ zombie3.style.top = "30px";
       zombie3.style.left =  window.innerWidth - 200 + "px"; 
   newbullet.style.display = "none"; 
             speed += 3; 
-            score = parseInt(document.getElementById("score")) + 100 ;
+            score +=  100 ;
   clearInterval(interval);
         }
           document.getElementById("score").innerHTML = score ; 
