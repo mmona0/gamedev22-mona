@@ -53,7 +53,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.77
+  Version 0.0.78
     
     move with <br>
     w = up <br>
@@ -72,6 +72,45 @@ if (myKey == 'w') {
        var zombie = document.getElementById('zombie');
       var schuss = document.getElementById("schuss");
       var zombielager = document.getElementById("zombielager");
+              
+      function newimg() {
+ let zombies =  document.getElementById('zombies') ;      
+        var zombie = document.getElementById('zombie');
+      
+        
+        if(zombie.style.display === "block") {
+let newbullet = document.getElementById('schuss').cloneNode(true);
+newbullet.style.position = "absolute";
+newbullet.style.top = document.getElementById('schuss').style.top ;
+newbullet.style.left = document.getElementById('schuss').style.left ;
+document.body.appendChild(newbullet);
+let zielx = parseInt(event.clientX) ; 
+let ziely = parseInt(event.clientY) ;
+let pxx = (zielx - parseInt(newbullet.style.left)) / 60; 
+let pxy = (ziely - parseInt(newbullet.style.top)) / 60; 
+let interval = setInterval(function() {
+let newx = parseInt(newbullet.style.left);
+let newy = parseInt(newbullet.style.top);
+newx += pxx ;
+newy += pxy ;
+newbullet.style.left = newx + 'px';
+newbullet.style.top = newy + 'px';
+
+}, 10);
+        setInterval(function(){
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+  zombie.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+          }
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
+zombies.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+        }
+        },10);
+       
+        }
         
 
       
@@ -198,46 +237,7 @@ zombie.style.top = ney + 'px';
         },10); 
         }
       }
-      
-      function newimg() {
- let zombies =  document.getElementById('zombies') ;      
-        var zombie = document.getElementById('zombie');
-      
-        
-        if(zombie.style.display === "block") {
-let newbullet = document.getElementById('schuss').cloneNode(true);
-newbullet.style.position = "absolute";
-newbullet.style.top = document.getElementById('schuss').style.top ;
-newbullet.style.left = document.getElementById('schuss').style.left ;
-document.body.appendChild(newbullet);
-let zielx = parseInt(event.clientX) ; 
-let ziely = parseInt(event.clientY) ;
-let pxx = (zielx - parseInt(newbullet.style.left)) / 60; 
-let pxy = (ziely - parseInt(newbullet.style.top)) / 60; 
-let interval = setInterval(function() {
-let newx = parseInt(newbullet.style.left);
-let newy = parseInt(newbullet.style.top);
-newx += pxx ;
-newy += pxy ;
-newbullet.style.left = newx + 'px';
-newbullet.style.top = newy + 'px';
 
-}, 10);
-        setInterval(function(){
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
-  zombie.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-          }
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombies.style.left) && parseInt(newbullet.style.left) <= parseInt(zombies.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombies.style.top) && parseInt(newbullet.style.top) <= parseInt(zombies.style.top) + 120) {
-zombies.style.display = "none"; 
-  newbullet.style.display = "none"; 
-  clearInterval(interval);
-        }
-        },10);
-       
-        }
-        
         
       
     </script>
