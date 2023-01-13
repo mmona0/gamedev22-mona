@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.97
+  Version 0.0.98
     
     move with <br>
     w = up <br>
@@ -193,10 +193,10 @@ zombies.style.top = ny + 'px';
           
         },3000);
      
+           
         
  var zombie = document.getElementById('zombie');
- var zombies =  document.getElementById('zombies')  ;   
-        
+ var zombies =  document.getElementById('zombies')  ;
 let newbullet = document.getElementById('schuss').cloneNode(true);
 newbullet.style.position = "absolute";
 newbullet.style.top = document.getElementById('schuss').style.top ;
@@ -216,7 +216,7 @@ newbullet.style.top = newy + 'px';
 
 }, 10);
         setInterval(function(){
-          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+          if(zombie.style.display === "block" && parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
   zombie.style.display = "none"; 
   newbullet.style.display = "none"; 
   clearInterval(interval);
