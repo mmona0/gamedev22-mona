@@ -32,12 +32,15 @@ newx += pxx ;
 newy += pxy ;
 newbullet.style.left = newx + 'px';
 newbullet.style.top = newy + 'px';parseInt(newbullet.style.left) >= parseInt(zombie.style.left)
-if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
-  zombie.style.display = "none"; 
-  newbullet.style.display = "none"; 
-}
 
 }, 10);
+        setInterval(function(){
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+  zombie.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+          }
+        },10); 
 }
     </script> 
       
@@ -73,7 +76,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.38
+  Version 0.0.39
     move with <br>
     w = up <br>
     s = down <br> 
@@ -160,7 +163,7 @@ if (myKey == 'w') {
           document.body.appendChild(newmonster);
            
           
-        },3000
+        },3000);
       }
   </script>
 </body>
