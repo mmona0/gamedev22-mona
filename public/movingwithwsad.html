@@ -43,7 +43,7 @@
            
         var mann = document.getElementById("mann");  
         setInterval(function(){
-          let zombies = document.getElementById('zombies').cloneNode(true);
+          let zombies = document.getElementById('zombie').cloneNode(true);
           zombies.style.position = "absolute";
           zombies.style.top = document.getElementById('zombielager').style.top ;
           zombies.style.left = document.getElementById('zombielager').style.left ;
@@ -104,7 +104,8 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.61
+  Version 0.0.62
+    
     move with <br>
     w = up <br>
     s = down <br> 
@@ -112,16 +113,22 @@ if (myKey == 'w') {
     a = left <br> 
   
   <div id="countdown"></div>
-    <img id="zombies" style="position:absolute; width:100px; height:120px; display: none;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
-  <img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
+<img id="zombielager" style="position:absolute; width:200px; height: 180px;" src="https://th.bing.com/th/id/R.ec95fbec838111f8766fd1cf484af79e?rik=MP2UpQB0dFIqDg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-RFkt-M3Vkdw%2fUJZYMpU7_zI%2fAAAAAAAAAFc%2fjuiZDkMOswA%2fs1600%2fgraveyard.gif&ehk=ZEnXFQlQfNwxnEO4TQrhxENz5CFWh0Uj%2bFUdwarex1I%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">     
   <img id="zombie" style="position:absolute; width:100px; height:120px;   transform: scaleX(-1); " src="https://www.pinclipart.com/picdir/big/530-5309489_cartoon-zombie-png-clipart.png">
   <img id="mann" style="position:absolute; width:100px; height:120px;"  src="https://st.depositphotos.com/1292351/3183/v/950/depositphotos_31836279-stock-illustration-illustration-of-cartoon-soldier-with.jpg">
   <img id="schuss" style="position:absolute; width:10px ; height:10px; " src="https://th.bing.com/th/id/OIP.dzup1QpvC1pMVZEkbRRX_gHaHa?pid=ImgDet&rs=1">  
     
     <script> 
+      
+       var zombie = document.getElementById('zombie');
+      var schuss = document.getElementById("schuss");
+      var zombielager = document.getElementById("zombielager");
+        
       function newimg() {
- let zombies =  document.getElementById('zombies') ;     
-let zombie = document.getElementById('zombie');
+ let zombies =  document.getElementById('zombies') ;      
+        var zombie = document.getElementById('zombie');
+      
+        
         if(zombie.style.display === "block") {
 let newbullet = document.getElementById('schuss').cloneNode(true);
 newbullet.style.position = "absolute";
@@ -187,10 +194,7 @@ newbullet2.style.top = newy2 + 'px';
       
       
       
-      var zombie = document.getElementById('zombie');
-      var schuss = document.getElementById("schuss");
-      var zombielager = document.getElementById("zombielager");
-        
+     
       var width = window.innerWidth ; 
       var height = window.innerHeight ; 
       mann.style.display = "none" ; 
