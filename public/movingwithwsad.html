@@ -104,7 +104,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.60
+  Version 0.0.61
     move with <br>
     w = up <br>
     s = down <br> 
@@ -150,7 +150,7 @@ newbullet.style.top = newy + 'px';
         },10); 
         }
         
-        if(zombie.style.display === "none" && zombies.style.display === "block") {
+        if(zombie.style.display === "none") {
           let newbullet2 = document.getElementById('schuss').cloneNode(true);
 newbullet2.style.position = "absolute";
 newbullet2.style.top = document.getElementById('schuss').style.top ;
