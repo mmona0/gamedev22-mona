@@ -104,7 +104,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.57
+  Version 0.0.58
     move with <br>
     w = up <br>
     s = down <br> 
@@ -120,7 +120,9 @@ if (myKey == 'w') {
     
     <script> 
       function newimg() {
+ let zombies =  document.getElementById('zombies') ;     
 let zombie = document.getElementById('zombie');
+        if(zombie.style.display === "block") {
 let newbullet = document.getElementById('schuss').cloneNode(true);
 newbullet.style.position = "absolute";
 newbullet.style.top = document.getElementById('schuss').style.top ;
@@ -146,6 +148,43 @@ newbullet.style.top = newy + 'px';
   clearInterval(interval);
           }
         },10); 
+        }
+        
+        if(zombie.style.display === "none" && zombies.style.display === "block") {
+          let zombies = document
+          let newbullet = document.getElementById('schuss').cloneNode(true);
+newbullet.style.position = "absolute";
+newbullet.style.top = document.getElementById('schuss').style.top ;
+newbullet.style.left = document.getElementById('schuss').style.left ;
+document.body.appendChild(newbullet);
+let zielx = parseInt(zombie.style.left) + 50; 
+let ziely = parseInt(zombie.style.top) + 60;
+let pxx = (zielx - parseInt(newbullet.style.left)) / 60; 
+let pxy = (ziely - parseInt(newbullet.style.top)) / 60; 
+let interval = setInterval(function() {
+let newx = parseInt(newbullet.style.left);
+let newy = parseInt(newbullet.style.top);
+newx += pxx ;
+newy += pxy ;
+newbullet.style.left = newx + 'px';
+newbullet.style.top = newy + 'px';
+
+}, 10);
+        setInterval(function(){
+          if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie.style.top) + 120) {
+  zombie.style.display = "none"; 
+  newbullet.style.display = "none"; 
+  clearInterval(interval);
+          }
+        },10); 
+        }
+          
+          
+        }
+        
+        
+        
+        
 }
       
       
