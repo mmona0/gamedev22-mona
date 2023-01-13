@@ -76,7 +76,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.46
+  Version 0.0.47
     move with <br>
     w = up <br>
     s = down <br> 
@@ -134,28 +134,28 @@ if (myKey == 'w') {
        }
             function spawn() {
         setInterval(function(){
-          let zombie = document.getElementById('zombies').cloneNode(true);
-          zombie.style.position = "absolute";
-          zombie.style.top = document.getElementById('zombielager').style.top ;
-          zombie.style.left = document.getElementById('zombielager').style.left ;
-          zombie.style.display = "block"; 
-          document.body.appendChild(zombie);
+          let zombies = document.getElementById('zombies').cloneNode(true);
+          zombies.style.position = "absolute";
+          zombies.style.top = document.getElementById('zombielager').style.top ;
+          zombies.style.left = document.getElementById('zombielager').style.left ;
+          zombies.style.display = "block"; 
+          document.body.appendChild(zombies);
            
     setInterval(function() {
- let ziex = parseInt(mann.style.left) + 50; 
-let ziey = parseInt(mann.style.top) + 60;
-let px = (ziex - parseInt(zombie.style.left)) / 160; 
-let py = (ziey - parseInt(zombie.style.top)) / 160; 
-let nex = parseInt(zombie.style.left);
-let ney = parseInt(zombie.style.top);
-nex += px ;
-ney += py ;
-zombie.style.left = nex + 'px';
-zombie.style.top = ney + 'px';
+ let zix = parseInt(mann.style.left) + 50; 
+let ziy = parseInt(mann.style.top) + 60;
+let x = (zix - parseInt(zombies.style.left)) / 160; 
+let y = (ziy - parseInt(zombies.style.top)) / 160; 
+let nx = parseInt(zombies.style.left);
+let ny = parseInt(zombies.style.top);
+nx += x ;
+ny += y ;
+zombies.style.left = nx + 'px';
+zombies.style.top = ny + 'px';
 
 }, 100);
         setInterval(function(){
-          if(parseInt(zombie.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie.style.top) <= parseInt(mann.style.top) + 120) {
+          if(parseInt(zombies.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombies.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombies.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombies.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval);
           }
