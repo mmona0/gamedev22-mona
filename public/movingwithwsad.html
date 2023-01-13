@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.51
+  Version 0.0.58
     
     move with <br>
     w = up <br>
@@ -235,7 +235,6 @@ zombie2.style.top = ny + 'px';
                     
       function newimg() {    
  var zombie = document.getElementById('zombie');
-           var score = document.getElementById("score");
         var newscore = 0 ; 
       
         
@@ -264,7 +263,7 @@ newbullet.style.top = newy + 'px';
   newbullet.style.display = "none"; 
             speed += 3; 
             newscore =  newscore + 100 ;
-            score.innerHTML = newscore ;
+            document.getElementById("score").innerHTML = newscore ;
             
   clearInterval(interval);
           }
@@ -275,7 +274,7 @@ zombie2.style.top = "10px";
             speed += 3; 
             newscore =  newscore + 100 ;
             
-            score.innerHTML = newscore ;
+            document.getElementById("score").innerHTML = newscore ;
   clearInterval(interval);
         }
           if(parseInt(newbullet.style.left) + 10 >= parseInt(zombie3.style.left) && parseInt(newbullet.style.left) <= parseInt(zombie3.style.left) + 100 && parseInt(newbullet.style.top) + 10  >= parseInt(zombie3.style.top) && parseInt(newbullet.style.top) <= parseInt(zombie3.style.top) + 120) {
@@ -284,7 +283,7 @@ zombie3.style.top = "30px";
   newbullet.style.display = "none"; 
             speed += 3; 
             newscore =  newscore + 100 ;
-            score.innerHTML = newscore ;
+            document.getElementById("score").innerHTML = newscore ;
   clearInterval(interval);
         }
         },10);
