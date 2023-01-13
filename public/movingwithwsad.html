@@ -47,7 +47,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.73
+  Version 0.0.13
     
     move with <br>
     w = up <br>
@@ -288,6 +288,7 @@ zombie3.style.top = "30px";
   clearInterval(interval);
         }
           document.getElementById("score").innerHTML = score ; 
+          localStorage.setItem('myscore', document.getElementById('score'))
         },10);
        
         }
@@ -307,7 +308,7 @@ zombie3.style.top = "30px";
 </body>
   <script> 
     
-    document.getElementById('scoredpoints').innerHTML = document.getElementById('score')
+    document.getElementById('scoredpoints').innerHTML =  localStorage.getItem('myscore')
     
   </script> 
 </html>
