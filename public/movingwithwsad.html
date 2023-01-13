@@ -76,7 +76,7 @@ if (myKey == 'w') {
       stayonscreen()
                   
 }">
-  Version 0.0.47
+  Version 0.0.48
     move with <br>
     w = up <br>
     s = down <br> 
@@ -140,8 +140,8 @@ if (myKey == 'w') {
           zombies.style.left = document.getElementById('zombielager').style.left ;
           zombies.style.display = "block"; 
           document.body.appendChild(zombies);
-           
-    setInterval(function() {
+            
+   var interval2 = setInterval(function() {
  let zix = parseInt(mann.style.left) + 50; 
 let ziy = parseInt(mann.style.top) + 60;
 let x = (zix - parseInt(zombies.style.left)) / 160; 
@@ -157,12 +157,14 @@ zombies.style.top = ny + 'px';
         setInterval(function(){
           if(parseInt(zombies.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombies.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombies.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombies.style.top) <= parseInt(mann.style.top) + 120) {
    
-  clearInterval(interval);
+  clearInterval(interval2);
           }
         },10); 
         }
         },3000);
       }
+      
+      
       function laufen() {
         if(zombie.style.display === "block"){
 
