@@ -173,7 +173,7 @@ zombie.style.top = newy + 'px';
           if(parseInt(zombie.style.left) + 100 >= parseInt(mann.style.left) && parseInt(zombie.style.left) <= parseInt(mann.style.left) + 100 && parseInt(zombie.style.top) + 120  >= parseInt(mann.style.top) && parseInt(zombie.style.top) <= parseInt(mann.style.top) + 120) {
    
   clearInterval(interval);
-            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <input type=button onclick="location.reload()">';
+            document.body.innerHTML = ' <h1> GAME OVER </h1> <br> <input type=button value="Try again" onclick="location.reload()">';
           }
         },10); 
         }
