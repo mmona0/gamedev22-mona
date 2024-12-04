@@ -25,24 +25,22 @@ tr:nth-child(even) {
   </head>
 
   <body>
+
+    
+    <form action="">
     <table>
   <tr>
     <th>Darf auf dein Standort zugegriffen werden?</th>
   </tr>
   <tr>
-    <td>JA</td>
+    <input type="radio" id="ja" name="standort" value="ja">
+    <label for="ja">Ja</label>
   </tr>
   <tr>
-    <td>Nein</td>
+    <input type="radio" id="nein" name="standort" value="nein">
+    <label for="nein">Nein</label>
   </tr>
 </table>
-    <form action="">
-  <input type="radio" id="html" name="fav_language" value="HTML">
-  <label for="html">HTML</label><br>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">CSS</label><br>
-  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-  <label for="javascript">JavaScript</label><br><br>
   <input type="submit" value="Submit">
 </form> 
 
