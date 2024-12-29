@@ -1,0 +1,145 @@
+<!doctype html>
+Version 1.1
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pferdedecken Test</title>
+
+    <style>
+  table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+  </head>
+
+  <body>
+    
+    <form action="https://mmona0.github.io/gamedev22-mona/public/auswertung.html" method="post" target="iframe_a">
+    <table>
+  <tr>
+    <th>Darf auf Ihren Standort zugegriffen werden?</th>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="ja" name="standort" value="ja">
+    <label for="ja">Ja</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="nein" name="standort" value="nein">
+    <label for="nein">Nein</label>
+    </td>
+  </tr>
+</table>
+
+      
+<table>
+  <tr>
+    <th>Wie ist der momentane Fellzustand Ihres Pferdes?</th>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="dick" name="fellzustand" value="dick">
+    <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
+    </td>
+  </tr>
+  <tr></tr>
+    <td>
+    <input type="radio" id="dünn" name="fellzustand" value="dünn">
+    <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Kaltblütern) </label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
+      <label for="geschoren">Geschoren </label>
+    </td>
+  </tr>
+</table>
+
+      
+<table>
+  <tr>
+    <th>Wie steht Ihr Pferd hauptsächlich?</th>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="box" name="haltung" value="box">
+    <label for="box">In der Box</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="paddock" name="haltung" value="paddock">
+    <label for="paddock">Draußen auf dem Paddock</label>
+    </td>
+  </tr>
+</table>
+
+      
+<table>
+  <tr>
+    <th>Wie ist der BCS (Body Conditioning Score) Ihres Pferdes? </br> (Der BCS beschreibt den Körperzustand eines Pferdes. Hier reicht eine Grobe einschätzung.)</th>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="gesund" name="bcs" value="gesund">
+    <label for="gesund">Ein BCS größer als 3; Ein gesundes oder übergewichtiges Pferd </label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="dünn" name="bcs" value="dünn">
+    <label for="dünn">Ein BCS von 3 oder kleiner; Ein dünnes, untergewichtiges Pferd </label>
+    </td>
+  </tr>
+</table>
+
+      
+<table>
+  <tr>
+    <th>Wie viel ist Ihr Pferd im Training?</th>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="viel" name="training" value="viel">
+    <label for="viel">Mein Pferd wird viel und regelmäßig trainiert.</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" id="wenig" name="training" value="wenig">
+    <label for="wenig">Meine Pferd wird nur ab und zu oder garnicht trainiert.</label>
+    </td>
+  </tr>
+</table>
+
+      <input type="submit" value="Fertig">
+      <input type="reset" value="Zurücksetzen">
+
+</form> 
+
+  </body>
+</html>
