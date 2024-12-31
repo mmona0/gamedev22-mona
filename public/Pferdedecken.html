@@ -1,5 +1,5 @@
 <!doctype html>
-version 1.5
+version 2.1
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -218,10 +218,81 @@ html {
             </form>
             <p>Dein Pferd trägt am besten eine </p>
             <p id="output"></p>
+            <p id="fehler"></p>
          </div>
         </div>
 
-            <script type="text/javascript">
+//Wetterdaten holen 
+
+         <script type="text/javascript">
+             document.getElementById('absenden').addEventListener('click', getLocation);
+        function getLocation() 
+        {
+         if(navigator.geolocation) 
+         {
+            navigator.geolocation.getCurrentPosition(
+                fetchWeather,  // Erfolgreiche Antwort
+            handleError,   // Fehlerbehandlung
+            {
+                enableHighAccuracy: true, // Höhere Genauigkeit verwenden
+                timeout: 10000,            // Timeout nach 10 Sekunden
+                maximumAge: 0              // Keine gecachten Ergebnisse verwenden
+            }
+        );
+         } else {
+            document.getElementById('fehler').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt. Bitte geben Sie ihren Standort manuell ein";
+         }
+
+        }
+             // Funktion, um das Wetter basierend auf der Position zu holen
+        function fetchWeather(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Open-Meteo API URL (keine Authentifizierung erforderlich)
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&lang=de`;
+
+            // API-Anfrage, um Wetterdaten zu bekommen
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.current_weather && data.current_weather.temperature) {
+                        // Temperatur in Grad Celsius
+                        const temp = data.current_weather.temperature;
+                        document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
+                    } else {
+                        document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('fehler').innerHTML = "Fehler bei der API-Abfrage.";
+                    console.error("Fehler bei der API-Abfrage:", error);
+                });
+        }
+
+        // Fehlerbehandlung bei Geolocation
+        function handleError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('fehler').innerHTML = "Standortberechtigung wurde abgelehnt. Bitte erlauben Sie den Zugriff auf Ihren Standort in ihren Browser Einstellungen.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('fehler').innerHTML = "Standort konnte nicht ermittelt werden.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('fehler').innerHTML = "Standort konnte nicht ermittelt werden.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('fehler').innerHTML = "Zeitüberschreitung bei der Standortermittlung.";
+                    break;
+                default:
+                    document.getElementById('fehler').innerHTML = "Unbekannter Fehler bei der Standortermittlung.";
+                    break;
+            }
+        }
+
+        
+        //auswertung des Forms 
                 function auswerten()
                 {
                     var standort = document.form1.standort.value; 
