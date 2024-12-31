@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktuelle Temperatur</title>
+</head>
+<body>
+    <h1>Aktuelle Temperatur</h1>
+    <div id="temperature">Lade Temperatur...</div>
+    <script>
+        // Funktion, um den Standort des Nutzers zu ermitteln
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
+            } else {
+                alert("Geolocation wird von diesem Browser nicht unterstützt.");
+            }
+        }
+
+        // Funktion, um das Wetter basierend auf der Position zu holen
+        function fetchWeather(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            // Open-Meteo API URL (keine Authentifizierung erforderlich)
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&lang=de`;
+
+            // API-Anfrage, um Wetterdaten zu bekommen
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.current_weather && data.current_weather.temperature) {
+                        // Temperatur in Grad Celsius
+                        const temp = data.current_weather.temperature;
+                        document.getElementById('temperature').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
+                    } else {
+                        document.getElementById('temperature').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('temperature').innerHTML = "Fehler bei der API-Abfrage.";
+                    console.error("Fehler bei der API-Abfrage:", error);
+                });
+        }
+
+        // Fehlerbehandlung bei Geolocation
+        function handleError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('temperature').innerHTML = "Standortberechtigung wurde abgelehnt.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('temperature').innerHTML = "Standort konnte nicht ermittelt werden.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('temperature').innerHTML = "Zeitüberschreitung bei der Standortermittlung.";
+                    break;
+                default:
+                    document.getElementById('temperature').innerHTML = "Unbekannter Fehler bei der Standortermittlung.";
+                    break;
+            }
+        }
+
+        // Starte den Prozess beim Laden der Seite
+        window.onload = getLocation;
+    </script>
+</body>
+</html>
