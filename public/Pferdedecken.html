@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.8 
+version 2.9
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -198,6 +198,7 @@ version 2.8
             <p>Dein Pferd trägt am besten eine:</p>
             <p id="output"></p>
             <p id="fehler"></p>
+            <div id="manuell"></div> 
         </div>
     </div>
 
@@ -212,6 +213,7 @@ version 2.8
                 });
             } else {
                 document.getElementById('fehler').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
+                manuelleEingabe(); 
             }
         }
 
@@ -229,11 +231,13 @@ version 2.8
                         document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
                     } else {
                         document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
+                        manuelleEingabe();
                     }
                 })
                 .catch(error => {
                     document.getElementById('fehler').innerHTML = "Fehler bei der API-Abfrage.";
                     console.error("Fehler bei der API-Abfrage:", error);
+                    manuelleEingabe();
                 });
         }
 
@@ -253,6 +257,41 @@ version 2.8
                     document.getElementById('fehler').innerHTML = "Unbekannter Fehler bei der Standortermittlung.";
                     break;
             }
+
+            function manuelleEingabe()
+                {
+                    const container = document.getElementById('manuell');
+                    
+                    // Prüfen, ob das Eingabefeld schon existiert
+            if (document.getElementById('standortEingabe')) {
+                alert('Das Eingabefeld existiert bereits.');
+                return;
+            }
+            
+            // Eingabefeld erstellen
+            const inputField = document.createElement('input');
+            inputField.type = 'text';
+            inputField.id = 'standortEingabe';
+            inputField.placeholder = 'Bitte geben Sie ihren Standort hier an.';
+
+            // Button zum Abschicken des Standorts erstellen
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Absenden';
+            submitButton.onclick = () => {
+                const standort = inputField.value;
+                if (standort) {
+                    alert(`Eingegebener Standort: ${standort}`);
+                } else {
+                    alert('Bitte einen Standort eingeben.');
+                }
+            };
+
+            // Elemente in den Container einfügen
+            container.appendChild(inputField);
+            container.appendChild(submitButton);
+        }
+                    
+                }
         }
 
         // Auswerten-Funktion
