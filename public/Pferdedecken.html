@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.11
+version 2.12
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,7 +263,7 @@ version 2.11
     // Funktion für manuelle Standorteingabe
     function manuelleEingabe() {
 
-        
+        const Eingabefeld = document.getElementById('manuell');
         // Eingabefeld erstellen
         const inputField = document.createElement('input');
         inputField.type = 'text';
@@ -277,6 +277,9 @@ version 2.11
             const standort = inputField.value;
             inputField.innerHTML = standort; 
         };
+
+        Eingabefeld.appendChild(inputField);
+        Eingabefeld.appendChild(submitButton);
 
     }
 
