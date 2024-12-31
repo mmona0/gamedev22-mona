@@ -7,11 +7,17 @@
 </head>
 <body>
     <h1>Aktuelle Temperatur</h1>
-    <div id="temperature">Lade Temperatur...</div>
+    <button id="get-temperature">Temperatur ermitteln</button>
+    <div id="temperature"></div>
+
     <script>
+        // Funktion, die ausgeführt wird, wenn der Button geklickt wird
+        document.getElementById('get-temperature').addEventListener('click', getLocation);
+
         // Funktion, um den Standort des Nutzers zu ermitteln
         function getLocation() {
             if (navigator.geolocation) {
+                // Standortanfrage beim Klick auf den Button
                 navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
             } else {
                 alert("Geolocation wird von diesem Browser nicht unterstützt.");
@@ -61,9 +67,6 @@
                     break;
             }
         }
-
-        // Starte den Prozess beim Laden der Seite
-        window.onload = getLocation;
     </script>
 </body>
 </html>
