@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.9
+version 2.10
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -196,110 +196,110 @@ version 2.9
             </form>
 
             <p>Dein Pferd trägt am besten eine:</p>
-            <p id="output"></p>
-            <p id="fehler"></p>
-            <div id="manuell"></div> 
-        </div>
-    </div>
+<p id="output"></p>
+<p id="fehler"></p>
+<div id="manuell"></div> 
+</div>
+</div>
 
-    <script>
-        // Funktion, um das Wetter basierend auf der Position zu holen
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(fetchWeather, handleError, {
-                    enableHighAccuracy: true,
-                    timeout: 10000,
-                    maximumAge: 0
-                });
-            } else {
-                document.getElementById('fehler').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
-                manuelleEingabe(); 
-            }
+<script>
+    // Funktion, um das Wetter basierend auf der Position zu holen
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(fetchWeather, handleError, {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            });
+        } else {
+            document.getElementById('fehler').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
+            manuelleEingabe(); 
         }
+    }
 
-        // Temperatur holen und anzeigen
-        function fetchWeather(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&lang=de`;
+    // Temperatur holen und anzeigen
+    function fetchWeather(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&lang=de`;
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.current_weather && data.current_weather.temperature) {
-                        const temp = data.current_weather.temperature;
-                        document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
-                    } else {
-                        document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
-                        manuelleEingabe();
-                    }
-                })
-                .catch(error => {
-                    document.getElementById('fehler').innerHTML = "Fehler bei der API-Abfrage.";
-                    console.error("Fehler bei der API-Abfrage:", error);
-                    manuelleEingabe();
-                });
-        }
-
-        // Fehlerbehandlung bei Geolocation
-        function handleError(error) {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    document.getElementById('fehler').innerHTML = "Standortberechtigung wurde abgelehnt.";
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    document.getElementById('fehler').innerHTML = "Standort konnte nicht ermittelt werden.";
-                    break;
-                case error.TIMEOUT:
-                    document.getElementById('fehler').innerHTML = "Zeitüberschreitung bei der Standortermittlung.";
-                    break;
-                default:
-                    document.getElementById('fehler').innerHTML = "Unbekannter Fehler bei der Standortermittlung.";
-                    break;
-            }
-
-            function manuelleEingabe()
-                {
-                    const container = document.getElementById('manuell');
-                    
-                    // Prüfen, ob das Eingabefeld schon existiert
-            if (document.getElementById('standortEingabe')) {
-                alert('Das Eingabefeld existiert bereits.');
-                return;
-            }
-            
-            // Eingabefeld erstellen
-            const inputField = document.createElement('input');
-            inputField.type = 'text';
-            inputField.id = 'standortEingabe';
-            inputField.placeholder = 'Bitte geben Sie ihren Standort hier an.';
-
-            // Button zum Abschicken des Standorts erstellen
-            const submitButton = document.createElement('button');
-            submitButton.textContent = 'Absenden';
-            submitButton.onclick = () => {
-                const standort = inputField.value;
-                if (standort) {
-                    alert(`Eingegebener Standort: ${standort}`);
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.current_weather && data.current_weather.temperature) {
+                    const temp = data.current_weather.temperature;
+                    document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
                 } else {
-                    alert('Bitte einen Standort eingeben.');
+                    document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
+                    manuelleEingabe();
                 }
-            };
+            })
+            .catch(error => {
+                document.getElementById('fehler').innerHTML = "Fehler bei der API-Abfrage.";
+                console.error("Fehler bei der API-Abfrage:", error);
+                manuelleEingabe();
+            });
+    }
 
-            // Elemente in den Container einfügen
-            container.appendChild(inputField);
-            container.appendChild(submitButton);
+    // Fehlerbehandlung bei Geolocation
+    function handleError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                document.getElementById('fehler').innerHTML = "Standortberechtigung wurde abgelehnt.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById('fehler').innerHTML = "Standort konnte nicht ermittelt werden.";
+                break;
+            case error.TIMEOUT:
+                document.getElementById('fehler').innerHTML = "Zeitüberschreitung bei der Standortermittlung.";
+                break;
+            default:
+                document.getElementById('fehler').innerHTML = "Unbekannter Fehler bei der Standortermittlung.";
+                break;
         }
-                    
-                }
-        }
+        manuelleEingabe();
+    }
 
-        // Auswerten-Funktion
-        function auswerten() {
-            // Hier kannst du die Logik für die Auswertung der anderen Formulareingaben hinzufügen.
-            var output = document.getElementById("output");
-            output.innerHTML = "Auswertung abgeschlossen.";  // Beispieltext
+    // Funktion für manuelle Standorteingabe
+    function manuelleEingabe() {
+        const container = document.getElementById('manuell');
+        
+        // Prüfen, ob das Eingabefeld schon existiert
+        if (document.getElementById('standortEingabe')) {
+            alert('Das Eingabefeld existiert bereits.');
+            return;
         }
-    </script>
+        
+        // Eingabefeld erstellen
+        const inputField = document.createElement('input');
+        inputField.type = 'text';
+        inputField.id = 'standortEingabe';
+        inputField.placeholder = 'Bitte geben Sie ihren Standort hier an.';
+
+        // Button zum Abschicken des Standorts erstellen
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Absenden';
+        submitButton.onclick = () => {
+            const standort = inputField.value;
+            if (standort) {
+                alert(`Eingegebener Standort: ${standort}`);
+            } else {
+                alert('Bitte einen Standort eingeben.');
+            }
+        };
+
+        // Elemente in den Container einfügen
+        container.appendChild(inputField);
+        container.appendChild(submitButton);
+    }
+
+    // Auswerten-Funktion
+    function auswerten() {
+        // Hier kannst du die Logik für die Auswertung der anderen Formulareingaben hinzufügen.
+        var output = document.getElementById("output");
+        output.innerHTML = "Auswertung abgeschlossen.";  // Beispieltext
+    }
+</script>
+
 </body>
 </html>
