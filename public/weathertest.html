@@ -1,4 +1,4 @@
-version 1
+version 1.1
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -16,14 +16,23 @@ version 1
         document.getElementById('get-temperature').addEventListener('click', getLocation);
 
         // Funktion, die beim Klick auf den Button ausgeführt wird
-        function getLocation() {
-            if (navigator.geolocation) {
-                // Geolocation-Anfrage beim Klick auf den Button
-                navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
-            } else {
-                document.getElementById('temperature').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
+function getLocation() {
+    if (navigator.geolocation) {
+        // Geolocation-Anfrage beim Klick auf den Button
+        navigator.geolocation.getCurrentPosition(
+            fetchWeather,  // Erfolgreiche Antwort
+            handleError,   // Fehlerbehandlung
+            {
+                enableHighAccuracy: true, // Höhere Genauigkeit verwenden
+                timeout: 10000,            // Timeout nach 10 Sekunden
+                maximumAge: 0              // Keine gecachten Ergebnisse verwenden
             }
-        }
+        );
+    } else {
+        document.getElementById('temperature').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
+    }
+}
+
 
         // Funktion, um das Wetter basierend auf der Position zu holen
         function fetchWeather(position) {
