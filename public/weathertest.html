@@ -55,7 +55,7 @@ version 1
         function handleError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    document.getElementById('temperature').innerHTML = "Standortberechtigung wurde abgelehnt. Bitte erlauben Sie den Zugriff auf Ihren Standort.";
+                    document.getElementById('temperature').innerHTML = "Standortberechtigung wurde abgelehnt. Bitte erlauben Sie den Zugriff auf Ihren Standort in ihren Browser Einstellungen.";
                     break;
                 case error.POSITION_UNAVAILABLE:
                     document.getElementById('temperature').innerHTML = "Standort konnte nicht ermittelt werden.";
