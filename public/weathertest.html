@@ -1,3 +1,4 @@
+version 1
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -11,16 +12,16 @@
     <div id="temperature"></div>
 
     <script>
-        // Funktion, die ausgeführt wird, wenn der Button geklickt wird
+        // Event Listener für den Button
         document.getElementById('get-temperature').addEventListener('click', getLocation);
 
-        // Funktion, um den Standort des Nutzers zu ermitteln
+        // Funktion, die beim Klick auf den Button ausgeführt wird
         function getLocation() {
             if (navigator.geolocation) {
-                // Standortanfrage beim Klick auf den Button
+                // Geolocation-Anfrage beim Klick auf den Button
                 navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
             } else {
-                alert("Geolocation wird von diesem Browser nicht unterstützt.");
+                document.getElementById('temperature').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
             }
         }
 
@@ -54,7 +55,7 @@
         function handleError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                    document.getElementById('temperature').innerHTML = "Standortberechtigung wurde abgelehnt.";
+                    document.getElementById('temperature').innerHTML = "Standortberechtigung wurde abgelehnt. Bitte erlauben Sie den Zugriff auf Ihren Standort.";
                     break;
                 case error.POSITION_UNAVAILABLE:
                     document.getElementById('temperature').innerHTML = "Standort konnte nicht ermittelt werden.";
