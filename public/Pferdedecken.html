@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.10
+version 2.11
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -262,13 +262,7 @@ version 2.10
 
     // Funktion für manuelle Standorteingabe
     function manuelleEingabe() {
-        const container = document.getElementById('manuell');
-        
-        // Prüfen, ob das Eingabefeld schon existiert
-        if (document.getElementById('standortEingabe')) {
-            alert('Das Eingabefeld existiert bereits.');
-            return;
-        }
+
         
         // Eingabefeld erstellen
         const inputField = document.createElement('input');
@@ -281,23 +275,16 @@ version 2.10
         submitButton.textContent = 'Absenden';
         submitButton.onclick = () => {
             const standort = inputField.value;
-            if (standort) {
-                alert(`Eingegebener Standort: ${standort}`);
-            } else {
-                alert('Bitte einen Standort eingeben.');
-            }
+            inputField.innerHTML = standort; 
         };
 
-        // Elemente in den Container einfügen
-        container.appendChild(inputField);
-        container.appendChild(submitButton);
     }
 
     // Auswerten-Funktion
     function auswerten() {
-        // Hier kannst du die Logik für die Auswertung der anderen Formulareingaben hinzufügen.
+        var decke; 
         var output = document.getElementById("output");
-        output.innerHTML = "Auswertung abgeschlossen.";  // Beispieltext
+        output.innerHTML = "Auswertung abgeschlossen."; 
     }
 </script>
 
