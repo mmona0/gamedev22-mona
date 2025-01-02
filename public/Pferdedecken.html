@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.27
+version 2.28
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,7 @@ version 2.27
             </ul>
         </div>
         <div class="col-9">
-            <form name="form" id="pferdeForm">
+            <form name="form1" id="pferdeForm">
                <table>
   <tr>
     <th>Wie ist der momentane Fellzustand Ihres Pferdes?</th>
@@ -142,10 +142,10 @@ version 2.27
     </div>
     <script>
         var temp, apparentTemp, witterungCode, witterungDescription;
-        var Fellzustand = document.form.fellzustand.value;
-        var Haltung = document.form.haltung.value;
-        var BCS = document.form.bcs.value;
-        var Training = document.form.training.value;
+        var Fellzustand = document.form1.fellzustand.value;
+        var Haltung = document.form1.haltung.value;
+        var BCS = document.form1.bcs.value;
+        var Training = document.form1.training.value;
             
 function getLocation() {
     if (navigator.geolocation) {
