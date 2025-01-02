@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.29
+version 3.01
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@ version 2.29
   <tr></tr>
     <td>
     <input type="radio" id="dünn" name="fellzustand" value="dünn">
-    <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Kaltblütern) </label>
+    <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern) </label>
     </td>
   </tr>
   <tr>
@@ -112,7 +112,7 @@ version 2.29
 
 <table>
   <tr>
-    <th>Wie viel ist Ihr Pferd im Training?</th>
+    <th>Wie viel ist Ihr Pferd aktuell im Training?</th>
   </tr>
   <tr>
     <td>
@@ -264,8 +264,43 @@ function auswerten() {
         var Haltung = document.form1.haltung.value;
         var BCS = document.form1.bcs.value;
         var Training = document.form1.training.value;
+        var pferdezustand; 
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
-}
+
+    //unterteilung in Typ A, B & C von Pferd 
+    if (Fellzustand == "dick" ) {
+        if(Training == "viel"){
+            if(Haltung == "box") {
+                pferdezustand = B; 
+            }
+            else{
+                 pferdezustand = B; 
+            }
+        }
+    }
+       else {
+           if(Haltung == "box") {
+                pferdezustand = A ; 
+            }
+            else{
+                 pferdezustand = B ; 
+            }
+       }
+    else if (Fellzustand == "dünn" ) {
+            if(Haltung == "box") {
+                 pferdezustand = B; 
+            }
+            else{
+                 pferdezustand = C; 
+            }
+    }
+    else if (BCS == "dünn" || Fellzustand == "geschoren"){
+        pferdezustand = "D"; 
+    }
+    else {
+        document.getElementById('fehler').innerText = "Bitte überprüfen Sie, ob alles ausgefüllt wurde.";
+    }
+
 
     </script>
 </body>
