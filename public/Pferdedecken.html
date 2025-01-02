@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.25
+version 2.26
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -141,47 +141,49 @@ version 2.25
         </div>
     </div>
     <script>
-        var temp, witterungCode, witterungDescription;
+        var temp, apparentTemp, witterungCode, witterungDescription;
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
-            } else {
-                document.getElementById('fehler').innerText = "Geolocation wird von diesem Browser nicht unterstützt.";
-                manuelleEingabe();
-            }
-        }
-
-        function fetchWeather(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,current_weather&timezone=auto&lang=de`;
-
-            fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data); // Protokolliert die gesamte API-Antwort
-        if (data.current_weather && data.current_weather.temperature) {
-            temp = data.current_weather.temperature;
-            witterungCode = data.current_weather.weathercode;
-            witterungDescription = getWeatherDescription(witterungCode);
-            document.getElementById('output').innerHTML = `
-                Aktuelle gefühlte Temperatur: ${temp}°C<br>
-                Witterung: ${witterungDescription}`;
-            auswerten();
-        } else {
-            document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
-        }
-    })
-    .catch(error => {
-        console.error("API-Fehler:", error);
-        document.getElementById('fehler').innerText = "Fehler bei der Wetter-API.";
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
+    } else {
+        document.getElementById('fehler').innerText = "Geolocation wird von diesem Browser nicht unterstützt.";
         manuelleEingabe();
-    });
+    }
+}
 
-        }
+function fetchWeather(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=apparent_temperature&timezone=auto&lang=de`;
 
-        function handleError(error) {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);  // Protokolliere die gesamte Antwort zur Überprüfung
+            if (data.current_weather && data.hourly) {
+                temp = data.current_weather.temperature;  // Aktuelle Temperatur
+                apparentTemp = data.hourly.apparent_temperature[0];  // Gefühlte Temperatur
+                witterungCode = data.current_weather.weathercode;
+                witterungDescription = getWeatherDescription(witterungCode);
+
+                document.getElementById('output').innerHTML = `
+                    Aktuelle Temperatur: ${temp}°C<br>
+                    Gefühlte Temperatur: ${apparentTemp}°C<br>
+                    Witterung: ${witterungDescription}`;
+                auswerten();
+            } else {
+                document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
+            }
+        })
+        .catch(error => {
+            console.error("API-Fehler:", error);  // Protokolliere den Fehler
+            document.getElementById('fehler').innerText = "Fehler bei der Wetter-API.";
+            manuelleEingabe();
+        });
+}
+
+function handleError(error) {
     const fehlerText = {
         1: "Standortberechtigung wurde abgelehnt.",
         2: "Standort konnte nicht ermittelt werden.",
@@ -191,9 +193,8 @@ version 2.25
     manuelleEingabe();
 }
 
-
-        function getWeatherDescription(code) {
-            const descriptions = {
+function getWeatherDescription(code) {
+    const descriptions = {
         0: "Klarer Himmel",
         1: "Hauptsächlich klar",
         2: "Teilweise bewölkt",
@@ -215,52 +216,53 @@ version 2.25
         95: "Gewitter",
         96: "Gewitter mit leichtem Hagel",
         99: "Gewitter mit starkem Hagel"
-            };
-            return descriptions[code] || "Unbekannte Witterung";
-        }
+    };
+    return descriptions[code] || "Unbekannte Witterung";
+}
 
-        function manuelleEingabe() {
-            const container = document.getElementById('manuell');
-            if (document.getElementById('standortEingabe')) { return; }
+function manuelleEingabe() {
+    const container = document.getElementById('manuell');
+    if (document.getElementById('standortEingabe')) { return; }
 
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.id = 'standortEingabe';
-            input.placeholder = 'Standort eingeben';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'standortEingabe';
+    input.placeholder = 'Standort eingeben';
 
-            const button = document.createElement('button');
-            button.textContent = 'Absenden';
-            button.onclick = () => {
-                const standort = input.value;
-                if (standort) getTemperatureForLocation(standort);
-            };
+    const button = document.createElement('button');
+    button.textContent = 'Absenden';
+    button.onclick = () => {
+        const standort = input.value;
+        if (standort) getTemperatureForLocation(standort);
+    };
 
-            container.appendChild(input);
-            container.appendChild(button);
-        }
+    container.appendChild(input);
+    container.appendChild(button);
+}
 
-        function getTemperatureForLocation(location) {
-            const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
+function getTemperatureForLocation(location) {
+    const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
 
-            fetch(geocodeUrl)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.length > 0) {
-                        const { lat, lon } = data[0];
-                        fetchWeather({ coords: { latitude: lat, longitude: lon } });
-                    } else {
-                        document.getElementById('fehler').innerText = "Standort konnte nicht gefunden werden.";
-                    }
-                })
-                .catch(error => {
-                    console.error("Geocoding-Fehler:", error);
-                    document.getElementById('fehler').innerText = "Fehler bei der Geocoding-API.";
-                });
-        }
+    fetch(geocodeUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                const { lat, lon } = data[0];
+                fetchWeather({ coords: { latitude: lat, longitude: lon } });
+            } else {
+                document.getElementById('fehler').innerText = "Standort konnte nicht gefunden werden.";
+            }
+        })
+        .catch(error => {
+            console.error("Geocoding-Fehler:", error);
+            document.getElementById('fehler').innerText = "Fehler bei der Geocoding-API.";
+        });
+}
 
-        function auswerten() {
-            document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${temp}°C`;
-        }
+function auswerten() {
+    document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription}`;
+}
+
     </script>
 </body>
 </html>
