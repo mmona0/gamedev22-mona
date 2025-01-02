@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.28
+version 2.29
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,10 +142,6 @@ version 2.28
     </div>
     <script>
         var temp, apparentTemp, witterungCode, witterungDescription;
-        var Fellzustand = document.form1.fellzustand.value;
-        var Haltung = document.form1.haltung.value;
-        var BCS = document.form1.bcs.value;
-        var Training = document.form1.training.value;
             
 function getLocation() {
     if (navigator.geolocation) {
@@ -264,6 +260,10 @@ function getTemperatureForLocation(location) {
 }
 
 function auswerten() {
+        var Fellzustand = document.form1.fellzustand.value;
+        var Haltung = document.form1.haltung.value;
+        var BCS = document.form1.bcs.value;
+        var Training = document.form1.training.value;
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
 }
 
