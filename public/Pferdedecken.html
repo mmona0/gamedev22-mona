@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.20
+version 2.21
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -219,6 +219,8 @@ version 2.20
 
     // Temperatur holen und anzeigen
     var temp; 
+    var witterungCode;
+    var witterungDescription;
     function fetchWeather(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -227,9 +229,11 @@ version 2.20
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                if (data.current_weather && data.current_weather.temperature) {
+                if (data.current_weather) {
                     temp = data.current_weather.temperature;
-                    document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
+                    witterungCode = data.current_weather.weathercode; //gibt einen Wettercode wieder (Zahl)
+                    witterungDescription = getWeatherDescription(witterungCode); //Wetterbeschreibung basierend auf dem Code
+                    document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C <br> Witterung: ${witterungDescription}`;
                     auswerten();
                 } else {
                     document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
@@ -261,6 +265,33 @@ version 2.20
         }
         manuelleEingabe();
     }
+
+    function getWeatherDescription(witterungCode) {
+    const weatherMap = {
+        0: "Klarer Himmel",
+        1: "Hauptsächlich klar",
+        2: "Teilweise bewölkt",
+        3: "Bewölkt",
+        45: "Nebel",
+        48: "Reifnebel",
+        51: "Leichter Nieselregen",
+        53: "Moderater Nieselregen",
+        55: "Starker Nieselregen",
+        61: "Leichter Regen",
+        63: "Moderater Regen",
+        65: "Starker Regen",
+        71: "Leichter Schneefall",
+        73: "Moderater Schneefall",
+        75: "Starker Schneefall",
+        80: "Leichte Regenschauer",
+        81: "Moderate Regenschauer",
+        82: "Starke Regenschauer",
+        95: "Gewitter",
+        96: "Gewitter mit leichtem Hagel",
+        99: "Gewitter mit starkem Hagel"
+    };
+    return weatherMap[witterungCode] || "Unbekannte Witterung";
+}
 
     function manuelleEingabe() {
     const container = document.getElementById('manuell');
@@ -315,6 +346,8 @@ function getTemperatureForLocation(location) {
                     .then(weatherData => {
                         if (weatherData.current_weather && weatherData.current_weather.temperature) {
                             temp = weatherData.current_weather.temperature;
+                            witterungCode = data.current_weather.weathercode; //gibt einen Wettercode wieder (Zahl)
+                            witterungDescription = getWeatherDescription(witterungCode); //Wetterbeschreibung basierend auf dem Code
                             document.getElementById('fehler').innerHTML = `Die aktuelle Temperatur in ${location} beträgt: ${temp}°C`;
                             auswerten();
                         } else {
