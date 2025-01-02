@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.13
+version 2.14
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -191,7 +191,7 @@ version 2.13
 
                 <!-- Weitere Formulareingaben für Haltung, BCS, Training usw. hier -->
 
-                <button type="button" onclick="auswerten(); getLocation()">Absenden</button>
+                <button type="button" onclick="getLocation(); auswerten()">Absenden</button>
                 <input type="reset" value="Zurücksetzen">
             </form>
 
@@ -336,7 +336,7 @@ function getTemperatureForLocation(location) {
     function auswerten() {
         var decke; 
         var output = document.getElementById("output");
-        output.innerHTML = "Auswertung abgeschlossen."; 
+        output.innerHTML = "Auswertung abgeschlossen." + temp; 
     }
 </script>
 
