@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.17
+version 2.18
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -227,7 +227,7 @@ version 2.17
             .then(response => response.json())
             .then(data => {
                 if (data.current_weather && data.current_weather.temperature) {
-                    const temp = data.current_weather.temperature;
+                    var temp = data.current_weather.temperature;
                     document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
                     auswerten();
                 } else {
@@ -313,7 +313,7 @@ function getTemperatureForLocation(location) {
                     .then(response => response.json())
                     .then(weatherData => {
                         if (weatherData.current_weather && weatherData.current_weather.temperature) {
-                            const temp = weatherData.current_weather.temperature;
+                            var temp = weatherData.current_weather.temperature;
                             document.getElementById('fehler').innerHTML = `Die aktuelle Temperatur in ${location} beträgt: ${temp}°C`;
                         } else {
                             document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
@@ -338,7 +338,7 @@ function getTemperatureForLocation(location) {
     function auswerten() {
         var decke; 
         var output = document.getElementById("output");
-        output.innerHTML = "Auswertung abgeschlossen."; 
+        output.innerHTML = "Auswertung abgeschlossen. ${temp}" ; 
     }
 </script>
 
