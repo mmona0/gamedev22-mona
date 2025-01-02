@@ -1,102 +1,44 @@
 <!doctype html>
-version 2.23
+version 2.24
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pferdedecken leicht gemacht</title>
     <style>
-    * {
-        box-sizing: border-box;
-    }
-    
-    .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-
-    [class*="col-"] {
-        float: left;
-        padding: 15px;
-    }
-
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-    
-    html {
-        font-family: "Lucida Sans", sans-serif;
-    }
-
-    .header {
-        background-color: #008000;
-        color: #ffffff;
-        padding: 15px;
-    }
-
-    .menu ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .menu li {
-        padding: 8px;
-        margin-bottom: 7px;
-        background-color: #33b5e5;
-        color: #ffffff;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    }
-
-    .menu li:hover {
-        background-color: #0099cc;
-    }
-
-    table {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tr:nth-child(odd) {
-        background-color: #ffffff;
-    }
-
-    th {
-        background-color: #008000; /* Grüner Hintergrund für die Überschriften */
-        color: white; /* Weiße Schriftfarbe */
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-    }
-</style>
-
-
+        /* Stildefinitionen */
+        * { box-sizing: border-box; }
+        
+        .row::after { content: ""; clear: both; display: table; }
+        
+        [class*="col-"] { float: left; padding: 15px; }
+        .col-1 { width: 8.33%; }
+        .col-2 { width: 16.66%; }
+        .col-3 { width: 25%; }
+        .col-4 { width: 33.33%; }
+        .col-5 { width: 41.66%; }
+        .col-6 { width: 50%; }
+        .col-7 { width: 58.33%; }
+        .col-8 { width: 66.66%; }
+        .col-9 { width: 75%; }
+        .col-10 { width: 83.33%; }
+        .col-11 { width: 91.66%; }
+        .col-12 { width: 100%; }
+        
+        html { font-family: "Lucida Sans", sans-serif; }
+        
+        .header { background-color: #008000; color: #ffffff; padding: 15px; }
+        
+        table { font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%; }
+        td, th { border: 1px solid #ddd; padding: 8px; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        th { background-color: #008000; color: white; text-align: left; padding: 12px; }
+        
+    </style>
 </head>
 <body>
-
     <div class="header">
         <h1>Pferdedecken leicht gemacht</h1>
     </div>
-
     <div class="row">
         <div class="col-3 menu">
             <ul>
@@ -106,12 +48,9 @@ version 2.23
                 <li>Quellen</li>
             </ul>
         </div>
-
         <div class="col-9">
             <form name="form1" id="pferdeForm">
-
-                
-<table>
+               <table>
   <tr>
     <th>Wie ist der momentane Fellzustand Ihres Pferdes?</th>
   </tr>
@@ -194,81 +133,65 @@ version 2.23
                 <button type="button" onclick="getLocation()">Absenden</button>
                 <input type="reset" value="Zurücksetzen">
             </form>
-
+            
             <p>Dein Pferd trägt am besten eine:</p>
-<p id="output"></p>
-<p id="fehler"></p>
-<div id="manuell"></div> 
-</div>
-</div>
+            <p id="output"></p>
+            <p id="fehler"></p>
+            <div id="manuell"></div>
+        </div>
+    </div>
+    <script>
+        var temp, witterungCode, witterungDescription;
 
-<script>
-    // Funktion, um das Wetter basierend auf der Position zu holen
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(fetchWeather, handleError, {
-                enableHighAccuracy: true,
-                timeout: 10000,
-                maximumAge: 0
-            });
-        } else {
-            document.getElementById('fehler').innerHTML = "Geolocation wird von diesem Browser nicht unterstützt.";
-            manuelleEingabe(); 
-        }
-    }
-
-    // Temperatur holen und anzeigen
-    var temp; 
-    var witterungCode;
-    var witterungDescription;
-    function fetchWeather(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,current_weather&timezone=auto&lang=de`;
-
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                if (weatherData.current_weather && weatherData.hourly) {
-                    temp =  weatherData.hourly.apparent_temperature[0];
-                    witterungCode = weatherData.current_weather.weathercode; //gibt einen Wettercode wieder (Zahl)
-                    witterungDescription = getWeatherDescription(witterungCode); //Wetterbeschreibung basierend auf dem Code
-                    document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C <br> Witterung: ${witterungDescription}`;
-                    auswerten();
-                } else {
-                    document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
-                    manuelleEingabe();
-                }
-            })
-            .catch(error => {
-                document.getElementById('fehler').innerHTML = "Fehler bei der API-Abfrage.";
-                console.error("Fehler bei der API-Abfrage:", error);
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
+            } else {
+                document.getElementById('fehler').innerText = "Geolocation wird von diesem Browser nicht unterstützt.";
                 manuelleEingabe();
-            });
-    }
-
-    // Fehlerbehandlung bei Geolocation
-    function handleError(error) {
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                document.getElementById('fehler').innerHTML = "Standortberechtigung wurde abgelehnt.";
-                break;
-            case error.POSITION_UNAVAILABLE:
-                document.getElementById('fehler').innerHTML = "Standort konnte nicht ermittelt werden.";
-                break;
-            case error.TIMEOUT:
-                document.getElementById('fehler').innerHTML = "Zeitüberschreitung bei der Standortermittlung.";
-                break;
-            default:
-                document.getElementById('fehler').innerHTML = "Unbekannter Fehler bei der Standortermittlung.";
-                break;
+            }
         }
-        manuelleEingabe();
-    }
 
-    function getWeatherDescription(witterungCode) {
-    const weatherMap = {
+        function fetchWeather(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,current_weather&timezone=auto&lang=de`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.current_weather && data.hourly) {
+                        temp = data.hourly.apparent_temperature[0];
+                        witterungCode = data.current_weather.weathercode;
+                        witterungDescription = getWeatherDescription(witterungCode);
+
+                        document.getElementById('output').innerHTML = `
+                            Aktuelle gefühlte Temperatur: ${temp}°C<br>
+                            Witterung: ${witterungDescription}`;
+                        auswerten();
+                    } else {
+                        document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
+                    }
+                })
+                .catch(error => {
+                    console.error("API-Fehler:", error);
+                    document.getElementById('fehler').innerText = "Fehler bei der Wetter-API.";
+                    manuelleEingabe();
+                });
+        }
+
+        function handleError(error) {
+            const fehlerText = {
+                1: "Standortberechtigung wurde abgelehnt.",
+                2: "Standort konnte nicht ermittelt werden.",
+                3: "Zeitüberschreitung bei der Standortermittlung."
+            };
+            document.getElementById('fehler').innerText = fehlerText[error.code] || "Unbekannter Fehler.";
+            manuelleEingabe();
+        }
+
+        function getWeatherDescription(code) {
+            const descriptions = {
         0: "Klarer Himmel",
         1: "Hauptsächlich klar",
         2: "Teilweise bewölkt",
@@ -290,94 +213,53 @@ version 2.23
         95: "Gewitter",
         96: "Gewitter mit leichtem Hagel",
         99: "Gewitter mit starkem Hagel"
-    };
-    return weatherMap[witterungCode] || "Unbekannte Witterung";
-}
-
-    function manuelleEingabe() {
-    const container = document.getElementById('manuell');
-    
-    // Prüfen, ob das Eingabefeld schon existiert
-    if (document.getElementById('standortEingabe')) {
-        alert('Das Eingabefeld existiert bereits.');
-        return;
-    }
-    
-    // Eingabefeld erstellen
-    const inputField = document.createElement('input');
-    inputField.type = 'text';
-    inputField.id = 'standortEingabe';
-    inputField.placeholder = 'Bitte geben Sie Ihren Standort hier an.';
-
-    // Button zum Abschicken des Standorts erstellen
-    const submitButton = document.createElement('button');
-    submitButton.textContent = 'Absenden';
-    submitButton.onclick = () => {
-        const standort = inputField.value;
-        if (standort) {
-            getTemperatureForLocation(standort);
-        } else {
-            alert('Bitte einen Standort eingeben.');
+            };
+            return descriptions[code] || "Unbekannte Witterung";
         }
-        auswerten();
-    };
 
-    // Elemente in den Container einfügen
-    container.appendChild(inputField);
-    container.appendChild(submitButton);
-}
+        function manuelleEingabe() {
+            const container = document.getElementById('manuell');
+            if (document.getElementById('standortEingabe')) { return; }
 
-// Funktion, um die Temperatur für einen eingegebenen Standort zu holen
-function getTemperatureForLocation(location) {
-    const geocodingUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = 'standortEingabe';
+            input.placeholder = 'Standort eingeben';
 
-    // Schritt 1: Geocodierung des Standorts, um Breitengrad und Längengrad zu erhalten
-    fetch(geocodingUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                const latitude = data[0].lat;
-                const longitude = data[0].lon;
+            const button = document.createElement('button');
+            button.textContent = 'Absenden';
+            button.onclick = () => {
+                const standort = input.value;
+                if (standort) getTemperatureForLocation(standort);
+            };
 
-                // Schritt 2: Holen der Wetterdaten basierend auf den Koordinaten
-                const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,current_weather&timezone=auto&lang=de`;
+            container.appendChild(input);
+            container.appendChild(button);
+        }
 
+        function getTemperatureForLocation(location) {
+            const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
 
-                fetch(weatherUrl)
-                    .then(response => response.json())
-                    .then(weatherData => {
-                        if (weatherData.current_weather && weatherData.hourly) {
-                            temp =  weatherData.hourly.apparent_temperature[0];
-                            witterungCode = weatherData.current_weather.weathercode; //gibt einen Wettercode wieder (Zahl)
-                            witterungDescription = getWeatherDescription(witterungCode); //Wetterbeschreibung basierend auf dem Code
-                            document.getElementById('fehler').innerHTML = `Die aktuelle Temperatur in ${location} beträgt: ${temp}°C`;
-                            auswerten();
-                        } else {
-                            document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
-                        }
-                    })
-                    .catch(error => {
-                        document.getElementById('fehler').innerHTML = "Fehler bei der Wetter-API.";
-                        console.error("Fehler bei der Wetter-API:", error);
-                    });
-            } else {
-                document.getElementById('fehler').innerHTML = "Standort konnte nicht gefunden werden. Bitte überprüfen Sie Ihre Eingabe.";
-            }
-        })
-        .catch(error => {
-            document.getElementById('fehler').innerHTML = "Fehler bei der Geocoding-API.";
-            console.error("Fehler bei der Geocoding-API:", error);
-        });
-}
+            fetch(geocodeUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const { lat, lon } = data[0];
+                        fetchWeather({ coords: { latitude: lat, longitude: lon } });
+                    } else {
+                        document.getElementById('fehler').innerText = "Standort konnte nicht gefunden werden.";
+                    }
+                })
+                .catch(error => {
+                    console.error("Geocoding-Fehler:", error);
+                    document.getElementById('fehler').innerText = "Fehler bei der Geocoding-API.";
+                });
+        }
 
-
-    // Auswerten-Funktion
-    function auswerten() {
-        var decke; 
-        var output = document.getElementById("output");
-        output.innerHTML = `Auswertung abgeschlossen. Temperatur: ${temp}°C`; 
-    }
-</script>
-
+        function auswerten() {
+            document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${temp}°C`;
+        }
+    </script>
 </body>
 </html>
+
