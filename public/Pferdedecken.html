@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.24
+version 2.25
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,37 +158,39 @@ version 2.24
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,current_weather&timezone=auto&lang=de`;
 
             fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.current_weather && data.hourly) {
-                        temp = data.hourly.apparent_temperature[0];
-                        witterungCode = data.current_weather.weathercode;
-                        witterungDescription = getWeatherDescription(witterungCode);
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Protokolliert die gesamte API-Antwort
+        if (data.current_weather && data.current_weather.temperature) {
+            temp = data.current_weather.temperature;
+            witterungCode = data.current_weather.weathercode;
+            witterungDescription = getWeatherDescription(witterungCode);
+            document.getElementById('output').innerHTML = `
+                Aktuelle gefühlte Temperatur: ${temp}°C<br>
+                Witterung: ${witterungDescription}`;
+            auswerten();
+        } else {
+            document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
+        }
+    })
+    .catch(error => {
+        console.error("API-Fehler:", error);
+        document.getElementById('fehler').innerText = "Fehler bei der Wetter-API.";
+        manuelleEingabe();
+    });
 
-                        document.getElementById('output').innerHTML = `
-                            Aktuelle gefühlte Temperatur: ${temp}°C<br>
-                            Witterung: ${witterungDescription}`;
-                        auswerten();
-                    } else {
-                        document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
-                    }
-                })
-                .catch(error => {
-                    console.error("API-Fehler:", error);
-                    document.getElementById('fehler').innerText = "Fehler bei der Wetter-API.";
-                    manuelleEingabe();
-                });
         }
 
         function handleError(error) {
-            const fehlerText = {
-                1: "Standortberechtigung wurde abgelehnt.",
-                2: "Standort konnte nicht ermittelt werden.",
-                3: "Zeitüberschreitung bei der Standortermittlung."
-            };
-            document.getElementById('fehler').innerText = fehlerText[error.code] || "Unbekannter Fehler.";
-            manuelleEingabe();
-        }
+    const fehlerText = {
+        1: "Standortberechtigung wurde abgelehnt.",
+        2: "Standort konnte nicht ermittelt werden.",
+        3: "Zeitüberschreitung bei der Standortermittlung."
+    };
+    document.getElementById('fehler').innerText = fehlerText[error.code] || "Unbekannter Fehler.";
+    manuelleEingabe();
+}
+
 
         function getWeatherDescription(code) {
             const descriptions = {
