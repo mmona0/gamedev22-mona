@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.18
+version 2.19
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -218,6 +218,7 @@ version 2.18
     }
 
     // Temperatur holen und anzeigen
+    var temp; 
     function fetchWeather(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -313,8 +314,9 @@ function getTemperatureForLocation(location) {
                     .then(response => response.json())
                     .then(weatherData => {
                         if (weatherData.current_weather && weatherData.current_weather.temperature) {
-                            var temp = weatherData.current_weather.temperature;
+                            temp = weatherData.current_weather.temperature;
                             document.getElementById('fehler').innerHTML = `Die aktuelle Temperatur in ${location} beträgt: ${temp}°C`;
+                            auswerten();
                         } else {
                             document.getElementById('fehler').innerHTML = "Fehler beim Abrufen der Wetterdaten.";
                         }
