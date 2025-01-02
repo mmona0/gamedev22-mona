@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.21
+version 2.22
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -189,7 +189,7 @@ version 2.21
   </tr>
 </table>
 
-                <!-- Weitere Formulareingaben für Haltung, BCS, Training usw. hier -->
+           
 
                 <button type="button" onclick="getLocation()">Absenden</button>
                 <input type="reset" value="Zurücksetzen">
@@ -224,13 +224,14 @@ version 2.21
     function fetchWeather(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&lang=de`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&apparent_temperature=true&lang=de`;
+
 
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 if (data.current_weather) {
-                    temp = data.current_weather.temperature;
+                    temp =  weatherData.current_weather.apparent_temperature;
                     witterungCode = data.current_weather.weathercode; //gibt einen Wettercode wieder (Zahl)
                     witterungDescription = getWeatherDescription(witterungCode); //Wetterbeschreibung basierend auf dem Code
                     document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C <br> Witterung: ${witterungDescription}`;
@@ -339,13 +340,14 @@ function getTemperatureForLocation(location) {
                 const longitude = data[0].lon;
 
                 // Schritt 2: Holen der Wetterdaten basierend auf den Koordinaten
-                const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&lang=de`;
+                const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&apparent_temperature=true&lang=de`;
+
 
                 fetch(weatherUrl)
                     .then(response => response.json())
                     .then(weatherData => {
                         if (weatherData.current_weather && weatherData.current_weather.temperature) {
-                            temp = weatherData.current_weather.temperature;
+                            temp =  weatherData.current_weather.apparent_temperature;
                             witterungCode = data.current_weather.weathercode; //gibt einen Wettercode wieder (Zahl)
                             witterungDescription = getWeatherDescription(witterungCode); //Wetterbeschreibung basierend auf dem Code
                             document.getElementById('fehler').innerHTML = `Die aktuelle Temperatur in ${location} beträgt: ${temp}°C`;
