@@ -1,5 +1,5 @@
 <!doctype html>
-version 3.01
+version 3.02
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -268,9 +268,9 @@ function auswerten() {
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
 
     //unterteilung in Typ A, B & C von Pferd 
-    if (Fellzustand == "dick" ) {
-        if(Training == "viel"){
-            if(Haltung == "box") {
+    if (Fellzustand === "dick" ) {
+        if(Training ==="viel"){
+            if(Haltung === "box") {
                 pferdezustand = B; 
             }
             else{
@@ -279,27 +279,30 @@ function auswerten() {
         }
     }
        else {
-           if(Haltung == "box") {
+           if(Haltung === "box") {
                 pferdezustand = A ; 
             }
             else{
                  pferdezustand = B ; 
             }
        }
-    else if (Fellzustand == "dünn" ) {
-            if(Haltung == "box") {
+    else if (Fellzustand === "dünn" ) {
+            if(Haltung === "box") {
                  pferdezustand = B; 
             }
             else{
                  pferdezustand = C; 
             }
     }
-    else if (BCS == "dünn" || Fellzustand == "geschoren"){
+    else if (BCS === "dünn" || Fellzustand === "geschoren"){
         pferdezustand = "D"; 
     }
-    else {
-        document.getElementById('fehler').innerText = "Bitte überprüfen Sie, ob alles ausgefüllt wurde.";
-    }
+
+    if (!fellzustand || !haltung || !bcs || !training) {
+                document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen!";
+                return;
+            }
+
 
 
     </script>
