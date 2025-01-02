@@ -1,5 +1,5 @@
 <!doctype html>
-version 2.19
+version 2.20
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -228,7 +228,7 @@ version 2.19
             .then(response => response.json())
             .then(data => {
                 if (data.current_weather && data.current_weather.temperature) {
-                    var temp = data.current_weather.temperature;
+                    temp = data.current_weather.temperature;
                     document.getElementById('fehler').innerHTML = `Aktuelle Temperatur: ${temp}°C`;
                     auswerten();
                 } else {
@@ -340,7 +340,7 @@ function getTemperatureForLocation(location) {
     function auswerten() {
         var decke; 
         var output = document.getElementById("output");
-        output.innerHTML = "Auswertung abgeschlossen. ${temp}" ; 
+        output.innerHTML = `Auswertung abgeschlossen. Temperatur: ${temp}°C`; 
     }
 </script>
 
