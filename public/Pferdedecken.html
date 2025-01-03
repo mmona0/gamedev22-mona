@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.20
+version 3.21
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,10 @@ version 3.20
         .col-6 { width: 50%; }
         .col-7 { width: 58.33%; }
         .col-8 { width: 66.66%; }
-        .col-9 { width: 75%; }
+        .col-9 {
+    width: 70%; /* Anpassung der Breite des Formulars */
+    margin-left: 50px; /* Abstand vom linken Rand */
+}
         .col-10 { width: 83.33%; }
         .col-11 { width: 91.66%; }
         .col-12 { width: 100%; }
@@ -36,18 +39,18 @@ version 3.20
 
         /* Menü-Stil */
         #menu {
-            background-color: #007bff; /* Blau */
-            color: white;
-            width: 200px;
-            position: fixed;
-            left: -200px; /* Versteckt das Menü */
-            top: 0;
-            bottom: 0;
-            transition: left 0.3s ease; /* Animation */
-            z-index: 1000; /* Über anderen Inhalten */
-            padding: 10px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-        }
+    background-color: #007bff; /* Blau */
+    color: white;
+    width: 200px;
+    position: fixed;
+    left: 50px; /* Menü leicht nach rechts verschoben */
+    top: 0;
+    bottom: 0;
+    transition: left 0.3s ease; /* Animation */
+    z-index: 1000; /* Über anderen Inhalten */
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
 
         /* Sichtbares Menü */
         #menu.open {
