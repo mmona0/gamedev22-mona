@@ -1,5 +1,5 @@
 <!doctype html>
-version 3.02
+version 3.03
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -260,10 +260,10 @@ function getTemperatureForLocation(location) {
 }
 
 function auswerten() {
-        var Fellzustand = document.form1.fellzustand.value;
-        var Haltung = document.form1.haltung.value;
-        var BCS = document.form1.bcs.value;
-        var Training = document.form1.training.value;
+        var Fellzustand = document.getElementById("pferdeForm").fellzustand.value;
+        var Haltung = document.getElementById("pferdeForm").haltung.value;
+        var BCS = document.getElementById("pferdeForm").bcs.value;
+        var Training = document.getElementById("pferdeForm").training.value;
         var pferdezustand; 
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
 
