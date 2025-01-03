@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.25
+version 3.26
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -29,10 +29,32 @@ version 3.25
         
         .header { background-color: #008000; color: #ffffff; padding: 15px; }
         
-        table { font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%; }
-        td, th { border: 1px solid #ddd; padding: 8px; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        th { background-color: #008000; color: white; text-align: left; padding: 12px; }
+        table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin: 20px auto; /* Zentriert die Tabelle */
+    width: 80%; /* Optionale Breite */
+    border-radius: 10px; /* Runde Ecken */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #008000;
+    color: white;
+    text-align: left;
+    padding: 12px;
+    border-top-left-radius: 10px; /* Linke obere Ecke runden */
+    border-top-right-radius: 10px; /* Rechte obere Ecke runden */
+}
 
         /* Menü-Stil */
         .navbar {
