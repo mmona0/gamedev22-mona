@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.11
+version 3.12
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -274,36 +274,18 @@ function auswerten() {
                 document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen!";
                 return;
             }
-    
-    else if (Fellzustand === "dick" ) {
-        if(Training ==="viel"){
-            if(Haltung === "box") {
-                pferdezustand = "B"; 
-            }
-            else{
-                 pferdezustand = "B"; 
-            }
-        }
-       else {
-           if(Haltung === "box") {
-                pferdezustand = "A" ; 
-            }
-            else{
-                 pferdezustand = "B" ; 
-            }
-       }
-    }
-    else if (Fellzustand === "dünn" ) {
-            if(Haltung === "box") {
-                 pferdezustand = "B"; 
-            }
-            else{
-                 pferdezustand = "C"; 
-            }
-    }
-    else if (BCS === "dünn" || Fellzustand === "geschoren"){
-        pferdezustand = "D"; 
-    }
+    if (BCS === "gesund"){
+        
+        if (Haltung === "Box" && Training === "viel"){
+            pferdezustand = "A"; 
+        }else if(Haltung === "paddock" && Training === "wenig" && Fellzustand === "dünn" ){
+            pferdezustand = "C"; 
+        }else {
+            pferdezustand = "B";
+        
+    } else if (BCS === "dünn" || Fellzustand === "geschoren" ){
+        pferdezustand = "D" ;
+    }                                                                                }
 
     deckenangabe(pferdezustand); 
 }
