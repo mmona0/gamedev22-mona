@@ -1,5 +1,5 @@
-<!doctype html>
-version 3.04
+<!DOCTYPE html>
+version 3.06
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +60,7 @@ version 3.04
     <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
     </td>
   </tr>
-  <tr></tr>
+  <tr>
     <td>
     <input type="radio" id="dünn" name="fellzustand" value="dünn">
     <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern) </label>
@@ -260,10 +260,10 @@ function getTemperatureForLocation(location) {
 }
 
 function auswerten() {
-        var Fellzustand = document.getElementById("pferdeForm").fellzustand.value;
-        var Haltung = document.getElementById("pferdeForm").haltung.value;
-        var BCS = document.getElementById("pferdeForm").bcs.value;
-        var Training = document.getElementById("pferdeForm").training.value;
+        var fellzustand = getFormValue("fellzustand");
+        var haltung = getFormValue("haltung");
+        var bcs = getFormValue("bcs");
+        var training = getFormValue("training");
         var pferdezustand; 
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
 
@@ -302,9 +302,12 @@ function auswerten() {
     else if (BCS === "dünn" || Fellzustand === "geschoren"){
         pferdezustand = "D"; 
     }
+}
 
-
-
+function getFormValue(name) {
+    const selected = document.querySelector(`input[name="${name}"]:checked`);
+    return selected ? selected.value : null;
+}
 
     </script>
 </body>
