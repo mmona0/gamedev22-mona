@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.08
+version 3.09
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,6 +135,7 @@ version 3.08
             </form>
             
             <p>Dein Pferd trägt am besten:</p>
+            <p id="ergebnis"></p>
             <p id="output"></p>
             <p id="fehler"></p>
             <div id="manuell"></div>
@@ -313,7 +314,7 @@ function getFormValue(name) {
 }
 
 function deckenangabe(zustand){
-    var output = document.getElementById('output');
+    var output = document.getElementById('ergebnis');
     if (apparentTemp >= 12){
         output.innerHTML = 'keine Decke.';
     }
