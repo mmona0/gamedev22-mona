@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.16
+version 3.17
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -323,7 +323,7 @@ function deckenangabe(pferdezustand) {
     } else if (temp >= 1 && temp <= 5) {
         output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
             'Thermodecke mit einer Füllung von 100g - 150g.' :
-            pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 50g-100g.' : 'Stalldecke.';
+            pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 50g-100g.' : 'Stalldecke oder eine Decke von 0g - 50g.';
     } else if (temp >= -5 && temp <= 0) {
         output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
             'Thermodecke mit einer Füllung von 300g.' :
