@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.15
+version 3.16
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -310,9 +310,9 @@ function getFormValue(name) {
 // Deckenempfehlung anzeigen
 function deckenangabe(pferdezustand) {
     const output = document.getElementById('ergebnis');
-    if (apparentTemp >= 12) {
+    if (temp >= 12) {
         output.innerHTML = 'Keine Decke.';
-    } else if (apparentTemp >= 6 && apparentTemp <= 11) {
+    } else if (temp >= 6 && temp <= 11) {
         if (pferdezustand === "D") {
             output.innerHTML = 'Regendecke mit einer Füllung von 0g.';
         } else if (pferdezustand === "B" || pferdezustand === "C") {
@@ -320,11 +320,11 @@ function deckenangabe(pferdezustand) {
         } else {
             output.innerHTML = 'Keine Decke.';
         }
-    } else if (apparentTemp >= 1 && apparentTemp <= 5) {
+    } else if (temp >= 1 && temp <= 5) {
         output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
             'Thermodecke mit einer Füllung von 100g - 150g.' :
             pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 50g-100g.' : 'Stalldecke.';
-    } else if (apparentTemp >= -5 && apparentTemp <= 0) {
+    } else if (temp >= -5 && temp <= 0) {
         output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
             'Thermodecke mit einer Füllung von 300g.' :
             pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 200g.' : 'Thermodecke mit einer Füllung bis 150g.';
