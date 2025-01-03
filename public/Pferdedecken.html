@@ -1,5 +1,5 @@
 <!doctype html>
-version 3.03
+version 3.04
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -267,41 +267,42 @@ function auswerten() {
         var pferdezustand; 
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
 
-    //unterteilung in Typ A, B & C von Pferd 
-    if (Fellzustand === "dick" ) {
+    //unterteilung in Typ A, B & C von Pferd
+    if (!fellzustand || !haltung || !bcs || !training) {
+                document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen!";
+                return;
+            }
+    
+    else if (Fellzustand === "dick" ) {
         if(Training ==="viel"){
             if(Haltung === "box") {
-                pferdezustand = B; 
+                pferdezustand = "B"; 
             }
             else{
-                 pferdezustand = B; 
+                 pferdezustand = "B"; 
             }
         }
-    }
        else {
            if(Haltung === "box") {
-                pferdezustand = A ; 
+                pferdezustand = "A" ; 
             }
             else{
-                 pferdezustand = B ; 
+                 pferdezustand = "B" ; 
             }
        }
+    }
     else if (Fellzustand === "dünn" ) {
             if(Haltung === "box") {
-                 pferdezustand = B; 
+                 pferdezustand = "B"; 
             }
             else{
-                 pferdezustand = C; 
+                 pferdezustand = "C"; 
             }
     }
     else if (BCS === "dünn" || Fellzustand === "geschoren"){
         pferdezustand = "D"; 
     }
 
-    if (!fellzustand || !haltung || !bcs || !training) {
-                document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen!";
-                return;
-            }
 
 
 
