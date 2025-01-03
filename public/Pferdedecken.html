@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.18
+version 3.19
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -34,25 +34,20 @@ version 3.18
         tr:nth-child(even) { background-color: #f2f2f2; }
         th { background-color: #008000; color: white; text-align: left; padding: 12px; }
 
-        <style>
 /* Grundstil für das Menü */
 #menu {
     background-color: #007bff; /* Blau */
     color: white;
     width: 200px;
-    position: fixed;
-    left: -200px; /* Versteckt das Menü */
-    top: 0;
-    bottom: 0;
-    transition: left 0.3s ease; /* Animation */
-    z-index: 1000; /* Über anderen Inhalten */
     padding: 10px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: none; /* Standardmäßig ausgeblendet */
+    position: relative; /* Im normalen Fluss der Seite */
 }
 
-/* Sichtbares Menü */
+/* Menü sichtbar machen */
 #menu.open {
-    left: 0; /* Menü sichtbar machen */
+    display: block;
 }
 
 /* Menü-Button */
@@ -63,11 +58,8 @@ version 3.18
     padding: 10px 15px;
     cursor: pointer;
     font-size: 18px;
-    position: absolute;
-    top: 10px;
-    right: -50px; /* Platz für den Button */
-    transform: rotate(0deg);
-    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
 }
 
 #menuToggle:hover {
@@ -78,7 +70,7 @@ version 3.18
 #menu ul {
     list-style: none;
     padding: 0;
-    margin: 20px 0 0;
+    margin: 0;
 }
 
 #menu ul li {
@@ -95,22 +87,20 @@ version 3.18
 #menu ul li a:hover {
     color: #cce7ff;
 }
-</style>
 
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Pferdedecken leicht gemacht</h1>
-    </div>
-    <div class="row">
-        <div id="menu" class="col-3">
+<div class="header">
+    <h1>Pferdedecken leicht gemacht</h1>
     <button id="menuToggle">☰ Menü</button>
-    <ul>
-        <li><a href="#option1">Option 1</a></li>
-        <li><a href="#option2">Option 2</a></li>
-        <li><a href="#option3">Option 3</a></li>
-    </ul>
+    <div id="menu" class="col-3">
+        <ul>
+            <li><a href="#option1">Option 1</a></li>
+            <li><a href="#option2">Option 2</a></li>
+            <li><a href="#option3">Option 3</a></li>
+        </ul>
+    </div>
 </div>
 
         <div class="col-9">
@@ -213,10 +203,11 @@ version 3.18
     <!-- Scripts -->
     //Menü 
     <script>
-        document.getElementById('menuToggle').addEventListener('click', function () {
+   document.getElementById('menuToggle').addEventListener('click', function () {
     const menu = document.getElementById('menu');
     menu.classList.toggle('open');
 });
+
 
         
         // Globale Variablen
