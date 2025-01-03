@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.27
+version 3.28
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -122,7 +122,14 @@ th {
     }
 }
 
-        button, input[type="reset"] {
+.button-container {
+    display: flex;
+    justify-content: center; /* Zentriert die Buttons horizontal */
+    gap: 20px; /* Abstand zwischen den Buttons */
+    margin-top: 20px; /* Abstand zur Tabelle */
+}
+
+button, input[type="reset"] {
     background-color: #008000; /* Grünton */
     color: white;
     font-size: 18px; /* Größere Schrift */
@@ -131,13 +138,12 @@ th {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: block; /* Block-Element für Zentrierung */
-    margin: 10px auto; /* Zentriert die Buttons */
 }
 
 button:hover, input[type="reset"]:hover {
     background-color: #006400; /* Dunklerer Grünton beim Hover */
 }
+
 
     </style>
 </head>
@@ -157,7 +163,7 @@ button:hover, input[type="reset"]:hover {
                 <!-- Fellzustand -->
                 <table>
                     <tr>
-                        <th>Wie ist der momentane Fellzustand Ihres Pferdes?</th>
+                        <th>Wie ist der Fellzustand Ihres Pferdes im Winter?</th>
                     </tr>
                     <tr>
                         <td>
@@ -237,10 +243,11 @@ button:hover, input[type="reset"]:hover {
                 </table>
 
                 <!-- Buttons -->
-                <div style="text-align: center; margin-top: 20px;">
+                <div class="button-container">
                     <button type="button" onclick="getLocation()">Absenden</button>
                     <input type="reset" value="Zurücksetzen">
                 </div>
+
             </form>
 
             <p>Dein Pferd trägt am besten:</p>
