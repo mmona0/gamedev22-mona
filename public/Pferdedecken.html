@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-version 3.14
+version 3.15
 <html lang="de">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pferdedecken leicht gemacht</title>
     <style>
@@ -32,7 +33,6 @@ version 3.14
         td, th { border: 1px solid #ddd; padding: 8px; }
         tr:nth-child(even) { background-color: #f2f2f2; }
         th { background-color: #008000; color: white; text-align: left; padding: 12px; }
-        
     </style>
 </head>
 <body>
@@ -50,90 +50,93 @@ version 3.14
         </div>
         <div class="col-9">
             <form name="form1" id="pferdeForm">
-               <table>
-  <tr>
-    <th>Wie ist der momentane Fellzustand Ihres Pferdes?</th>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="dick" name="fellzustand" value="dick">
-    <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="dünn" name="fellzustand" value="dünn">
-    <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern) </label>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
-      <label for="geschoren">Geschoren </label>
-    </td>
-  </tr>
-</table>
-                
-<table>
-  <tr>
-    <th>Wie steht Ihr Pferd hauptsächlich?</th>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="box" name="haltung" value="box">
-    <label for="box">In der Box</label>
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="paddock" name="haltung" value="paddock">
-    <label for="paddock">Draußen auf dem Paddock</label>
-    </td>
-  </tr>
-</table>
-                
-<table>
-  <tr>
-    <th>Wie ist der BCS (Body Conditioning Score) Ihres Pferdes? </br> (Der BCS beschreibt den Körperzustand eines Pferdes. Hier reicht eine Grobe einschätzung.)</th>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="gesund" name="bcs" value="gesund">
-    <label for="gesund">Ein BCS größer als 3; Ein gesundes oder übergewichtiges Pferd </label>
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="dünn" name="bcs" value="dünn">
-    <label for="dünn">Ein BCS von 3 oder kleiner; Ein dünnes, untergewichtiges Pferd </label>
-    </td>
-  </tr>
-</table>
+                <!-- Fellzustand -->
+                <table>
+                    <tr>
+                        <th>Wie ist der momentane Fellzustand Ihres Pferdes?</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="dick" name="fellzustand" value="dick">
+                            <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="dünn" name="fellzustand" value="dünn">
+                            <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
+                            <label for="geschoren">Geschoren</label>
+                        </td>
+                    </tr>
+                </table>
 
-<table>
-  <tr>
-    <th>Wie viel ist Ihr Pferd aktuell im Training?</th>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="viel" name="training" value="viel">
-    <label for="viel">Mein Pferd wird viel und regelmäßig trainiert.</label>
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <input type="radio" id="wenig" name="training" value="wenig">
-    <label for="wenig">Meine Pferd wird nur ab und zu oder garnicht trainiert.</label>
-    </td>
-  </tr>
-</table>
+                <!-- Haltung -->
+                <table>
+                    <tr>
+                        <th>Wie steht Ihr Pferd hauptsächlich?</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="box" name="haltung" value="box">
+                            <label for="box">In der Box</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="paddock" name="haltung" value="paddock">
+                            <label for="paddock">Draußen auf dem Paddock</label>
+                        </td>
+                    </tr>
+                </table>
 
-           
+                <!-- BCS -->
+                <table>
+                    <tr>
+                        <th>Wie ist der BCS (Body Conditioning Score) Ihres Pferdes? <br>(Der BCS beschreibt den Körperzustand eines Pferdes. Hier reicht eine grobe Einschätzung.)</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="gesund" name="bcs" value="gesund">
+                            <label for="gesund">Ein BCS größer als 3; Ein gesundes oder übergewichtiges Pferd</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="dünn" name="bcs" value="dünn">
+                            <label for="dünn">Ein BCS von 3 oder kleiner; Ein dünnes, untergewichtiges Pferd</label>
+                        </td>
+                    </tr>
+                </table>
 
+                <!-- Training -->
+                <table>
+                    <tr>
+                        <th>Wie viel ist Ihr Pferd aktuell im Training?</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="viel" name="training" value="viel">
+                            <label for="viel">Mein Pferd wird viel und regelmäßig trainiert.</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="wenig" name="training" value="wenig">
+                            <label for="wenig">Mein Pferd wird nur ab und zu oder gar nicht trainiert.</label>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Buttons -->
                 <button type="button" onclick="getLocation()">Absenden</button>
                 <input type="reset" value="Zurücksetzen">
             </form>
-            
+
             <p>Dein Pferd trägt am besten:</p>
             <p id="ergebnis"></p>
             <p id="output"></p>
@@ -141,18 +144,23 @@ version 3.14
             <div id="manuell"></div>
         </div>
     </div>
+
+    <!-- Scripts -->
     <script>
-        var temp, apparentTemp, witterungCode, witterungDescription;
-            
+        // Globale Variablen
+let temp, apparentTemp, witterungCode, witterungDescription;
+
+// Hauptfunktion zum Abrufen der Geolokation
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
     } else {
-        document.getElementById('fehler').innerText = "Geolocation wird von diesem Browser nicht unterstützt.";
+        showError("Geolocation wird von diesem Browser nicht unterstützt.");
         manuelleEingabe();
     }
 }
 
+// Wetterdaten abrufen
 function fetchWeather(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -161,10 +169,9 @@ function fetchWeather(position) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);  // Protokolliere die gesamte Antwort zur Überprüfung
             if (data.current_weather && data.hourly) {
-                temp = data.current_weather.temperature;  // Aktuelle Temperatur
-                apparentTemp = data.hourly.apparent_temperature[0];  // Gefühlte Temperatur
+                temp = data.current_weather.temperature; // Aktuelle Temperatur
+                apparentTemp = data.hourly.apparent_temperature[0]; // Gefühlte Temperatur
                 witterungCode = data.current_weather.weathercode;
                 witterungDescription = getWeatherDescription(witterungCode);
 
@@ -175,26 +182,28 @@ function fetchWeather(position) {
                 
                 auswerten();
             } else {
-                document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
+                showError("Fehler beim Abrufen der Wetterdaten.");
             }
         })
         .catch(error => {
-            console.error("API-Fehler:", error);  // Protokolliere den Fehler
-            document.getElementById('fehler').innerText = "Fehler bei der Wetter-API.";
+            console.error("API-Fehler:", error);
+            showError("Fehler bei der Wetter-API.");
             manuelleEingabe();
         });
 }
 
+// Fehler bei der Standortabfrage behandeln
 function handleError(error) {
     const fehlerText = {
         1: "Standortberechtigung wurde abgelehnt.",
         2: "Standort konnte nicht ermittelt werden.",
         3: "Zeitüberschreitung bei der Standortermittlung."
     };
-    document.getElementById('fehler').innerText = fehlerText[error.code] || "Unbekannter Fehler.";
+    showError(fehlerText[error.code] || "Unbekannter Fehler.");
     manuelleEingabe();
 }
 
+// Witterungsbeschreibung basierend auf Codes abrufen
 function getWeatherDescription(code) {
     const descriptions = {
         0: "Klarer Himmel",
@@ -222,9 +231,10 @@ function getWeatherDescription(code) {
     return descriptions[code] || "Unbekannte Witterung";
 }
 
+// Manuelle Eingabe für Standort anbieten
 function manuelleEingabe() {
     const container = document.getElementById('manuell');
-    if (document.getElementById('standortEingabe')) { return; }
+    if (document.getElementById('standortEingabe')) return;
 
     const input = document.createElement('input');
     input.type = 'text';
@@ -234,7 +244,7 @@ function manuelleEingabe() {
     const button = document.createElement('button');
     button.textContent = 'Absenden';
     button.onclick = () => {
-        const standort = input.value;
+        const standort = input.value.trim();
         if (standort) getTemperatureForLocation(standort);
     };
 
@@ -242,6 +252,7 @@ function manuelleEingabe() {
     container.appendChild(button);
 }
 
+// Temperatur basierend auf manuellem Standort abrufen
 function getTemperatureForLocation(location) {
     const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
 
@@ -252,97 +263,82 @@ function getTemperatureForLocation(location) {
                 const { lat, lon } = data[0];
                 fetchWeather({ coords: { latitude: lat, longitude: lon } });
             } else {
-                document.getElementById('fehler').innerText = "Standort konnte nicht gefunden werden.";
+                showError("Standort konnte nicht gefunden werden.");
             }
         })
         .catch(error => {
             console.error("Geocoding-Fehler:", error);
-            document.getElementById('fehler').innerText = "Fehler bei der Geocoding-API.";
+            showError("Fehler bei der Geocoding-API.");
         });
 }
 
+// Formularwerte auswerten
 function auswerten() {
-        var Fellzustand = getFormValue("fellzustand");
-        var Haltung = getFormValue("haltung");
-        var BCS = getFormValue("bcs");
-        var Training = getFormValue("training");
-        var pferdezustand; 
-    document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
+    const Fellzustand = getFormValue("fellzustand");
+    const Haltung = getFormValue("haltung");
+    const BCS = getFormValue("bcs");
+    const Training = getFormValue("training");
 
-    //unterteilung in Typ A, B & C von Pferd
     if (!Fellzustand || !Haltung || !BCS || !Training) {
-                document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen!";
-                return;
-            }
-    if (BCS === "gesund"){
-        
-        if (Haltung === "box" && Training === "viel"){
-            pferdezustand = "A"; 
-        }else if(Haltung === "paddock" && Training === "wenig" && Fellzustand === "dünn" ){
-            pferdezustand = "C"; 
-        }else {
-            pferdezustand = "B";
-        
-    } else if (BCS === "dünn" || Fellzustand === "geschoren" ){
-        pferdezustand = "D" ;
-    }                                                                                }
+        showError("Bitte alle Felder ausfüllen!");
+        return;
+    }
 
-    deckenangabe(pferdezustand); 
+    let pferdezustand;
+
+    if (BCS === "gesund") {
+        if (Haltung === "box" && Training === "viel") {
+            pferdezustand = "A";
+        } else if (Haltung === "paddock" && Training === "wenig" && Fellzustand === "dünn") {
+            pferdezustand = "C";
+        } else {
+            pferdezustand = "B";
+        }
+    } else if (BCS === "dünn" || Fellzustand === "geschoren") {
+        pferdezustand = "D";
+    }
+
+    deckenangabe(pferdezustand);
 }
 
+// Formularwert abrufen
 function getFormValue(name) {
     const selected = document.querySelector(`input[name="${name}"]:checked`);
     return selected ? selected.value : null;
 }
 
-function deckenangabe(pferdezustand){
+// Deckenempfehlung anzeigen
+function deckenangabe(pferdezustand) {
     const output = document.getElementById('ergebnis');
-    if (apparentTemp >= 12){
-        output.innerHTML = 'keine Decke.';
-    }
-    else if (apparentTemp >= 6 && apparentTemp <= 11){
-        if (pferdezustand === "D"){
+    if (apparentTemp >= 12) {
+        output.innerHTML = 'Keine Decke.';
+    } else if (apparentTemp >= 6 && apparentTemp <= 11) {
+        if (pferdezustand === "D") {
             output.innerHTML = 'Regendecke mit einer Füllung von 0g.';
-        }else if (pferdezustand === "B" || pferdezustand === "C"){
-            if(witterungCode > 3) {
-                output.innerHTML = 'keine Decke.';
-            } else {
-                output.innerHTML = 'Regendecke mit einer Füllung von 0g.';
-            }
-        }else {
-            output.innerHTML = 'keine Decke.'; 
+        } else if (pferdezustand === "B" || pferdezustand === "C") {
+            output.innerHTML = witterungCode > 3 ? 'Keine Decke.' : 'Regendecke mit einer Füllung von 0g.';
+        } else {
+            output.innerHTML = 'Keine Decke.';
         }
-    }
-    else if (apparentTemp >=1 && apparentTemp <=5){
-        if (pferdezustand === "D"){
-            output.innerHTML = 'Thermodecke mit einer Füllung von 100g - 150g.';
-        }else if (pferdezustand === "B"){
-            output.innerHTML = 'Thermodecke mit einer Füllung von 50g-100g.';
-        }else if (pferdezustand === "C") {
-            output.innerHTML = 'Thermodecke mit einer Füllung von 100g - 150g.';
-        }else{
-            output.innerHTML = 'Stalldecke.'; 
-        }
-    }
-    else if (apparentTemp >=-5 && apparentTemp <=0){
-        if (pferdezustand === "D" || pferdezustand === "C"){
-            output.innerHTML = 'Thermodecke mit einer Füllung von 300g.';
-        }else if (pferdezustand === "B"){
-            output.innerHTML = 'Thermodecke mit einer Füllung von 200g.';
-        }else{
-            output.innerHTML = 'Thermodecke mit einer Füllung bis 150g.'; 
-        }
-    }
-    else {
-       if (pferdezustand === "A"){
-           output.innerHTML = 'Thermodecke mit einer Füllung ab 200g.'; 
-       }else {
-           output.innerHTML = 'Thermodecke mit einer Füllung von 300g.';
-       }
+    } else if (apparentTemp >= 1 && apparentTemp <= 5) {
+        output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
+            'Thermodecke mit einer Füllung von 100g - 150g.' :
+            pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 50g-100g.' : 'Stalldecke.';
+    } else if (apparentTemp >= -5 && apparentTemp <= 0) {
+        output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
+            'Thermodecke mit einer Füllung von 300g.' :
+            pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 200g.' : 'Thermodecke mit einer Füllung bis 150g.';
+    } else {
+        output.innerHTML = pferdezustand === "A" ?
+            'Thermodecke mit einer Füllung ab 200g.' : 'Thermodecke mit einer Füllung von 300g.';
     }
 }
- 
+
+// Fehler anzeigen
+function showError(message) {
+    document.getElementById('fehler').innerText = message;
+}
+
     </script>
 </body>
 </html>
-
