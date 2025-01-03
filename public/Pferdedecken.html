@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.09
+version 3.10
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -314,7 +314,7 @@ function getFormValue(name) {
 }
 
 function deckenangabe(zustand){
-    var output = document.getElementById('ergebnis');
+    const output = document.getElementById('ergebnis');
     if (apparentTemp >= 12){
         output.innerHTML = 'keine Decke.';
     }
