@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.10
+version 3.11
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -313,7 +313,7 @@ function getFormValue(name) {
     return selected ? selected.value : null;
 }
 
-function deckenangabe(zustand){
+function deckenangabe(pferdezustand){
     const output = document.getElementById('ergebnis');
     if (apparentTemp >= 12){
         output.innerHTML = 'keine Decke.';
@@ -331,22 +331,22 @@ function deckenangabe(zustand){
             output.innerHTML = 'keine Decke.'; 
         }
     }
-    else if (apparentTemp >=1 && apperentTemp <=5){
+    else if (apparentTemp >=1 && apparentTemp <=5){
         if (pferdezustand === "D"){
             output.innerHTML = 'Thermodecke mit einer Füllung von 100g - 150g.';
         }else if (pferdezustand === "B"){
-            output.innerHTMl = 'Thermodecke mit einer Füllung von 50g-100g.';
+            output.innerHTML = 'Thermodecke mit einer Füllung von 50g-100g.';
         }else if (pferdezustand === "C") {
-            output.innerHTMl = 'Thermodecke mit einer Füllung von 100g - 150g.';
+            output.innerHTML = 'Thermodecke mit einer Füllung von 100g - 150g.';
         }else{
             output.innerHTML = 'Stalldecke.'; 
         }
     }
-    else if (apparentTemp >=-5 && apperentTemp <=0){
+    else if (apparentTemp >=-5 && apparentTemp <=0){
         if (pferdezustand === "D" || pferdezustand === "C"){
             output.innerHTML = 'Thermodecke mit einer Füllung von 300g.';
         }else if (pferdezustand === "B"){
-            output.innerHTMl = 'Thermodecke mit einer Füllung von 200g.';
+            output.innerHTML = 'Thermodecke mit einer Füllung von 200g.';
         }else{
             output.innerHTML = 'Thermodecke mit einer Füllung bis 150g.'; 
         }
