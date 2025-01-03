@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.06
+version 3.07
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -171,6 +171,7 @@ function fetchWeather(position) {
                     Aktuelle Temperatur: ${temp}°C<br>
                     Gefühlte Temperatur: ${apparentTemp}°C<br>
                     Witterung: ${witterungDescription}`;
+                
                 auswerten();
             } else {
                 document.getElementById('fehler').innerText = "Fehler beim Abrufen der Wetterdaten.";
@@ -260,15 +261,15 @@ function getTemperatureForLocation(location) {
 }
 
 function auswerten() {
-        var fellzustand = getFormValue("fellzustand");
-        var haltung = getFormValue("haltung");
-        var bcs = getFormValue("bcs");
-        var training = getFormValue("training");
+        var Fellzustand = getFormValue("fellzustand");
+        var Haltung = getFormValue("haltung");
+        var BCS = getFormValue("bcs");
+        var Training = getFormValue("training");
         var pferdezustand; 
     document.getElementById('output').innerHTML += `<br>Auswertung abgeschlossen: ${apparentTemp}°C, ${witterungDescription},${Fellzustand}, ${Haltung}, ${BCS}, ${Training} `;
 
     //unterteilung in Typ A, B & C von Pferd
-    if (!fellzustand || !haltung || !bcs || !training) {
+    if (!Fellzustand || !Haltung || !BCS || !Training) {
                 document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen!";
                 return;
             }
