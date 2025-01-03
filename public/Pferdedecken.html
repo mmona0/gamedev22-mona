@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.07
+version 3.08
 <html lang="de">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,7 +134,7 @@ version 3.07
                 <input type="reset" value="Zurücksetzen">
             </form>
             
-            <p>Dein Pferd trägt am besten eine:</p>
+            <p>Dein Pferd trägt am besten:</p>
             <p id="output"></p>
             <p id="fehler"></p>
             <div id="manuell"></div>
@@ -303,6 +303,8 @@ function auswerten() {
     else if (BCS === "dünn" || Fellzustand === "geschoren"){
         pferdezustand = "D"; 
     }
+
+    deckenangabe(pferdezustand); 
 }
 
 function getFormValue(name) {
@@ -310,6 +312,53 @@ function getFormValue(name) {
     return selected ? selected.value : null;
 }
 
+function deckenangabe(zustand){
+    var output = document.getElementById('output');
+    if (apparentTemp >= 12){
+        output.innerHTML = 'keine Decke.';
+    }
+    else if (apparentTemp >= 6 && apparentTemp <= 11){
+        if (pferdezustand === "D"){
+            output.innerHTML = 'Regendecke mit einer Füllung von 0g.';
+        }else if (pferdezustand === "B" || pferdezustand === "C"){
+            if(witterungCode > 3) {
+                output.innerHTML = 'keine Decke.';
+            } else {
+                output.innerHTML = 'Regendecke mit einer Füllung von 0g.';
+            }
+        }else {
+            output.innerHTML = 'keine Decke.'; 
+        }
+    }
+    else if (apparentTemp >=1 && apperentTemp <=5){
+        if (pferdezustand === "D"){
+            output.innerHTML = 'Thermodecke mit einer Füllung von 100g - 150g.';
+        }else if (pferdezustand === "B"){
+            output.innerHTMl = 'Thermodecke mit einer Füllung von 50g-100g.';
+        }else if (pferdezustand === "C") {
+            output.innerHTMl = 'Thermodecke mit einer Füllung von 100g - 150g.';
+        }else{
+            output.innerHTML = 'Stalldecke.'; 
+        }
+    }
+    else if (apparentTemp >=-5 && apperentTemp <=0){
+        if (pferdezustand === "D" || pferdezustand === "C"){
+            output.innerHTML = 'Thermodecke mit einer Füllung von 300g.';
+        }else if (pferdezustand === "B"){
+            output.innerHTMl = 'Thermodecke mit einer Füllung von 200g.';
+        }else{
+            output.innerHTML = 'Thermodecke mit einer Füllung bis 150g.'; 
+        }
+    }
+    else {
+       if (pferdezustand === "A"){
+           output.innerHTML = 'Thermodecke mit einer Füllung ab 200g.'; 
+       }else {
+           output.innerHTML = 'Thermodecke mit einer Füllung von 300g.';
+       }
+    }
+}
+ 
     </script>
 </body>
 </html>
