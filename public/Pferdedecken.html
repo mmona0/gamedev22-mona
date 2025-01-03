@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.26
+version 3.27
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -122,6 +122,23 @@ th {
     }
 }
 
+        button, input[type="reset"] {
+    background-color: #008000; /* Grünton */
+    color: white;
+    font-size: 18px; /* Größere Schrift */
+    font-weight: bold; /* Fett geschrieben */
+    padding: 10px 20px; /* Größere Knöpfe */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Block-Element für Zentrierung */
+    margin: 10px auto; /* Zentriert die Buttons */
+}
+
+button:hover, input[type="reset"]:hover {
+    background-color: #006400; /* Dunklerer Grünton beim Hover */
+}
+
     </style>
 </head>
 <body>
@@ -220,8 +237,10 @@ th {
                 </table>
 
                 <!-- Buttons -->
-                <button type="button" onclick="getLocation()">Absenden</button>
-                <input type="reset" value="Zurücksetzen">
+                <div style="text-align: center; margin-top: 20px;">
+                    <button type="button" onclick="getLocation()">Absenden</button>
+                    <input type="reset" value="Zurücksetzen">
+                </div>
             </form>
 
             <p>Dein Pferd trägt am besten:</p>
