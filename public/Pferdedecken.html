@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.24
+version 3.25
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -35,87 +35,83 @@ version 3.24
         th { background-color: #008000; color: white; text-align: left; padding: 12px; }
 
         /* Menü-Stil */
-        #menu {
-            background-color: #007bff; /* Blau */
-            color: white;
-            width: 200px;
-            position: fixed;
-            left: -200px; /* Versteckt das Menü */
-            top: 0;
-            bottom: 0;
-            transition: left 0.3s ease; /* Animation */
-            z-index: 1000; /* Über anderen Inhalten */
-            padding: 10px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-        }
-        /* Sichtbares Menü */
-        #menu.open {
-            left: 0px; /* Menü sichtbar machen */
-        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+    font-family: "Lucida Sans", sans-serif;
+    color: white;
+}
 
-        /* Menü-Button */
-        #menuToggle {
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 18px;
-            position: absolute;
-            top: 20px;
-            right: -40px; /* Platz für den Button */
-            transform: rotate(0deg);
-            transition: transform 0.3s ease;
-        }
+.navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
 
-        #menuToggle:hover {
-            background-color: #003d80;
-        }
+.navbar a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+}
 
-        /* Menü-Optionen */
-        #menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0 0;
-        }
+.navbar .menu-icon {
+    display: none; /* Standardmäßig verstecken */
+    font-size: 24px;
+    cursor: pointer;
+}
 
-        #menu ul li {
-            margin: 0;
-            width: 100%; /* Rechtecke gleich groß */
-            text-align: center;
-        }
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
 
-        #menu ul li a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            padding: 10px;
-            background-color: #66b3ff; /* Helleres Blau */
-            transition: background-color 0.2s, color 0.2s;
-        }
+.navbar ul li {
+    display: inline;
+}
 
-        /* Hover-Effekt */
-        #menu ul li a:hover {
-            background-color: #007bff; /* Gleiche Farbe wie das Menü */
-            color: #cce7ff;
-        }
+.navbar ul li a.active {
+    background-color: #003d80;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #007bff;
+    }
+
+    .navbar ul.open {
+        display: flex;
+    }
+
+    .navbar .menu-icon {
+        display: block;
+    }
+}
 
     </style>
 </head>
 <body>
-<div class="header">
-        <h1>Pferdedecken leicht gemacht</h1>
-    </div>
-    <div class="row">
-        <div id="menu" class="col-3">
-            <button id="menuToggle">☰ Menü</button>
-            <ul>
-                <li><a href="#option1">Option 1</a></li>
-                <li><a href="#option2">Option 2</a></li>
-                <li><a href="#option3">Option 3</a></li>
-            </ul>
-        </div>
+<div class="navbar">
+    <div>Pferdedecken</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <ul id="menu-list">
+        <li><a href="#option1" class="active">Option 1</a></li>
+        <li><a href="#option2">Option 2</a></li>
+        <li><a href="#option3">Option 3</a></li>
+    </ul>
+</div>
 
         <div class="col-9">
             <form name="form1" id="pferdeForm">
@@ -218,10 +214,10 @@ version 3.24
 
     <script>
         //Menü 
-   document.getElementById('menuToggle').addEventListener('click', function () {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('open');
-        });
+function toggleMenu() {
+    const menu = document.getElementById('menu-list');
+    menu.classList.toggle('open');
+}
 
 
         
