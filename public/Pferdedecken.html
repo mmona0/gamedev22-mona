@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.29
+version 4
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -222,7 +222,44 @@ button:hover, input[type="reset"]:hover {
                 </tr>
             </table>
 
-            <!-- Weitere Tabellen... -->
+            <!-- BCS -->
+                <table>
+                    <tr>
+                        <th>Wie ist der BCS (Body Conditioning Score) Ihres Pferdes? <br>(Der BCS beschreibt den Körperzustand eines Pferdes. Hier reicht eine grobe Einschätzung.)</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="gesund" name="bcs" value="gesund">
+                            <label for="gesund">Ein BCS größer als 3; Ein gesundes oder übergewichtiges Pferd</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="dünn" name="bcs" value="dünn">
+                            <label for="dünn">Ein BCS von 3 oder kleiner; Ein dünnes, untergewichtiges Pferd</label>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Training -->
+                <table>
+                    <tr>
+                        <th>Wie viel ist Ihr Pferd aktuell im Training?</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="viel" name="training" value="viel">
+                            <label for="viel">Mein Pferd wird viel und regelmäßig trainiert.</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="wenig" name="training" value="wenig">
+                            <label for="wenig">Mein Pferd wird nur ab und zu oder gar nicht trainiert.</label>
+                        </td>
+                    </tr>
+                </table>
+
 
             <!-- Buttons -->
             <div class="button-container">
