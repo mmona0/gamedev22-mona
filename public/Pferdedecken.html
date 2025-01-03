@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 3.28
+version 3.29
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -144,8 +144,25 @@ button:hover, input[type="reset"]:hover {
     background-color: #006400; /* Dunklerer Grünton beim Hover */
 }
 
+/* Stildefinition für das zentrierte Container-Element */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal zentriert */
+    justify-content: center; /* Vertikal zentriert */
+    min-height: 100vh; /* Vollständige Bildschirmhöhe */
+    background-color: #f9f9f9; /* Hintergrundfarbe des gesamten Bereichs */
+}
+
+.table-wrapper {
+    background-color: #d3d3d3; /* Grauer Hintergrund */
+    padding: 20px; /* Innenabstand für den grauen Hintergrund */
+    border-radius: 15px; /* Abgerundete Ecken */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
+}
 
     </style>
+    
 </head>
 <body>
 <div class="navbar">
@@ -158,97 +175,64 @@ button:hover, input[type="reset"]:hover {
     </ul>
 </div>
 
-        <div class="col-9">
-            <form name="form1" id="pferdeForm">
-                <!-- Fellzustand -->
-                <table>
-                    <tr>
-                        <th>Wie ist der Fellzustand Ihres Pferdes im Winter?</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="dick" name="fellzustand" value="dick">
-                            <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="dünn" name="fellzustand" value="dünn">
-                            <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern)</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
-                            <label for="geschoren">Geschoren</label>
-                        </td>
-                    </tr>
-                </table>
+     <div class="centered-container">
+    <div class="table-wrapper">
+        <form name="form1" id="pferdeForm">
+            <!-- Fellzustand -->
+            <table>
+                <tr>
+                    <th>Wie ist der Fellzustand Ihres Pferdes im Winter?</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="dick" name="fellzustand" value="dick">
+                        <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="dünn" name="fellzustand" value="dünn">
+                        <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
+                        <label for="geschoren">Geschoren</label>
+                    </td>
+                </tr>
+            </table>
 
-                <!-- Haltung -->
-                <table>
-                    <tr>
-                        <th>Wie steht Ihr Pferd hauptsächlich?</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="box" name="haltung" value="box">
-                            <label for="box">In der Box</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="paddock" name="haltung" value="paddock">
-                            <label for="paddock">Draußen auf dem Paddock</label>
-                        </td>
-                    </tr>
-                </table>
+            <!-- Haltung -->
+            <table>
+                <tr>
+                    <th>Wie steht Ihr Pferd hauptsächlich?</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="box" name="haltung" value="box">
+                        <label for="box">In der Box</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="paddock" name="haltung" value="paddock">
+                        <label for="paddock">Draußen auf dem Paddock</label>
+                    </td>
+                </tr>
+            </table>
 
-                <!-- BCS -->
-                <table>
-                    <tr>
-                        <th>Wie ist der BCS (Body Conditioning Score) Ihres Pferdes? <br>(Der BCS beschreibt den Körperzustand eines Pferdes. Hier reicht eine grobe Einschätzung.)</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="gesund" name="bcs" value="gesund">
-                            <label for="gesund">Ein BCS größer als 3; Ein gesundes oder übergewichtiges Pferd</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="dünn" name="bcs" value="dünn">
-                            <label for="dünn">Ein BCS von 3 oder kleiner; Ein dünnes, untergewichtiges Pferd</label>
-                        </td>
-                    </tr>
-                </table>
+            <!-- Weitere Tabellen... -->
 
-                <!-- Training -->
-                <table>
-                    <tr>
-                        <th>Wie viel ist Ihr Pferd aktuell im Training?</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="viel" name="training" value="viel">
-                            <label for="viel">Mein Pferd wird viel und regelmäßig trainiert.</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="wenig" name="training" value="wenig">
-                            <label for="wenig">Mein Pferd wird nur ab und zu oder gar nicht trainiert.</label>
-                        </td>
-                    </tr>
-                </table>
+            <!-- Buttons -->
+            <div class="button-container">
+                <button type="button" onclick="getLocation()">Absenden</button>
+                <input type="reset" value="Zurücksetzen">
+            </div>
+        </form>
+    </div>
+</div>
 
-                <!-- Buttons -->
-                <div class="button-container">
-                    <button type="button" onclick="getLocation()">Absenden</button>
-                    <input type="reset" value="Zurücksetzen">
-                </div>
-
-            </form>
 
             <p>Dein Pferd trägt am besten:</p>
             <p id="ergebnis"></p>
