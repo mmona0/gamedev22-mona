@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.20
+version 4.21
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -110,25 +110,45 @@ th {
 
 
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar div:first-child {
+        margin-bottom: 10px; /* Abstand zwischen Titel und Menü */
+    }
+
     .navbar ul {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
+        width: 100%; /* Volle Breite */
         background-color: #007bff;
+        padding: 10px 0; /* Innenabstand */
+    }
+
+    .navbar ul li {
+        width: 100%;
+        text-align: left; /* Links ausgerichtet */
+    }
+
+    .navbar ul li a {
+        display: block;
+        padding: 10px 15px;
     }
 
     .navbar ul.open {
         display: flex;
     }
 
-    .navbar .menu-icon {
+    .menu-icon {
         display: block;
+        font-size: 24px;
+        cursor: pointer;
+        margin-bottom: 10px; /* Abstand zwischen Icon und Titel */
     }
-    
 }
+
 
 .button-container {
     display: flex;
