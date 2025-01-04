@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.19
+version 4.20
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -543,23 +543,23 @@ function deckenangabe(pferdezustand) {
         output.innerHTML = 'Keine Decke.';
     } else if (temp >= 6 && temp <= 11) {
         if (pferdezustand === "D") {
-            output.innerHTML = 'Regendecke mit einer Füllung von 0g.';
+            output.innerHTML = 'eine Regendecke mit einer Füllung von 0g.';
         } else if (pferdezustand === "B" || pferdezustand === "C") {
-            output.innerHTML = witterungCode > 3 ? 'Keine Decke.' : 'Regendecke mit einer Füllung von 0g.';
+            output.innerHTML = witterungCode > 3 ? 'Keine Decke.' : 'eine Regendecke mit einer Füllung von 0g.';
         } else {
             output.innerHTML = 'Keine Decke.';
         }
     } else if (temp >= 1 && temp <= 5) {
         output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
             'Thermodecke mit einer Füllung von 100g - 150g.' :
-            pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 50g-100g.' : 'Stalldecke oder eine Decke von 0g - 50g.';
+            pferdezustand === "B" ? 'eine Thermodecke mit einer Füllung von 50g-100g.' : 'eine Stalldecke oder eine Decke von 0g - 50g.';
     } else if (temp >= -5 && temp <= 0) {
         output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
             'Thermodecke mit einer Füllung von 300g.' :
-            pferdezustand === "B" ? 'Thermodecke mit einer Füllung von 200g.' : 'Thermodecke mit einer Füllung bis 150g.';
+            pferdezustand === "B" ? 'eine Thermodecke mit einer Füllung von 200g.' : 'eine Thermodecke mit einer Füllung bis 150g.';
     } else {
         output.innerHTML = pferdezustand === "A" ?
-            'Thermodecke mit einer Füllung ab 200g.' : 'Thermodecke mit einer Füllung von 300g.';
+            'eine Thermodecke mit einer Füllung ab 200g.' : 'eine Thermodecke mit einer Füllung von 300g.';
     }
 }
 
