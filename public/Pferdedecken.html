@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.10
+version 4.11
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -189,6 +189,30 @@ p {
     margin-top: 20px; /* Optional: Abstand nach oben */
 }
 
+.standort-input, .standort-button {
+    height: 40px; /* Gleiche Höhe wie der Knopf */
+    font-size: 18px; /* Gleiche Schriftgröße */
+    padding: 10px 20px; /* Innenabstand für eine gleichmäßige Größe */
+    border-radius: 5px; /* Abgerundete Ecken */
+    border: 1px solid #ccc; /* Leichter Rahmen für das Eingabefeld */
+    box-sizing: border-box; /* Verhindert Größenprobleme durch Polsterung */
+}
+
+.standort-input {
+    flex-grow: 1; /* Passt die Breite an, falls notwendig */
+    margin-right: 10px; /* Abstand zum Knopf */
+}
+
+.standort-button {
+    background-color: #008000; /* Grünton des Knopfes */
+    color: white; /* Textfarbe */
+    border: none; /* Entfernt Standardrahmen */
+    cursor: pointer;
+}
+
+.standort-button:hover {
+    background-color: #006400; /* Dunklerer Grünton beim Hover */
+}
 
     </style>
     
@@ -412,9 +436,11 @@ function manuelleEingabe() {
     input.type = 'text';
     input.id = 'standortEingabe';
     input.placeholder = 'Standort eingeben';
+    input.classList.add('standort-input');
 
     const button = document.createElement('button');
     button.textContent = 'Absenden';
+    button.classList.add('standort-button');
     button.onclick = () => {
         const standort = input.value.trim();
         if (standort) getTemperatureForLocation(standort);
