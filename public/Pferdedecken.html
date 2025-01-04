@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.18
+version 4.19
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -188,8 +188,15 @@ button:hover, input[type="reset"]:hover {
 .inline-elements {
     display: flex; /* Innerhalb dieses Containers stehen die Elemente nebeneinander */
     gap: 10px; /* Abstand zwischen den beiden Elementen */
+    border-collapse: separate;
+    border-spacing: 15px;
     border: double;
-     justify-content: center; /* Zentriert horizontal (optional)*/
+    justify-content: center; /* Zentriert horizontal (optional)*/
+    font-size: 20px; /* Größere Schrift */
+    font-weight: bold; /* Fett */ 
+    text-align: center; /* Text rechtsbündig */
+    flex-shrink: 0; /* Verhindert das Schrumpfen */
+    margin-left: 20px; /* Abstand zum vorherigen Text */
 }
 
 .result-wrapper p {
@@ -200,13 +207,7 @@ button:hover, input[type="reset"]:hover {
     flex: 1; /* Nimmt so viel Platz ein, wie es braucht */
 }
 
-.result-wrapper p#ergebnis {
-    font-size: 20px; /* Größere Schrift */
-    font-weight: bold; /* Fett */ 
-    text-align: center; /* Text rechtsbündig */
-    flex-shrink: 0; /* Verhindert das Schrumpfen */
-    margin-left: 20px; /* Abstand zum vorherigen Text */
-}
+
  .result-wrapper p#output {
         margin-top: 10px; /* Optional: Abstand unterhalb der oberen Elemente */
     }
