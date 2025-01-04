@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.13
+version 4.14
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -174,7 +174,7 @@ button:hover, input[type="reset"]:hover {
 /* Stildefinition für den Textbereich unter der Tabelle */
 .result-wrapper {
     display: flex;
-    align-items: center; /* Zentriert den Inhalt vertikal */
+    align-items: center; /* Zentriert den Inhalt mittig */
     background-color: #d3d3d3; /* Grauer Hintergrund */
     padding: 20px; /* Innenabstand */
     border-radius: 15px; /* Abgerundete Ecken */
@@ -201,6 +201,9 @@ button:hover, input[type="reset"]:hover {
     margin-left: 20px; /* Abstand zum vorherigen Text */
 }
 
+.fehler-wrapper{
+    align-items: center; /* Zentriert den Inhalt mittig */
+}
 
 .standort-input, .standort-button {
     height: 40px; /* Gleiche Höhe wie der Knopf */
@@ -336,17 +339,16 @@ button:hover, input[type="reset"]:hover {
     </div>
 
     <!-- Textbereich unter der Tabelle -->
-<div>
+
  <div class="result-wrapper">
     <p>Dein Pferd trägt am besten:</p>
-    <p id="ergebnis"></p>
+    <p id="ergebnis"></p> <br>
     <p id="output"></p>
  </div>    
+ <div class="fehler-wrapper">     
     <p id="fehler"></p>
     <p id="manuell"></p>
-</div>
-
-</div>
+</div> 
 
     <!-- Scripts -->
 
