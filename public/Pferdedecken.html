@@ -196,7 +196,7 @@ button:hover, input[type="reset"]:hover {
 .result-wrapper p#ergebnis {
     font-size: 20px; /* Größere Schrift */
     font-weight: bold; /* Fett */ 
-    text-align: right; /* Text rechtsbündig */
+    text-align: center; /* Text rechtsbündig */
     flex-shrink: 0; /* Verhindert das Schrumpfen */
     margin-left: 20px; /* Abstand zum vorherigen Text */
 }
@@ -342,7 +342,7 @@ button:hover, input[type="reset"]:hover {
 
  <div class="result-wrapper">
     <p>Dein Pferd trägt am besten:</p>
-    <p id="ergebnis"></p> <br>
+    <p id="ergebnis"></p> 
     <p id="output"></p>
  </div>    
  <div class="fehler-wrapper">     
@@ -390,8 +390,8 @@ function fetchWeather(position) {
                 witterungDescription = getWeatherDescription(witterungCode);
 
                 document.getElementById('output').innerHTML = `
-                    Aktuelle Temperatur: ${temp}°C<br>
-                    Gefühlte Temperatur: ${apparentTemp}°C<br>
+                    Aktuelle Temperatur: ${temp}°C ;  
+                    Gefühlte Temperatur: ${apparentTemp}°C ;  
                     Witterung: ${witterungDescription}`;
                 
                 auswerten();
