@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.25
+version 4.26
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -32,6 +32,7 @@ version 4.25
         table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
+    border-style: none;
     margin: 20px auto; /* Zentriert die Tabelle */
     width: 80%; /* Optionale Breite */
     border-radius: 10px; /* Runde Ecken */
@@ -43,9 +44,6 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
 
 th {
     background-color: #008000;
@@ -257,7 +255,8 @@ button:hover, input[type="reset"]:hover {
      <div class="centered-container">
     <div class="table-wrapper">
         <form name="form1" id="pferdeForm">
-            <!-- Fellzustand -->
+            
+            <!-- Rasse/Fellzustand -->
             <table>
                 <tr>
                     <th>Wie ist der Fellzustand Ihres Pferdes im Winter?</th>
@@ -265,13 +264,13 @@ button:hover, input[type="reset"]:hover {
                 <tr>
                     <td>
                         <input type="radio" id="dick" name="fellzustand" value="dick">
-                        <label for="dick">Dichtes Winterfell (häufig vorkommend bei Kaltblütern)</label>
+                        <label for="dick">Dichtes Winterfell (vorkommend bei Kaltblütern und Robustrassen)</label>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <input type="radio" id="dünn" name="fellzustand" value="dünn">
-                        <label for="dünn">Dünnes Winterfell (häufig vorkommend bei Warmblütern)</label>
+                        <label for="dünn">Dünnes Winterfell (vorkommend bei Warm- und Vollblütern)</label>
                     </td>
                 </tr>
                 <tr>
@@ -279,6 +278,9 @@ button:hover, input[type="reset"]:hover {
                         <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
                         <label for="geschoren">Geschoren</label>
                     </td>
+                </tr>
+                <tr style="background-color: #9ac9d9;">
+                    <td> Im Sommer sollten Pferde Grundsätzlich nicht eingedeckt werden müssen, auch nicht bei Regen. Sollten die Temperaturen unter 10°C sinken, wählen sie geschoren aus.  </td>
                 </tr>
             </table>
 
@@ -299,42 +301,54 @@ button:hover, input[type="reset"]:hover {
                         <label for="paddock">Draußen auf dem Paddock</label>
                     </td>
                 </tr>
+                <tr style="background-color: #9ac9d9;">
+                    <td>Steht ihr Pferd in der Box sollte die Decke vor dem Gang auf den Paddock gewechselt werden. Dafür wählen sie "Draußen auf dem Paddock" aus.  </td>
+                </tr>
             </table>
 
-            <!-- BCS -->
+            <!-- Gesundheit/Alter -->
                 <table>
                     <tr>
-                        <th>Wie ist der BCS (Body Conditioning Score) Ihres Pferdes? <br>(Der BCS beschreibt den Körperzustand eines Pferdes. Hier reicht eine grobe Einschätzung.)</th>
+                        <th> Wie alt und Gesund ist Ihr Pferd? </th>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="gesund" name="bcs" value="gesund">
-                            <label for="gesund">Ein BCS größer als 3; Ein gesundes oder übergewichtiges Pferd</label>
+                            <input type="radio" id="gesund" name="gesundheit" value="gesund">
+                            <label for="gesund">Mein Pferd ist gesund und ausgewachsen.</label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="dünn" name="bcs" value="dünn">
-                            <label for="dünn">Ein BCS von 3 oder kleiner; Ein dünnes, untergewichtiges Pferd</label>
+                            <input type="radio" id="krank" name="gesundheit" value="krank">
+                            <label for="krank">Mein Pferd ist krank oder ein Senior. </label>
                         </td>
+                    </tr>
+                    <tr style="background-color: #9ac9d9;">
+                        <td>Dieser Fragebogen ist nicht für Fohlen und Jährlinge ausgelegt. </td>
                     </tr>
                 </table>
 
-                <!-- Training -->
+                <!-- Bewegungspensum -->
                 <table>
                     <tr>
-                        <th>Wie viel ist Ihr Pferd aktuell im Training?</th>
+                        <th>Wie viel kann sich ihr Pferd bewegen?</th>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="viel" name="training" value="viel">
-                            <label for="viel">Mein Pferd wird viel und regelmäßig trainiert.</label>
+                            <input type="radio" id="viel" name="bewegung" value="viel">
+                            <label for="viel">Mein Pferd hat viel Platz und bewegt sich viel.</label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" id="wenig" name="training" value="wenig">
-                            <label for="wenig">Mein Pferd wird nur ab und zu oder gar nicht trainiert.</label>
+                            <input type="radio" id="wenig" name="bewegung" value="wenig">
+                            <label for="wenig">Mein Pferd hat wenig Platz und steht viel.</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="box" name="bewegung" value="box">
+                            <label for="wenig">Mein Pferd steht in der Box.</label>
                         </td>
                     </tr>
                 </table>
@@ -373,7 +387,7 @@ function toggleMenu() {
 
         
         // Globale Variablen
-let temp, apparentTemp, witterungCode, witterungDescription;
+let temp, witterungCode, witterungDescription;
 
 // Hauptfunktion zum Abrufen der Geolokation
 function getLocation() {
@@ -389,20 +403,18 @@ function getLocation() {
 function fetchWeather(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=apparent_temperature&timezone=auto&lang=de`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto&lang=de`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
             if (data.current_weather && data.hourly) {
                 temp = data.current_weather.temperature; // Aktuelle Temperatur
-                apparentTemp = data.hourly.apparent_temperature[0]; // Gefühlte Temperatur
                 witterungCode = data.current_weather.weathercode;
                 witterungDescription = getWeatherDescription(witterungCode);
 
                 document.getElementById('output').innerHTML = `
                     Aktuelle Temperatur: ${temp}°C ;  
-                    Gefühlte Temperatur: ${apparentTemp}°C ;  
                     Witterung: ${witterungDescription}`;
                 
                 auswerten();
@@ -499,72 +511,173 @@ function getTemperatureForLocation(location) {
         });
 }
 
-// Formularwerte auswerten
-function auswerten() {
-    const Fellzustand = getFormValue("fellzustand");
-    const Haltung = getFormValue("haltung");
-    const BCS = getFormValue("bcs");
-    const Training = getFormValue("training");
-
-    if (!Fellzustand || !Haltung || !BCS || !Training) {
-        showError("Bitte alle Felder ausfüllen!");
+       // Formularwerte auswerten
+    function auswerten() {
+        const Fellzustand = getFormValue("fellzustand");
+        const Haltung = getFormValue("haltung");
+        const Gesundheit = getFormValue("gesundheit");
+        const Bewegung = getFormValue("bewegung");
+        const füllung;
+        const deckenart;
+    
+        // Formularwert abrufen
+    function getFormValue(name) {
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        return selected ? selected.value : null;
+    }
+        //Fehleranzeige bei fehlendem Formularwert
+    if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
+        document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
         return;
     }
-
-    let pferdezustand;
-
-    if (BCS === "gesund") {
-        if (Haltung === "box" && Training === "viel") {
-            pferdezustand = "A";
-        } else if (Haltung === "paddock" && Training === "wenig" && Fellzustand === "dünn") {
-            pferdezustand = "C";
-        } else {
-            pferdezustand = "B";
-        }
-    } else if (BCS === "dünn" || Fellzustand === "geschoren") {
-        pferdezustand = "D";
-    }
-
-    deckenangabe(pferdezustand);
-}
-
-// Formularwert abrufen
-function getFormValue(name) {
-    const selected = document.querySelector(`input[name="${name}"]:checked`);
-    return selected ? selected.value : null;
-}
-
-// Deckenempfehlung anzeigen
-function deckenangabe(pferdezustand) {
-    const output = document.getElementById('ergebnis');
-    if (temp >= 12) {
-        output.innerHTML = 'Keine Decke.';
-    } else if (temp >= 6 && temp <= 11) {
-        if (pferdezustand === "D") {
-            output.innerHTML = 'eine Regendecke mit einer Füllung von 0g.';
-        } else if (pferdezustand === "B" || pferdezustand === "C") {
-            output.innerHTML = witterungCode > 3 ? 'Keine Decke.' : 'eine Regendecke mit einer Füllung von 0g.';
-        } else {
-            output.innerHTML = 'Keine Decke.';
-        }
-    } else if (temp >= 1 && temp <= 5) {
-        output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
-            'Thermodecke mit einer Füllung von 100g - 150g.' :
-            pferdezustand === "B" ? 'eine Thermodecke mit einer Füllung von 50g-100g.' : 'eine Stalldecke oder eine Decke von 0g - 50g.';
-    } else if (temp >= -5 && temp <= 0) {
-        output.innerHTML = pferdezustand === "D" || pferdezustand === "C" ?
-            'Thermodecke mit einer Füllung von 300g.' :
-            pferdezustand === "B" ? 'eine Thermodecke mit einer Füllung von 200g.' : 'eine Thermodecke mit einer Füllung bis 150g.';
+       //Unterscheidung in Stall- und Outdoordecke 
+    if (Haltung === "box"){
+        deckenart = "Stall- oder Unterdecke";
+        stalldecke();
     } else {
-        output.innerHTML = pferdezustand === "A" ?
-            'eine Thermodecke mit einer Füllung ab 200g.' : 'eine Thermodecke mit einer Füllung von 300g.';
+        outdoordecke();
     }
-}
 
-// Fehler anzeigen
-function showError(message) {
-    document.getElementById('fehler').innerText = message;
-}
+    function stalldecke(){
+        if (Fellzustand === "geschoren" || Gesundheit === "krank"){
+            if (temp >= 11){
+                füllung = "keine Decke";
+            } else if (temp <= 10 && temp >= 6){
+                füllung = "50g";
+            } else if (temp <= 5 && temp >= 1){
+                füllung = "100g - 150g";
+            } else if (temp <= 0 && temp >= -4){
+                füllung = "200g";
+            } else if (temp <= -5 && temp >= -10){
+                füllung = "300g";
+            } else {
+                füllung = "mindestens 300g";
+            }
+            
+        } else if (Fellzustand === "dünn") {
+            if (temp >= 11){
+                füllung = "keine Decke";
+            } else if (temp <= 10 && temp >= 6){
+                füllung = "50g";
+            } else if (temp <= 5 && temp >= 1){
+                füllung = "100g";
+            } else if (temp <= 0 && temp >= -4){
+                füllung = "150g";
+            } else if (temp <= -5 && temp >= -10){
+                füllung = "200g";
+            } else {
+                füllung = "mindestens 250g";
+            }
+        } else {
+            if (temp >= 1){
+                füllung = "keine Decke";
+            } else if (temp <= 0 && temp >= -4){
+                füllung = "0g";
+            } else if (temp <= -5 && temp >= -10){
+                füllung = "50g";
+            } else {
+                füllung = "mindestens 100g";
+            }
+        }
+    }
+
+    function outdoordecke(){
+        if (Fellzustand === "geschoren" || Gesundheit === "krank"){
+            if (temp >= 11){
+                füllung = "keine Decke"; 
+                deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+            } else if (temp <= 10 && temp >= 6){
+                füllung = "50g - 100g";
+            } else if (temp <= 5 && temp >= 1){
+                füllung = "150g - 200g";
+            } else if (temp <= 0 && temp >= -4){
+                füllung = "200g - 250g";
+            } else if (temp <= -5 && temp >= -10){
+                füllung = "250g - 300g";
+            } else {
+                füllung = "über 300g";
+            }
+        } if else (Fellzustand === "dünn") {
+            if (Bewegung === "viel"){
+                if (temp >= 11){
+                    füllung = "Keine Decke";
+                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temp <= 10 && temp >= 6){
+                    füllung = "0g";
+                } else if (temp <= 5 && temp >= 1){
+                    füllung = "50g";
+                } else if (temp <= 0 && temp >= -4){
+                    füllung = "100g";
+                } else if (temp <= -5 && temp >= -10){
+                    füllung = "150g";
+                } else {
+                    füllung = "mindestens 200g";
+                }
+             } else {
+                if (temp >= 11){
+                    füllung = "keine Decke";
+                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temp <= 10 && temp >= 6){
+                    füllung = "50g"; 
+                } else if (temp <= 5 && temp >= 1){
+                    füllung = "100g";
+                } else if (temp <= 0 && temp >= -4){
+                    füllung = "150g";
+                } else if (temp <= -5 && temp >= -10){
+                    füllung = "200g";
+                } else {
+                    füllung = "mindestens 250g";
+                }
+             }
+        } else {
+            if (Bewegung === "viel"){
+                if (temp >= 6){
+                    füllung = "keine Decke";
+                } else if (temp <= 5 && temp >= 1){
+                    füllung = "0g";
+                } else if (temp <= 0 && temp >= -4){
+                    füllung = "50g";
+                } else if (temp <= -5 && temp >= -10){
+                    füllung = "100g";
+                } else {
+                    füllung = "mindestens 150g";
+                }
+            } else {
+                if (temp >= 6){
+                    füllung = "keine Decke";
+                } else if (temp <= 5 && temp >= 1){
+                    füllung = "keine Decke";
+                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temp <= 0 && temp >= -4){
+                    füllung = "0g";
+                } else if (temp <= -5 && temp >= -10){
+                    füllung = "50g";
+                } else {
+                    füllung = "mindestens 100g";
+                }
+            }
+        }
+
+        //Outdoordeckenart ermitteln 
+        if (füllung === "0g") {
+            deckenart = "Regendecke";
+        } else if (füllung === "50g" || füllung === "100g"){
+            deckenart = "Regen- oder Übergangsdecke";
+        } else if (füllung === "150") {
+            deckenart = "Übergangsdecke";
+        } else {
+            deckenart = "Thermodecke";
+        }
+
+        // Ergebniswiedergabe 
+
+        if (füllung === "keine Decke") {
+            document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt keine Decke;
+        } else {
+            document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt keine " + deckenart + "mit einer Füllung von " + füllung "."  ;
+        }
+    }
+    
 
     </script>
 </body>
