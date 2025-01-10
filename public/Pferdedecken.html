@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.59
+version 4.60
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -376,6 +376,20 @@ console.log(document.querySelector('input[name="fellzustand"]:checked'));
 
             // Geolocation und Wetterdatenabruf
             function getLocation() {
+                    var Fellzustand = getFormValue("fellzustand");
+    console.log("Fellzustand geprüft:", Fellzustand);
+    if (!Fellzustand) {
+        console.error("Fellzustand konnte nicht abgerufen werden!");
+        document.getElementById('fehler').innerText = "Bitte Fellzustand auswählen.";
+        return;
+    }
+    var Haltung = getFormValue("haltung");
+    var Gesundheit = getFormValue("gesundheit");
+    var Bewegung = getFormValue("bewegung");
+    var füllung = "";
+    var deckenart = "";
+    console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung, temp, witterungCode });
+
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
                 } else {
@@ -507,19 +521,6 @@ function getFormValue(name) {
 
 // Formularwerte auswerten
 function auswerten() {
-    var Fellzustand = getFormValue("fellzustand");
-    console.log("Fellzustand geprüft:", Fellzustand);
-    if (!Fellzustand) {
-        console.error("Fellzustand konnte nicht abgerufen werden!");
-        document.getElementById('fehler').innerText = "Bitte Fellzustand auswählen.";
-        return;
-    }
-    var Haltung = getFormValue("haltung");
-    var Gesundheit = getFormValue("gesundheit");
-    var Bewegung = getFormValue("bewegung");
-    var füllung = "";
-    var deckenart = "";
-    console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung, temp, witterungCode });
 
     // Fehleranzeige bei fehlendem Formularwert
     if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
