@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.57
+version 4.59
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -361,7 +361,7 @@ button:hover, input[type="reset"]:hover {
          const radios = document.querySelectorAll('input[name="fellzustand"]');
         console.log("Alle Radiobuttons:", radios);
         console.log("Seite vollständig geladen.");
-        console.log("Fellzustand:", getFormValue("fellzustand"));
+        console.log("Fellzustand-Check:", getFormValue("fellzustand"));
     });
 
             console.log(document.querySelector('input[name="fellzustand"]'));
@@ -508,6 +508,12 @@ function getFormValue(name) {
 // Formularwerte auswerten
 function auswerten() {
     var Fellzustand = getFormValue("fellzustand");
+    console.log("Fellzustand geprüft:", Fellzustand);
+    if (!Fellzustand) {
+        console.error("Fellzustand konnte nicht abgerufen werden!");
+        document.getElementById('fehler').innerText = "Bitte Fellzustand auswählen.";
+        return;
+    }
     var Haltung = getFormValue("haltung");
     var Gesundheit = getFormValue("gesundheit");
     var Bewegung = getFormValue("bewegung");
@@ -542,7 +548,7 @@ function auswerten() {
 }
             // Outdoordecke bestimmen
     function outdoordecke() {
-        console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
+        console.log("Outdoordecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
         if (Bewegung === "box") {
             document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
         } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
@@ -631,7 +637,7 @@ function auswerten() {
         } else {
             deckenart = "Thermodecke";
         }
-        console.log("Stalldecke: Ergebnis", { füllung });
+        console.log("Outdoordecke: Ergebnis", { füllung });
     }
  // Stall- oder Unterdecke bestimmen
     function stalldecke() {
