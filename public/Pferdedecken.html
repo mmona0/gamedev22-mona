@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.50
+version 4.52
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -496,6 +496,7 @@ function auswerten() {
     let Bewegung = getFormValue("bewegung");
     let füllung = "";
     let deckenart = "";
+    console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung, temp, witterungCode });
 
     // Fehleranzeige bei fehlendem Formularwert
     if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
@@ -506,14 +507,16 @@ function auswerten() {
     // Unterscheidung in Stall- und Outdoordecke
        try {
         if (Haltung === "box") {
+            console.log("Stalldecke wird berechnet.");
             deckenart = "Stall- oder Unterdecke";
             stalldecke();
         } else {
+            console.log("Outdoordecke wird berechnet.");
             outdoordecke();
         }
     } catch (error) {
         document.getElementById('fehler').innerText = "Fehler bei der Berechnung der Decke.";
-        console.error(error);
+        console.error("Fehlerdetails:", error);
         return;
     }
 
@@ -522,6 +525,7 @@ function auswerten() {
 }
             // Outdoordecke bestimmen
     function outdoordecke() {
+        console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
         if (Bewegung === "box") {
             document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
         } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
@@ -610,9 +614,12 @@ function auswerten() {
         } else {
             deckenart = "Thermodecke";
         }
+        console.log("Stalldecke: Ergebnis", { füllung });
     }
  // Stall- oder Unterdecke bestimmen
     function stalldecke() {
+        
+        console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
         if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "keine Decke";
@@ -652,8 +659,7 @@ function auswerten() {
                 füllung = "mindestens 100g";
             }
         }
-        
-    ergebniswiedergabe();
+        console.log("Stalldecke: Ergebnis", { füllung });
     }
             
 // Ergebniswiedergabe
