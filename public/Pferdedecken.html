@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.48
+version 4.49
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -504,13 +504,19 @@ function auswerten() {
     }
 
     // Unterscheidung in Stall- und Outdoordecke
-    if (Haltung === "box") {
-        deckenart = "Stall- oder Unterdecke";
-        stalldecke();
-    } else {
-        outdoordecke();
+       try {
+        if (Haltung === "box") {
+            deckenart = "Stall- oder Unterdecke";
+            stalldecke();
+        } else {
+            outdoordecke();
+        }
+    } catch (error) {
+        document.getElementById('fehler').innerText = "Fehler bei der Berechnung der Decke.";
+        console.error(error);
+        return;
     }
-
+    
     // Stall- oder Unterdecke bestimmen
     function stalldecke() {
         if (Fellzustand === "geschoren" || Gesundheit === "krank") {
