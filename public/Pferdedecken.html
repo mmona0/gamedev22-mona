@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.44
+version 4.45
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -391,9 +391,11 @@ button:hover, input[type="reset"]:hover {
                         }
                     })
                     .catch(error => {
+                        if (!output){
                         console.error("API-Fehler:", error);
                         showError("Fehler bei der Wetter-API.");
                         manuelleEingabe();
+                        } else {return;}
                     });
             }
 
