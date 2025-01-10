@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.75
+version 4.76
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -383,6 +383,8 @@ button:hover, input[type="reset"]:hover {
         console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung }); //Fehlerüberprüfung 
 
         document.getElementById('fehler').innerText = ""; //Fehleranzeige zunächst zurücksetzen
+        document.getElementById('ergebnis').innerText = ""; //Deckenausgabe zunächst zurücksetzen
+
 
         if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
             document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen.";
