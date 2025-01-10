@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.42
+version 4.43
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -348,7 +348,6 @@ button:hover, input[type="reset"]:hover {
         <!-- Textbereich unter der Tabelle -->
         <div class="result-wrapper">
             <div class="inline-elements">
-                <p>Dein Pferd trägt am besten:</p>
                 <p id="ergebnis"></p> 
             </div>
             <p id="output"></p>
@@ -470,24 +469,183 @@ button:hover, input[type="reset"]:hover {
                 fehlerElement.innerHTML = message;
             }
 
-            function auswerten() {
-                const fellzustand = document.querySelector('input[name="fellzustand"]:checked');
-                if (!fellzustand) {
-                    showError("Bitte einen Fellzustand auswählen.");
-                    return;
-                }
+            // Formularwert abrufen
+function getFormValue(name) {
+    const selected = document.querySelector(`input[name="${name}"]:checked`);
+    return selected ? selected.value : null;
+}
 
-                let ergebnisText = "Dein Pferd braucht ";
-                if (fellzustand.value === "dick") {
-                    ergebnisText += "eine dicke Decke.";
-                } else if (fellzustand.value === "dünn") {
-                    ergebnisText += "eine dünne Decke.";
-                } else if (fellzustand.value === "geschoren") {
-                    ergebnisText += "keine Decke, weil es geschoren ist.";
-                }
+// Formularwerte auswerten
+function auswerten() {
+    let Fellzustand = getFormValue("fellzustand");
+    let Haltung = getFormValue("haltung");
+    let Gesundheit = getFormValue("gesundheit");
+    let Bewegung = getFormValue("bewegung");
+    let füllung = "";
+    let deckenart = "";
 
-                document.getElementById('ergebnis').innerText = ergebnisText;
+    // Fehleranzeige bei fehlendem Formularwert
+    if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
+        document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
+        return;
+    }
+
+    // Unterscheidung in Stall- und Outdoordecke
+    if (Haltung === "box") {
+        deckenart = "Stall- oder Unterdecke";
+        stalldecke();
+    } else {
+        outdoordecke();
+    }
+
+    // Stall- oder Unterdecke bestimmen
+    function stalldecke() {
+        if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+            if (temp >= 11) {
+                füllung = "keine Decke";
+            } else if (temp >= 6) {
+                füllung = "50g";
+            } else if (temp >= 1) {
+                füllung = "100g - 150g";
+            } else if (temp >= -4) {
+                füllung = "200g";
+            } else if (temp >= -10) {
+                füllung = "300g";
+            } else {
+                füllung = "mindestens 300g";
             }
+        } else if (Fellzustand === "dünn") {
+            if (temp >= 11) {
+                füllung = "keine Decke";
+            } else if (temp >= 6) {
+                füllung = "50g";
+            } else if (temp >= 1) {
+                füllung = "100g";
+            } else if (temp >= -4) {
+                füllung = "150g";
+            } else if (temp >= -10) {
+                füllung = "200g";
+            } else {
+                füllung = "mindestens 250g";
+            }
+        } else {
+            if (temp >= 1) {
+                füllung = "keine Decke";
+            } else if (temp >= -4) {
+                füllung = "0g";
+            } else if (temp >= -10) {
+                füllung = "50g";
+            } else {
+                füllung = "mindestens 100g";
+            }
+        }
+    }
+
+    // Outdoordecke bestimmen
+    function outdoordecke() {
+        if (Bewegung === "box") {
+            document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+        } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+            if (temp >= 11) {
+                füllung = "";
+                deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+            } else if (temp >= 6) {
+                füllung = "50g - 100g";
+            } else if (temp >= 1) {
+                füllung = "150g - 200g";
+            } else if (temp >= -4) {
+                füllung = "200g - 250g";
+            } else if (temp >= -10) {
+                füllung = "250g - 300g";
+            } else {
+                füllung = "über 300g";
+            }
+        } else if (Fellzustand === "dünn") {
+            if (Bewegung === "viel") {
+                if (temp >= 11) {
+                    füllung = "";
+                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temp >= 6) {
+                    füllung = "0g";
+                } else if (temp >= 1) {
+                    füllung = "50g";
+                } else if (temp >= -4) {
+                    füllung = "100g";
+                } else if (temp >= -10) {
+                    füllung = "150g";
+                } else {
+                    füllung = "mindestens 200g";
+                }
+            } else {
+                if (temp >= 11) {
+                    füllung = "";
+                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temp >= 6) {
+                    füllung = "50g";
+                } else if (temp >= 1) {
+                    füllung = "100g";
+                } else if (temp >= -4) {
+                    füllung = "150g";
+                } else if (temp >= -10) {
+                    füllung = "200g";
+                } else {
+                    füllung = "mindestens 250g";
+                }
+            }
+        } else {
+            if (Bewegung === "viel") {
+                if (temp >= 6) {
+                    füllung = "keine Decke";
+                } else if (temp >= 1) {
+                    füllung = "0g";
+                } else if (temp >= -4) {
+                    füllung = "50g";
+                } else if (temp >= -10) {
+                    füllung = "100g";
+                } else {
+                    füllung = "mindestens 150g";
+                }
+            } else {
+                if (temp >= 6) {
+                    füllung = "keine Decke";
+                } else if (temp >= 1) {
+                    füllung = "";
+                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temp >= -4) {
+                    füllung = "0g";
+                } else if (temp >= -10) {
+                    füllung = "50g";
+                } else {
+                    füllung = "mindestens 100g";
+                }
+            }
+        }
+
+        // Outdoordeckenart ermitteln
+        if (füllung === "0g") {
+            deckenart = "Regendecke";
+        } else if (füllung === "50g" || füllung === "100g") {
+            deckenart = "Regen- oder Übergangsdecke";
+        } else if (füllung === "150g") {
+            deckenart = "Übergangsdecke";
+        } else {
+            deckenart = "Thermodecke";
+        }
+    }
+
+    // Ergebnis anzeigen
+    ergebniswiedergabe();
+}
+
+// Ergebniswiedergabe
+function ergebniswiedergabe() {
+    if (füllung === "keine Decke" || deckenart === "keine Decke") {
+        document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
+    } else {
+        document.getElementById('ergebnis').innerText = `Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.`;
+    }
+}
+
         </script>
     </body>
 </html>
