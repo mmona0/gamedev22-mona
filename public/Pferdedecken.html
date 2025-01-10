@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.53
+version 4.54
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -363,7 +363,6 @@ button:hover, input[type="reset"]:hover {
     });
             if (!Fellzustand) {
     document.getElementById('fehler').innerText = "Bitte wählen Sie den Fellzustand Ihres Pferdes aus.";
-    return;
 }
 
             console.log(document.querySelector('input[name="fellzustand"]'));
@@ -533,7 +532,7 @@ function auswerten() {
     } catch (error) {
         document.getElementById('fehler').innerText = "Fehler bei der Berechnung der Decke.";
         console.error("Fehlerdetails:", error);
-        return;
+        return; 
     }
 
     // Ergebnis anzeigen
