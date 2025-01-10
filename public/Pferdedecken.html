@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.40
+version 4.41
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -390,7 +390,8 @@ function toggleMenu() {
 let temp, witterungCode, witterungDescription;
 
 // Hauptfunktion zum Abrufen der Geolokation
-function getLocation() {
+function getLocation(event) {
+    event.preventDefault();
     console.log('Button wurde geklickt!');
     
     if (navigator.geolocation) {
