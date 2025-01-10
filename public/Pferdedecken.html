@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.36
+version 4.37
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -254,7 +254,7 @@ button:hover, input[type="reset"]:hover {
 
      <div class="centered-container">
     <div class="table-wrapper">
-        <form name="form1" id="pferdeForm" onsubmit="return getLocation(event)">
+        <form name="form1" id="pferdeForm" >
             
             <!-- Rasse/Fellzustand -->
             <table>
@@ -356,7 +356,7 @@ button:hover, input[type="reset"]:hover {
 
             <!-- Buttons -->
             <div class="button-container">
-                <button type="submit" ">Absenden</button>
+                <button type="button" onclick="getLocation()">Absenden</button>
                 <input type="reset" value="Zurücksetzen">
             </div>
         </form>
@@ -675,15 +675,16 @@ function getTemperatureForLocation(location) {
 
         ergebniswiedergabe(); 
     }
+ }
         
- function ergebniswiedergabe(){
+function ergebniswiedergabe(){
         if (füllung === "keine Decke" || deckenart === "keine Decke") {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
         } else {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.  ;
         }
      }
- }
+
     </script>
 </body>
 </html>
