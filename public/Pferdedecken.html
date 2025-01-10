@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.80
+version 4.81
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -342,78 +342,75 @@ version 4.80
                     </tr>
                 </table>
                 
-                <!-- Buttons -->
-                <div class="button-container">
-                    <button type="button" onclick="getStandort()">Absenden</button>
-                    <input type="reset" value="Zurücksetzen">
-                </div>
-            </form>
-        </div>
+               <!-- Buttons -->
+<div class="button-container">
+    <button type="button" onclick="standortAbrufen()">Absenden</button>
+    <input type="reset" value="Zurücksetzen">
+</div>
+</form>
+</div>
 
-        <!-- Textbereich unter der Tabelle -->
-        <div class="result-wrapper">
-            <div class="inline-elements">
-                <p id="ergebnis"></p> 
-            </div>
-            <p id="wetteroutput"></p>
-        </div>  
+<!-- Textbereich unter der Tabelle -->
+<div class="result-wrapper">
+    <div class="inline-elements">
+        <p id="ergebnis"></p> 
+    </div>
+    <p id="wetteroutput"></p>
+</div>  
 
-        <div class="fehler-wrapper">     
-            <p id="fehler"></p>
-            <p id="manuell"></p>
-        </div> 
+<div class="fehler-wrapper">     
+    <p id="fehler"></p>
+    <p id="manuell"></p>
+</div> 
 
-        <!-- Scripts -->
+<!-- Scripts -->
 <script defer>
 
-    
     // Menü
-    function toggleMenue() {
+    function menueUmschalten() {
         const menu = document.getElementById('menu-list');
         menu.classList.toggle('open');
     }
 
-    
     // Globale Variablen
-    var Fellzustand = "";
-    var Haltung = "";
-    var Gesundheit = "";
-    var Bewegung = "";
+    var fellzustand = "";
+    var haltung = "";
+    var gesundheit = "";
+    var bewegung = "";
 
-    var füllung = ""; 
+    var fuellung = ""; 
     var deckenart = ""; 
-    var temp; // Temperatur
-    var witterungCode; 
-    var witterungBeschreibung; 
+    var temperatur; // Temperatur
+    var wetterCode; 
+    var wetterBeschreibung; 
 
     // Geolocation und Wetterdatenabruf
-    function getStandort() {
-         Fellzustand = getFormValue("fellzustand");
-         Haltung = getFormValue("haltung");
-         Gesundheit = getFormValue("gesundheit");
-         Bewegung = getFormValue("bewegung");
+    function standortAbrufen() {
+        fellzustand = getFormularwert("fellzustand");
+        haltung = getFormularwert("haltung");
+        gesundheit = getFormularwert("gesundheit");
+        bewegung = getFormularwert("bewegung");
 
-        console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung }); //Fehlerüberprüfung 
+        console.log("Formulareingaben:", { fellzustand, haltung, gesundheit, bewegung }); //Fehlerüberprüfung
 
         document.getElementById('fehler').innerText = ""; //Fehleranzeige zunächst zurücksetzen
         document.getElementById('ergebnis').innerText = ""; //Deckenausgabe zunächst zurücksetzen
 
-
-        if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
+        if (!fellzustand || !haltung || !gesundheit || !bewegung) {
             document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen.";
             return;
         }
 
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
+            navigator.geolocation.getCurrentPosition(wetterAbrufen, fehlerBehandlung);
         } else {
-            showError("Geolocation wird von diesem Browser nicht unterstützt.");
+            zeigeFehler("Geolocation wird von diesem Browser nicht unterstützt.");
             manuelleEingabe();
         }
     }
 
     // Wetterdaten abrufen
-    function fetchWeather(position) {
+    function wetterAbrufen(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto&lang=de`;
@@ -422,29 +419,29 @@ version 4.80
             .then(response => response.json())
             .then(data => {
                 if (data.current_weather) {
-                    temp = data.current_weather.temperature;
-                    witterungCode = data.current_weather.weathercode;
-                    witterungBeschreibung = getWetterbeschreibung(witterungCode);
-                    document.getElementById('wetteroutput').innerHTML = `Aktuelle Temperatur: ${temp}°C ; Witterung: ${witterungBeschreibung}`;
+                    temperatur = data.current_weather.temperature;
+                    wetterCode = data.current_weather.weathercode;
+                    wetterBeschreibung = getWetterbeschreibung(wetterCode);
+                    document.getElementById('wetteroutput').innerHTML = `Aktuelle Temperatur: ${temperatur}°C ; Witterung: ${wetterBeschreibung}`;
                     auswerten();
                 } else {
-                    showError("Fehler beim Abrufen der Wetterdaten.");
+                    zeigeFehler("Fehler beim Abrufen der Wetterdaten.");
                 }
             })
             .catch(error => {
                 console.error("API-Fehler:", error);
-                showError("Fehler bei der Wetter-API.");
+                zeigeFehler("Fehler bei der Wetter-API.");
                 manuelleEingabe();
             });
     }
 
-    function handleError(error) {
+    function fehlerBehandlung(error) {
         const fehlerText = {
             1: "Standortberechtigung wurde abgelehnt.",
             2: "Standort konnte nicht ermittelt werden.",
             3: "Zeitüberschreitung bei der Standortermittlung."
         };
-        showError(fehlerText[error.code] || "Unbekannter Fehler.");
+        zeigeFehler(fehlerText[error.code] || "Unbekannter Fehler.");
         manuelleEingabe();
     }
 
@@ -490,225 +487,205 @@ version 4.80
         button.classList.add('standort-button');
         button.onclick = () => {
             const standort = input.value.trim();
-            if (standort) getTemperatureForLocation(standort);
+            if (standort) getTemperaturFuerStandort(standort);
         };
 
         container.appendChild(input);
         container.appendChild(button);
     }
 
-    function getTemperatureForLocation(location) {
-        const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
+    function getTemperaturFuerStandort(standort) {
+        const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(standort)}&format=json&addressdetails=1&limit=1`;
 
         fetch(geocodeUrl)
             .then(response => response.json())
             .then(data => {
                 if (data.length > 0) {
                     const { lat, lon } = data[0];
-                    fetchWeather({ coords: { latitude: lat, longitude: lon } });
+                    wetterAbrufen({ coords: { latitude: lat, longitude: lon } });
                 } else {
-                    showError("Standort konnte nicht gefunden werden.");
+                    zeigeFehler("Standort konnte nicht gefunden werden.");
                 }
             })
             .catch(error => {
                 console.error("Fehler bei der Standortsuche:", error);
-                showError("Fehler bei der Standortsuche.");
+                zeigeFehler("Fehler bei der Standortsuche.");
             });
     }
 
-    function showError(message) {
+    function zeigeFehler(message) {
         document.getElementById('fehler').innerHTML = message;
     }
 
     // Formularwert abrufen
-    function getFormValue(name) {
+    function getFormularwert(name) {
         const selected = document.querySelector(`input[name="${name}"]:checked`);
         return selected ? selected.value : null;
     }
 
-
-
-// Formularwerte auswerten
-function auswerten() {
-        
-    // Unterscheidung in Stall- und Outdoordecke
-    try {
-        if (Haltung === "box") {
-            console.log("Stalldecke wird berechnet.");
-            deckenart = "Stall- oder Unterdecke";
-            if (Bewegung !== "box") {
-                document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
-                return;
-            } else 
-            stalldecke();
-        } else {
-            console.log("Outdoordecke wird berechnet.");
-            if (Bewegung === "box") {
-                document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
-                return;
+    // Formularwerte auswerten
+    function auswerten() {
+        // Unterscheidung in Stall- und Outdoordecke
+        try {
+            if (haltung === "box") {
+                console.log("Stalldecke wird berechnet.");
+                deckenart = "Stall- oder Unterdecke";
+                if (bewegung !== "box") {
+                    document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+                    return;
+                } else 
+                stalldecke();
             } else {
-            outdoordecke();
+                console.log("Outdoordecke wird berechnet.");
+                if (bewegung === "box") {
+                    document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+                    return;
+                } else {
+                outdoordecke();
+                }
             }
+        } catch (error) {
+            document.getElementById('fehler').innerText = "Fehler bei der Berechnung der Decke.";
+            console.error("Fehlerdetails:", error);
+            return; 
         }
-    } catch (error) {
-        document.getElementById('fehler').innerText = "Fehler bei der Berechnung der Decke.";
-        console.error("Fehlerdetails:", error);
-        return; 
-    }
 
-    // Ergebnis anzeigen
-    ergebniswiedergabe();
-}
+        // Ergebnis anzeigen
+        ergebniswiedergabe();
+    }
     
     // Outdoordecke bestimmen
     function outdoordecke() {
-        console.log("Outdoordecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-        if (Fellzustand === "geschoren" || Gesundheit === "krank") {
-            if (temp >= 11) {
-                füllung = "";
-                deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-            } else if (temp >= 6) {
-                füllung = "50g - 100g";
-            } else if (temp >= 1) {
-                füllung = "150g - 200g";
-            } else if (temp >= -4) {
-                füllung = "200g - 250g";
-            } else if (temp >= -10) {
-                füllung = "250g - 300g";
+        console.log("Outdoordecke: Start der Berechnung", { fellzustand, gesundheit, temperatur });
+        if (fellzustand === "geschoren" || gesundheit === "krank") {
+            if (temperatur >= 11) {
+                fuellung = "";
+                deckenart = wetterCode < 3 ? 'Keine Decke' : 'Regendecke';
+            } else if (temperatur >= 6) {
+                fuellung = "50g - 100g";
+            } else if (temperatur >= 1) {
+                fuellung = "150g - 200g";
+            } else if (temperatur >= -4) {
+                fuellung = "200g - 250g";
+            } else if (temperatur >= -10) {
+                fuellung = "250g - 300g";
             } else {
-                füllung = "über 300g";
+                fuellung = "über 300g";
             }
-        } else if (Fellzustand === "dünn") {
-            if (Bewegung === "viel") {
-                if (temp >= 11) {
-                    füllung = "";
-                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp >= 6) {
-                    füllung = "0g";
-                } else if (temp >= 1) {
-                    füllung = "50g";
-                } else if (temp >= -4) {
-                    füllung = "100g";
-                } else if (temp >= -10) {
-                    füllung = "150g";
+        } else if (fellzustand === "dünn") {
+            if (bewegung === "viel") {
+                if (temperatur >= 11) {
+                    fuellung = "";
+                    deckenart = wetterCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temperatur >= 6) {
+                    fuellung = "0g";
+                } else if (temperatur >= 1) {
+                    fuellung = "50g";
+                } else if (temperatur >= -4) {
+                    fuellung = "100g";
+                } else if (temperatur >= -10) {
+                    fuellung = "150g";
                 } else {
-                    füllung = "mindestens 200g";
+                    fuellung = "mindestens 200g";
                 }
             } else {
-                if (temp >= 11) {
-                    füllung = "";
-                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp >= 6) {
-                    füllung = "50g";
-                } else if (temp >= 1) {
-                    füllung = "100g";
-                } else if (temp >= -4) {
-                    füllung = "150g";
-                } else if (temp >= -10) {
-                    füllung = "200g";
+                if (temperatur >= 11) {
+                    fuellung = "";
+                    deckenart = wetterCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temperatur >= 6) {
+                    fuellung = "50g";
+                } else if (temperatur >= 1) {
+                    fuellung = "100g";
+                } else if (temperatur >= -4) {
+                    fuellung = "150g";
+                } else if (temperatur >= -10) {
+                    fuellung = "200g";
                 } else {
-                    füllung = "mindestens 250g";
+                    fuellung = "mindestens 250g";
                 }
             }
         } else {
-            if (Bewegung === "viel") {
-                if (temp >= 6) {
-                    füllung = "keine Decke";
-                } else if (temp >= 1) {
-                    füllung = "0g";
-                } else if (temp >= -4) {
-                    füllung = "50g";
-                } else if (temp >= -10) {
-                    füllung = "100g";
+            if (bewegung === "viel") {
+                if (temperatur >= 6) {
+                    fuellung = "keine Decke";
+                } else if (temperatur >= 1) {
+                    fuellung = "0g";
+                } else if (temperatur >= -4) {
+                    fuellung = "50g";
+                } else if (temperatur >= -10) {
+                    fuellung = "100g";
                 } else {
-                    füllung = "mindestens 150g";
+                    fuellung = "mindestens 150g";
                 }
             } else {
-                if (temp >= 6) {
-                    füllung = "keine Decke";
-                } else if (temp >= 1) {
-                    füllung = "";
-                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp >= -4) {
-                    füllung = "0g";
-                } else if (temp >= -10) {
-                    füllung = "50g";
+                if (temperatur >= 6) {
+                    fuellung = "keine Decke";
+                } else if (temperatur >= 1) {
+                    fuellung = "";
+                    deckenart = wetterCode < 3 ? 'Keine Decke' : 'Regendecke';
+                } else if (temperatur >= -4) {
+                    fuellung = "0g";
+                } else if (temperatur >= -10) {
+                    fuellung = "50g";
                 } else {
-                    füllung = "mindestens 100g";
+                    fuellung = "mindestens 100g";
                 }
             }
         }
 
         // Outdoordeckenart ermitteln
-        if (füllung === "0g") {
+        if (fuellung === "0g") {
             deckenart = "Regendecke";
-        } else if (füllung === "50g" || füllung === "100g") {
+        } else if (fuellung === "50g" || fuellung === "100g") {
             deckenart = "Regen- oder Übergangsdecke";
-        } else if (füllung === "150g") {
+        } else if (fuellung === "150g") {
             deckenart = "Übergangsdecke";
         } else {
             deckenart = "Thermodecke";
         }
-        console.log("Outdoordecke: Ergebnis", { füllung });
+        console.log("Outdoordecke: Ergebnis", { fuellung });
         
     }
+
     // Stall- oder Unterdecke bestimmen
     function stalldecke() {
         
-        console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-         if (Fellzustand === "geschoren" || Gesundheit === "krank") {
-            if (temp >= 11) {
-                füllung = "keine Decke";
-            } else if (temp >= 6) {
-                füllung = "50g";
-            } else if (temp >= 1) {
-                füllung = "100g - 150g";
-            } else if (temp >= -4) {
-                füllung = "200g";
-            } else if (temp >= -10) {
-                füllung = "300g";
+        console.log("Stalldecke: Start der Berechnung", { fellzustand, gesundheit, temperatur });
+         if (fellzustand === "geschoren" || gesundheit === "krank") {
+            if (temperatur >= 11) {
+                fuellung = "keine Decke";
+            } else if (temperatur >= 6) {
+                fuellung = "50g";
+            } else if (temperatur >= 1) {
+                fuellung = "100g - 150g";
+            } else if (temperatur >= -4) {
+                fuellung = "200g";
+            } else if (temperatur >= -10) {
+                fuellung = "300g";
             } else {
-                füllung = "mindestens 300g";
+                fuellung = "mindestens 300g";
             }
-        } else if (Fellzustand === "dünn") {
-            if (temp >= 11) {
-                füllung = "keine Decke";
-            } else if (temp >= 6) {
-                füllung = "50g";
-            } else if (temp >= 1) {
-                füllung = "100g";
-            } else if (temp >= -4) {
-                füllung = "150g";
-            } else if (temp >= -10) {
-                füllung = "200g";
+        } else if (fellzustand === "dünn") {
+            if (temperatur >= 11) {
+                fuellung = "keine Decke";
+            } else if (temperatur >= 6) {
+                fuellung = "50g";
+            } else if (temperatur >= 1) {
+                fuellung = "100g";
+            } else if (temperatur >= -4) {
+                fuellung = "150g";
+            } else if (temperatur >= -10) {
+                fuellung = "200g";
             } else {
-                füllung = "mindestens 250g";
+                fuellung = "mindestens 250g";
             }
         } else {
-            if (temp >= 1) {
-                füllung = "keine Decke";
-            } else if (temp >= -4) {
-                füllung = "0g";
-            } else if (temp >= -10) {
-                füllung = "50g";
-            } else {
-                füllung = "mindestens 100g";
-            }
-        }
-        console.log("Stalldecke: Ergebnis", { füllung });
-        
-    }
-            
-// Ergebniswiedergabe
-function ergebniswiedergabe() {
-    // Verschiedene Textwiedergaben danach ob eine Decke vorgeschlagen wird
-    if (füllung === "keine Decke" || deckenart === "keine Decke") {
-        document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt keine Decke.";
-    } else {
-        document.getElementById('ergebnis').innerText = `Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.`;
-    }
-}
-
+            if (temperatur >= 1) {
+                fuellung = "keine Decke";
+            } else if (temperatur >= -4) {
+                fuellung = "0g";
+            } else if (temperatur >= -10) {
+                fuellung = "50g";
 
         </script>
     </body>
