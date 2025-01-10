@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-version 4.41
+version 4.42
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EquiDeckenCheck</title>
     <style>
-/* Stildefinitionen */
+        /* Stildefinitionen */
         * { box-sizing: border-box; }
-        
         .row::after { content: ""; clear: both; display: table; }
-        
         [class*="col-"] { float: left; padding: 15px; }
         .col-1  { width: 8.33%; }
         .col-2  { width: 16.66%; }
@@ -24,37 +22,27 @@ version 4.41
         .col-10 { width: 83.33%; }
         .col-11 { width: 91.66%; }
         .col-12 { width: 100%; }
-        
         html { font-family: "Lucida Sans", sans-serif; }
-        
         .header { background-color: #008000; color: #ffffff; padding: 15px; }
-        
         table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    border-style: none;
-    margin: 20px auto; /* Zentriert die Tabelle */
-    width: 80%; /* Optionale Breite */
-    border-radius: 10px; /* Runde Ecken */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
-}
-
-td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-
-th {
-    background-color: #008000;
-    color: white;
-    text-align: left;
-    padding: 12px;
-    border-top-left-radius: 10px; /* Linke obere Ecke runden */
-    border-top-right-radius: 10px; /* Rechte obere Ecke runden */
-}
-
-        /* Menü-Stil */
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            margin: 20px auto; /* Zentriert die Tabelle */
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+        }
+        td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #008000;
+            color: white;
+            text-align: left;
+            padding: 12px;
+        }
+                /* Menü-Stil */
         
 
 .navbar {
@@ -237,12 +225,10 @@ button:hover, input[type="reset"]:hover {
 .standort-button:hover {
     background-color: #006400; /* Dunklerer Grünton beim Hover */
 }
-
     </style>
-    
 </head>
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div class="brand">EquiDeckenCheck</div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul id="menu-list">
@@ -252,39 +238,37 @@ button:hover, input[type="reset"]:hover {
         </ul>
     </div>
 
-     <div class="centered-container">
-    <div class="table-wrapper">
-        <form name="form1" id="pferdeForm" >
-            
-            <!-- Rasse/Fellzustand -->
-            <table>
-                <tr>
-                    <th>Wie ist der Fellzustand Ihres Pferdes im Winter?</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" id="dick" name="fellzustand" value="dick">
-                        <label for="dick">Dichtes Winterfell (vorkommend bei Kaltblütern und Robustrassen)</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" id="dünn" name="fellzustand" value="dünn">
-                        <label for="dünn">Dünnes Winterfell (vorkommend bei Warm- und Vollblütern)</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
-                        <label for="geschoren">Geschoren</label>
-                    </td>
-                </tr>
-                <tr style="background-color: #9ac9d9;">
-                    <td> Im Sommer sollten Pferde Grundsätzlich nicht eingedeckt werden müssen, auch nicht bei Regen. Sollten die Temperaturen unter 10°C sinken, wählen sie geschoren aus.  </td>
-                </tr>
-            </table>
+    <div class="centered-container">
+        <div class="table-wrapper">
+            <form name="form1" id="pferdeForm" >
+                <table>
+                    <tr>
+                        <th>Wie ist der Fellzustand Ihres Pferdes im Winter?</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="dick" name="fellzustand" value="dick">
+                            <label for="dick">Dichtes Winterfell (vorkommend bei Kaltblütern und Robustrassen)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="dünn" name="fellzustand" value="dünn">
+                            <label for="dünn">Dünnes Winterfell (vorkommend bei Warm- und Vollblütern)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="geschoren" name="fellzustand" value="geschoren">
+                            <label for="geschoren">Geschoren</label>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #9ac9d9;">
+                        <td> Im Sommer sollten Pferde Grundsätzlich nicht eingedeckt werden müssen, auch nicht bei Regen. Sollten die Temperaturen unter 10°C sinken, wählen sie geschoren aus.  </td>
+                    </tr>
+                </table>
 
-            <!-- Haltung -->
+                <!-- Haltung -->
             <table>
                 <tr>
                     <th>Wie steht Ihr Pferd hauptsächlich?</th>
@@ -352,339 +336,158 @@ button:hover, input[type="reset"]:hover {
                         </td>
                     </tr>
                 </table>
-
-
-            <!-- Buttons -->
-            <div class="button-container">
-                <button type="button" onclick="getLocation()">Absenden</button>
-                <input type="reset" value="Zurücksetzen">
-            </div>
-        </form>
-    </div>
-
-    <!-- Textbereich unter der Tabelle -->
-
-<div class="result-wrapper">
-    <div class="inline-elements">
-        <p>Dein Pferd trägt am besten:</p>
-        <p id="ergebnis"></p> 
-    </div>
-    <p id="output"></p>
-</div>  
- <div class="fehler-wrapper">     
-    <p id="fehler"></p>
-    <p id="manuell"></p>
-</div> 
-
-    <!-- Scripts -->
-
-    <script>
-        //Menü 
-function toggleMenu() {
-            const menu = document.getElementById('menu-list');
-            menu.classList.toggle('open');
-        }
-
-        
-        // Globale Variablen
-let temp, witterungCode, witterungDescription;
-
-// Hauptfunktion zum Abrufen der Geolokation
-function getLocation(event) {
-    event.preventDefault();
-    console.log('Button wurde geklickt!');
-    
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
-    } else {
-        showError("Geolocation wird von diesem Browser nicht unterstützt.");
-        manuelleEingabe();
-    }
-}
-
-// Wetterdaten abrufen
-function fetchWeather(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto&lang=de`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.current_weather && data.hourly) {
-                temp = data.current_weather.temperature; // Aktuelle Temperatur
-                witterungCode = data.current_weather.weathercode;
-                witterungDescription = getWeatherDescription(witterungCode);
-
-                document.getElementById('output').innerHTML = `
-                    Aktuelle Temperatur: ${temp}°C ;  
-                    Witterung: ${witterungDescription}`;
                 
-                auswerten();
-            } else {
-                showError("Fehler beim Abrufen der Wetterdaten.");
+                <!-- Buttons -->
+                <div class="button-container">
+                    <button type="button" onclick="getLocation()">Absenden</button>
+                    <input type="reset" value="Zurücksetzen">
+                </div>
+            </form>
+        </div>
+
+        <!-- Textbereich unter der Tabelle -->
+        <div class="result-wrapper">
+            <div class="inline-elements">
+                <p>Dein Pferd trägt am besten:</p>
+                <p id="ergebnis"></p> 
+            </div>
+            <p id="output"></p>
+        </div>  
+
+        <div class="fehler-wrapper">     
+            <p id="fehler"></p>
+            <p id="manuell"></p>
+        </div> 
+
+        <!-- Scripts -->
+        <script>
+            // Menü
+            function toggleMenu() {
+                const menu = document.getElementById('menu-list');
+                menu.classList.toggle('open');
             }
-        })
-        .catch(error => {
-            console.error("API-Fehler:", error);
-            showError("Fehler bei der Wetter-API.");
-            manuelleEingabe();
-        });
-}
 
-// Fehler bei der Standortabfrage behandeln
-function handleError(error) {
-    const fehlerText = {
-        1: "Standortberechtigung wurde abgelehnt.",
-        2: "Standort konnte nicht ermittelt werden.",
-        3: "Zeitüberschreitung bei der Standortermittlung."
-    };
-    showError(fehlerText[error.code] || "Unbekannter Fehler.");
-    manuelleEingabe();
-}
-
-// Witterungsbeschreibung basierend auf Codes abrufen
-function getWeatherDescription(code) {
-    const descriptions = {
-        0: "Klarer Himmel",
-        1: "Hauptsächlich klar",
-        2: "Teilweise bewölkt",
-        3: "Bewölkt",
-        45: "Nebel",
-        48: "Reifnebel",
-        51: "Leichter Nieselregen",
-        53: "Moderater Nieselregen",
-        55: "Starker Nieselregen",
-        61: "Leichter Regen",
-        63: "Moderater Regen",
-        65: "Starker Regen",
-        71: "Leichter Schneefall",
-        73: "Moderater Schneefall",
-        75: "Starker Schneefall",
-        80: "Leichte Regenschauer",
-        81: "Moderate Regenschauer",
-        82: "Starke Regenschauer",
-        95: "Gewitter",
-        96: "Gewitter mit leichtem Hagel",
-        99: "Gewitter mit starkem Hagel"
-    };
-    return descriptions[code] || "Unbekannte Witterung";
-}
-
-// Manuelle Eingabe für Standort anbieten
-function manuelleEingabe() {
-    const container = document.getElementById('manuell');
-    if (document.getElementById('standortEingabe')) return;
-
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.id = 'standortEingabe';
-    input.placeholder = 'Standort eingeben';
-    input.classList.add('standort-input');
-
-    const button = document.createElement('button');
-    button.textContent = 'Absenden';
-    button.classList.add('standort-button');
-    button.onclick = () => {
-        const standort = input.value.trim();
-        if (standort) getTemperatureForLocation(standort);
-    };
-
-    container.appendChild(input);
-    container.appendChild(button);
-}
-
-// Temperatur basierend auf manuellem Standort abrufen
-function getTemperatureForLocation(location) {
-    const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
-
-    fetch(geocodeUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                const { lat, lon } = data[0];
-                fetchWeather({ coords: { latitude: lat, longitude: lon } });
-            } else {
-                showError("Standort konnte nicht gefunden werden.");
-            }
-        })
-        .catch(error => {
-            console.error("Geocoding-Fehler:", error);
-            showError("Fehler bei der Geocoding-API.");
-        });
-}
-
-       // Formularwerte auswerten
-    function auswerten() {
-        let Fellzustand = getFormValue("fellzustand");
-        let Haltung = getFormValue("haltung");
-        let Gesundheit = getFormValue("gesundheit");
-        let Bewegung = getFormValue("bewegung");
-        let füllung = "";
-        let deckenart = "";
-    
-        // Formularwert abrufen
-    function getFormValue(name) {
-        const selected = document.querySelector(`input[name="${name}"]:checked`);
-        return selected ? selected.value : null;
-    }
-        //Fehleranzeige bei fehlendem Formularwert
-    if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
-        document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
-        return;
-    }
-       //Unterscheidung in Stall- und Outdoordecke 
-    if (Haltung === "box"){
-        deckenart = "Stall- oder Unterdecke";
-        stalldecke();
-    } else {
-        outdoordecke();
-    }
-
-    function stalldecke(){
-        if (Fellzustand === "geschoren" || Gesundheit === "krank"){
-            if (temp >= 11){
-                füllung = "keine Decke";
-            } else if (temp >= 6){
-                füllung = "50g";
-            } else if (temp >= 1){
-                füllung = "100g - 150g";
-            } else if (temp >= -4){
-                füllung = "200g";
-            } else if (temp >= -10){
-                füllung = "300g";
-            } else {
-                füllung = "mindestens 300g";
-            }
-            
-        } else if (Fellzustand === "dünn") {
-            if (temp >= 11){
-                füllung = "keine Decke";
-            } else if (temp >= 6){
-                füllung = "50g";
-            } else if (temp >= 1){
-                füllung = "100g";
-            } else if (temp >= -4){
-                füllung = "150g";
-            } else if (temp >= -10){
-                füllung = "200g";
-            } else {
-                füllung = "mindestens 250g";
-            }
-        } else {
-            if (temp >= 1){
-                füllung = "keine Decke";
-            } else if (temp >= -4){
-                füllung = "0g";
-            } else if (temp >= -10){
-                füllung = "50g";
-            } else {
-                füllung = "mindestens 100g";
-            }
-        }
-    }
-
-    function outdoordecke(){
-        if (Bewegung === "box") {
-            document.getElementById('fehler').innerText = 'Bitte ändern sie die Haltung oder das Bewegungspensum';
-        } else if (Fellzustand === "geschoren" || Gesundheit === "krank"){
-            if (temp >= 11){
-                füllung = ""; 
-                deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-            } else if (temp >= 6){
-                füllung = "50g - 100g";
-            } else if (temp >= 1){
-                füllung = "150g - 200g";
-            } else if (temp >= -4){
-                füllung = "200g - 250g";
-            } else if (temp >= -10){
-                füllung = "250g - 300g";
-            } else {
-                füllung = "über 300g";
-            }
-        } else if (Fellzustand === "dünn") {
-            if (Bewegung === "viel"){
-                if (temp >= 11){
-                    füllung = "";
-                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp >= 6){
-                    füllung = "0g";
-                } else if (temp >= 1){
-                    füllung = "50g";
-                } else if (temp >= -4){
-                    füllung = "100g";
-                } else if (temp >= -10){
-                    füllung = "150g";
+            // Geolocation und Wetterdatenabruf
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
                 } else {
-                    füllung = "mindestens 200g";
-                }
-             } else {
-                if (temp >= 11){
-                    füllung = "";
-                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp >= 6){
-                    füllung = "50g"; 
-                } else if (temp >= 1){
-                    füllung = "100g";
-                } else if (temp >= -4){
-                    füllung = "150g";
-                } else if (temp >= -10){
-                    füllung = "200g";
-                } else {
-                    füllung = "mindestens 250g";
-                }
-             }
-        } else {
-            if (Bewegung === "viel"){
-                if (temp >= 6){
-                    füllung = "keine Decke";
-                } else if (temp >= 1){
-                    füllung = "0g";
-                } else if (temp >= -4){
-                    füllung = "50g";
-                } else if (temp >= -10){
-                    füllung = "100g";
-                } else {
-                    füllung = "mindestens 150g";
-                }
-            } else {
-                if (temp >= 6){
-                    füllung = "keine Decke";
-                } else if (temp >= 1){
-                    füllung = "";
-                    deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp >= -4){
-                    füllung = "0g";
-                } else if (temp >= -10){
-                    füllung = "50g";
-                } else {
-                    füllung = "mindestens 100g";
+                    showError("Geolocation wird von diesem Browser nicht unterstützt.");
+                    manuelleEingabe();
                 }
             }
-        }
 
-        //Outdoordeckenart ermitteln 
-        if (füllung === "0g") {
-            deckenart = "Regendecke";
-        } else if (füllung === "50g" || füllung === "100g"){
-            deckenart = "Regen- oder Übergangsdecke";
-        } else if (füllung === "150") {
-            deckenart = "Übergangsdecke";
-        } else {
-            deckenart = "Thermodecke";
-        }
-    }
-        ergebniswiedergabe();
- }
-        
-function ergebniswiedergabe(){
-        if (füllung === "keine Decke" || deckenart === "keine Decke") {
-            document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
-        } else {
-            document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.  ;
-        }
-     }
+            // Wetterdaten abrufen
+            function fetchWeather(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto&lang=de`;
 
-    </script>
-</body>
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.current_weather) {
+                            temp = data.current_weather.temperature;
+                            witterungCode = data.current_weather.weathercode;
+                            witterungDescription = getWeatherDescription(witterungCode);
+                            document.getElementById('output').innerHTML = `Aktuelle Temperatur: ${temp}°C ; Witterung: ${witterungDescription}`;
+                            auswerten();
+                        } else {
+                            showError("Fehler beim Abrufen der Wetterdaten.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("API-Fehler:", error);
+                        showError("Fehler bei der Wetter-API.");
+                        manuelleEingabe();
+                    });
+            }
+
+            function handleError(error) {
+                const fehlerText = {
+                    1: "Standortberechtigung wurde abgelehnt.",
+                    2: "Standort konnte nicht ermittelt werden.",
+                    3: "Zeitüberschreitung bei der Standortermittlung."
+                };
+                showError(fehlerText[error.code] || "Unbekannter Fehler.");
+                manuelleEingabe();
+            }
+
+            function getWeatherDescription(code) {
+                const descriptions = {
+                    0: "Klarer Himmel",
+                    1: "Hauptsächlich klar",
+                    2: "Teilweise bewölkt",
+                    3: "Bewölkt",
+                    // Weitere Beschreibungen hier
+                };
+                return descriptions[code] || "Unbekannte Witterung";
+            }
+
+            function manuelleEingabe() {
+                const container = document.getElementById('manuell');
+                if (document.getElementById('standortEingabe')) return;
+
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = 'standortEingabe';
+                input.placeholder = 'Standort eingeben';
+                input.classList.add('standort-input');
+
+                const button = document.createElement('button');
+                button.textContent = 'Absenden';
+                button.classList.add('standort-button');
+                button.onclick = () => {
+                    const standort = input.value.trim();
+                    if (standort) getTemperatureForLocation(standort);
+                };
+
+                container.appendChild(input);
+                container.appendChild(button);
+            }
+
+            function getTemperatureForLocation(location) {
+                const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
+
+                fetch(geocodeUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            const { lat, lon } = data[0];
+                            fetchWeather({ coords: { latitude: lat, longitude: lon } });
+                        } else {
+                            showError("Standort konnte nicht gefunden werden.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Fehler bei der Standortsuche:", error);
+                        showError("Fehler bei der Standortsuche.");
+                    });
+            }
+
+            function showError(message) {
+                const fehlerElement = document.getElementById('fehler');
+                fehlerElement.innerHTML = message;
+            }
+
+            function auswerten() {
+                const fellzustand = document.querySelector('input[name="fellzustand"]:checked');
+                if (!fellzustand) {
+                    showError("Bitte einen Fellzustand auswählen.");
+                    return;
+                }
+
+                let ergebnisText = "Dein Pferd braucht ";
+                if (fellzustand.value === "dick") {
+                    ergebnisText += "eine dicke Decke.";
+                } else if (fellzustand.value === "dünn") {
+                    ergebnisText += "eine dünne Decke.";
+                } else if (fellzustand.value === "geschoren") {
+                    ergebnisText += "keine Decke, weil es geschoren ist.";
+                }
+
+                document.getElementById('ergebnis').innerText = ergebnisText;
+            }
+        </script>
+    </body>
 </html>
