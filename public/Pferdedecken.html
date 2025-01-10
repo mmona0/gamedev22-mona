@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.33
+version 4.34
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -585,7 +585,7 @@ function getTemperatureForLocation(location) {
     function outdoordecke(){
         if (Fellzustand === "geschoren" || Gesundheit === "krank"){
             if (temp >= 11){
-                füllung = "keine Decke"; 
+                füllung = ""; 
                 deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
             } else if (temp >= 6){
                 füllung = "50g - 100g";
@@ -601,7 +601,7 @@ function getTemperatureForLocation(location) {
         } else if (Fellzustand === "dünn") {
             if (Bewegung === "viel"){
                 if (temp >= 11){
-                    füllung = "Keine Decke";
+                    füllung = "";
                     deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
                 } else if (temp >= 6){
                     füllung = "0g";
@@ -616,7 +616,7 @@ function getTemperatureForLocation(location) {
                 }
              } else {
                 if (temp >= 11){
-                    füllung = "keine Decke";
+                    füllung = "";
                     deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
                 } else if (temp >= 6){
                     füllung = "50g"; 
@@ -647,7 +647,7 @@ function getTemperatureForLocation(location) {
                 if (temp >= 6){
                     füllung = "keine Decke";
                 } else if (temp >= 1){
-                    füllung = "keine Decke";
+                    füllung = "";
                     deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
                 } else if (temp >= -4){
                     füllung = "0g";
@@ -672,14 +672,15 @@ function getTemperatureForLocation(location) {
 
         ergebniswiedergabe(); 
     }
-}
         
  function ergebniswiedergabe(){
-        if (füllung === "keine Decke") {
+        if (füllung === "keine Decke" || deckenart === "keine Decke") {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
         } else {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.  ;
         }
+     }
+ }
     </script>
 </body>
 </html>
