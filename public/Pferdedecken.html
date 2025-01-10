@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.73
+version 4.75
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -539,10 +539,13 @@ function auswerten() {
     // Outdoordecke bestimmen
     function outdoordecke() {
         console.log("Outdoordecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-        if (Bewegung === "box") {
-            document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
-            return; 
-        } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+            try {
+                    if (Bewegung === "box") {
+                        // Fehler werfen, um die Ausführung zu stoppen
+                        throw new Error('Ändern Sie Ihre Haltung oder das Bewegungspensum');
+                    } 
+                    
+      if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "";
                 deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
@@ -629,15 +632,23 @@ function auswerten() {
             deckenart = "Thermodecke";
         }
         console.log("Outdoordecke: Ergebnis", { füllung });
+                
+
+        } catch (e) {
+                    // Fehlerbehandlung: Zeige den Fehler an
+                    document.getElementById('fehler').innerText = e.message; // Zeigt die Fehlermeldung an
+                }
     }
     // Stall- oder Unterdecke bestimmen
     function stalldecke() {
         
         console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-        if (Bewegung !== "box") {
-            document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
-            return;
-        } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+        try {
+                    if (Bewegung !== "box") {
+                        // Fehler werfen, um die Ausführung zu stoppen
+                        throw new Error('Ändern Sie Ihre Haltung oder das Bewegungspensum');
+                    } 
+         if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "keine Decke";
             } else if (temp >= 6) {
@@ -677,6 +688,10 @@ function auswerten() {
             }
         }
         console.log("Stalldecke: Ergebnis", { füllung });
+        } catch (e) {
+                    // Fehlerbehandlung: Zeige den Fehler an
+                    document.getElementById('fehler').innerText = e.message; // Zeigt die Fehlermeldung an
+                }
     }
             
 // Ergebniswiedergabe
