@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.64
+version 4.65
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -357,10 +357,6 @@ button:hover, input[type="reset"]:hover {
 <script defer>
     // Globale Variablen
     
-    var Fellzustand = getFormValue("fellzustand");
-    var Haltung = getFormValue("haltung");
-    var Gesundheit = getFormValue("gesundheit");
-    var Bewegung = getFormValue("bewegung");
     var füllung = ""; // Globale Variable für Füllung
     var deckenart = ""; // Globale Variable für Deckenart
     var temp; // Temperatur
@@ -519,7 +515,12 @@ button:hover, input[type="reset"]:hover {
 
 // Formularwerte auswerten
 function auswerten() {
-
+    
+        const Fellzustand = getFormValue("fellzustand");
+        const Haltung = getFormValue("haltung");
+        const Gesundheit = getFormValue("gesundheit");
+        const Bewegung = getFormValue("bewegung");
+    
     // Fehleranzeige bei fehlendem Formularwert
     if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
         document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
