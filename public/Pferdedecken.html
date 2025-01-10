@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.46
+version 4.47
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -500,7 +500,6 @@ function auswerten() {
     // Fehleranzeige bei fehlendem Formularwert
     if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
         document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
-        location.reload();
         return;
     }
 
@@ -656,9 +655,9 @@ function auswerten() {
 // Ergebniswiedergabe
 function ergebniswiedergabe() {
     if (füllung === "keine Decke" || deckenart === "keine Decke") {
-        document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
+        document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt keine Decke";
     } else {
-        document.getElementById('ergebnis').innerText = `Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.`;
+        document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.";
     }
 }
 
