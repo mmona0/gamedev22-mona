@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.39
+version 4.40
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -391,7 +391,6 @@ let temp, witterungCode, witterungDescription;
 
 // Hauptfunktion zum Abrufen der Geolokation
 function getLocation() {
-    event.preventDefault();
     console.log('Button wurde geklickt!');
     
     if (navigator.geolocation) {
