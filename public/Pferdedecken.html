@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.66
+version 4.67
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -356,10 +356,10 @@ button:hover, input[type="reset"]:hover {
         <!-- Scripts -->
 <script defer>
     // Globale Variablen
-    const Fellzustand = getFormValue("fellzustand");
-    const Haltung = getFormValue("haltung");
-    const Gesundheit = getFormValue("gesundheit");
-    const Bewegung = getFormValue("bewegung");
+    const Fellzustand ;
+    const Haltung ;
+    const Gesundheit;
+    const Bewegung;
 
     var füllung = ""; // Globale Variable für Füllung
     var deckenart = ""; // Globale Variable für Deckenart
@@ -381,10 +381,10 @@ button:hover, input[type="reset"]:hover {
 
     // Geolocation und Wetterdatenabruf
     function getLocation() {
-        const Fellzustand = getFormValue("fellzustand");
-        const Haltung = getFormValue("haltung");
-        const Gesundheit = getFormValue("gesundheit");
-        const Bewegung = getFormValue("bewegung");
+         Fellzustand = getFormValue("fellzustand");
+         Haltung = getFormValue("haltung");
+         Gesundheit = getFormValue("gesundheit");
+         Bewegung = getFormValue("bewegung");
 
         console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung });
 
@@ -520,12 +520,6 @@ button:hover, input[type="reset"]:hover {
 // Formularwerte auswerten
 function auswerten() {
         
-    // Fehleranzeige bei fehlendem Formularwert
-    if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
-        document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
-        return;
-    }
-
     // Unterscheidung in Stall- und Outdoordecke
     try {
         if (Haltung === "box") {
