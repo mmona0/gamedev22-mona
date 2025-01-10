@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.30
+version 4.31
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -542,13 +542,13 @@ function getTemperatureForLocation(location) {
         if (Fellzustand === "geschoren" || Gesundheit === "krank"){
             if (temp >= 11){
                 füllung = "keine Decke";
-            } else if (temp <= 10 && temp >= 6){
+            } else if (temp >= 6){
                 füllung = "50g";
-            } else if (temp <= 5 && temp >= 1){
+            } else if (ttemp >= 1){
                 füllung = "100g - 150g";
-            } else if (temp <= 0 && temp >= -4){
+            } else if (>= -4){
                 füllung = "200g";
-            } else if (temp <= -5 && temp >= -10){
+            } else if (>= -10){
                 füllung = "300g";
             } else {
                 füllung = "mindestens 300g";
@@ -557,13 +557,13 @@ function getTemperatureForLocation(location) {
         } else if (Fellzustand === "dünn") {
             if (temp >= 11){
                 füllung = "keine Decke";
-            } else if (temp <= 10 && temp >= 6){
+            } else if (temp >= 6){
                 füllung = "50g";
-            } else if (temp <= 5 && temp >= 1){
+            } else if (temp >= 1){
                 füllung = "100g";
-            } else if (temp <= 0 && temp >= -4){
+            } else if (temp >= -4){
                 füllung = "150g";
-            } else if (temp <= -5 && temp >= -10){
+            } else if (temp >= -10){
                 füllung = "200g";
             } else {
                 füllung = "mindestens 250g";
@@ -571,9 +571,9 @@ function getTemperatureForLocation(location) {
         } else {
             if (temp >= 1){
                 füllung = "keine Decke";
-            } else if (temp <= 0 && temp >= -4){
+            } else if (temp >= -4){
                 füllung = "0g";
-            } else if (temp <= -5 && temp >= -10){
+            } else if (temp >= -10){
                 füllung = "50g";
             } else {
                 füllung = "mindestens 100g";
@@ -587,13 +587,13 @@ function getTemperatureForLocation(location) {
             if (temp >= 11){
                 füllung = "keine Decke"; 
                 deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-            } else if (temp <= 10 && temp >= 6){
+            } else if (temp >= 6){
                 füllung = "50g - 100g";
-            } else if (temp <= 5 && temp >= 1){
+            } else if (temp >= 1){
                 füllung = "150g - 200g";
-            } else if (temp <= 0 && temp >= -4){
+            } else if (temp >= -4){
                 füllung = "200g - 250g";
-            } else if (temp <= -5 && temp >= -10){
+            } else if (temp >= -10){
                 füllung = "250g - 300g";
             } else {
                 füllung = "über 300g";
@@ -603,13 +603,13 @@ function getTemperatureForLocation(location) {
                 if (temp >= 11){
                     füllung = "Keine Decke";
                     deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp <= 10 && temp >= 6){
+                } else if (temp >= 6){
                     füllung = "0g";
-                } else if (temp <= 5 && temp >= 1){
+                } else if (temp >= 1){
                     füllung = "50g";
-                } else if (temp <= 0 && temp >= -4){
+                } else if (temp >= -4){
                     füllung = "100g";
-                } else if (temp <= -5 && temp >= -10){
+                } else if (temp >= -10){
                     füllung = "150g";
                 } else {
                     füllung = "mindestens 200g";
@@ -618,13 +618,13 @@ function getTemperatureForLocation(location) {
                 if (temp >= 11){
                     füllung = "keine Decke";
                     deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp <= 10 && temp >= 6){
+                } else if (temp >= 6){
                     füllung = "50g"; 
-                } else if (temp <= 5 && temp >= 1){
+                } else if (temp >= 1){
                     füllung = "100g";
-                } else if (temp <= 0 && temp >= -4){
+                } else if (temp >= -4){
                     füllung = "150g";
-                } else if (temp <= -5 && temp >= -10){
+                } else if (temp >= -10){
                     füllung = "200g";
                 } else {
                     füllung = "mindestens 250g";
@@ -634,11 +634,11 @@ function getTemperatureForLocation(location) {
             if (Bewegung === "viel"){
                 if (temp >= 6){
                     füllung = "keine Decke";
-                } else if (temp <= 5 && temp >= 1){
+                } else if (temp >= 1){
                     füllung = "0g";
-                } else if (temp <= 0 && temp >= -4){
+                } else if (temp >= -4){
                     füllung = "50g";
-                } else if (temp <= -5 && temp >= -10){
+                } else if (temp >= -10){
                     füllung = "100g";
                 } else {
                     füllung = "mindestens 150g";
@@ -646,12 +646,12 @@ function getTemperatureForLocation(location) {
             } else {
                 if (temp >= 6){
                     füllung = "keine Decke";
-                } else if (temp <= 5 && temp >= 1){
+                } else if (temp >= 1){
                     füllung = "keine Decke";
                     deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
-                } else if (temp <= 0 && temp >= -4){
+                } else if (temp >= -4){
                     füllung = "0g";
-                } else if (temp <= -5 && temp >= -10){
+                } else if (temp >= -10){
                     füllung = "50g";
                 } else {
                     füllung = "mindestens 100g";
@@ -672,13 +672,14 @@ function getTemperatureForLocation(location) {
 
         ergebniswiedergabe(); 
     }
-        function ergebniswiedergabe(){
+}
+        
+ function ergebniswiedergabe(){
         if (füllung === "keine Decke") {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
         } else {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.  ;
         }
-}
     </script>
 </body>
 </html>
