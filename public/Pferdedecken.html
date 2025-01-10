@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.27
+version 4.28
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -513,12 +513,12 @@ function getTemperatureForLocation(location) {
 
        // Formularwerte auswerten
     function auswerten() {
-        const Fellzustand = getFormValue("fellzustand");
-        const Haltung = getFormValue("haltung");
-        const Gesundheit = getFormValue("gesundheit");
-        const Bewegung = getFormValue("bewegung");
-        const füllung;
-        const deckenart;
+        let Fellzustand = getFormValue("fellzustand");
+        let Haltung = getFormValue("haltung");
+        let Gesundheit = getFormValue("gesundheit");
+        let Bewegung = getFormValue("bewegung");
+        let füllung = "";
+        let deckenart = "";
     
         // Formularwert abrufen
     function getFormValue(name) {
@@ -672,9 +672,9 @@ function getTemperatureForLocation(location) {
         // Ergebniswiedergabe 
 
         if (füllung === "keine Decke") {
-            document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt keine Decke;
+            document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
         } else {
-            document.getElementById('ergebnis').innerText = "Ihr Pferd benötigt keine " + deckenart + "mit einer Füllung von " + füllung "."  ;
+            document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine ${deckenart} mit einer Füllung von ${füllung}.  ;
         }
     }
     
