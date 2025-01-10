@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.72
+version 4.73
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -345,7 +345,7 @@ button:hover, input[type="reset"]:hover {
             <div class="inline-elements">
                 <p id="ergebnis"></p> 
             </div>
-            <p id="output"></p>
+            <p id="wetteroutput"></p>
         </div>  
 
         <div class="fehler-wrapper">     
@@ -361,17 +361,11 @@ button:hover, input[type="reset"]:hover {
     var Gesundheit = "";
     var Bewegung = "";
 
-    var füllung = ""; // Globale Variable für Füllung
-    var deckenart = ""; // Globale Variable für Deckenart
+    var füllung = ""; 
+    var deckenart = ""; 
     var temp; // Temperatur
-    var witterungCode; // Witterungscode
-    var witterungDescription; // Beschreibung der Witterung
-
-    // Debugging
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("Seite vollständig geladen.");
-        console.log("Fellzustand-Check:", getFormValue("fellzustand"));
-    });
+    var witterungCode; 
+    var witterungBeschreibung; 
 
     // Menü
     function toggleMenu() {
@@ -386,7 +380,9 @@ button:hover, input[type="reset"]:hover {
          Gesundheit = getFormValue("gesundheit");
          Bewegung = getFormValue("bewegung");
 
-        console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung });
+        console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung }); //Fehlerüberprüfung 
+
+        document.getElementById('fehler').innerText = ""; //Fehleranzeige zunächst zurücksetzen
 
         if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
             document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen.";
@@ -413,8 +409,8 @@ button:hover, input[type="reset"]:hover {
                 if (data.current_weather) {
                     temp = data.current_weather.temperature;
                     witterungCode = data.current_weather.weathercode;
-                    witterungDescription = getWeatherDescription(witterungCode);
-                    document.getElementById('output').innerHTML = `Aktuelle Temperatur: ${temp}°C ; Witterung: ${witterungDescription}`;
+                    witterungBeschreibung = getWetterbeschreibung(witterungCode);
+                    document.getElementById('wetteroutput').innerHTML = `Aktuelle Temperatur: ${temp}°C ; Witterung: ${witterungBeschreibung}`;
                     auswerten();
                 } else {
                     showError("Fehler beim Abrufen der Wetterdaten.");
@@ -437,8 +433,8 @@ button:hover, input[type="reset"]:hover {
         manuelleEingabe();
     }
 
-    function getWeatherDescription(code) {
-        const descriptions = {
+    function getWetterbeschreibung(code) {
+        const beschreibung = {
             0: "Klarer Himmel",
             1: "Hauptsächlich klar",
             2: "Teilweise bewölkt",
@@ -461,7 +457,7 @@ button:hover, input[type="reset"]:hover {
             96: "Gewitter mit leichtem Hagel",
             99: "Gewitter mit starkem Hagel"
         };
-        return descriptions[code] || "Unbekannte Witterung";
+        return beschreibung[code] || "Unbekannte Witterung";
     }
 
     function manuelleEingabe() {
