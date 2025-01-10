@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.56
+version 4.57
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -507,12 +507,12 @@ function getFormValue(name) {
 
 // Formularwerte auswerten
 function auswerten() {
-    let Fellzustand = getFormValue("fellzustand");
-    let Haltung = getFormValue("haltung");
-    let Gesundheit = getFormValue("gesundheit");
-    let Bewegung = getFormValue("bewegung");
-    let füllung = "";
-    let deckenart = "";
+    var Fellzustand = getFormValue("fellzustand");
+    var Haltung = getFormValue("haltung");
+    var Gesundheit = getFormValue("gesundheit");
+    var Bewegung = getFormValue("bewegung");
+    var füllung = "";
+    var deckenart = "";
     console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung, temp, witterungCode });
 
     // Fehleranzeige bei fehlendem Formularwert
