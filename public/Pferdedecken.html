@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.49
+version 4.50
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -516,53 +516,11 @@ function auswerten() {
         console.error(error);
         return;
     }
-    
-    // Stall- oder Unterdecke bestimmen
-    function stalldecke() {
-        if (Fellzustand === "geschoren" || Gesundheit === "krank") {
-            if (temp >= 11) {
-                füllung = "keine Decke";
-            } else if (temp >= 6) {
-                füllung = "50g";
-            } else if (temp >= 1) {
-                füllung = "100g - 150g";
-            } else if (temp >= -4) {
-                füllung = "200g";
-            } else if (temp >= -10) {
-                füllung = "300g";
-            } else {
-                füllung = "mindestens 300g";
-            }
-        } else if (Fellzustand === "dünn") {
-            if (temp >= 11) {
-                füllung = "keine Decke";
-            } else if (temp >= 6) {
-                füllung = "50g";
-            } else if (temp >= 1) {
-                füllung = "100g";
-            } else if (temp >= -4) {
-                füllung = "150g";
-            } else if (temp >= -10) {
-                füllung = "200g";
-            } else {
-                füllung = "mindestens 250g";
-            }
-        } else {
-            if (temp >= 1) {
-                füllung = "keine Decke";
-            } else if (temp >= -4) {
-                füllung = "0g";
-            } else if (temp >= -10) {
-                füllung = "50g";
-            } else {
-                füllung = "mindestens 100g";
-            }
-        }
-        
-    ergebniswiedergabe();
-    }
 
-    // Outdoordecke bestimmen
+    // Ergebnis anzeigen
+    ergebniswiedergabe();
+}
+            // Outdoordecke bestimmen
     function outdoordecke() {
         if (Bewegung === "box") {
             document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
@@ -653,11 +611,51 @@ function auswerten() {
             deckenart = "Thermodecke";
         }
     }
-
-    // Ergebnis anzeigen
+ // Stall- oder Unterdecke bestimmen
+    function stalldecke() {
+        if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+            if (temp >= 11) {
+                füllung = "keine Decke";
+            } else if (temp >= 6) {
+                füllung = "50g";
+            } else if (temp >= 1) {
+                füllung = "100g - 150g";
+            } else if (temp >= -4) {
+                füllung = "200g";
+            } else if (temp >= -10) {
+                füllung = "300g";
+            } else {
+                füllung = "mindestens 300g";
+            }
+        } else if (Fellzustand === "dünn") {
+            if (temp >= 11) {
+                füllung = "keine Decke";
+            } else if (temp >= 6) {
+                füllung = "50g";
+            } else if (temp >= 1) {
+                füllung = "100g";
+            } else if (temp >= -4) {
+                füllung = "150g";
+            } else if (temp >= -10) {
+                füllung = "200g";
+            } else {
+                füllung = "mindestens 250g";
+            }
+        } else {
+            if (temp >= 1) {
+                füllung = "keine Decke";
+            } else if (temp >= -4) {
+                füllung = "0g";
+            } else if (temp >= -10) {
+                füllung = "50g";
+            } else {
+                füllung = "mindestens 100g";
+            }
+        }
+        
     ergebniswiedergabe();
-}
-
+    }
+            
 // Ergebniswiedergabe
 function ergebniswiedergabe() {
     // Verschiedene Textwiedergaben danach ob eine Decke vorgeschlagen wird
