@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.55
+version 4.56
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -354,10 +354,12 @@ button:hover, input[type="reset"]:hover {
         </div> 
 
         <!-- Scripts -->
-        <script>
+        <script defer>
 
             // debugging 
     document.addEventListener("DOMContentLoaded", () => {
+         const radios = document.querySelectorAll('input[name="fellzustand"]');
+        console.log("Alle Radiobuttons:", radios);
         console.log("Seite vollständig geladen.");
         console.log("Fellzustand:", getFormValue("fellzustand"));
     });
@@ -495,7 +497,10 @@ console.log(document.querySelector('input[name="fellzustand"]:checked'));
 
             // Formularwert abrufen
 function getFormValue(name) {
+    const radios = document.querySelectorAll(`input[name="${name}"]`);
+    console.log("Gefundene Radiobuttons:", radios);
     const selected = document.querySelector(`input[name="${name}"]:checked`);
+    console.log("Ausgewählter Radiobutton:", selected);
     return selected ? selected.value : null;
 }
 
