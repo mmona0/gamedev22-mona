@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.29
+version 4.30
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -672,14 +672,12 @@ function getTemperatureForLocation(location) {
 
         ergebniswiedergabe(); 
     }
-
-    function ergebniswiedergabe(){
+        function ergebniswiedergabe(){
         if (füllung === "keine Decke") {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
         } else {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.  ;
         }
-    }
 }
     </script>
 </body>
