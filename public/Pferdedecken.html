@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.35
+version 4.36
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -254,7 +254,7 @@ button:hover, input[type="reset"]:hover {
 
      <div class="centered-container">
     <div class="table-wrapper">
-        <form name="form1" id="pferdeForm">
+        <form name="form1" id="pferdeForm" onsubmit="return getLocation(event)">
             
             <!-- Rasse/Fellzustand -->
             <table>
@@ -356,7 +356,7 @@ button:hover, input[type="reset"]:hover {
 
             <!-- Buttons -->
             <div class="button-container">
-                <button type="submit" onclick="getLocation()">Absenden</button>
+                <button type="submit" ">Absenden</button>
                 <input type="reset" value="Zurücksetzen">
             </div>
         </form>
@@ -391,7 +391,9 @@ let temp, witterungCode, witterungDescription;
 
 // Hauptfunktion zum Abrufen der Geolokation
 function getLocation() {
+    event.preventDefault();
     console.log('Button wurde geklickt!');
+    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
     } else {
