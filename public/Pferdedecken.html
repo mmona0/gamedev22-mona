@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.76
+version 4.77
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -523,10 +523,20 @@ function auswerten() {
         if (Haltung === "box") {
             console.log("Stalldecke wird berechnet.");
             deckenart = "Stall- oder Unterdecke";
+            if (Bewegung === "box") {
+                document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+                return;
+            } else 
             stalldecke();
+            }
         } else {
             console.log("Outdoordecke wird berechnet.");
+            if (Bewegung === "box") {
+                document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+                return;
+            } else 
             outdoordecke();
+            }
         }
     } catch (error) {
         document.getElementById('fehler').innerText = "Fehler bei der Berechnung der Decke.";
@@ -541,13 +551,7 @@ function auswerten() {
     // Outdoordecke bestimmen
     function outdoordecke() {
         console.log("Outdoordecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-            try {
-                    if (Bewegung === "box") {
-                        // Fehler werfen, um die Ausführung zu stoppen
-                        throw new Error('Ändern Sie Ihre Haltung oder das Bewegungspensum');
-                    } 
-                    
-      if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+        if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "";
                 deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
@@ -634,22 +638,12 @@ function auswerten() {
             deckenart = "Thermodecke";
         }
         console.log("Outdoordecke: Ergebnis", { füllung });
-                
-
-        } catch (e) {
-                    // Fehlerbehandlung: Zeige den Fehler an
-                    document.getElementById('fehler').innerText = e.message; // Zeigt die Fehlermeldung an
-                }
+        
     }
     // Stall- oder Unterdecke bestimmen
     function stalldecke() {
         
         console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-        try {
-                    if (Bewegung !== "box") {
-                        // Fehler werfen, um die Ausführung zu stoppen
-                        throw new Error('Ändern Sie Ihre Haltung oder das Bewegungspensum');
-                    } 
          if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "keine Decke";
@@ -690,10 +684,7 @@ function auswerten() {
             }
         }
         console.log("Stalldecke: Ergebnis", { füllung });
-        } catch (e) {
-                    // Fehlerbehandlung: Zeige den Fehler an
-                    document.getElementById('fehler').innerText = e.message; // Zeigt die Fehlermeldung an
-                }
+        
     }
             
 // Ergebniswiedergabe
