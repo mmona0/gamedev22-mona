@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.45
+version 4.46
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -415,7 +415,23 @@ button:hover, input[type="reset"]:hover {
                     1: "Hauptsächlich klar",
                     2: "Teilweise bewölkt",
                     3: "Bewölkt",
-                    // Weitere Beschreibungen hier
+                    45: "Nebel",
+                    48: "Reifnebel",
+                    51: "Leichter Nieselregen",
+                    53: "Moderater Nieselregen",
+                    55: "Starker Nieselregen",
+                    61: "Leichter Regen",    
+                    63: "Moderater Regen",
+                    65: "Starker Regen",
+                    71: "Leichter Schneefall",
+                    73: "Moderater Schneefall",
+                    75: "Starker Schneefall",
+                    80: "Leichte Regenschauer",
+                    81: "Moderate Regenschauer",
+                    82: "Starke Regenschauer",
+                    95: "Gewitter",
+                    96: "Gewitter mit leichtem Hagel",
+                    99: "Gewitter mit starkem Hagel"
                 };
                 return descriptions[code] || "Unbekannte Witterung";
             }
@@ -484,6 +500,7 @@ function auswerten() {
     // Fehleranzeige bei fehlendem Formularwert
     if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
         document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen";
+        location.reload();
         return;
     }
 
@@ -536,6 +553,8 @@ function auswerten() {
                 füllung = "mindestens 100g";
             }
         }
+        
+    ergebniswiedergabe();
     }
 
     // Outdoordecke bestimmen
