@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.28
+version 4.29
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -579,6 +579,7 @@ function getTemperatureForLocation(location) {
                 füllung = "mindestens 100g";
             }
         }
+        ergebniswiedergabe();
     }
 
     function outdoordecke(){
@@ -669,15 +670,16 @@ function getTemperatureForLocation(location) {
             deckenart = "Thermodecke";
         }
 
-        // Ergebniswiedergabe 
+        ergebniswiedergabe(); 
+    }
 
+    function ergebniswiedergabe(){
         if (füllung === "keine Decke") {
             document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine Decke';
         } else {
-            document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt keine ${deckenart} mit einer Füllung von ${füllung}.  ;
+            document.getElementById('ergebnis').innerText = 'Ihr Pferd benötigt eine ${deckenart} mit einer Füllung von ${füllung}.  ;
         }
     }
-    
 }
     </script>
 </body>
