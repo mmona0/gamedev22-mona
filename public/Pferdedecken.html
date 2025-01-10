@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.37
+version 4.39
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -348,7 +348,7 @@ button:hover, input[type="reset"]:hover {
                     <tr>
                         <td>
                             <input type="radio" id="box" name="bewegung" value="box">
-                            <label for="wenig">Mein Pferd steht in der Box.</label>
+                            <label for="box">Mein Pferd steht in der Box.</label>
                         </td>
                     </tr>
                 </table>
@@ -582,11 +582,12 @@ function getTemperatureForLocation(location) {
                 füllung = "mindestens 100g";
             }
         }
-        ergebniswiedergabe();
     }
 
     function outdoordecke(){
-        if (Fellzustand === "geschoren" || Gesundheit === "krank"){
+        if (Bewegung === "box") {
+            document.getElementById('fehler').innerText = 'Bitte ändern sie die Haltung oder das Bewegungspensum';
+        } else if (Fellzustand === "geschoren" || Gesundheit === "krank"){
             if (temp >= 11){
                 füllung = ""; 
                 deckenart = witterungCode < 3 ? 'Keine Decke' : 'Regendecke';
@@ -672,9 +673,8 @@ function getTemperatureForLocation(location) {
         } else {
             deckenart = "Thermodecke";
         }
-
-        ergebniswiedergabe(); 
     }
+        ergebniswiedergabe();
  }
         
 function ergebniswiedergabe(){
