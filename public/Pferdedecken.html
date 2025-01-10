@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.69
+version 4.70
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -637,7 +637,9 @@ function auswerten() {
     function stalldecke() {
         
         console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
-        if (Fellzustand === "geschoren" || Gesundheit === "krank") {
+        if (Bewegung !== "box") {
+            document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+        } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "keine Decke";
             } else if (temp >= 6) {
