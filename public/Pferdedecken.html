@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.77
+version 4.78
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -528,13 +528,12 @@ function auswerten() {
                 return;
             } else 
             stalldecke();
-            }
         } else {
             console.log("Outdoordecke wird berechnet.");
             if (Bewegung === "box") {
                 document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
                 return;
-            } else 
+            } else {
             outdoordecke();
             }
         }
