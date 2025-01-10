@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.79
+version 4.80
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -22,16 +22,30 @@ version 4.79
         .col-10 { width: 83.33%; }
         .col-11 { width: 91.66%; }
         .col-12 { width: 100%; }
+        
         html { font-family: "Lucida Sans", sans-serif; }
+        
         .header { background-color: #008000; color: #ffffff; padding: 15px; }
+
+        /*Fragebogen-Stil*/
         table {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            margin: 20px auto; /* Zentriert die Tabelle */
+            margin: 20px auto; 
             width: 80%;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
         }
+
+         /* Zentrierung der Tabelle */
+        .table-wrapper {
+            background-color: #d3d3d3; 
+            padding: 20px; 
+            border-radius: 15px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+            margin-top: 50px; 
+        }
+
+        
         td, th {
             border: 1px solid #ddd;
             padding: 8px;
@@ -42,48 +56,148 @@ version 4.79
             text-align: left;
             padding: 12px;
         }
+
+                /*Button-Stil*/
+        .button-container {
+            display: flex;
+            justify-content: center; 
+            gap: 20px; 
+            margin-top: 20px; 
+        }
+        
+        button, input[type="reset"] {
+            background-color: #008000; 
+            color: white;
+            font-size: 18px; 
+            font-weight: bold; 
+            padding: 10px 20px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover, input[type="reset"]:hover {
+            background-color: #006400; 
+        }
+        
+        /* Stildefinition für das zentrierte Hintergrund-Element */
+        .centered-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            background-color: #f9f9f9; 
+        }
+        
+        /* Stildefinition für den Textbereich unter der Tabelle */
+        .result-wrapper {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            background-color: #d3d3d3; 
+            padding: 20px; 
+            border-radius: 15px; 
+            margin-top: 20px; 
+            width: 90%; 
+            margin-left: auto; 
+            margin-right: auto; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        .inline-elements
+            justify-content: center; 
+            font-size: 20px; 
+            font-weight: bold; 
+            text-align: center; 
+            flex-shrink: 0; 
+            margin-left: 20px; 
+        }
+        
+        .result-wrapper p {
+            margin: 0;
+        }
+        
+        .result-wrapper p:first-child {
+            flex: 1; 
+        }
+        
+        
+         .result-wrapper p#output {
+                margin-top: 10px; 
+            }
+        
+        .fehler-wrapper{
+            align-items: center; 
+        }
+        
+        /* Stildefinition der manuellen Eingabe */
+        .standort-input, .standort-button {
+            height: 40px; 
+            font-size: 18px; 
+            padding: 10px 20px; 
+            border-radius: 5px; ´
+            border: 1px solid #ccc; 
+            box-sizing: border-box;
+        }
+        
+        .standort-input {
+            flex-grow: 1; 
+            margin-right: 10px; 
+        }
+        
+        .standort-button {
+            background-color: #008000; 
+            color: white; 
+            border: none; 
+            cursor: pointer;
+        }
+        
+        .standort-button:hover {
+            background-color: #006400; 
+        }
+        
                 /* Menü-Stil */
         
 
-.navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            position: relative;
-        }
-
-        .navbar .brand {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .navbar .menu-icon {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 8px 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar ul li a:hover {
-            background-color: #0056b3;
-            border-radius: 5px;
-        }
-
+        .navbar {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    position: relative;
+                }
+        
+                .navbar .brand {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+        
+                .navbar .menu-icon {
+                    display: none;
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+        
+                .navbar ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 15px;
+                }
+        
+                .navbar ul li a {
+                    text-decoration: none;
+                    color: white;
+                    padding: 8px 15px;
+                    transition: background-color 0.3s ease;
+                }
+        
+                .navbar ul li a:hover {
+                    background-color: #0056b3;
+                    border-radius: 5px;
+                }
+        
         /* Mobile Ansicht */
         @media (max-width: 768px) {
             .navbar .menu-icon {
@@ -115,117 +229,13 @@ version 4.79
             }
         }
 
-.button-container {
-    display: flex;
-    justify-content: center; /* Zentriert die Buttons horizontal */
-    gap: 20px; /* Abstand zwischen den Buttons */
-    margin-top: 20px; /* Abstand zur Tabelle */
-}
 
-button, input[type="reset"] {
-    background-color: #008000; /* Grünton */
-    color: white;
-    font-size: 18px; /* Größere Schrift */
-    font-weight: bold; /* Fett geschrieben */
-    padding: 10px 20px; /* Größere Knöpfe */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover, input[type="reset"]:hover {
-    background-color: #006400; /* Dunklerer Grünton beim Hover */
-}
-
-        /* Zentrierung der Tabelle */
-.table-wrapper {
-    background-color: #d3d3d3; /* Grauer Hintergrund */
-    padding: 20px; /* Innenabstand */
-    border-radius: 15px; /* Abgerundete Ecken */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
-    margin-top: 50px; /* Weiter oben positioniert */
-}
-        
-/* Stildefinition für das zentrierte Container-Element */
-.centered-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Horizontal zentriert */
-    justify-content: center; /* Vertikal zentriert */
-    min-height: 100vh; /* Vollständige Bildschirmhöhe */
-    background-color: #f9f9f9; /* Hintergrundfarbe des gesamten Bereichs */
-}
-        
-/* Stildefinition für den Textbereich unter der Tabelle */
-.result-wrapper {
-    display: flex;
-    flex-direction: column; /* Stellt sicher, dass alles im Container untereinander ist */
-    align-items: center; /* Zentriert den Inhalt mittig */
-    background-color: #d3d3d3; /* Grauer Hintergrund */
-    padding: 20px; /* Innenabstand */
-    border-radius: 15px; /* Abgerundete Ecken */
-    margin-top: 20px; /* Abstand zur Tabelle */
-    width: 90%; /* Optionale Breite */
-    margin-left: auto; /* Zentriert horizontal */
-    margin-right: auto; /* Zentriert horizontal */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
-}
-.inline-elements 
-    justify-content: center; /* Zentriert horizontal (optional)*/
-    font-size: 20px; /* Größere Schrift */
-    font-weight: bold; /* Fett */ 
-    text-align: center; /* Text rechtsbündig */
-    flex-shrink: 0; /* Verhindert das Schrumpfen */
-    margin-left: 20px; /* Abstand zum vorherigen Text */
-}
-
-.result-wrapper p {
-    margin: 0;
-}
-
-.result-wrapper p:first-child {
-    flex: 1; /* Nimmt so viel Platz ein, wie es braucht */
-}
-
-
- .result-wrapper p#output {
-        margin-top: 10px; /* Optional: Abstand unterhalb der oberen Elemente */
-    }
-
-.fehler-wrapper{
-    align-items: center; /* Zentriert den Inhalt mittig */
-}
-
-.standort-input, .standort-button {
-    height: 40px; /* Gleiche Höhe wie der Knopf */
-    font-size: 18px; /* Gleiche Schriftgröße */
-    padding: 10px 20px; /* Innenabstand für eine gleichmäßige Größe */
-    border-radius: 5px; /* Abgerundete Ecken */
-    border: 1px solid #ccc; /* Leichter Rahmen für das Eingabefeld */
-    box-sizing: border-box; /* Verhindert Größenprobleme durch Polsterung */
-}
-
-.standort-input {
-    flex-grow: 1; /* Passt die Breite an, falls notwendig */
-    margin-right: 10px; /* Abstand zum Knopf */
-}
-
-.standort-button {
-    background-color: #008000; /* Grünton des Knopfes */
-    color: white; /* Textfarbe */
-    border: none; /* Entfernt Standardrahmen */
-    cursor: pointer;
-}
-
-.standort-button:hover {
-    background-color: #006400; /* Dunklerer Grünton beim Hover */
-}
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="brand">EquiDeckenCheck</div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="navbar"> //navigationsbar 
+        <div class="Brandname">EquiDeckenCheck</div>
+        <div class="menu-icon" onclick="toggleMenue()">☰</div>
         <ul id="menu-list">
             <li><a href="#option1">Option 1</a></li>
             <li><a href="#option2">Option 2</a></li>
@@ -259,7 +269,7 @@ button:hover, input[type="reset"]:hover {
                         </td>
                     </tr>
                     <tr style="background-color: #9ac9d9;">
-                        <td> Im Sommer sollten Pferde Grundsätzlich nicht eingedeckt werden müssen, auch nicht bei Regen. Sollten die Temperaturen unter 10°C sinken, wählen sie geschoren aus.  </td>
+                        <td> Im Sommer sollten Pferde grundsätzlich nicht eingedeckt werden; auch nicht bei Regen. Sollten die Temperaturen doch unter 10°C sinken, wählen Sie geschoren aus.  </td>
                     </tr>
                 </table>
 
@@ -281,7 +291,7 @@ button:hover, input[type="reset"]:hover {
                     </td>
                 </tr>
                 <tr style="background-color: #9ac9d9;">
-                    <td>Steht ihr Pferd in der Box sollte die Decke vor dem Gang auf den Paddock gewechselt werden. Dafür wählen sie "Draußen auf dem Paddock" aus.  </td>
+                    <td>Steht Ihr Pferd in der Box, sollte die Decke vor dem Gang auf den Paddock gewechselt werden. Dafür wählen sie "Draußen auf dem Paddock" aus.  </td>
                 </tr>
             </table>
 
@@ -299,7 +309,7 @@ button:hover, input[type="reset"]:hover {
                     <tr>
                         <td>
                             <input type="radio" id="krank" name="gesundheit" value="krank">
-                            <label for="krank">Mein Pferd ist krank oder ein Senior. </label>
+                            <label for="krank">Mein Pferd ist krank oder ein Senior (ab einem Alter von 18 Jahren). </label>
                         </td>
                     </tr>
                     <tr style="background-color: #9ac9d9;">
@@ -310,7 +320,7 @@ button:hover, input[type="reset"]:hover {
                 <!-- Bewegungspensum -->
                 <table>
                     <tr>
-                        <th>Wie viel kann sich ihr Pferd bewegen?</th>
+                        <th>Wie viel kann sich Ihr Pferd bewegen?</th>
                     </tr>
                     <tr>
                         <td>
@@ -334,7 +344,7 @@ button:hover, input[type="reset"]:hover {
                 
                 <!-- Buttons -->
                 <div class="button-container">
-                    <button type="button" onclick="getLocation()">Absenden</button>
+                    <button type="button" onclick="getStandort()">Absenden</button>
                     <input type="reset" value="Zurücksetzen">
                 </div>
             </form>
@@ -355,6 +365,15 @@ button:hover, input[type="reset"]:hover {
 
         <!-- Scripts -->
 <script defer>
+
+    
+    // Menü
+    function toggleMenue() {
+        const menu = document.getElementById('menu-list');
+        menu.classList.toggle('open');
+    }
+
+    
     // Globale Variablen
     var Fellzustand = "";
     var Haltung = "";
@@ -367,14 +386,8 @@ button:hover, input[type="reset"]:hover {
     var witterungCode; 
     var witterungBeschreibung; 
 
-    // Menü
-    function toggleMenu() {
-        const menu = document.getElementById('menu-list');
-        menu.classList.toggle('open');
-    }
-
     // Geolocation und Wetterdatenabruf
-    function getLocation() {
+    function getStandort() {
          Fellzustand = getFormValue("fellzustand");
          Haltung = getFormValue("haltung");
          Gesundheit = getFormValue("gesundheit");
