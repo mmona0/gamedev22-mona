@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.70
+version 4.72
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -545,6 +545,7 @@ function auswerten() {
         console.log("Outdoordecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
         if (Bewegung === "box") {
             document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+            return; 
         } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "";
@@ -639,6 +640,7 @@ function auswerten() {
         console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
         if (Bewegung !== "box") {
             document.getElementById('fehler').innerText = 'Bitte ändern Sie die Haltung oder das Bewegungspensum';
+            return;
         } else if (Fellzustand === "geschoren" || Gesundheit === "krank") {
             if (temp >= 11) {
                 füllung = "keine Decke";
