@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-version 4.62
+version 4.64
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -354,172 +354,167 @@ button:hover, input[type="reset"]:hover {
         </div> 
 
         <!-- Scripts -->
-        <script defer>
+<script defer>
+    // Globale Variablen
+    
+    var Fellzustand = getFormValue("fellzustand");
+    var Haltung = getFormValue("haltung");
+    var Gesundheit = getFormValue("gesundheit");
+    var Bewegung = getFormValue("bewegung");
+    var füllung = ""; // Globale Variable für Füllung
+    var deckenart = ""; // Globale Variable für Deckenart
+    var temp; // Temperatur
+    var witterungCode; // Witterungscode
+    var witterungDescription; // Beschreibung der Witterung
 
-            // debugging 
+    // Debugging
     document.addEventListener("DOMContentLoaded", () => {
-         const radios = document.querySelectorAll('input[name="fellzustand"]');
-        console.log("Alle Radiobuttons:", radios);
         console.log("Seite vollständig geladen.");
         console.log("Fellzustand-Check:", getFormValue("fellzustand"));
     });
 
-            console.log(document.querySelector('input[name="fellzustand"]'));
-console.log(document.querySelector('input[name="fellzustand"]:checked'));
-
-
-            // Menü
-            function toggleMenu() {
-                const menu = document.getElementById('menu-list');
-                menu.classList.toggle('open');
-            }
-
-            // Geolocation und Wetterdatenabruf
-            function getLocation() {
-                    var Fellzustand = getFormValue("fellzustand");
-    console.log("Fellzustand geprüft:", Fellzustand);
-    if (!Fellzustand) {
-        console.error("Fellzustand konnte nicht abgerufen werden!");
-        document.getElementById('fehler').innerText = "Bitte Fellzustand auswählen.";
-        return;
+    // Menü
+    function toggleMenu() {
+        const menu = document.getElementById('menu-list');
+        menu.classList.toggle('open');
     }
-    var Haltung = getFormValue("haltung");
-    var Gesundheit = getFormValue("gesundheit");
-    var Bewegung = getFormValue("bewegung");
-    var füllung = "";
-    var deckenart = "";
-    var temp ;
-    var witterungCode ;
-    var witterungDescription ;             
-    console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung, temp, witterungCode });
 
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
+    // Geolocation und Wetterdatenabruf
+    function getLocation() {
+        const Fellzustand = getFormValue("fellzustand");
+        const Haltung = getFormValue("haltung");
+        const Gesundheit = getFormValue("gesundheit");
+        const Bewegung = getFormValue("bewegung");
+
+        console.log("Formulareingaben:", { Fellzustand, Haltung, Gesundheit, Bewegung });
+
+        if (!Fellzustand || !Haltung || !Gesundheit || !Bewegung) {
+            document.getElementById('fehler').innerText = "Bitte alle Felder ausfüllen.";
+            return;
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(fetchWeather, handleError);
+        } else {
+            showError("Geolocation wird von diesem Browser nicht unterstützt.");
+            manuelleEingabe();
+        }
+    }
+
+    // Wetterdaten abrufen
+    function fetchWeather(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto&lang=de`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.current_weather) {
+                    temp = data.current_weather.temperature;
+                    witterungCode = data.current_weather.weathercode;
+                    witterungDescription = getWeatherDescription(witterungCode);
+                    document.getElementById('output').innerHTML = `Aktuelle Temperatur: ${temp}°C ; Witterung: ${witterungDescription}`;
+                    auswerten();
                 } else {
-                    showError("Geolocation wird von diesem Browser nicht unterstützt.");
-                    manuelleEingabe();
+                    showError("Fehler beim Abrufen der Wetterdaten.");
                 }
-            }
-
-            // Wetterdaten abrufen
-            function fetchWeather(position) {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto&lang=de`;
-
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.current_weather) {
-                            temp = data.current_weather.temperature;
-                            witterungCode = data.current_weather.weathercode;
-                            witterungDescription = getWeatherDescription(witterungCode);
-                            document.getElementById('output').innerHTML = `Aktuelle Temperatur: ${temp}°C ; Witterung: ${witterungDescription}`;
-                            auswerten();
-                        } else {
-                            showError("Fehler beim Abrufen der Wetterdaten.");
-                        }
-                    })
-                    .catch(error => {
-                        if (!output){
-                        console.error("API-Fehler:", error);
-                        showError("Fehler bei der Wetter-API.");
-                        manuelleEingabe();
-                        } else {return;}
-                    });
-            }
-
-            function handleError(error) {
-                const fehlerText = {
-                    1: "Standortberechtigung wurde abgelehnt.",
-                    2: "Standort konnte nicht ermittelt werden.",
-                    3: "Zeitüberschreitung bei der Standortermittlung."
-                };
-                showError(fehlerText[error.code] || "Unbekannter Fehler.");
+            })
+            .catch(error => {
+                console.error("API-Fehler:", error);
+                showError("Fehler bei der Wetter-API.");
                 manuelleEingabe();
-            }
+            });
+    }
 
-            function getWeatherDescription(code) {
-                const descriptions = {
-                    0: "Klarer Himmel",
-                    1: "Hauptsächlich klar",
-                    2: "Teilweise bewölkt",
-                    3: "Bewölkt",
-                    45: "Nebel",
-                    48: "Reifnebel",
-                    51: "Leichter Nieselregen",
-                    53: "Moderater Nieselregen",
-                    55: "Starker Nieselregen",
-                    61: "Leichter Regen",    
-                    63: "Moderater Regen",
-                    65: "Starker Regen",
-                    71: "Leichter Schneefall",
-                    73: "Moderater Schneefall",
-                    75: "Starker Schneefall",
-                    80: "Leichte Regenschauer",
-                    81: "Moderate Regenschauer",
-                    82: "Starke Regenschauer",
-                    95: "Gewitter",
-                    96: "Gewitter mit leichtem Hagel",
-                    99: "Gewitter mit starkem Hagel"
-                };
-                return descriptions[code] || "Unbekannte Witterung";
-            }
+    function handleError(error) {
+        const fehlerText = {
+            1: "Standortberechtigung wurde abgelehnt.",
+            2: "Standort konnte nicht ermittelt werden.",
+            3: "Zeitüberschreitung bei der Standortermittlung."
+        };
+        showError(fehlerText[error.code] || "Unbekannter Fehler.");
+        manuelleEingabe();
+    }
 
-            function manuelleEingabe() {
-                const container = document.getElementById('manuell');
-                if (document.getElementById('standortEingabe')) return;
+    function getWeatherDescription(code) {
+        const descriptions = {
+            0: "Klarer Himmel",
+            1: "Hauptsächlich klar",
+            2: "Teilweise bewölkt",
+            3: "Bewölkt",
+            45: "Nebel",
+            48: "Reifnebel",
+            51: "Leichter Nieselregen",
+            53: "Moderater Nieselregen",
+            55: "Starker Nieselregen",
+            61: "Leichter Regen",
+            63: "Moderater Regen",
+            65: "Starker Regen",
+            71: "Leichter Schneefall",
+            73: "Moderater Schneefall",
+            75: "Starker Schneefall",
+            80: "Leichte Regenschauer",
+            81: "Moderate Regenschauer",
+            82: "Starke Regenschauer",
+            95: "Gewitter",
+            96: "Gewitter mit leichtem Hagel",
+            99: "Gewitter mit starkem Hagel"
+        };
+        return descriptions[code] || "Unbekannte Witterung";
+    }
 
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.id = 'standortEingabe';
-                input.placeholder = 'Standort eingeben';
-                input.classList.add('standort-input');
+    function manuelleEingabe() {
+        const container = document.getElementById('manuell');
+        if (document.getElementById('standortEingabe')) return;
 
-                const button = document.createElement('button');
-                button.textContent = 'Absenden';
-                button.classList.add('standort-button');
-                button.onclick = () => {
-                    const standort = input.value.trim();
-                    if (standort) getTemperatureForLocation(standort);
-                };
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'standortEingabe';
+        input.placeholder = 'Standort eingeben';
+        input.classList.add('standort-input');
 
-                container.appendChild(input);
-                container.appendChild(button);
-            }
+        const button = document.createElement('button');
+        button.textContent = 'Absenden';
+        button.classList.add('standort-button');
+        button.onclick = () => {
+            const standort = input.value.trim();
+            if (standort) getTemperatureForLocation(standort);
+        };
 
-            function getTemperatureForLocation(location) {
-                const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
+        container.appendChild(input);
+        container.appendChild(button);
+    }
 
-                fetch(geocodeUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.length > 0) {
-                            const { lat, lon } = data[0];
-                            fetchWeather({ coords: { latitude: lat, longitude: lon } });
-                        } else {
-                            showError("Standort konnte nicht gefunden werden.");
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Fehler bei der Standortsuche:", error);
-                        showError("Fehler bei der Standortsuche.");
-                    });
-            }
+    function getTemperatureForLocation(location) {
+        const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json&addressdetails=1&limit=1`;
 
-            function showError(message) {
-                const fehlerElement = document.getElementById('fehler');
-                fehlerElement.innerHTML = message;
-            }
+        fetch(geocodeUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const { lat, lon } = data[0];
+                    fetchWeather({ coords: { latitude: lat, longitude: lon } });
+                } else {
+                    showError("Standort konnte nicht gefunden werden.");
+                }
+            })
+            .catch(error => {
+                console.error("Fehler bei der Standortsuche:", error);
+                showError("Fehler bei der Standortsuche.");
+            });
+    }
 
-            // Formularwert abrufen
-function getFormValue(name) {
-    const radios = document.querySelectorAll(`input[name="${name}"]`);
-    console.log("Gefundene Radiobuttons:", radios);
-    const selected = document.querySelector(`input[name="${name}"]:checked`);
-    console.log("Ausgewählter Radiobutton:", selected);
-    return selected ? selected.value : null;
-}
+    function showError(message) {
+        document.getElementById('fehler').innerHTML = message;
+    }
+
+    // Formularwert abrufen
+    function getFormValue(name) {
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        return selected ? selected.value : null;
+    }
+
 
 
 // Formularwerte auswerten
@@ -532,7 +527,7 @@ function auswerten() {
     }
 
     // Unterscheidung in Stall- und Outdoordecke
-       try {
+    try {
         if (Haltung === "box") {
             console.log("Stalldecke wird berechnet.");
             deckenart = "Stall- oder Unterdecke";
@@ -550,7 +545,8 @@ function auswerten() {
     // Ergebnis anzeigen
     ergebniswiedergabe();
 }
-            // Outdoordecke bestimmen
+    
+    // Outdoordecke bestimmen
     function outdoordecke() {
         console.log("Outdoordecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
         if (Bewegung === "box") {
@@ -643,7 +639,7 @@ function auswerten() {
         }
         console.log("Outdoordecke: Ergebnis", { füllung });
     }
- // Stall- oder Unterdecke bestimmen
+    // Stall- oder Unterdecke bestimmen
     function stalldecke() {
         
         console.log("Stalldecke: Start der Berechnung", { Fellzustand, Gesundheit, temp });
